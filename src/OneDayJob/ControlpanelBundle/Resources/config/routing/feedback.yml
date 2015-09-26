@@ -1,0 +1,28 @@
+controlpanel_feedback:
+    path:     /{page}
+    defaults: { _controller: "OneDayJobControlpanelBundle:Feedback:index", page: 1 }
+    requirements:
+        page:  \d+
+
+controlpanel_feedback_new:
+    path:     /new
+    defaults: { _controller: "OneDayJobControlpanelBundle:Feedback:new" }
+
+controlpanel_feedback_create:
+    path:     /create
+    defaults: { _controller: "OneDayJobControlpanelBundle:Feedback:create" }
+    requirements: { _method: post }
+
+controlpanel_feedback_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OneDayJobControlpanelBundle:Feedback:edit" }
+
+controlpanel_feedback_update:
+    path:     /{id}/update
+    defaults: { _controller: "OneDayJobControlpanelBundle:Feedback:update" }
+    requirements: { _method: post|put }
+
+controlpanel_feedback_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OneDayJobControlpanelBundle:Feedback:delete" }
+    requirements: { _method: post|get }

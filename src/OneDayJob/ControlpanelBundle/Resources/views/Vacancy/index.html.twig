@@ -1,0 +1,51 @@
+{% extends 'OneDayJobControlpanelBundle:Default:base.html.twig' %}
+
+{% block content %}
+
+<div id="pad-wrapper">
+    <div class="table-wrapper">
+        <div class="row-fluid header">
+            <h3>Вакансии</h3>
+            <a href="{{ path('cp_vacancy_create') }}" class="btn-flat success pull-right">ДОБАВИТЬ</a>
+        </div>
+
+        {% for flashMessage in app.session.flashbag.get('success') %}
+            <div class="alert alert-success">
+                <i class="icon-ok-sign"></i> {{ flashMessage }}
+            </div>
+        {% endfor %}
+
+        <div class="row-fluid">
+            <table class="table table-hover">
+                <thead>
+                    <tr>                        
+                        <th class="span3">Наименование</th>                                            
+                        <th class="span3">Создана</th>                        
+                        <th class="span3">Up</th>                        
+                        <th class="span3">Vip</th>                        
+                        <th class="span3">Срочная</th>                        
+                        <th class="span3"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entity in entities %}
+                    <tr>
+                        <td>{{ entity.title }}</td>
+                        <td>{% if entity.created %}{{ entity.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>{% if entity.up %}{{ entity.up|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>{% if entity.vip %}{{ entity.vip|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>{% if entity.urgent %}{{ entity.urgent|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>
+                            <a href="{{ path('cp_vacancy_edit', { 'id': entity.id }) }}" class="btn-glow button-edit pull-right">    	
+    	                   <i class="icon-pencil"></i>Редактировать</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {{ knp_pagination_render(entities) }}
+    </div>
+</div>
+{% endblock %}

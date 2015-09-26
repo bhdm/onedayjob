@@ -1,0 +1,35 @@
+{% extends 'OneDayJobControlpanelBundle:Default:base.html.twig' %}
+
+{% block content %}
+	<div id="pad-wrapper" class="form-page">
+		<div class="row-fluid form-wrapper">
+			<div class="row-fluid header">
+				{% if form.vars.value.id %}
+					<h3>Редактирование {{ entity.translate.title }}</h3>
+				{% else %}
+					<h3>Добавление отрасли</h3>
+				{% endif %}
+			</div>
+			
+			{{ form_start(form) }}
+				<div class="field-box">
+                	{{ form_label(form.translations, "Язык") }}
+					{{ form_widget(form.translations, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.translations) }}
+				</div>            	
+            	<div class="field-box">
+					<label>&nbsp;</label>
+					<input type="submit" class="btn-flat primary" value="Сохранить">
+					{% if form.vars.value.id %}
+						<a href="{{ path('cp_branch_delete', {'id': form.vars.value.id}) }}" class="btn-flat inverse">Удалить</a>
+					{% else %}
+						<a href="{{ path('cp_branch') }}" class="btn-flat inverse">Отмена</a>
+					{% endif %}
+				</div>
+
+			{{ form_end(form) }}
+    		    
+		</div>
+	</div>
+{% endblock %}
+

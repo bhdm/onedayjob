@@ -1,0 +1,28 @@
+controlpanel_company:
+    path:     /{page}
+    defaults: { _controller: "OneDayJobControlpanelBundle:Company:index", page: 1 }
+    requirements:
+        page:  \d+
+
+controlpanel_company_new:
+    path:     /new
+    defaults: { _controller: "OneDayJobControlpanelBundle:Company:new" }
+
+controlpanel_company_create:
+    path:     /create
+    defaults: { _controller: "OneDayJobControlpanelBundle:Company:create" }
+    requirements: { _method: post }
+
+controlpanel_company_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OneDayJobControlpanelBundle:Company:edit" }
+
+controlpanel_company_update:
+    path:     /{id}/update
+    defaults: { _controller: "OneDayJobControlpanelBundle:Company:update" }
+    requirements: { _method: post|put }
+
+controlpanel_company_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OneDayJobControlpanelBundle:Company:delete" }
+    requirements: { _method: post|get }

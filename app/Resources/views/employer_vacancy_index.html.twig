@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block userblock %}
+  <div class="account-main" id="sel">
+    <nav class="account-nav employer-nav">
+      
+      {% include '_menu_mobile.html.twig' %}
+      
+      <div class="account-drop-menu collapse" id="navcollaps">
+        
+        {% include 'employee_profile_menu.html.twig' %}
+
+      </div>
+    </nav>
+    <div class="account-heading">
+      <div class="pull-right heading-button">
+        <a href="{{ path('fe_employer_vacancy_new') }}" class="button button-green button-sm">{{ 'user.data.add_vacancy'|trans }}</a>
+      </div>
+      <div class="account-title"> <span class="xs-show"><i class="icon-16 icon-briefcase-white"></i></span>
+        <h3>{{ 'user.menu.vacancies'|trans }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="account-content">
+    <div class="gob-list">
+
+      {% include '_flash_messages.html.twig' %}
+
+      {% for vacancy in vacancies %}
+        <div class="list-box" id="vacancy_{{ vacancy.id }}">
+          <div class="box-heading brd-heading">
+            <h4 class="box-title"><a class="vacancy_modal" data-id="{{ vacancy.id }}" href="#">{{ vacancy.title }}</a></h4>
+          </div>
+          <div class="list-box-ctrl">
+            <a href="{{ path('fe_employer_vacancy_edit', {'id':vacancy.id}) }}" class="edit"><i class="icon-16 icon-pencil-white"></i></a>
+          <!--
+            <a href="#"><i class="icon-16 icon-close remove_vacancy" data-id="{{ vacancy.id }}"></i></a>
+          -->
+            <a href="#" class="remove" data-toggle="modal" data-target="#delete-confirm" data-id="{{ vacancy.id }}"><i class="icon-16 icon-close"></i></a>
+          </div>
+          <div class="box-info">
+            <span>{{ vacancy.company.name }}</span>
+            <span> <i class="icon-16 icon-map"></i> {{ vacancy.city.translate.title }}</span>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-9">
+              <div class="box-text text-muted">{{ vacancy.extra }}</div>
+            </div>
+            <div class="col-xs-12 col-sm-3 text-right">
+              <div class="text-muted small bottom-xs">{{ helper.getDate(vacancy.created) }}</div>
+              <div class="h2 notop text-bold">{{ vacancy.salaryPerMonth|number_format(0) }} {{ helper.currency(vacancy.currency) }}</div>
+            </div>
+          </div>
+        <!--  
+          <div class="h5 notop nobottom">
+            <b class="text-muted">{{ 'user.data.responded'|trans }} {{ vacancy.responseEmployee.count }}</b> &nbsp;
+            
+            {% for employee in vacancy.responseEmployee %}
+              <a class="resume_modal" href="" data-id="{{ employee.resume.id }}">
+                <img src="{{ employee.resume.image.src }}" alt="" width="30" height="30" class="img-circle">
+              </a>
+            {% endfor %}
+          
+          </div>
+        -->
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+  <div class="modal fade" id="delete-confirm" tabindex="-1">
+      <div class="modal-dialog" style="width:670px;">
+        <div class="modal-content-box">
+          <button type="button" class="close" data-dismiss="modal" > <i class="icon-16 icon-close"></i> </button>
+          <div class="dpad text-center">
+            <h1>{{ 'user.data.realy_remove_vacancy'|trans }}</h1>
+            <div class="top-md">
+              <div class="btn-group">
+                <button type="submit" class="button button-green remove_vacancy" data-id="">{{ 'user.data.remove'|trans }}</button>
+                <button type="button" data-dismiss="modal" class="button button-grey">{{ 'user.data.cancel'|trans }}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% include '_modal_resume.html.twig' %}
+{% endblock %}

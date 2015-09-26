@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block userblock %}
+  <div class="account-main" id="sel">
+    <nav class="account-nav worker-nav">
+      
+      {% include '_menu_mobile.html.twig' %}
+      
+      <div class="account-drop-menu collapse" id="navcollaps">
+        
+        {% include 'employee_profile_menu.html.twig' %}
+
+      </div>
+    </nav>
+    <div class="account-heading">
+      <div class="account-title"> <span class="xs-show"><i class="icon-16 icon-comment-white"></i></span>
+        <h3>{{ 'menu.companies'|trans }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="account-content">
+    <div class="company-list favorite_companies">
+      <div class="row">
+
+        {% include '_flash_messages.html.twig' %}
+        
+        {% for company in app.user.favoriteCompany %}
+          <div class="col-xs-12 col-sm-4 col-md-3">
+            <div class="list-pan">
+              <a class="favorite_vacancies_link" href="{{ path('fe_company', {'id': company.id}) }}">
+                <!--<div class="list-pan-date text-right text-muted xs-hide">8 Ноября 2014</div> -->
+                <div class="list-pan-image">
+                  {% set image = company.image is not null ? '/uploads/images/'~ company.image : '/uploads/images/company.png' %}
+                  <img src="{{ image | imagine_filter('logo_inset') }}" alt="">
+                </div>
+                <h5  class="list-pan-name">{{ company.name }}</h5>
+                <div class="text-muted">{{ company.vacancies.count }} {{ 'user.data.vacancies'|trans }}</div>
+                <div class="list-pan-info">
+                  <div class="text-muted list-pan-location"> <i class="icon-16 icon-map"></i> {{ company.city.translate.title }}</div>
+                  <div class="list-pan-briefcase"> <i class="icon-16 icon-briefcase flagged" data-id="{{ company.id }}"></i> </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+one_day_job_controlpanel_controlpanel_vacancy:
+    resource: "@OneDayJobControlpanelBundle/Resources/config/routing/vacancy.yml"
+    prefix:   /vacancy
+
+one_day_job_controlpanel_controlpanel_specialization:
+    resource: "@OneDayJobControlpanelBundle/Resources/config/routing/specialization.yml"
+    prefix:   /specialization
+
+one_day_job_controlpanel_controlpanel_resume:
+    resource: "@OneDayJobControlpanelBundle/Resources/config/routing/resume.yml"
+    prefix:   /resume
+
+one_day_job_controlpanel_controlpanel_page:
+    resource: "@OneDayJobControlpanelBundle/Resources/config/routing/page.yml"
+    prefix:   /page
+
+one_day_job_controlpanel_controlpanel_language:
+    resource: "@OneDayJobControlpanelBundle/Resources/config/routing/language.yml"
+    prefix:   /language
+
+one_day_job_controlpanel_controlpanel_feedback:
+    resource: "@OneDayJobControlpanelBundle/Resources/config/routing/feedback.yml"
+    prefix:   /feedback
+
+one_day_job_controlpanel_controlpanel_education:
+    resource: "@OneDayJobControlpanelBundle/Resources/config/routing/education.yml"
+    prefix:   /education
+
+one_day_job_controlpanel_controlpanel_country:
+    resource: "@OneDayJobControlpanelBundle/Resources/config/routing/country.yml"
+    prefix:   /country
+
+one_day_job_controlpanel_controlpanel_company:
+    resource: "@OneDayJobControlpanelBundle/Resources/config/routing/company.yml"
+    prefix:   /company
+
+one_day_job_controlpanel_controlpanel_city:
+    resource: "@OneDayJobControlpanelBundle/Resources/config/routing/city.yml"
+    prefix:   /city
+
+one_day_job_controlpanel_controlpanel_branch:
+    resource: "@OneDayJobControlpanelBundle/Resources/config/routing/branch.yml"
+    prefix:   /branch

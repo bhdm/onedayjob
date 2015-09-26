@@ -1,0 +1,150 @@
+OneDayJob\ApiBundle\Entity\Feedback:
+    properties:
+        first_name:
+            - NotBlank:
+                message: Поле "Имя" не заполнено.
+            - Regex:
+                pattern: "/[a-zA-Z10-9\*\s]+/"
+                message: Поле "Имя" содержит недопустимые символы
+        email:
+            - NotBlank:
+                message: Почтовый адрес не заполнен.
+            - Email:
+                message: Почтовый адрес {{ value }} введен не корректно.
+                checkMX: true
+        message:
+            - NotBlank:
+                message: Почтовый адрес не заполнен.
+
+OneDayJob\ApiBundle\Entity\Company:
+    properties:
+        name:
+            - NotBlank:
+                message: Поле "Название компании" не заполнено.
+            - Regex:
+                pattern: "/^[а-яА-ЯёьЁa-zA-Z0-9\s\"]++$/"
+                message: "Поле 'Название компании' должно содержать буквы на латинице, кириллице а также цифры"
+        site:
+            - Regex:
+                pattern: "/^[a-z0-9\-]+(.[a-z0-9\-]*)(.[a-z0-9\-]*)$/"
+                message: Поле "Веб-Сайт" не корректного формата.Пример (www.site.com или site.com)
+            - NotBlank:
+                message: Поле "Веб-Сайт" не заполнено.
+        description:
+            - NotBlank:
+                message: Поле "Информация о компании" не заполнено.
+        phone:
+            - NotBlank:
+                message: Поле "Телефон" не заполнено.
+            - Regex:
+                pattern: "/^[\d+-\s\(\)]++$/"
+                message: "Поле 'Телефон' может содержать цифры, пробел, скобки и символы +, -"
+            - Length:
+                min: 8
+                max: 20
+                minMessage: "Поле 'Телефон' должно содержать от 8 до 20 символов"
+                maxMessage: "Поле 'Телефон' должно содержать от 8 до 20 символов"
+
+OneDayJob\ApiBundle\Entity\Vacancy:
+    properties:
+        title:
+            - NotBlank:
+                message: Поле "Название вакансии" не заполнено.
+            - Regex:
+                pattern: "/^[а-яА-ЯёьЁa-zA-Z0-9\s\"]++$/"
+                message: Поле 'Название вакансии' должно содержать буквы на латинице, кириллице а также цифры
+        salary:
+            - NotBlank:
+                 message: Поле "Зарплата за месяц" не заполнено.
+            - Regex:
+                 pattern: "/[\d]+/"
+                 message: Поле "Зарплата за месяц" допускает ввод числового значения.
+            - Length:
+                 min: 1
+                 max: 12
+                 minMessage: "'Зарплата за месяц' содержит недопустимо короткое значение."
+                 minMessage: "'Зарплата за месяц' содержит недопустимо длинное значение."
+
+OneDayJob\ApiBundle\Entity\Resume:
+    properties:
+        first_name:
+            - NotBlank:
+                message: Поле "Имя" не заполнено.
+            - Regex:
+                pattern: "/^[а-яА-ЯёьЁa-zA-Z0-9\s\"]++$/"
+                message: Поле "Имя" содержит недопустимые символы.
+        last_name:
+            - NotBlank:
+                message: Поле "Фамилия" не заполнено.
+            - Regex:
+                pattern: "/^[а-яА-ЯёьЁa-zA-Z0-9\s\"]++$/"
+                message: Поле "Фамилия" содержит недопустимые символы.
+        phone:
+            - NotBlank:
+                message: Поле "Телефон" не заполнено.
+            - Regex:
+                pattern: "/^[\d+-\s\(\)]++$/"
+                message: "Поле 'Телефон' может содержать цифры, пробел, скобки и символы +, -"
+            - Length:
+                min: 8
+                max: 20
+                minMessage: "'Телефон' содержит недопустимо короткое значение."
+                minMessage: "'Телефон' содержит недопустимо длинное значение."
+        email:
+            - NotBlank:
+                message: Почтовый адрес не заполнен.
+            - Email:
+                message: Почтовый адрес {{ value }} не корректный.
+                checkMX: true
+        skype:
+            - NotBlank:
+                message: Поле "Скайп" не заполнено.
+
+OneDayJob\ApiBundle\Entity\User:
+    properties:
+        first_name:
+            - NotBlank:
+                message: Поле "Имя" не заполнено.
+            - Length:
+                min: 2
+                minMessage: Поле "Имя" должно содержать минимум 2 символа.
+        last_name:
+            - NotBlank:
+                message: Поле "Фамилия" не заполнено.
+            - Length:
+                min: 2
+                minMessage: Поле "Фамилия" должно содержать минимум 2 символа.
+
+FOS\UserBundle\Model\User:
+    properties:
+        plainPassword:
+            - NotBlank:
+                message: Пароль не может быть пустым.
+                groups: [ "my_registration", "my_profile" ]
+            - Length:
+                min: 4
+                minMessage: "Пароль должен содержать минимум 4 символа."
+                groups: [ "my_registration", "my_profile" ]
+        username:
+            - NotBlank:
+                message: Логин не может быть пустым.
+                groups: [ "my_registration", "my_profile" ]
+            - Length:
+                min: 2
+                minMessage: "Логин должен содержать от 6 до 20 символов"
+                groups: [ "my_registration", "my_profile" ]
+            - Regex:
+                pattern: "/^[A-Zza-z0-9]{6,20}$/"
+                message: "Логин должен содержать цифры и латинские буквы, от 6 до 20 символов"
+                groups: [ "my_registration", "my_profile" ]
+        email:
+            - NotBlank:
+                message: Почтовый адрес не заполнен.
+                groups: [ "my_registration", "my_profile" ]
+            - Length:
+                min: 2
+                minMessage: Слишком короткий Email.
+                groups: [ "my_registration", "my_profile" ]
+            - Email:
+                message: Почтовый адрес "{{ value }}" не корректный.
+                checkMX: true

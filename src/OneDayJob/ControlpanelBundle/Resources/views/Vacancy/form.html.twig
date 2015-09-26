@@ -1,0 +1,110 @@
+{% extends 'OneDayJobControlpanelBundle:Default:base.html.twig' %}
+
+{% block content %}
+	<div id="pad-wrapper" class="form-page">
+		<div class="row-fluid form-wrapper">
+			<div class="row-fluid header">
+				{% if form.vars.value.id %}
+					<h3>Редактирование {{ entity.title }}</h3>
+				{% else %}
+					<h3>Добавление вакансии</h3>
+				{% endif %}
+			</div>
+			
+			{{ form_start(form) }}
+				<div class="field-box">
+                	{{ form_label(form.title, "Наименование") }}
+					{{ form_widget(form.title, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.title) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.employment, "Занятость") }}
+					{{ form_widget(form.employment, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.employment) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.work_experience, "Опыт работы") }}
+					{{ form_widget(form.work_experience, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.work_experience) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.education, "Образование") }}
+					{{ form_widget(form.education, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.education) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.duty, "Обязанности") }}
+					{{ form_widget(form.duty, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.duty) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.skill, "Требования") }}
+					{{ form_widget(form.skill, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.skill) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.salary_per_month, "Зарплата за месяц") }}
+					{{ form_widget(form.salary_per_month, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.salary_per_month) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.salary_per_day, "Зарплата за день") }}
+					{{ form_widget(form.salary_per_day, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.salary_per_day) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.currency, "Валюта") }}
+					{{ form_widget(form.currency, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.currency) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.created, "Создана") }}
+					{{ form_widget(form.created, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.created) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.up, "Up") }}
+					{{ form_widget(form.up, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.up) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.vip, "Vip") }}
+					{{ form_widget(form.vip, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.vip) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.urgent, "Срочная") }}
+					{{ form_widget(form.urgent, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.urgent) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.views, "Просмотры") }}
+					{{ form_widget(form.views, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.views) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.extra, "Дополнительно") }}
+					{{ form_widget(form.extra, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.extra) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.term, "Срок") }}
+					{{ form_widget(form.term, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.term) }}
+				</div>            	
+            	<div class="field-box">
+					<label>&nbsp;</label>
+					<input type="submit" class="btn-flat primary" value="Сохранить">
+					{% if form.vars.value.id %}
+						<a href="{{ path('cp_vacancy_delete', {'id': form.vars.value.id}) }}" class="btn-flat inverse">Удалить</a>
+					{% else %}
+						<a href="{{ path('cp_vacancy') }}" class="btn-flat inverse">Отмена</a>
+					{% endif %}
+				</div>
+
+			{{ form_end(form) }}
+    		    
+		</div>
+	</div>
+{% endblock %}
+

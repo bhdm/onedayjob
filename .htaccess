@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+    Options +FollowSymlinks
+	Options -Indexes
+    RewriteEngine On
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteRule ^bundles/(.*)$ /web/bundles/$1  [QSA,L]
+    RewriteRule ^uploads/(.*)$ /web/uploads/$1  [QSA,L]
+    RewriteRule ^media/(.*)$ /web/media/$1  [QSA,L]
+    RewriteCond %{REQUEST_URI} ^/(assets|css|js|images)
+    RewriteRule ^css/(.*)$ /web/css/$1 [L]
+    RewriteRule ^js/(.*)$ /web/js/$1 [L]
+    RewriteRule ^img/(.*)$ /web/img/$1 [L]
+    RewriteRule ^images/(.*)$ /web/images/$1 [L]
+    RewriteRule ^(.*)$1 web/$1 [L]
+    RewriteCond %{REQUEST_URI} !app_dev.php
+    RewriteCond %{REQUEST_FILENAME} !-f [OR]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^.*$ web/app.php
+</IfModule>

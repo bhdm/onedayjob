@@ -1,0 +1,28 @@
+controlpanel_city:
+    path:     /{page}
+    defaults: { _controller: "OneDayJobControlpanelBundle:City:index", page: 1 }
+    requirements:
+        page:  \d+
+
+controlpanel_city_new:
+    path:     /new
+    defaults: { _controller: "OneDayJobControlpanelBundle:City:new" }
+
+controlpanel_city_create:
+    path:     /create
+    defaults: { _controller: "OneDayJobControlpanelBundle:City:create" }
+    requirements: { _method: post }
+
+controlpanel_city_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OneDayJobControlpanelBundle:City:edit" }
+
+controlpanel_city_update:
+    path:     /{id}/update
+    defaults: { _controller: "OneDayJobControlpanelBundle:City:update" }
+    requirements: { _method: post|put }
+
+controlpanel_city_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OneDayJobControlpanelBundle:City:delete" }
+    requirements: { _method: post|get }

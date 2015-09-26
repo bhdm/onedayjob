@@ -1,0 +1,41 @@
+{% extends 'OneDayJobControlpanelBundle:Default:base.html.twig' %}
+
+{% block content %}
+	<div id="pad-wrapper" class="form-page">
+		<div class="row-fluid form-wrapper">
+			<div class="row-fluid header">
+				<h3>Сообщение № {{ entity.id }}</h3>
+			</div>
+			
+			{{ form_start(form) }}
+				<div class="field-box">
+                	{{ form_label(form.first_name, "Имя") }}
+					{{ form_widget(form.first_name, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.first_name) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.email, "Email") }}
+					{{ form_widget(form.email, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.email) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.message, "Сообщение") }}
+					{{ form_widget(form.message, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.message) }}
+				</div>            	
+            	<div class="field-box">
+					<label>&nbsp;</label>
+					<input type="submit" class="btn-flat primary" value="Сохранить">
+					{% if form.vars.value.id %}
+						<a href="{{ path('cp_feedback_delete', {'id': form.vars.value.id}) }}" class="btn-flat inverse">Удалить</a>
+					{% else %}
+						<a href="{{ path('cp_feedback') }}" class="btn-flat inverse">Отмена</a>
+					{% endif %}
+				</div>
+
+			{{ form_end(form) }}
+    		    
+		</div>
+	</div>
+{% endblock %}
+

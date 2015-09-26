@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block search_result_count %}
+  ({{ getPlural(vacancies|length, ['content.search.vacancy_1'|trans, 'content.search.vacancy_2'|trans, 'content.search.vacancy_3'|trans]) }})
+{% endblock %}
+
+{% block search_result %}
+  <div class="col-xs-12 col-sm-12">
+    <div class="gob-list vacancies">
+      
+      {% if vacancies is empty %}
+        <h3>{{ 'content.search.no_vacancy'|trans }}</h3>
+      {% endif %}
+
+      {% for vacancy in vacancies %}
+        <div class="list-box{% if vacancy.vip is not null %} flagged{% endif %}">
+          <div class="box-heading">
+            <h4 class="box-title"><a class="vacancy_modal" data-id="{{ vacancy.id }}" href="#">{{ vacancy.title }}</a></h4>
+            &nbsp;
+            {% if app.user and app.user.type == 'employee' %}
+              <i class="icon-16 icon-briefcase{% if app.user.favoriteVacancy.contains(vacancy) %} flagged{% endif %}" data-id="{{ vacancy.id }}"></i>
+            {% endif %}
+          </div>
+          <div class="box-info">
+            <span>{{ vacancy.company.name }}</span>
+            <span> <i class="icon-16 icon-map"></i> {{ vacancy.city.translate.title }}</span>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-9">
+              <div class="box-text text-muted">
+                {{ vacancy.skill }}
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-3 text-right">
+              <div class="text-muted small box-date">{{ time_diff(vacancy.created)|trans }}</div>
+              <div class="h2 notop nobottom text-bold">{{ vacancy.salaryPerMonth|number_format(0) }} {{ helper.currency(vacancy.currency) }}</div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+{% endblock %}

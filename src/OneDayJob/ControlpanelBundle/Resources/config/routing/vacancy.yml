@@ -1,0 +1,28 @@
+controlpanel_vacancy:
+    path:     /{page}
+    defaults: { _controller: "OneDayJobControlpanelBundle:Vacancy:index", page: 1 }
+    requirements:
+        page:  \d+
+
+controlpanel_vacancy_new:
+    path:     /new
+    defaults: { _controller: "OneDayJobControlpanelBundle:Vacancy:new" }
+
+controlpanel_vacancy_create:
+    path:     /create
+    defaults: { _controller: "OneDayJobControlpanelBundle:Vacancy:create" }
+    requirements: { _method: post }
+
+controlpanel_vacancy_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OneDayJobControlpanelBundle:Vacancy:edit" }
+
+controlpanel_vacancy_update:
+    path:     /{id}/update
+    defaults: { _controller: "OneDayJobControlpanelBundle:Vacancy:update" }
+    requirements: { _method: post|put }
+
+controlpanel_vacancy_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OneDayJobControlpanelBundle:Vacancy:delete" }
+    requirements: { _method: post|get }

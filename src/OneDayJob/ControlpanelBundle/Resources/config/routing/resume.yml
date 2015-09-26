@@ -1,0 +1,28 @@
+controlpanel_resume:
+    path:     /{page}
+    defaults: { _controller: "OneDayJobControlpanelBundle:Resume:index", page: 1 }
+    requirements:
+        page:  \d+
+
+controlpanel_resume_new:
+    path:     /new
+    defaults: { _controller: "OneDayJobControlpanelBundle:Resume:new" }
+
+controlpanel_resume_create:
+    path:     /create
+    defaults: { _controller: "OneDayJobControlpanelBundle:Resume:create" }
+    requirements: { _method: post }
+
+controlpanel_resume_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OneDayJobControlpanelBundle:Resume:edit" }
+
+controlpanel_resume_update:
+    path:     /{id}/update
+    defaults: { _controller: "OneDayJobControlpanelBundle:Resume:update" }
+    requirements: { _method: post|put }
+
+controlpanel_resume_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OneDayJobControlpanelBundle:Resume:delete" }
+    requirements: { _method: post|get }

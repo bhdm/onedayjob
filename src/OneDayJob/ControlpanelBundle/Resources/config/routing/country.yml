@@ -1,0 +1,28 @@
+controlpanel_country:
+    path:     /{page}
+    defaults: { _controller: "OneDayJobControlpanelBundle:Country:index", page: 1 }
+    requirements:
+        page:  \d+
+
+controlpanel_country_new:
+    path:     /new
+    defaults: { _controller: "OneDayJobControlpanelBundle:Country:new" }
+
+controlpanel_country_create:
+    path:     /create
+    defaults: { _controller: "OneDayJobControlpanelBundle:Country:create" }
+    requirements: { _method: post }
+
+controlpanel_country_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OneDayJobControlpanelBundle:Country:edit" }
+
+controlpanel_country_update:
+    path:     /{id}/update
+    defaults: { _controller: "OneDayJobControlpanelBundle:Country:update" }
+    requirements: { _method: post|put }
+
+controlpanel_country_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OneDayJobControlpanelBundle:Country:delete" }
+    requirements: { _method: post|get }

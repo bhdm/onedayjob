@@ -1,0 +1,105 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% form_theme form 'OneDayJobFrontendBundle:Form:errors.html.twig' %}
+
+{% block fos_user_content %}
+
+  <div class="modal-dialog dialog-register">
+    <div class="modal-register">
+      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span class="icon-close-white"></span> </button>
+      <ul class="list-unstyled reg-tabs">
+        <li class="active"><a href="" data-type="employee" data-toggle="tab">{{ 'form.profile.i_am_employee'|trans }}</a></li>
+        <li><a href="" data-type="employer" data-toggle="tab">{{ 'form.profile.i_am_employer'|trans }}</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade in active">
+          <div class="reg-field-box">
+            <div class="socBnts">
+				<div class="h5 text-uppercase notop"><b>{{ 'form.profile.social'|trans }}</b></div>
+
+				<script src="/bundles/onedayjobfrontend/js/b6_ulogin.js"></script>
+				<div id="uLoginba48b1bd" data-ulogin="display=buttons;fields=first_name,last_name,nickname,sex,bdate,email,photo,photo_big;optional=phone,city,country;providers=vkontakte,odnoklassniki,mailru,facebook;hidden=twitter,google,yandex,livejournal,openid,lastfm,linkedin,liveid,soundcloud,steam,flickr,uid,youtube,webmoney,foursquare,tumblr,googleplus,dudu,vimeo,instagram,wargaming;redirect_uri=;callback=registerSocialUser">
+					<div class="alt-reg">
+		            	<a data-uloginbutton="vkontakte" href="#">
+		            		<i class="social vk"></i>
+		            	</a>
+		            	<a data-uloginbutton="twitter" href="#">
+		            		<i class="social tw"></i>
+		            	</a>
+		            	<a data-uloginbutton="instagram" href="#">
+		            		<i class="social in"></i>
+		            	</a>
+		            	<a data-uloginbutton="odnoklassniki" href="#">
+		            		<i class="social ok"></i>
+		            	</a>
+		            	<a data-uloginbutton="facebook" href="#">
+		            		<i class="social fb"></i>
+		            	</a>
+		      </div>
+				</div>
+
+				<script>uLogin.customInit('{{ "ba48b1bd" ~ '_' ~ random() }}');</script>
+			</div>
+          </div>
+
+         {{ form_start(form, {'action': path('fos_user_registration_register'), 'attr': {'id': 'registration_form'}}) }}
+         <!--{{ form_widget(form.username, {'attr': {'class': 'form-control', 'type':'hidden'}}) }} -->
+            <div class="reg-field-box">
+              <div class="form-group">
+                <label for="" class="text-uppercase text-bold">E-mail <span class="impot">*</span></label>
+                {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder':'menu.enter_email'|trans}}) }}
+                {{ form_errors(form.email) }}
+              </div>
+              <div class="form-group">
+                <label for="" class="text-uppercase text-bold">{{ 'form.profile.create_password'|trans }}<span class="impot">*</span></label>
+                {{ form_widget(form.plainPassword.first, {"attr": {"class": 'form-control', "placeholder":  'form.profile.enter_password'|trans  }}) }}
+                {{ form_errors(form.plainPassword.first) }}
+              </div>
+              <div class="form-group">
+              	{{ form_widget(form.plainPassword.second, {"attr": {"class": 'form-control', "placeholder":  'form.profile.repeat_password'|trans  }}) }}
+                {{ form_errors(form.plainPassword.second) }}
+              </div>
+              <div class="form-group">
+                <label class="check-box-login">
+                  <input type="checkbox" class="show_password">
+                  <span></span> {{ 'form.profile.show_password'|trans }} </label>
+              </div>
+            </div>
+            <div class="reg-field-box">
+              <div class="form-group">
+                <label for="" class="text-uppercase text-bold">{{ 'form.profile.first_name'|trans }}<span class="impot">*</span></label>
+                {{ form_widget(form.first_name, {'attr': {'class': 'form-control', 'placeholder':'form.profile.enter_name'|trans}}) }}
+                {{ form_errors(form.first_name) }}
+              </div>
+              <div class="form-group">
+                <label for="" class="text-uppercase text-bold">{{ 'form.profile.last_name'|trans }}<span class="impot">*</span></label>
+                {{ form_widget(form.last_name, {'attr': {'class': 'form-control', 'placeholder':'form.profile.enter_sirname'|trans}}) }}
+                {{ form_errors(form.last_name) }}
+              </div>
+            </div>
+            <div class="reg-field-box">
+              <div class="form-group">
+                <label class="check-box-login">
+                  <input type="checkbox" class="agree">
+                  <span></span> <b>{{ 'form.profile.i_agree_with'|trans }} <a href="{{ path('fe_static_agreement') }}">{{ 'form.profile.rules'|trans }}</a> {{ 'form.profile.service'|trans }}</b>
+                </label>
+                <label class="check-box-login">
+                  {{ form_widget(form.get_news_by_email) }}
+                  <span></span> <b>{{ 'form.profile.send_news'|trans }}</b> </label>
+              </div>
+            </div>
+            <div class="reg-field-box buttons">
+              <div class="button-group">
+                <button type="submit" class="button button-blue">{{ 'form.profile.signup'|trans }}</button>
+              </div>
+            </div>
+            {% set type = app.request.get('type') == 'employer' ? 'employer' : 'employee'  %}
+            {{ form_widget(form.type, {'attr': {'value': type}}) }}
+      			{{ form_widget(form.social_id, {'attr': {'value': app.session.get('social_id')}}) }}
+      			{{ form_rest(form) }}
+          {{ form_end(form) }}
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock fos_user_content %}

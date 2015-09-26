@@ -1,0 +1,65 @@
+{% extends 'OneDayJobControlpanelBundle:Default:base.html.twig' %}
+
+{% block content %}
+	<div id="pad-wrapper" class="form-page">
+		<div class="row-fluid form-wrapper">
+			<div class="row-fluid header">
+				{% if form.vars.value.id %}
+					<h3>Редактирование {{ entity.title }}</h3>
+				{% else %}
+					<h3>Добавление User</h3>
+				{% endif %}
+			</div>
+			
+			{{ form_start(form) }}
+				<div class="field-box">
+                	{{ form_label(form.first_name, "First_name") }}
+					{{ form_widget(form.first_name, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.first_name) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.last_name, "Last_name") }}
+					{{ form_widget(form.last_name, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.last_name) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.get_news_by_email, "Get_news_by_email") }}
+					{{ form_widget(form.get_news_by_email, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.get_news_by_email) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.type, "Type") }}
+					{{ form_widget(form.type, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.type) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.birthdate, "Birthdate") }}
+					{{ form_widget(form.birthdate, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.birthdate) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.balance, "Balance") }}
+					{{ form_widget(form.balance, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.balance) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.social_id, "Social_id") }}
+					{{ form_widget(form.social_id, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.social_id) }}
+				</div>            	
+            	<div class="field-box">
+					<label>&nbsp;</label>
+					<input type="submit" class="btn-flat primary" value="Сохранить">
+					{% if form.vars.value.id %}
+						<a href="{{ path('cp_user_delete', {'id': form.vars.value.id}) }}" class="btn-flat inverse">Удалить</a>
+					{% else %}
+						<a href="{{ path('cp_user') }}" class="btn-flat inverse">Отмена</a>
+					{% endif %}
+				</div>
+
+			{{ form_end(form) }}
+    		    
+		</div>
+	</div>
+{% endblock %}
+

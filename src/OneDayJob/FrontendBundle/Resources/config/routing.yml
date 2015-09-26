@@ -1,0 +1,148 @@
+# Default
+
+fe_db:
+    path: /db
+    defaults: { _controller: OneDayJobFrontendBundle:Db:db }
+fe_db2:
+    path: /db2
+    defaults: { _controller: OneDayJobFrontendBundle:Db:db2 }
+fe_db3:
+    path: /db3
+    defaults: { _controller: OneDayJobFrontendBundle:Db:db3 }
+
+fe_index:
+    path: /
+    defaults: { _controller: OneDayJobFrontendBundle:Default:index }
+
+fe_social:
+    path: /social/{ajax}
+    defaults: { _controller: OneDayJobFrontendBundle:Social:index, 'ajax': 0 }
+
+# Profile (redirect)
+
+fe_profile:
+    path:  /profile
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: fos_user_profile_edit
+        permanent: true
+
+# Static
+
+fe_static_about:
+    path: /about
+    defaults: { _controller: OneDayJobFrontendBundle:Static:about }
+
+fe_static_agreement:
+    path: /agreement
+    defaults: { _controller: OneDayJobFrontendBundle:Static:agreement }
+
+fe_static_feedback:
+    path: /feedback
+    defaults: { _controller: OneDayJobFrontendBundle:Static:feedback }
+
+# Employer
+
+fe_employer_company_index:
+    path: /employer/company
+    defaults: { _controller: OneDayJobFrontendBundle:Employer:company }
+
+fe_employer_vacancy_index:
+    path: /employer/vacancies
+    defaults: { _controller: OneDayJobFrontendBundle:Employer:vacancyIndex }
+
+fe_employer_vacancy_new:
+    path: /employer/vacancies/new
+    defaults: { _controller: OneDayJobFrontendBundle:Employer:vacancyNew }
+
+fe_employer_vacancy_edit:
+    path: /employer/vacancies/{id}/edit
+    defaults: { _controller: OneDayJobFrontendBundle:Employer:vacancyEdit }
+
+fe_employer_vacancy_delete:
+    path: /employer/vacancies/{id}/delete
+    defaults: { _controller: OneDayJobFrontendBundle:Employer:vacancyDelete }
+
+fe_employer_favorite_index:
+    path: /employer/favorites
+    defaults: { _controller: OneDayJobFrontendBundle:Employer:favoriteIndex }
+
+fe_employer_favorite_delete:
+    path: /employer/favorites/{id}/delete
+    defaults: { _controller: OneDayJobFrontendBundle:Employer:favoriteDelete }
+
+fe_employer_response_index:
+    path: /employer/responses
+    defaults: { _controller: OneDayJobFrontendBundle:Employer:responseIndex }
+
+fe_employer_managment_index:
+    path: /employer/managment
+    defaults: { _controller: OneDayJobFrontendBundle:Employer:managmentIndex }
+
+# Employee
+
+fe_employee_favorite_index:
+    path: /employee/favorites
+    defaults: { _controller: OneDayJobFrontendBundle:Employee:favoriteIndex }
+
+fe_employee_favorite_delete:
+    path: /employee/favorites/{id}/delete
+    defaults: { _controller: OneDayJobFrontendBundle:Employee:favoriteDelete }
+
+fe_employee_resume_index:
+    path: /employee/resume
+    defaults: { _controller: OneDayJobFrontendBundle:Employee:resumeIndex }
+
+fe_employee_resume_new:
+    path: /employee/resume/new
+    defaults: { _controller: OneDayJobFrontendBundle:Employee:resumeNew }
+
+fe_employee_resume_edit:
+    path: /employee/resume/edit
+    defaults: { _controller: OneDayJobFrontendBundle:Employee:resumeEdit }
+
+fe_employee_resume_delete:
+    path: /employee/resume/{id}/delete
+    defaults: { _controller: OneDayJobFrontendBundle:Employee:resumeDelete }
+
+fe_employee_response_index:
+    path: /employee/responses
+    defaults: { _controller: OneDayJobFrontendBundle:Employee:responseIndex }
+
+fe_employee_company_index:
+    path: /employee/company
+    defaults: { _controller: OneDayJobFrontendBundle:Employee:companyIndex }
+
+fe_employee_managment_index:
+    path: /employee/managment
+    defaults: { _controller: OneDayJobFrontendBundle:Employee:managmentIndex }
+
+# Vacancy
+
+fe_vacancy_index:
+    path: /vacancies
+    defaults: { _controller: OneDayJobFrontendBundle:Vacancy:index }
+
+fe_vacancy:
+    path: /vacancies/{id}
+    defaults: { _controller: OneDayJobFrontendBundle:Vacancy:vacancy }
+
+# Resume
+
+fe_resume_index:
+    path: /resume
+    defaults: { _controller: OneDayJobFrontendBundle:Resume:index }
+
+fe_resume:
+    path: /resume/{id}
+    defaults: { _controller: OneDayJobFrontendBundle:Resume:resume }
+
+# Company
+
+fe_company_index:
+    path: /companies
+    defaults: { _controller: OneDayJobFrontendBundle:Company:index }
+
+fe_company:
+    path: /companies/{id}
+    defaults: { _controller: OneDayJobFrontendBundle:Company:company }

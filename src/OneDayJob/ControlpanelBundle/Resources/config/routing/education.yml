@@ -1,0 +1,28 @@
+controlpanel_education:
+    path:     /{page}
+    defaults: { _controller: "OneDayJobControlpanelBundle:Education:index", page: 1 }
+    requirements:
+        page:  \d+
+
+controlpanel_education_new:
+    path:     /new
+    defaults: { _controller: "OneDayJobControlpanelBundle:Education:new" }
+
+controlpanel_education_create:
+    path:     /create
+    defaults: { _controller: "OneDayJobControlpanelBundle:Education:create" }
+    requirements: { _method: post }
+
+controlpanel_education_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OneDayJobControlpanelBundle:Education:edit" }
+
+controlpanel_education_update:
+    path:     /{id}/update
+    defaults: { _controller: "OneDayJobControlpanelBundle:Education:update" }
+    requirements: { _method: post|put }
+
+controlpanel_education_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OneDayJobControlpanelBundle:Education:delete" }
+    requirements: { _method: post|get }

@@ -1,0 +1,280 @@
+site_title: "1dayjob.today"
+
+menu:
+    menu: "Menu"
+    registration: "Registration"
+    vacancy_list: "List of vacancies"
+    company_list: "List of companies"
+    resume_list: "List of resumes"
+    enter_email: "Enter your e-mail"
+    enter_password: "Enter your password"
+    forgot_password: "Forgot your password?"
+    login: "Log in"
+    logout: "Log out"
+    employee: "As an employee"
+    employer: "As an employer"
+    show_all: "Show all"
+    selected: "Top"
+    add_resume: "Add resume"
+    add_vacancy: "Add vacancy"
+    profile: "Personal account"
+    search: "Search"
+    search_result: "Search result"
+    companies: "Companies"
+    urgent_vacancies: "Urgent vacancies"
+    rights: "All rights reserved"
+    static:
+        about: "About the company"
+        agreement: "Agreement"
+        feedback: "Contacts"
+        main: "Main"
+
+form:
+    search:
+        find: "find"
+        employee: "employee"
+        job: "job"
+        company: "company"
+        search: "search"
+        i_search: "I search"
+        job: "Find a job"
+        company: "Find a company"
+        employee: "Find an employee"
+        salary: "with daily payments"
+        days: "days"
+        country: "country"
+        city: "city"
+        term: "for a term"
+        gender: "gender"
+        gender_male: "Male"
+        gender_female: "Female"
+        enter_term: 'Enter the term'
+    profile:
+        email: "E-mail"
+        password: "Password"
+        first_name: "First name"
+        last_name: "Last name"
+        middle_name: "Middle name"
+        birthday: "Date of birth"
+###
+        i_am_employee: "I am an employee"
+        i_am_employer: "I am an employer"
+        social: "Sign up using"
+        create_password: "Create password"
+        enter_password: "Create password"
+        repeat_password: "Repeat password"
+        show_password: "Show password"
+        enter_name: "Enter your first name"
+        enter_sirname: "Enter your last name"
+        i_agree_with: "I agree with"
+        rules: "terms of use"
+        service: "service"
+        signup: "Sign up"
+        send_news: "Send me news updates project"
+    company:
+        title: "Name of a company"
+        site: "Website"
+        phone: "Telephone"
+        info: "Information about a company"
+    vacancy:
+        branch: "Industry"
+        specialization: "Specialization"
+        post: "Post"
+        employment: "Employment"
+        work_experience: "Operational experience"
+        education: "Education"
+        duty: "Duties"
+        skill: "Skills"
+        salary_per_month: "Salary per month"
+        salary_per_day: "Salary per day"
+        currency: "Currency"
+        extra: "Additional information"
+    resume:
+        city: "City of residence"
+        profession: "Profession"
+        add_field: "Add field"
+        salary: "Desired salary"
+        term: "Period of assignment"
+        relocate: "Willing to relocate"
+        citizenship: "Citizenship"
+        work_permit: "Work permit"
+        other: "Other"
+        cellphone: "Cell phone"
+        alternative_cellphone: "Alternative number"
+        preferred_communication: "Desired form of communication"
+        skype: "Skype"
+        extra: "Extra information"
+        specialty: " Speciality "
+        ### new
+        never: 'Never'
+        ready: 'Ready'
+        russia: 'Russia'
+
+user:
+    menu:
+        profile: "Profile"
+        company: "Company"
+        vacancies: "Vacancies"
+        favorite: "Selected"
+        responses: "Feedback"
+        my_responses: "My feedback"
+        management: "Control"
+        resume: "Resume"
+    profile:
+        balance: "Your balance"
+        allowed_files: "Acceptable file formats"
+        file_size: "Maximum size"
+        pay: "Add funds"
+        upload_logo: "Upload logo"
+        email: "E-mail"
+        logo: 'Logo'
+    data:
+        responded: "Responded"
+        add_vacancy: "Add vacancy"
+        add_vacancy2: "Create a new vacancy"
+        edit_vacancy: "Edit vacancy"
+        vacancy_empty: "You have not created any vacancy! Please, create it just now!"
+        add_resume: "Add resume"
+        add_resume2: "Create resume"
+        return_without_saving: "Back to the resume without saving"
+        personal_info: "Personal information"
+        contacts: "Contacts"
+        photos: "Photos"
+        save: "Save"
+        cancel: "Cancel"
+        add_photo: "Add photo"
+        resume_edit: "Edit resume"
+        resume_delete: "Delete resume"
+        resume_view: "View my resume"
+        resume_created: "The resume has been posted on the website"
+        resume_empty: "Your resume has not been created yet. For easy selection of vacancies, create it on our website."
+        vacancies: "vacancies"
+        send_resume: "Send resume"
+        want_to_work_here: "Want to work here"
+        clear_filter: "Clear the filter"
+        requirements: "Requirements"
+        vacancy_response: "Respond to the offer"
+        ad_to_favorite: "Add to selected"
+        login: "Authorization" #
+        enter: "Log in" #
+        on: 'on'
+        remove: 'Delete'
+        realy_remove_resume: 'Do you really want to delete the resume?' #+
+        realy_remove_vacancy: 'Do you really want to delete the vacancy?' #+
+    management:
+        vacancy_top: "Select the vacancy to the first place"
+        vacancy_vip: "Select the vacancy at the top"
+        vacancy_urgent: "Place open position as urgent"
+        resume_top: "Select resume at the top"
+        pay: "Pay"
+        balance: "Add funds"
+        pay_system: 'Select payment system'
+    signup:
+        finish: "Congratulations, your account has been confirmed."
+        send_mail: "In your e-mail address to receive a letter confirming your registration"
+content:
+    sort_by: "Sort by"
+    sort_date: "date"
+    sort_view: "views"
+    salary: "Salary"
+    search:
+        no_vacancy: "No positions found"
+        vacancy_1: "vacancy"
+        vacancy_2: "vacancies"
+        vacancy_3: "vacancies"
+        no_company: "No positions found"
+        company_1: "company"
+        company_2: "companies"
+        company_3: "companies"
+        no_resume: "No positions found"
+        resume_1: "resume"
+        resume_2: "resume"
+        resume_3: "resume"
+        enter_word: "Enter the word"
+        choose_please: "Please select ..."
+helper:
+    employment:
+        employment_1: 'Full employment'
+        employment_2: 'Part-time employment'
+        employment_3: 'Design work'
+        employment_4: 'Volunteering'
+        employment_5: 'Traineeship'
+    experience:
+        experience_1: 'Lack of experience'
+        experience_2: 'From 1 year till 3 years'
+        experience_3: 'From 3 till 6 years'
+        experience_4: 'Over 6 years'
+    education:
+        education_1: 'Secondary education'
+        education_2: 'Specialized secondary education'
+        education_3: 'Undergraduate education'
+        education_4: 'Higher education'
+    schedule:
+        schedule_1: 'Full-time job'
+        schedule_2: 'Replacement schedule'
+        schedule_3: 'Flexible work hours'
+        schedule_4: 'Flexiplace'
+        schedule_5: 'Work in shifts'
+
+#+
+# Flash
+
+flash:
+    important: "Important!"
+    done: "Done!"
+    warning:
+        no_favorites: "You do not have top vacancies."
+        no_fresume: "You do not have top resume"
+        no_companies: "You do not have top companies."
+        no_responces: "You do not have a response for a vacancy."
+        vacancy:
+            no_company: "To have an opportunity to control your vacancies, you should create a company."
+        resume:
+            pre_upload_image: "Before uploading an image, you should fill out the form and save the resume." 
+            already_exists: "Your resume has been created already. You can not create another."
+        company:
+            no_company: "Before getting an access to your control list, you should create a company." 
+            response: "To have an opportunity to operate your feedback, you should create a company."
+        company:
+            saved: "Information about the company has been successfully saved"
+        vacancy:
+            created: "The vacancy has been successfully added."
+            updated: "The updates have been successfully saved."
+            deleted: "The vacancy has been successfully deleted."
+        resume:
+            created: "The resume has been successfully added ."
+            updated: "Changes have been successfully saved."
+            deleted: "The resume has been successfully deleted."
+        managment:
+            up: "The vacancy has been successfully selected to the first place."
+            urgent: "The vacancy has been added as urgent"
+            vip: "The VIP status has been given to the company for a one week period."
+        employee_managment:
+            up: "The resume has been successfully selected at the top."
+            vip: "The VIP status has been successfully given to your resume for a one week period."
+    error:
+        managment:
+            no_money: "Your account has insufficient funds for this transaction."
+
+resetting:
+    request:
+        submit: "Send password"
+        username: "Email"
+        invalid_username: "Email %username% does not exist."
+        change: 'Change password'
+
+months:
+    1: january"
+    2: "february"
+    3: "march"
+    4: "april"
+    5: "may"
+    6: "june"
+    7: "july"
+    8: "august"
+    9: "september"
+    10: "october"
+    11: "november"
+    12: "december"
+
+rub: 'rub'

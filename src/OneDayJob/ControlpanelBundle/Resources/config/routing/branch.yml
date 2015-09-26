@@ -1,0 +1,28 @@
+controlpanel_branch:
+    path:     /{page}
+    defaults: { _controller: "OneDayJobControlpanelBundle:Branch:index", page: 1 }
+    requirements:
+        page:  \d+
+
+controlpanel_branch_new:
+    path:     /new
+    defaults: { _controller: "OneDayJobControlpanelBundle:Branch:new" }
+
+controlpanel_branch_create:
+    path:     /create
+    defaults: { _controller: "OneDayJobControlpanelBundle:Branch:create" }
+    requirements: { _method: post }
+
+controlpanel_branch_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OneDayJobControlpanelBundle:Branch:edit" }
+
+controlpanel_branch_update:
+    path:     /{id}/update
+    defaults: { _controller: "OneDayJobControlpanelBundle:Branch:update" }
+    requirements: { _method: post|put }
+
+controlpanel_branch_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OneDayJobControlpanelBundle:Branch:delete" }
+    requirements: { _method: post|get }

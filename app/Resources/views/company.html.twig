@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+  <ul class="xs-hide breadcrumb">
+    <li><a href="/">{{ 'menu.static.main'|trans }}</a></li>
+    <li class="active">{{ company_index.name }}</li>
+  </ul>
+  <h1>{{ company_index.name }}</h1>
+  <div class="top-sm">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3">
+        <div class="company-side-grey company-side-main">
+          <div class="text-center company-side-logo-box">
+            {% set image = company_index.image is not null ? '/uploads/images/'~ company_index.image : '/uploads/images/company.png' %}
+            <img src="{{ image | imagine_filter('logo_inset') }}" class="company-side-logo" alt="">
+          </div>
+          <div class="company-side-info">
+            <div class="xs-hide">
+              <h3>{{ 'menu.static.about'|trans }}</h3>
+            </div>
+            <div class="text-muted">
+            	{{ company_index.description }}
+            </div>
+            <div class="clearfix"></div>
+            <div class="top-sm">
+              <a target="_blank" href="http://{{ company_index.site|replace({'http://':''}) }}" class="text-underline">
+                {{ company_index.site|replace({'http://':''}) }}
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="company-side-grey">
+          <div class="company-side-info">
+            <h3>{{ 'user.data.send_resume'|trans }}</h3>
+            <select class="form-control">
+              <option>Категорию вакансий</option>
+            </select>
+            <div class="top-sm">
+              <button data-toggle="modal" data-target="#resume-send" class="button button-invert button-wide">{{ 'user.data.want_to_work_here'|trans }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9">
+        
+        {% for branch, vacancies in company_vacancies %}
+          <div class="job-list-heading">
+            <div class="h1">{{ branch }}</div>
+          </div>
+          <div class="gob-list vacancies">
+
+            {% for vacancy in vacancies %}
+  	          <div class="list-box">
+  	            <div class="box-heading">
+  	              <h4 class="box-title">
+                    <a class="vacancy_modal" data-id="{{ vacancy.id }}" href="#">{{ vacancy.title }}</a>
+                  </h4>
+  	              &nbsp;
+                  {% if app.user and app.user.type == 'employee' %}
+                    <i class="icon-16 icon-briefcase{% if app.user.favoriteVacancy.contains(vacancy) %} flagged{% endif %}" data-id="{{ vacancy.id }}"></i>
+                  {% endif %}
+                </div>
+  	            <div class="box-info"> <span>{{ vacancy.company.name }}</span> <span> <i class="icon-16 icon-map"></i>{{ vacancy.city.translate.title }}</span> </div>
+  	            <div class="row">
+  	              <div class="col-xs-12 col-sm-9">
+  	                <div class="box-text text-muted">{{ vacancy.duty }}</div>
+  	              </div>
+  	              <div class="col-xs-12 col-sm-3 text-right">
+  	                <div class="text-muted small box-date">
+  	                	{{ time_diff(vacancy.created)|trans }}
+  	                </div>
+  	                <div class="h2 notop nobottom text-bold">
+  	                	{{ vacancy.salaryPerMonth|number_format(0) }} {{ helper.currency(vacancy.currency) }}
+  	                </div>
+  	              </div>
+  	            </div>
+  	          </div>
+            {% endfor %}
+
+          </div>
+        {% endfor %}
+
+
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="resume-send" tabindex="-1">
+    <div class="modal-dialog" style="width:574px;">
+      <div class="modal-content-box">
+        <button type="button" class="close" data-dismiss="modal" > <i class="icon-16 icon-close"></i> </button>
+        <div class="text-center">
+          <div class="h2 text-bold">Предложить свое резюме для работы в этой компании</div>
+          <div class="brd-text">IT технологии, Game development</div>
+          <div class="big-text text-success">300 рублей</div>
+          <a href="#" class="text-underline">пополнить баланс</a>
+          <div class="top-lg">
+            <button data-toggle="modal" data-target="#resume-send-success" type="button" class="button button-invert">Откликнуться на вакансии</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="resume-send-success" tabindex="-1">
+    <div class="modal-dialog" style="width:534px;">
+      <div class="modal-content-box">
+        <button type="button" class="close" data-dismiss="modal" > <i class="icon-16 icon-close"></i> </button>
+        <div class="text-center">
+          <div class="h1 h1-lg text-bold">Ваше резюме отправленно!</div>
+          <div class="h4">Если Ваша кандидатура нам подойдет, мы свяжемся с вами в ближайшее время!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,140 @@
+<?php
+
+namespace OneDayJob\FrontendBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use OneDayJob\FrontendBundle\Form\Type\VacancyType;
+use OneDayJob\ApiBundle\Entity\Vacancy;
+use OneDayJob\ApiBundle\Entity\Search;
+
+
+class VacancyController extends Controller
+{
+	# Vacancy
+
+	public function getUrgentVacanciesAction(Request $request, $page, $ipp)
+	{
+		$query = $this->getDoctrine()
+			->getRepository('OneDayJobApiBundle:Vacancy')
+			->createQueryBuilder('v')
+			->select('v, c, city')
+			->where('v.urgent >= :date_end')
+			->setParameter('date_end', new \DateTime())
+			->leftJoin('v.company', 'c')
+			->leftJoin('v.city', 'city')
+			->orderBy('v.up', 'DESC')
+			->getQuery();
+
+		$vacancies = $this->get('knp_paginator')->paginate($query, $page, $ipp);
+
+        $_temp1 = [];
+		$_temp2 = [];
+
+		$session = $this->get('session');
+
+		foreach ($vacancies as $vacancy) {
+			if ($session->has('locale')) {
+				if ($vacancy->getCity()->translate()->getTitle() == $session->get('locale')['city']) {
+	    			$_temp1[] = $vacancy;
+	    		} else {
+	    			$_temp2[] = $vacancy;
+	    		}
+			} else {
+				$_temp1[] = $vacancy;
+			}
+    	}
+
+    	$vacancies->setItems(array_merge($_temp1, $_temp2));
+
+		return $this->render('_vacancy.html.twig', ['vacancies' => $vacancies]);
+	}
+
+	public function indexAction(Request $request)
+	{
+		$specialization = filter_var($request->query->get('specialization', 0), FILTER_SANITIZE_NUMBER_INT);
+		$branch 		= filter_var($request->query->get('branch', 0), FILTER_SANITIZE_NUMBER_INT);
+		$text 			= filter_var($request->query->get('text'), FILTER_SANITIZE_STRING);
+		$currency 		= filter_var($request->query->get('currency', 'rub'), FILTER_SANITIZE_STRING);
+		$country 	    = filter_var($request->query->get('country', 0), FILTER_SANITIZE_NUMBER_INT);
+		$experience 	= filter_var($request->query->get('experience', 0), FILTER_SANITIZE_NUMBER_INT);
+		$salary 		= filter_var($request->query->get('salary', 0), FILTER_SANITIZE_NUMBER_INT);
+		$education 		= filter_var($request->query->get('education', 0), FILTER_SANITIZE_NUMBER_INT);
+		$employment 	= filter_var($request->query->get('employment', 0), FILTER_SANITIZE_NUMBER_INT);
+		$term       	= filter_var($request->query->get('term', 0), FILTER_SANITIZE_NUMBER_INT);
+
+		$fm = $this->get('padam87_search.filter.manager');
+		$filter = new \Padam87\SearchBundle\Filter\Filter(['title' => '*' . $text . '*'], 'OneDayJobApiBundle:Vacancy', 'v');
+		$builder = $fm->createQueryBuilder($filter);
+		$builder->select('v, c, city');
+
+		if ($salary) {
+			$builder->andWhere('v.currency = :currency');
+			$builder->setParameter('currency', $currency);
+
+			if ($salary <= 100000) {
+				$builder->andWhere('v.salary_per_month <= :salary');
+				$builder->setParameter('salary', $salary);
+			}
+		}
+
+		if ($experience) {
+			$builder->andWhere('v.work_experience <= :work_experience');
+			$builder->setParameter('work_experience', $experience);
+		}
+
+		if ($term) {
+			$builder->andWhere('v.term <= :term');
+			$builder->setParameter('term', $term);
+		}
+
+		if ($employment) {
+			$builder->andWhere('v.employment = :employment');
+			$builder->setParameter('employment', $employment);
+		}
+
+		if ($country) {
+			$builder->andWhere('v.country = :country');
+			$builder->setParameter('country', $country);
+		}
+
+		if ($education) {
+			$builder->andWhere('v.education = :education');
+			$builder->setParameter('education', $education);
+		}
+
+		if ($branch) {
+			$builder->andWhere('v.branch = :branch');
+			$builder->setParameter('branch', $branch);
+		}
+
+		$builder->leftJoin('v.company', 'c');
+		$builder->leftJoin('v.city', 'city');
+		$builder->orderBy('v.up', 'DESC');
+
+		$em = $this->getDoctrine()->getEntityManager();
+		
+		$vars['countries'] 		 = $em->getRepository('OneDayJobApiBundle:Country')->findAll();
+		$vars['specializations'] = $em->getRepository('OneDayJobApiBundle:Specialization')->findAll();
+		$vars['branches'] 		 = $em->getRepository('OneDayJobApiBundle:Branch')->findAll();
+
+		$vars['vacancies']		 = $builder->getQuery()->getResult();
+
+		return $this->render('vacancy_index.html.twig', $vars);
+	}
+
+	public function vacancyAction(Vacancy $vacancy)
+	{
+		$repository = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Vacancy');
+		$builder = $repository->createQueryBuilder('v');
+		$builder->where('v.specialization = ' . $vacancy->getSpecialization()->getId());
+		$builder->andWhere('v.id != ' . $vacancy->getId());
+
+		$vars['similar_vacancies'] = $builder->getQuery()->getResult();
+		$vars['vacancy'] = $vacancy;
+		$vars['cities'] = $this->getDoctrine()->getRepository('OneDayJobApiBundle:City')->findAll();
+		$vars['title'] = $vacancy->getTitle();
+
+		return $this->render('OneDayJobFrontendBundle:Default:vacancy.html.twig', $vars);
+	}
+}

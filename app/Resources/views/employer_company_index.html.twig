@@ -1,0 +1,143 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'OneDayJobFrontendBundle:Form:errors.html.twig' %}
+
+{% block userblock %}
+  <div class="panel-tab-body">
+    <div class="account-main" id="sel">
+      <nav class="account-nav employer-nav">
+        
+        {% include '_menu_mobile.html.twig' %}
+        
+        <div class="account-drop-menu collapse" id="navcollaps">
+          
+          {% include 'employee_profile_menu.html.twig' %}
+
+        </div>
+      </nav>
+      <div class="account-heading">
+        <div class="account-title"> <span class="xs-show"><i class="icon-16 icon-home-white"></i></span>
+          <h3>{{ 'user.menu.company'|trans }}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="account-content">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6"> 
+
+          {% include '_flash_messages.html.twig' %}
+
+          {{ form_start(form, {'attr': {'id':'company_form'}}) }}
+            <div class="border-right-form border-right-offset-y">
+              <div class="form-group form-group-invert form-group-rightpad">
+                <label for="" class="text-bold text-uppercase">{{ 'form.company.title'|trans }}</label>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-ctrl">
+                      <a href="#" class="field-edit"><i class="icon-16 icon-pencil-white"></i></a>
+                      <a href="#" class="field-edit-accept green"><i class="icon-16 icon-accept-white"></i></a>
+                    </div>
+
+                    {{ form_widget(form.name, {"attr": {"class": 'form-control', 'placeholder': 'ПАО Газпром'}}) }}
+                    {{ form_errors(form.name) }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group form-group-invert form-group-rightpad">
+                <label for="" class="text-bold text-uppercase">{{ 'form.company.site'|trans }}</label>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-ctrl">
+                      <a href="#" class="field-edit"><i class="icon-16 icon-pencil-white"></i></a>
+                      <a href="#" class="field-edit-accept green"><i class="icon-16 icon-accept-white"></i></a>
+                    </div>
+
+                    {{ form_widget(form.site, {"attr": {"class": 'form-control', 'placeholder': 'www.site.com'}}) }}
+                    {{ form_errors(form.site) }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group form-group-invert form-group-rightpad">
+                <label for="" class="text-bold text-uppercase">{{ 'form.company.phone'|trans }}</label>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-ctrl">
+                      <a href="#" class="field-edit"><i class="icon-16 icon-pencil-white"></i></a>
+                      <a href="#" class="field-edit-accept green"><i class="icon-16 icon-accept-white"></i></a>
+                    </div>
+
+                    {{ form_widget(form.phone, {"attr": {"class": 'form-control', 'placeholder': '7 212 222-22-22'}}) }}
+                    {{ form_errors(form.phone) }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group form-group-invert form-group-rightpad">
+                <label for="exampleInputEmail1" class="text-bold text-uppercase">{{ 'form.company.info'|trans }}</label>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-ctrl">
+                      <a href="#" class="field-edit"><i class="icon-16 icon-pencil-white"></i></a>
+                      <a href="#" class="field-edit-accept green"><i class="icon-16 icon-accept-white"></i></a>
+                    </div>
+ 
+                    {{ form_widget(form.description, {"attr": {"class": 'form-control', 'rows': '3', 'style': 'height:280px;'}}) }}
+                    {{ form_errors(form.description) }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="" class="text-bold text-uppercase">{{ 'form.search.country'|trans }}</label>
+                <div class="selectbox">
+                  <select class="form-control combobox form_country" name="country">
+                    <option value="0"></option>
+                    {% set country_id = company.city.country.id is defined ? company.city.country.id : 0 %}
+                    {% for country in helper.getSearchFormData.countries %}
+                      <option value="{{ country.id }}"{{ country.id == country_id ? ' selected="selected"' : '' }}>{{ country.translate.title }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="" class="text-bold text-uppercase">{{ 'form.search.city'|trans }}</label>
+                <div class="selectbox">
+                  {{ form_widget(form.city, {"attr": {"class": 'form-control combobox form_city'}}) }}
+                </div>
+                {{ form_errors(form.city) }}
+              </div>
+
+
+            </div>
+          {{ form_end(form) }}
+        </div>
+
+
+        <div class="col-xs-12 col-sm-6">
+          <div class="copmpany-download-logo">
+            <div class="text-uppercase text-bold">{{ 'user.profile.logo'|trans }}</div>
+            <div class="top-md">
+
+              <div class="offsetx" id="imageUploadContainer">
+
+                {% if (app.user.company is null) or (app.user.company.image is null) %}
+                  <img src="/bundles/onedayjobfrontend/images/ava-down-img.png" class="profile-image ava-down-img" alt="Логотип">
+                {% else %}
+                  <img src="{{ app.user.company.image.src }}" class="profile-image ava-down-img" alt="Логотип">
+                {% endif %}
+                
+                <div class="bottom-md">{{ 'user.profile.allowed_files'|trans }} <br>
+                  <strong>*.jpg *.png</strong> <br>
+                  {{ 'user.profile.file_size'|trans }} <strong>2Mb</strong>
+                </div>
+     
+                <a href="javascript:void(0);" id="upload_image" class="button-upload button button-invert" data-type="company">{{ 'user.profile.upload_logo'|trans }}</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

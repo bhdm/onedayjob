@@ -1,0 +1,28 @@
+controlpanel_page:
+    path:     /{page}
+    defaults: { _controller: "OneDayJobControlpanelBundle:Page:index", page: 1 }
+    requirements:
+        page:  \d+
+
+controlpanel_page_new:
+    path:     /new
+    defaults: { _controller: "OneDayJobControlpanelBundle:Page:new" }
+
+controlpanel_page_create:
+    path:     /create
+    defaults: { _controller: "OneDayJobControlpanelBundle:Page:create" }
+    requirements: { _method: post }
+
+controlpanel_page_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OneDayJobControlpanelBundle:Page:edit" }
+
+controlpanel_page_update:
+    path:     /{id}/update
+    defaults: { _controller: "OneDayJobControlpanelBundle:Page:update" }
+    requirements: { _method: post|put }
+
+controlpanel_page_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OneDayJobControlpanelBundle:Page:delete" }
+    requirements: { _method: post|get }

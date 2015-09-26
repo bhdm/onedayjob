@@ -1,0 +1,59 @@
+<ul>
+  {% set _route = app.request.get('_route') %}
+    {% if app.user.type == 'employer' %}
+		<li{% if _route is null %} class="active"{% endif %}>
+			<a href="/{{ app.request.locale }}">
+				<i class="icon-16 icon-user-white2"></i>{{ 'user.menu.profile'|trans }}
+			</a>
+		</li>
+		<li{% if _route == 'fe_employer_company_index' %} class="active"{% endif %}>
+			<a href="{{ path('fe_employer_company_index') }}">
+				<i class="icon-16 icon-home-white"></i>{{ 'user.menu.company'|trans }}
+			</a>
+		</li>
+		<li{% if _route == 'fe_employer_vacancy_index' %} class="active"{% endif %}>
+			<a href="{{ path('fe_employer_vacancy_index') }}">
+				<i class="icon-16 icon-list-white"></i>{{ 'user.menu.vacancies'|trans }} ({{ profile_employer_helper.vacancyCount }})
+			</a>
+		</li>
+		<li{% if _route == 'fe_employer_favorite_index' %} class="active"{% endif %}>
+			<a href="{{ path('fe_employer_favorite_index') }}">
+				<i class="icon-16 icon-briefcase-white"></i>{{ 'user.menu.favorite'|trans }}
+				<span id="favorite-count">({{ profile_employer_helper.favoriteResumeCount ? profile_employer_helper.favoriteResumeCount : 0 }})</span>
+			</a>
+		</li>
+		<li{% if _route == 'fe_employer_response_index' %} class="active"{% endif %}>
+			<a href="{{ path('fe_employer_response_index') }}">
+				<i class="icon-16 icon-comment-white"></i>{{ 'user.menu.responses'|trans }}
+				<span id="response-count">({{ profile_employer_helper.employerResponseCount ? profile_employer_helper.employerResponseCount : 0 }})</span>
+			</a>
+		</li>
+		<li{% if _route == 'fe_employer_managment_index' %} class="active"{% endif %}>
+			<a href="{{ path('fe_employer_managment_index') }}">
+				<i class="icon-16 icon-user-settings2"></i>{{ 'user.menu.management'|trans }}
+			</a>
+		</li>
+	{% else %}
+		<li{% if _route is null %} class="active"{% endif %}>
+			<a href="/{{ app.request.locale }}"><i class="icon-16 icon-user-white2"></i>{{ 'user.menu.profile'|trans }}</a>
+		</li>
+		<li{% if _route == 'fe_employee_response_index' %} class="active"{% endif %}>
+			<a href="{{ path('fe_employee_response_index') }}">
+				<i class="icon-16 icon-comment-white"></i>{{ 'user.menu.my_responses'|trans }}
+				<span id="response-count">({{ profile_employer_helper.responseCount ? profile_employer_helper.responseCount : 0 }})</span>
+			</a>
+		</li>
+		<li{% if _route == 'fe_employee_favorite_index' %} class="active"{% endif %}>
+			<a href="{{ path('fe_employee_favorite_index') }}">
+				<i class="icon-16 icon-briefcase-white"></i>{{ 'user.menu.favorite'|trans }}
+				<span id="favorite-count">({{ profile_employer_helper.favoriteCount ? profile_employer_helper.favoriteCount : 0 }})</span>
+			</a>
+		</li>
+		<li{% if _route in ['fe_employee_resume_index', 'fe_employee_resume_new', 'fe_employee_resume_edit'] %} class="active"{% endif %}>
+			<a href="{{ path('fe_employee_resume_index') }}"><i class="icon-16 icon-user-white"></i>{{ 'user.menu.resume'|trans }}</a>
+		</li>
+		<li{% if _route == 'fe_employee_managment_index' %} class="active"{% endif %}>
+			<a href="{{ path('fe_employee_managment_index') }}"><i class="icon-16 icon-user-settings2"></i>{{ 'user.menu.management'|trans }}</a>
+		</li>
+	{% endif %}
+</ul>

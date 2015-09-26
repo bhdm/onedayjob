@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block userblock %}
+  <div class="account-main" id="sel">
+    <nav class="account-nav employer-nav">
+      
+      {% include '_menu_mobile.html.twig' %}
+      
+      <div class="account-drop-menu collapse" id="navcollaps">
+        
+        {% include 'employee_profile_menu.html.twig' %}
+      </div>
+    </nav>
+    <div class="account-heading">
+      <div class="account-title"> <span class="xs-show"><i class="icon-16 icon-comment-white"></i></span>
+        <h3>{{ 'user.menu.responses'|trans }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="account-content">
+
+    {% for vacancy in vacancies %}
+      <div class="onclick-list resumes">
+        <!--<div class="text-muted">30 Ноября 2014</div> -->
+        
+        {% for employee in vacancy.responseEmployee %}
+          <div class="onclick-box">
+            <div class="onclick-box-top">
+              <div class="pull-left"><img src="{{ employee.resume.imageSrc }}" alt="66" width="80" height="80" class="img-circle"></div>
+              <div class="offset">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-8">
+                    <div class="onclick-box-heading brd-heading">
+                      <h4 class="onclick-box-title"><a class="resume_modal" href="" data-id="{{ employee.resume.id }}">{{ employee.resume.fullName }}</a></h4>
+                      &nbsp; <span class="onclick-brief">
+                      <i class="icon-16 icon-briefcase {% if app.user.favoriteResume.contains(employee.resume) %} flagged{% endif %}" data-id="{{ employee.resume.id }}"></i>
+                    </span> </div>
+                    <div class="onclick-box-info">
+                      <!--куы<span>Мобильные фишки</span> -->
+                      <span><i class="icon-16 icon-map"></i> {{ employee.resume.city.translate.title }}</span>
+                    </div>
+                  </div>
+                <!--
+                  <div class="col-xs-12 col-sm-4 text-right">
+                    <div class="top-xs"> <b class="h4 text-bold">от 30 000 до 90 000 руб</b> </div>
+                  </div>
+                -->
+                </div>
+                <div class="onclick-box-tags">
+                  {% for language in employee.resume.languages %}
+                    <span class="lable-tag lable-tag-sm">{{ language.title }}</span>
+                  {% endfor %}
+                </div>
+              </div>
+              <a class="onclick-box-del responce_user_delete" data-vacancy-id="{{ vacancy.id }}" data-user-id="{{ employee.id }}">
+                <span class="icon-16 icon-close responce_user_delete"></span>
+              </a>
+            </div>
+            <div class="offset">
+              <div class="onlclick-box-cont">
+                <div class="row">
+                  <div class="col-xs-7">
+                    <div class="onclick-box-heading brd-heading">
+                      <h4 class="onclick-box-title"><a class="vacancy_modal" data-id="{{ vacancy.id }}" href="#">{{ vacancy.title }}</a></h4>
+                    </div>
+                    <div class="onclick-box-info">
+                      <span>{{ vacancy.company.name }}</span>
+                      <span><i class="icon-16 icon-map"></i> {{ vacancy.city.translate.title }}</span>
+                    </div>
+                  </div>
+                  <div class="col-xs-5">
+                    <div class="text-right">
+                      <div class="text-muted small bottom-xs">{{ helper.getDate(vacancy.created) }}</div>
+                      <div class="h4 notop text-bold">{{ vacancy.salaryPerMonth|number_format(0) }} {{ helper.currency(vacancy.currency) }}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-muted">{{ vacancy.extra }}</div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+
+  </div>
+  {% include '_modal_resume.html.twig' %}
+{% endblock %}

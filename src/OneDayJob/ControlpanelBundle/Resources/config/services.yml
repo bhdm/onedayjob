@@ -1,0 +1,4 @@
+services:
+#    one_day_job_controlpanel.example:
+#        class: OneDayJob\ControlpanelBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

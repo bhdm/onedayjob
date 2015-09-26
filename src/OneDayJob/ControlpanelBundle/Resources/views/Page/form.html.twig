@@ -1,0 +1,45 @@
+{% extends 'OneDayJobControlpanelBundle:Default:base.html.twig' %}
+
+{% block content %}
+	<div id="pad-wrapper" class="form-page">
+		<div class="row-fluid form-wrapper">
+			<div class="row-fluid header">
+				{% if form.vars.value.id %}
+					<h3>Редактирование {{ entity.title }}</h3>
+				{% else %}
+					<h3>Добавление страницы</h3>
+				{% endif %}
+			</div>
+			
+			{{ form_start(form) }}
+				<div class="field-box">
+                	{{ form_label(form.title, "Наименование") }}
+					{{ form_widget(form.title, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.title) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.content, "Описание") }}
+					{{ form_widget(form.content, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.content) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.slug, "ЧПУ ссылка") }}
+					{{ form_widget(form.slug, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.slug) }}
+				</div>            	
+            	<div class="field-box">
+					<label>&nbsp;</label>
+					<input type="submit" class="btn-flat primary" value="Сохранить">
+					{% if form.vars.value.id %}
+						<a href="{{ path('cp_page_delete', {'id': form.vars.value.id}) }}" class="btn-flat inverse">Удалить</a>
+					{% else %}
+						<a href="{{ path('cp_page') }}" class="btn-flat inverse">Отмена</a>
+					{% endif %}
+				</div>
+
+			{{ form_end(form) }}
+    		    
+		</div>
+	</div>
+{% endblock %}
+

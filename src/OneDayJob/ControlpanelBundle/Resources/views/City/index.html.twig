@@ -1,0 +1,43 @@
+{% extends 'OneDayJobControlpanelBundle:Default:base.html.twig' %}
+
+{% block content %}
+
+<div id="pad-wrapper">
+    <div class="table-wrapper">
+        <div class="row-fluid header">
+            <h3>Города</h3>
+                <a href="{{ path('cp_city_create') }}" class="btn-flat success pull-right">ДОБАВИТЬ</a>
+            </div>
+
+        {% for flashMessage in app.session.flashbag.get('success') %}
+            <div class="alert alert-success">
+                <i class="icon-ok-sign"></i> {{ flashMessage }}
+            </div>
+        {% endfor %}
+
+        <div class="row-fluid">
+            <table class="table table-hover">
+                <thead>
+                    <tr>                        
+                        <th class="span3">Наименование</th>
+                        <th class="span3"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entity in entities %}
+                    <tr>
+                        <td>{{ entity.translate.title }}</td>
+                        <td>
+                            <a href="{{ path('cp_city_edit', { 'id': entity.id }) }}" class="btn-glow button-edit pull-right">    	
+                        	<i class="icon-pencil"></i>Редактировать</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {{ knp_pagination_render(entities) }}
+    </div>
+</div>
+{% endblock %}

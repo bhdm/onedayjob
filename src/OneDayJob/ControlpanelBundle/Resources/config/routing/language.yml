@@ -1,0 +1,28 @@
+controlpanel_language:
+    path:     /{page}
+    defaults: { _controller: "OneDayJobControlpanelBundle:Language:index", page: 1 }
+    requirements:
+        page:  \d+
+
+controlpanel_language_new:
+    path:     /new
+    defaults: { _controller: "OneDayJobControlpanelBundle:Language:new" }
+
+controlpanel_language_create:
+    path:     /create
+    defaults: { _controller: "OneDayJobControlpanelBundle:Language:create" }
+    requirements: { _method: post }
+
+controlpanel_language_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OneDayJobControlpanelBundle:Language:edit" }
+
+controlpanel_language_update:
+    path:     /{id}/update
+    defaults: { _controller: "OneDayJobControlpanelBundle:Language:update" }
+    requirements: { _method: post|put }
+
+controlpanel_language_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OneDayJobControlpanelBundle:Language:delete" }
+    requirements: { _method: post|get }

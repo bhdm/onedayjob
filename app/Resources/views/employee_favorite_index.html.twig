@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block userblock %}
+  <div class="panel-tab-body">
+    <div class="account-main" id="sel">
+      <nav class="account-nav worker-nav">
+        
+        {% include '_menu_mobile.html.twig' %}
+
+        <div class="account-drop-menu collapse" id="navcollaps">
+          
+          {% include 'employee_profile_menu.html.twig' %}
+
+        </div>
+      </nav>
+      <div class="account-heading">
+        <div class="account-title"> <span class="xs-show"><i class="icon-16 icon-comment-white"></i></span>
+          <h3>{{ (app.request.get('_route') == 'fe_employee_response_index') ? 'user.menu.my_responses'|trans : 'user.menu.favorite'|trans }}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="account-content not-hide">
+      <div class="company-list {{ (app.request.get('_route') == 'fe_employee_response_index') ? 'vacancy_responses' : 'favorite_vacancies' }}">
+        <div class="row">
+
+          {% include '_flash_messages.html.twig' %}
+          
+          {% if vacancies is defined %}
+            {% include '_vacancy_block.html.twig' %}
+          {% endif %}
+          
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

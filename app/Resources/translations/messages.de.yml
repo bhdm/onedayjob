@@ -1,0 +1,277 @@
+site_title: "1dayjob.today"
+
+menu:
+    menu: "Menü"
+    registration: "Registrierung"
+    vacancy_list: "Liste der offenen Stellen"
+    company_list: "Liste der Unternehmen"
+    resume_list: "Liste der Bewerbungen"
+    enter_email: "Bitte geben Sie Ihre E-Mail Adresse ein"
+    enter_password: "Bitte geben Sie Ihr Passwort ein"
+    forgot_password: "Passwort vergessen?"
+    login: "Anmelden"
+    logout: "Abmelden"
+    employee: "Als Mitarbeiter"
+    employer: "Als Arbeitgeber"
+    show_all: "Alles zeigen"
+    selected: "Meine Favoriten"
+    add_resume: "Einen Lebenslauf hinzufügen"
+    add_vacancy: "Ein Stellenangebot hinzufügen"
+    profile: "Profil"
+    search: "Suchen"
+    search_result: "Suchergebnis"
+    companies: "Firmen"
+    urgent_vacancies: "Dringende Stellenangebote"
+    rights: "Alle Rechte vorbehalten"
+    static:
+        about: "Über die Firma"
+        agreement: "Vertrag"
+        feedback: "Kontakte"
+        main: "Haupt"
+
+form:
+    search:
+        find: "Suchen"
+        employee: "Mitarbeiter"
+        job: "Arbeit"
+        company: "Firma"
+        search: "Suche"
+        i_search: 'Ich suche nach'
+        job: "Ich suche einen Job"
+        company: "Ich suche ein Unternehmen"
+        employee: "Einen Mitarbeiter finden"
+        salary: "mit täglichen Zahlungen"
+        days: "Tage"
+        country: "Land"
+        city: "Stadt"
+        term: "für eine Amtszeit"
+        gender: "Geschlecht"
+        gender_male: "männlich"
+        gender_female: "weiblich"
+        enter_term: "Geben Sie den Begriff"
+    profile:
+        email: "E-Mail"
+        password: "Passwort"
+        first_name: "Vorname"
+        last_name: "Nachname"
+        middle_name: "zweiter Vorname"
+        birthday: "Geburtsdatum"
+        i_am_employee: "Ich bin ein Wettbewerber"
+        i_am_employer: "Ich bin ein Arbeitgeber"
+        social: "Registrieren Hilfe"
+        create_password: "Erstellen Sie ein Passwort"
+        enter_password: "Passwort eingeben"
+        repeat_password: "Passwort wiederholen"
+        show_password: "Passwort anzeigen"
+        enter_name: "Gib deinen Namen ein"
+        enter_sirname: "Gib deinen Familiennamen ein"
+        i_agree_with: "Ich bin einverstanden mit"
+        rules: "Nutzungsbedingungen"
+        service: "Service"
+        signup: "Anmeldung"
+        send_news: "Sie mich über Aktuelles Projekt"
+    company:
+        title: "der Name der Firma"
+        site: "Webseite"
+        phone: "Telefonnummer"
+        info: "Informationen über die Firma"
+    vacancy:
+        branch: "Industrie"
+        specialization: "Spezialisierung"
+        post: "Post"
+        employment: "Beschäftigung"
+        work_experience: "Arbeitserfahrung"
+        education: "Bildung"
+        duty: "Pflichte"
+        skill: "Fähigkeiten"
+        salary_per_month: "monatliches Gehalt"
+        salary_per_day: "tägliches Gehalt"
+        currency: "Währung"
+        extra: "weitere Informationen"
+    resume:
+        city: "Wohnort"
+        profession: "Beruf"
+        add_field: "Tätigkeitsbereich hinzufügen"
+        salary: "Gehaltsvorstellung"
+        term: "die Dauer der Stellenangebot"
+        relocate: "Umzugsbereitschaft"
+        citizenship: "Staatsbürgerschaft"
+        work_permit: "Arbeitserlaubnis"
+        other: "Anderes"
+        cellphone: "Handynummer"
+        alternative_cellphone: "Alternative Nummer"
+        preferred_communication: "die gewünschte Form der Kommunikation"
+        skype: "Skype"
+        extra: "Zusatzinformationen"
+        specialty: "Spezialität"
+        never: ‘nie’
+        ready: 'bereit'
+        russia: ‘Russland’
+
+user:
+    menu:
+        profile: "Profil"
+        company: "Unternehmen"
+        vacancies: "Stellenangebote"
+        favorite: "Meine Favoriten"
+        responses: "Feedback"
+        my_responses: "Mein Feedback"
+        management: "Management"
+        resume: "Lebenslauf"
+    profile:
+        balance: "Ihr Kontostand"
+        allowed_files: "Akzeptable Dateiformate"
+        file_size: "Maximalgröße"
+        pay: "das Konto hinzufügen"
+        upload_logo: "Logo hochladen"
+        email: "E-Mail"
+        logo: 'Logo'
+    data:
+        responded: "beantwortet"
+        add_vacancy: "Ein Stellenangebot hinzufügen"
+        add_vacancy2: "Ein Stellenangebot erstellen"
+        edit_vacancy: "Ein Stellenangebot ändern"
+        vacancy_empty: "Sie haben keine Stellenangebote erstellt! Bitte kreiren Sie ein im Moment!"
+        add_resume: "Einen Lebenslauf hinzufügen"
+        add_resume2: "Einen Lebenslauf hinzufügen"
+        return_without_saving: "zurückzukehren, ohne Änderungen vorzunehmen"
+        personal_info: "Personalinformationen"
+        contacts: "Kontakte"
+        photos: "Fotos"
+        save: "speichern"
+        cancel: "stornieren"
+        add_photo: "Foto hinzufügen"
+        resume_edit: "Lebenslauf ändern"
+        resume_delete: "Lebenslauf löschen"
+        resume_view: "Mein Lebenslauf sehen"
+        resume_created: "Der Lebenslauf wurde auf der Webseite hinzugefügt."
+        resume_empty: "Ihr Lebenslauf wurde noch nicht erstellt. Zur einfachen Auswahl Stellenangeboten, kreieren Sie einen auf unserer Homepage."
+        vacancies: "Stellenangebote"
+        send_resume: "Lebenslauf senden"
+        want_to_work_here: "Ich möchte hier arbeiten"
+        clear_filter: "Filter löschen"
+        requirements: "Anforderungen"
+        vacancy_response: "auf den Vorschlag reagieren"
+        ad_to_favorite: "zu Favoriten hinzufügen"
+        login: "Genehmigung"
+        enter: "Einloggen"
+        on: "auf"
+        realy_remove_resume: "Sind Sie sicher, Sie wollen einen Lebenslauf löschen?" #+
+        realy_remove_vacancy: "Wollen Sie wirklich, um Auftrag zu löschen?" #+
+        remove: "Löschen" #+
+    management:
+        vacancy_top: "Angebot auf Position eins vorrücken"
+        vacancy_vip: "Angebot auf top Position vorrücken"
+        vacancy_urgent: "Stellenangebot als dringend markieren"
+        resume_top: "Lebenslauf auf Position eins vorrücken"
+        pay: "zahlen"
+        balance: "Konto aufladen"
+        pay_system: 'Wählen Sie ein Zahlungssystem' #+
+content:
+    salary: "der Lohn"
+###
+    search:
+        no_vacancy: "Keine Positionen gefunden"
+        vacancy_1: "Vakanz"
+        vacancy_2: "Vakanz"
+        vacancy_3: "Vakanz"
+        no_company: "Kompanien nicht gefunden"
+        company_1: "Kompanie"
+        company_2: "Kompanien"
+        company_3: "Kompanien"
+        no_resume: "Kein Resümee gefunden" #+
+        resume_1: "Resümee" #+
+        resume_2: "Resümee" #+
+        resume_3: "Resümee" #+
+        enter_word: "Geben Sie das Wort"
+        choose_please: "Bitte auswählen ..."
+    sort_by: "Sortieren nach"
+    sort_date: "Datum hinzugefügt"
+    sort_view: "Ansichten"
+
+#+
+helper:
+    employment:
+        employment_1: "Vollzeit"
+        employment_2: "Teilzeit"
+        employment_3: "Projektarbeit"
+        employment_4: "Ehrenamtliche Arbeit"
+        employment_5: "Traineeship"
+    experience:
+        experience_1: "ohne Erfahrung"
+        experience_2: "von 1 bis 3 Jahre"
+        experience_3: "von 3 bis 6 Jahre"
+        experience_4: "mehr als 6 Jahre"
+    education:
+        education_1: "Sekundarschulbildung"
+        education_2: "Fachschulausbildung"
+        education_3: "Unvollständige Hochschulbildung"
+        education_4: "Hochschulbildung"
+    schedule:
+        schedule_1: "Vollzeit"
+        schedule_2: "Veränderbare Grafik"
+        schedule_3: "Flexible Arbeitszeit"
+        schedule_4: "Remote Arbeit"
+        schedule_5: "Arbeitsschichten"
+#+
+# Flash
+
+flash:
+    important: "Wichtig!"
+    done: "Gemacht!"
+    warning:
+        no_favorites: "Sie haben keine top Stellenangebote."
+        no_companies: "Sie haben keine top Unternehmen."
+        no_fresume: ""
+        no_responces: "Sie haben keine Antworten aufs Angebot."
+        vacancy:
+            no_company: "Um Ihre Stellenangebote kontrollieren können, kreiren Sie ein Unternehmen."
+        resume:
+            pre_upload_image: "Bevor Sie ein Image hinzufügen, füllen Sie das Formular aus und speichern Sie den Lebenslauf." 
+            already_exists: "Ihr Lebenslauf wurde schon kreirt. Sie können keinen weiteren kreiren."
+        company:
+            no_company: "Bevor Sie einen Zugang zu Ihrem Kontrollliste bekommen, kreiren Sie eine Firma." 
+            response: "Um Ihr Feedback benutzen können, kreiren Sie eine Firma."
+        company:
+            saved: "Informationen über das Unternehmen wurden erfolgreich gespeichert"
+        vacancy:
+            created: "Das Stellenangebot wurde erfolgreich hinzugefügt."
+            updated: "Die Updates wurden erfolgreich gespeichert."
+            deleted: "Das Stellenangebot wurde erfolgreich gelöscht."
+        resume:
+            created: "Der Lebenslauf wurde erfolgreich hinzugefügt."
+            updated: "Die Änderungen wurden erfolgreich gespeichert."
+            deleted: "Der Lebenslauf wurde erfolgreich gelöscht."
+        managment:
+            up: "Das Stellenangebot wurde erfolgreich als das erste gewählt."
+            urgent: "Das Stellenangebot wurde als dringend markiert."
+            vip: "Für eine Woche genießt das Unternehmen VIP-Status."
+        employee_managment:
+            up: "Der Lebenslauf wurde erfolgreich auf top Positionen vorgerückt."
+            vip: "Für eine Woche genießen Sie VIP-Status." 
+    error:
+        managment:
+            no_money: "Sie haben derzeit kein ausreichendes Guthaben."
+
+resetting:
+    request:
+        submit: "Passwort zusenden"
+        username: "Email"
+        invalid_username: "Email %username% ist nicht vorhanden."
+        change: 'Kennwort ändern'
+
+months:
+    1: "januar"
+    2: "februar"
+    3: "marz"
+    4: "april"
+    5: "mai"
+    6: "juni"
+    7: "juli"
+    8: "august"
+    9: "september"
+    10: "oktober"
+    11: "november"
+    12: "dezember"
+
+rub: 'rub'

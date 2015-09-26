@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Панель управления</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- open sans font -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+	<link href="/bundles/controlpanel/css/bootstrap.css" rel="stylesheet">
+	<link href="/bundles/controlpanel/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="/bundles/controlpanel/css/bootstrap-overrides.css" rel="stylesheet">
+	<link href="/bundles/controlpanel/css/bootstrap.datepicker.css" rel="stylesheet">
+	<link href="/bundles/controlpanel/css/dropzone.css" rel="stylesheet">
+	<link href="/bundles/controlpanel/css/elements.css" rel="stylesheet">
+	<link href="/bundles/controlpanel/css/font-awesome.css" rel="stylesheet">
+	<link href="/bundles/controlpanel/css/redactor.css" rel="stylesheet">
+	<link href="/bundles/controlpanel/css/selectize.css" rel="stylesheet">
+	<link href="/bundles/controlpanel/css/uniform.default.css" rel="stylesheet">
+	<link href="/bundles/controlpanel/css/layout.css" rel="stylesheet">
+	<link href="/bundles/controlpanel/css/general.css" rel="stylesheet">
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+	<!-- navbar -->
+	<div class="navbar navbar-inverse">
+		<div class="navbar-inner">
+			<button type="button" class="btn btn-navbar visible-phone" id="menu-toggler">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+
+			<a class="brand" href="#"><img src="/bundles/controlpanel/img/logo.png"></a>
+
+			<ul class="nav pull-right">
+				<li class="settings hidden-phone">
+					<a href="/" role="button">
+						<i class="icon-home"></i>
+					</a>
+				</li>
+				<li class="settings hidden-phone">
+					<a href="#" role="button">
+						<i class="icon-signout"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- end navbar -->
+
+	<!-- sidebar -->
+	<div id="sidebar-nav">
+		<ul id="dashboard-menu">
+			<li><a href="{{ path('cp_user') }}"><i class="icon-group"></i> <span>Пользователи</span></a></li>
+			<li><a href="{{ path('cp_city') }}"><i class="icon-home"></i> <span>Города</span></a></li>
+			<li><a href="{{ path('cp_company') }}"><i class="icon-briefcase"></i> <span>Компании</span></a></li>
+			<li><a href="{{ path('cp_country') }}"><i class="icon-road"></i> <span>Страны</span></a></li>
+			<li><a href="{{ path('cp_feedback') }}"><i class="icon-envelope"></i> <span>Обратная связь</span></a></li>
+			<li><a href="{{ path('cp_language') }}"><i class="icon-print"></i> <span>Языки</span></a></li>
+			<li><a href="{{ path('cp_page') }}"><i class="icon-file"></i> <span>Страницы</span></a></li>
+			<li><a href="{{ path('cp_resume') }}"><i class="icon-text-width"></i> <span>Резюме</span></a></li>
+			<li><a href="{{ path('cp_specialization') }}"><i class="icon-group"></i> <span>Специализации</span></a></li>
+			<li><a href="{{ path('cp_vacancy') }}"><i class="icon-group"></i> <span>Вакансии</span></a></li>
+			<li><a href="{{ path('cp_branch') }}"><i class="icon-group"></i> <span>Отрасли</span></a></li>
+		</ul>
+	</div>
+	<!-- end sidebar -->
+
+	<div class="content">
+		<div class="container-fluid">
+			{% block content %}{% endblock %}
+		</div>
+	</div>
+
+	<!-- scripts -->
+	<script src="/bundles/controlpanel/js/jquery-2.0.3.min.js"></script>
+	<script src="/bundles/controlpanel/js/bootstrap.js"></script>
+	<script src="/bundles/controlpanel/js/plupload.full.min.js"></script>
+	<script src="/bundles/controlpanel/js/redactor.js"></script>
+	<script src="/bundles/controlpanel/js/selectize.js"></script>
+	<script src="/bundles/controlpanel/js/theme.js"></script>
+	<script src="/js/tagging-bundle.js"></script>
+	<script src="/js/typeahead.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block userblock %}
+  <div class="account-main" id="sel">
+    <nav class="account-nav employer-nav">
+      
+      {% include '_menu_mobile.html.twig' %}
+      
+      <div class="account-drop-menu collapse" id="navcollaps">
+        
+        {% include 'employee_profile_menu.html.twig' %}
+
+      </div>
+    </nav>
+    <div class="account-heading">
+      <div class="pull-right xs-hide">
+        <span class="h3">{{ 'user.profile.balance'|trans }}: <b class="text-success">{{ app.user.balance }} {{ 'rub'|trans }}</b></span>
+      </div>
+      <div class="account-title"> <span class="xs-show"><i class="icon-16 icon-list-white"></i></span>
+        <h3>{{ 'user.menu.management'|trans }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="account-content">
+    <div class="row">
+      <div class="col-xs-12 col-sm-7 col-md-6">
+        <div class="border-right-form border-right-offset-y">
+          {% include '_flash_messages.html.twig' %}
+          
+          {{ form_start(vacancy_up_form) }}
+            <div class="form-group"> <i class="pull-left icn icn-1"></i>
+              <div class="form-pad-left">
+                <label class="text-bold text-uppercase">{{ 'user.management.vacancy_top'|trans }}</label>
+                <div class="row">
+                  <div class="col-sm-7 col-md-6">
+                    {{ form_widget(vacancy_up_form.vacancy, {'attr':{'class':'form-control'}}) }}
+                  </div>
+                </div>
+                <div class="button-group">
+                  <button type="submit" class="button button-sm">{{ 'user.management.pay'|trans }}</button>
+                  <b class="text-success price">100 {{ 'rub'|trans }}</b></div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          {{ form_end(vacancy_up_form) }}
+
+            <div class="space"></div>
+          {{ form_start(vacancy_vip_form) }}
+            <div class="form-group"> <i class="pull-left icn icn-2"></i>
+              <div class="form-pad-left">
+                <label class="text-bold text-uppercase">{{ 'user.management.vacancy_vip'|trans }}</label>
+                <div class="row">
+                  <div class="col-sm-7 col-md-6">
+                    {{ form_widget(vacancy_vip_form.vacancy, {'attr':{'class':'form-control'}}) }}
+                  </div>
+                </div>
+                <div class="button-group">
+                  <button type="submit" class="button button-sm">{{ 'user.management.pay'|trans }}</button>
+                  <b class="text-success price">100 {{ 'rub'|trans }}</b></div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          {{ form_end(vacancy_vip_form) }}
+
+            <div class="space"></div>
+            
+          {{ form_start(vacancy_urgent_form) }}
+            <div class="form-group"> <i class="pull-left icn icn-3"></i>
+              <div class="form-pad-left">
+                <label class="text-bold text-uppercase">{{ 'user.management.vacancy_urgent'|trans }}</label>
+                <div class="row">
+                  <div class="col-sm-7 col-md-6">
+                    {{ form_widget(vacancy_urgent_form.vacancy, {'attr':{'class':'form-control'}}) }}
+                  </div>
+                </div>
+                <div class="button-group">
+                  <button type="submit" class="button button-sm">{{ 'user.management.pay'|trans }}</button>
+                  <b class="text-success price">100 {{ 'rub'|trans }}</b></div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          {{ form_end(vacancy_urgent_form) }}
+
+
+
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-5 col-md-6">
+        <div class="top-xs margin-top-xs margin-bottom-sm payform">
+          <form>
+            <div class="form-group">
+              <label for="" class="text-bold text-uppercase">{{ 'user.management.balance'|trans }}</label>
+              <div class="row">
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="" value="100 {{ 'rub'|trans }}">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="text-bold text-uppercase">{{ 'user.management.pay_system'|trans }}</div>
+              <div class="top-sm">
+                <label class="pay-select">
+                  <input type="radio" value="1" name="pay" checked>
+                  <span class="pay-img"> <i class="pay-icn ya"></i> </span> </label>
+                <label class="pay-select">
+                  <input type="radio" value="2" name="pay">
+                  <span class="pay-img"> <i class="pay-icn visa"></i> </span> </label>
+                <label class="pay-select">
+                  <input type="radio" value="3" name="pay">
+                  <span class="pay-img"> <i class="pay-icn mc"></i> </span> </label>
+                <label class="pay-select">
+                  <input type="radio" value="4" name="pay">
+                  <span class="pay-img"> <i class="pay-icn wm"></i> </span> </label>
+              </div>
+            </div>
+            <button type="submit" class="button button-invert">{{ 'user.management.balance'|trans }}</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,584 @@
+{% set button = 'button-blue' %}
+
+{% if app.user %}
+    {% if app.user.type == 'employee' %}
+        {% set class = ' group-worker' %}
+        {% set logo = ' logo-worker' %}
+        {% set button = ' button-orange' %}
+        {% set favicon = 'favicon-worker.ico' %}
+    {% else %}
+        {% set class = ' group-employer' %}
+        {% set logo = ' logo-employer' %}
+        {% set button = ' button-green' %}
+        {% set favicon = 'favicon-employer.ico' %}
+    {% endif %}
+{% else %}
+    {% set class = '' %}
+    {% set logo = '' %}
+    {% set favicon = 'favicon.ico' %}
+{% endif %}
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>{% block title %}{{ 'site_title'|trans }}{% endblock %}</title>
+
+        <link href="/bundles/onedayjobfrontend/images/{{ favicon }}" rel="icon" type="image/x-icon" />
+
+        {% block stylesheets %}
+            {% stylesheets 'bundles/onedayjobfrontend/css/*' filter='cssrewrite' %}
+                <link type="text/css" rel="stylesheet" href="{{ asset_url }}">
+            {% endstylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+          <!--
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+          -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+            {% javascripts 'bundles/onedayjobfrontend/js/*' %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+            <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <![endif]-->
+        {% endblock %}
+    </head>
+<body data-locale="{{ app.request.get('_locale') }}">
+<!--header-->
+
+<header>
+  <div class="topbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <a class="lang" href="#" data-toggle="dropdown">
+            <img src="/bundles/onedayjobfrontend/images/{{ app.request.locale }}.png" alt="">
+            <span class="xs-hide"><i class="down"></i></span>
+          </a>
+
+          <ul class="dropdown-menu langs">
+            {% for locale, title in helper.getLocales() %}
+            <li>
+              <a href="{{ app.request.uri|replace({('/' ~ app.request.locale ~ '/') : ('/' ~ locale ~ '/')}) }}">
+                <img src="/bundles/onedayjobfrontend/images/{{ locale }}.png" alt="" class="drop-img-flag">
+                <span class="xs-hide">{{ title }}</span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="col-xs-6 text-right"> <a class="login-toggle collapsed" data-toggle="dropdown" href="#"> <i class="icon-32 icon-user"></i> </a>
+          <div class="login-collapse dropdown-menu">
+            
+            {% if app.user is not null %}
+              <div class="login-links">
+                <a href="/#collapse-1">
+                  <i class="icon-16 icon-reg"></i> {{ app.user.firstName ~ ' ' ~ app.user.lastName }}
+
+                  {% if app.user.type == 'employer' %}
+                    {% set responses = helper.getNewResponses(app.user) %}
+                    {% if responses > 0 %}
+                      <span class="responses">{{ responses }}</span>
+                    {% endif %}
+                  {% endif %}
+                </a>
+ 
+                <a href="{{ path('fos_user_security_logout') }}">
+                  <span>{{ 'menu.logout'|trans }}</span>
+                </a>
+              </div>
+            {% else %}
+              <div class="login-links">
+                <a href="{{ path('fos_user_registration_register') }}">
+                  <i class="icon-16 icon-reg"></i>
+                  <span>{{ 'menu.registration'|trans }}</span>
+                </a>
+                <a id="login-link" href="#">
+                  <i class="icon-16 icon-login"></i>
+                  <span>{{ 'menu.login'|trans }}</span>
+                </a>
+              </div>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container"> <a href="/{{ app.request.get('_locale') }}" class="logo{{ logo }} {{ app.request.get('_locale') }}"></a> </div>
+</header>
+<!--content-->
+{% block body %}{% endblock %}
+
+<div class="panel-tab-group{{ class }}" id="accordion"> 
+  <!--panel\tab-->
+  <div class="panel panel-tab{% if app.user is null %} panel-disable{% endif %}" aria-multiselectable="true">
+    <div class="panel-tab-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse-1" aria-expanded="true">
+      <div class="container"> <i class="collapse-up-down"></i>
+        <h3 class="panel-tab-title">{{ 'menu.profile'|trans }}</h3>
+      </div>
+    </div>
+    <div class="panel-tab-box collapse" id="collapse-1">
+      <div class="container">
+        <div class="panel-tab-body"><!--content-->
+
+          {% if app.user %}
+            {% if app.request.get('_route') in ['fe_index', 'fe_company', 'fe_vacancy_index', 'fe_resume_index'] %}
+              {{ render(controller('FOSUserBundle:Profile:edit')) }}
+            {% endif %}
+          {% endif %}
+
+          {% block userblock %}{% endblock %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--panel\tab-->
+  <div class="panel panel-tab {{ app.request.get('_route') == 'fe_index' ? 'panel-active' : '' }}">
+    <div class="panel-tab-heading {{ app.request.get('_route') == 'fe_index' ? '' : 'collapsed' }}" data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-expanded="true">
+      <div class="container"> <i class="collapse-up-down"></i>
+        <h3 class="panel-tab-title">{{ 'menu.search'|trans }}</h3>
+      </div>
+    </div>
+    <div class="panel-tab-box collapse {{ app.request.get('_route') == 'fe_index' ? 'in' : '' }}" id="collapse-2">
+      <div class="container">
+        <div class="panel-tab-body">
+          <div class="search-form">
+            <ul class="list-unstyled search-form-tabs">
+              <li class="active">
+                <a data-toggle="tab" href="#tab1">
+                  <span class="xs-hide">{{ 'form.search.find'|trans }}</span> 
+                  {{ 'form.search.job'|trans }}
+                </a>
+              </li>
+              <li>
+                <a data-toggle="tab" href="#tab2">
+                  <span class="xs-hide">{{ 'form.search.find'|trans }}</span> 
+                  {{ 'form.search.employee'|trans }}
+                </a>
+              </li>
+              <li>
+                <a data-toggle="tab" href="#tab3">
+                  <span class="xs-hide">{{ 'form.search.find'|trans }}</span> 
+                  {{ 'form.search.company'|trans }}
+                </a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane fade in active" id="tab1">
+                
+                {% set data = helper.getSearchFormData %}
+
+                <form class="form-horizontal" action="{{ path('fe_vacancy_index') }}">
+                  <div class="form-group">
+                    <label for="inputEmail3" class="col-xs-12 col-sm-4 control-label">{{ 'form.search.i_search'|trans }} {{ 'form.search.job'|trans }}</label>
+                    <div class="col-xs-12 col-sm-8">
+                      <input name="text" type="text" class="form-control" placeholder="{{ 'content.search.enter_word'|trans }}" value="{{ app.request.get('text', null) ? app.request.get('text') : '' }}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputEmail3" class="col-xs-12 col-sm-4 control-label">{{ 'form.vacancy.branch'|trans }}</label>
+                    <div class="col-xs-12 col-sm-8">
+                      <div class="selectbox">
+                        <select name="branch" class="combobox" data-placeholder="{{ 'content.search.choose_please'|trans }}">
+
+                          {% set branch_value = app.request.get('branch', null) %}
+
+                          <option></option>
+                          {% for branch in data.branches %}
+                            <option value="{{ branch.id }}"{{ branch.id == branch_value ? ' selected="selected" ' : '' }}>{{ branch.translate.title }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 control-label">{{ 'form.search.salary'|trans }}</label>
+                    <div class="col-xs-8 col-sm-5">
+                      <input type="number" class="form-control" name="salary" value="{{ app.request.get('salary', null) ? app.request.get('salary') : '' }}">
+                    </div>
+                    <div class="col-xs-4 col-sm-3">
+                      <div class="selectbox">
+                        <select name="currency" class="combobox" data-placeholder="{{ 'content.search.choose_please'|trans }}">
+                         
+                          {% set currency_value = app.request.get('currency', null) %}
+
+                          {% for code, title in data.currency %}
+                            <option value="{{ code }}"{{ code == currency_value ? ' selected="selected" ' : '' }}>{{ title }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 control-label">{{ 'form.search.term'|trans }}</label>
+                    <div class="col-xs-6 col-sm-4">
+                      <input name="term" type="number" class="form-control" placeholder="{{ 'form.search.enter_term'|trans }}" value="{{ app.request.get('term', null) ? app.request.get('term') : '' }}">
+                    </div>
+                    <div class="col-xs-6 col-sm-4">
+                      <p class="help-block">{{ 'form.search.days'|trans }}</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 control-label">{{ 'form.search.country'|trans }}</label>
+
+                    <div class="col-xs-6 col-sm-4">
+                      <div class="selectbox">
+                        <select class="combobox form_country" name="country" data-placeholder="{{ 'content.search.choose_please'|trans }}">
+                          <option></option>
+                          {% set country_value = app.request.get('country', null) %}
+
+                          {% if country_value is not null %}
+                            {% set cities = helper.getCities(country_value) %}
+                          {% endif %}
+
+                          {% for country in data.countries %}
+                            <option value="{{ country.id }}"{{ country.id == country_value ? ' selected="selected" ' : '' }}>{{ country.translate.title }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4">
+                      <div class="selectbox">
+                        <select name="city" class="combobox form_city" data-placeholder="{{ 'content.search.choose_please'|trans }}">
+                          <option></option>
+
+                          {% if cities is defined %}
+                            {% set city_value = app.request.get('city', null) %}
+
+                            {% for city in cities %}
+                              <option value="{{ city.id }}"{{ city.id == city_value ? ' selected="selected" ' : '' }}>{{ city.translate.title }}</option>
+                            {% endfor %}
+                          {% else %}
+                            {% for city in data.cities %}
+                              <option value="{{ city.id }}">{{ city.translate.title }}</option>
+                            {% endfor %}
+                          {% endif %}
+
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-4 col-xs-12 col-sm-8">
+                      <button type="submit" class="button {{ button }}">{{ 'form.search.search'|trans }}</button>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+              <div class="tab-pane fade" id="tab2">
+
+                <form class="form-horizontal" action="{{ path('fe_resume_index') }}">
+                  <div class="form-group">
+                    <label for="inputEmail3" class="col-xs-12 col-sm-4 control-label">{{ 'form.search.i_search'|trans }} {{ 'form.search.employee'|trans }}</label>
+                    <div class="col-xs-12 col-sm-8">
+                      <input name="text" type="text" class="form-control" placeholder="{{ 'content.search.enter_word'|trans }}" value="{{ app.request.get('text', null) ? app.request.get('text') : '' }}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputEmail3" class="col-xs-12 col-sm-4 control-label">{{ 'form.vacancy.branch'|trans }}</label>
+                    <div class="col-xs-12 col-sm-8">
+                      <div class="selectbox">
+                        <select name="branch" class="combobox" data-placeholder="{{ 'content.search.choose_please'|trans }}">
+
+                          {% set branch_value = app.request.get('branch', null) %}
+
+                          <option></option>
+                          {% for branch in data.branches %}
+                            <option value="{{ branch.id }}"{{ branch.id == branch_value ? ' selected="selected" ' : '' }}>{{ branch.translate.title }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 control-label">{{ 'form.search.salary'|trans }}</label>
+                    <div class="col-xs-8 col-sm-5">
+                      <input type="number" class="form-control" name="salary" placeholder="1000" value="{{ app.request.get('salary', null) ? app.request.get('salary') : '' }}">
+                    </div>
+                    <div class="col-xs-4 col-sm-3">
+                      <div class="selectbox">
+                        <select name="currency" class="combobox" data-placeholder="{{ 'content.search.choose_please'|trans }}">
+                          {% set currency_value = app.request.get('currency', null) %}
+
+                          {% for code, title in data.currency %}
+                            <option value="{{ code }}"{{ code == currency_value ? ' selected="selected" ' : '' }}>{{ title }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 control-label">{{ 'form.search.term'|trans }}</label>
+                    <div class="col-xs-6 col-sm-4">
+                      <input name="term" type="number" class="form-control" placeholder="{{ 'form.search.enter_term'|trans }}" value="{{ app.request.get('term', null) ? app.request.get('term') : '' }}">
+                    </div>
+                    <div class="col-xs-6 col-sm-4">
+                      <p class="help-block">{{ 'form.search.days'|trans }}</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 control-label">{{ 'form.search.country'|trans }}</label>
+
+                    <div class="col-xs-6 col-sm-4">
+                      <div class="selectbox">
+                        <select class="combobox form_country" name="country" data-placeholder="{{ 'content.search.choose_please'|trans }}">
+                          <option></option>
+                          {% set country_value = app.request.get('country', null) %}
+
+                          {% if country_value is not null %}
+                            {% set cities = helper.getCities(country_value) %}
+                          {% endif %}
+
+                          {% for country in data.countries %}
+                            <option value="{{ country.id }}"{{ country.id == country_value ? ' selected="selected" ' : '' }}>{{ country.translate.title }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4">
+                      <div class="selectbox">
+                        <select name="city" class="combobox form_city" data-placeholder="{{ 'content.search.choose_please'|trans }}">
+                          <option></option>
+                          {% if cities is defined %}
+                            {% set city_value = app.request.get('city', null) %}
+
+                            {% for city in cities %}
+                              <option value="{{ city.id }}"{{ city.id == city_value ? ' selected="selected" ' : '' }}>{{ city.translate.title }}</option>
+                            {% endfor %}
+                          {% else %}
+                            {% for city in data.cities %}
+                              <option value="{{ city.id }}">{{ city.translate.title }}</option>
+                            {% endfor %}
+                          {% endif %}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-4 col-xs-12 col-sm-8">
+                      <button type="submit" class="button {{ button }}">{{ 'form.search.search'|trans }}</button>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+              <div class="tab-pane fade" id="tab3">
+                
+                <form class="form-horizontal company_search_form" action="{{ path('fe_company_index') }}">
+                  <div class="form-group">
+                      <label for="inputEmail3" class="col-xs-12 col-sm-4 control-label">{{ 'form.search.i_search'|trans }} {{ 'form.search.company'|trans }}</label>
+                      <div class="col-xs-12 col-sm-8">
+                        <div class="selectbox">
+                          <select class="combobox form_company" name="company_id" data-placeholder="{{ 'content.search.choose_please'|trans }}">
+
+                            {% set company_value = app.request.get('company_id', null) %}
+
+                            <option></option>
+                            {% for company in data.companies %}
+                              <option value="{{ company.id }}"{{ company.id == 'company_value' ? ' selected="selected" ' : '' }}>{{ company.name }}</option>
+                            {% endfor %}
+                          </select>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 control-label">{{ 'form.search.country'|trans }}</label>
+
+                    <div class="col-xs-6 col-sm-4">
+                      <div class="selectbox">
+                        <select class="combobox form_country" name="country" data-placeholder="{{ 'content.search.choose_please'|trans }}">
+                          <option></option>
+                          {% set country_value = app.request.get('country', null) %}
+
+                          {% if country_value is not null %}
+                            {% set cities = helper.getCities(country_value) %}
+                          {% endif %}
+
+                          {% for country in data.countries %}
+                            <option value="{{ country.id }}"{{ country.id == country_value ? ' selected="selected" ' : '' }}>{{ country.translate.title }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4">
+                      <div class="selectbox">
+                        <select name="city" class="combobox form_city">
+                          <option></option>
+                          {% if cities is defined %}
+                            {% set city_value = app.request.get('city', null) %}
+
+                            {% for city in cities %}
+                              <option value="{{ city.id }}"{{ city.id == city_value ? ' selected="selected" ' : '' }}>{{ city.translate.title }}</option>
+                            {% endfor %}
+                          {% else %}
+                            {% for city in data.cities %}
+                              <option value="{{ city.id }}">{{ city.translate.title }}</option>
+                            {% endfor %}
+                          {% endif %}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-4 col-xs-12 col-sm-8">
+                      <button type="submit" class="button {{ button }}">{{ 'form.search.search'|trans }}</button>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--panel\tab-->
+
+    {% if app.request.get('_route') in ['fe_company_index', 'fe_vacancy_index', 'fe_resume_index'] %}
+      {% set search_result = 1 %}
+    {% else %}
+      {% set search_result = 0 %}
+    {% endif %}
+
+  <div class="panel panel-tab{% if search_result == 0 %} panel-disable{% endif %}">
+    <div id="search_result_tab" class="panel-tab-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="true" data-search="{{ search_result }}">
+      <div class="container"> <i class="collapse-up-down"></i>
+        <h3 class="panel-tab-title">{{ 'menu.search_result'|trans }} {% block search_result_count %}{% endblock %}</h3>
+      </div>
+    </div>
+    <div class="panel-tab-box collapse" id="collapse-3">
+      <div class="container">
+        <div class="panel-tab-body">
+          <div class="row">
+            {% block search_result %}{% endblock %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--panel\tab-->
+  <div class="panel panel-tab">
+    <div class="panel-tab-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-expanded="true">
+      <div class="container"> <i class="collapse-up-down"></i>
+        <h3 class="panel-tab-title">{{ 'menu.companies'|trans }}</h3>
+      </div>
+    </div>
+    <div class="panel-tab-box collapse" id="collapse-4">
+      <div class="container">
+        <div class="panel-tab-body">
+          <!--content-->
+          {% if company_index is not defined %}
+            {{ render(controller('OneDayJobFrontendBundle:Company:get_companies')) }}
+          {% endif %}
+
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--panel\tab-->
+  <div class="panel panel-tab">
+    <div class="panel-tab-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse-5" aria-expanded="true">
+      <div class="container"> <i class="collapse-up-down"></i>
+        <h3 class="panel-tab-title">{{ 'menu.urgent_vacancies'|trans }}</h3>
+      </div>
+    </div>
+    <div class="panel-tab-box collapse" id="collapse-5">
+      <div class="container">
+        <div class="panel-tab-body">
+          
+          {{ render(controller('OneDayJobFrontendBundle:Vacancy:getUrgentVacancies', {'page': app.request.get('page', 1), 'ipp': app.request.get('ipp', 20)})) }}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--footer-->
+
+{% include '_modal_vacancy.html.twig' %}
+
+<div class="modal fade" id="login-modal" tabindex="-1">
+  <div class="modal-dialog">
+     <span class="modal_close"></span>
+      <div class="box-login">
+        <div class="reg-field-box">
+          <div class="socBnts">
+              <br />
+              <div class="h5 text-uppercase notop"><b>{{ 'user.data.enter'|trans }}</b></div>
+
+              <script src="/bundles/onedayjobfrontend/js/b6_ulogin.js"></script>
+              <div id="uLoginba48b1bd" data-ulogin="display=buttons;fields=first_name,last_name,nickname,sex,bdate,email,photo,photo_big;optional=phone,city,country;providers=vkontakte,odnoklassniki,mailru,facebook;hidden=twitter,google,yandex,livejournal,openid,lastfm,linkedin,liveid,soundcloud,steam,flickr,uid,youtube,webmoney,foursquare,tumblr,googleplus,dudu,vimeo,instagram,wargaming;redirect_uri=;callback=registerSocialUser">
+                <div class="alt-reg">
+                      <a data-uloginbutton="vkontakte" href="#">
+                        <i class="social vk"></i>
+                      </a>
+                      <a data-uloginbutton="twitter" href="#">
+                        <i class="social tw"></i>
+                      </a>
+                      <a data-uloginbutton="instagram" href="#">
+                        <i class="social in"></i>
+                      </a>
+                      <a data-uloginbutton="odnoklassniki" href="#">
+                        <i class="social ok"></i>
+                      </a>
+                      <a data-uloginbutton="facebook" href="#">
+                        <i class="social fb"></i>
+                      </a>
+                  </div>
+              </div>
+              <script>uLogin.customInit('{{ "ba48b1bd" ~ '_' ~ random() }}');</script>
+            </div>
+        </div>
+
+
+        <form action="{{ path("fos_user_security_check") }}" method="post" id="login" data-locale="{{ app.request.get('_locale') }}">
+          <div class="reg-field-box">
+            <div class="form-group">
+                  <label for="username" class="text-uppercase text-bold">{{ 'form.profile.email'|trans }}: *</label>
+                  <input class="form-control" type="text" id="username" name="_username" value="">
+              </div>
+              <div class="form-group">
+                  <label for="password" class="text-uppercase text-bold">{{ 'form.profile.password'|trans }}: *</label>
+                  <input class="form-control" type="password" id="password" name="_password">
+              </div>
+              <div class="error"></div>
+          </div>
+          <div class="reg-field-box">
+            <div class="button-group">
+              <button type="submit" class="button button-blue">{{ 'user.data.enter'|trans }}</button>
+              <div class="pull-right top-sm">
+                <a href="{{ path('fos_user_resetting_request') }}" class="text-uppercase">{{ 'menu.forgot_password'|trans }}</a>
+              </div>
+            </div>
+          </div>
+          <input type="hidden" class="black" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
+        </form>
+      </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 text-right pull-right">
+        <a href="{{ path('fe_static_about') }}">{{ 'menu.static.about'|trans }}</a>
+        <span class="bull">&bull;</span>
+        <a href="{{ path('fe_static_agreement') }}">{{ 'menu.static.agreement'|trans }}</a> 
+        <span class="bull">&bull;</span>
+        <a href="{{ path('fe_static_feedback') }}">{{ 'menu.static.feedback'|trans }}</a>
+      </div>
+      <div class="col-xs-12 col-sm-6">© {{ date().format('Y') }} 1dayjob.today | {{ 'menu.rights'|trans }}</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

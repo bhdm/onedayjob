@@ -1,0 +1,71 @@
+api_profile_image_upload:
+    path: /profile/image
+    defaults: { _controller: OneDayJobApiBundle:Default:profileImageUpload }
+
+api_company_image_upload:
+    path: /company/image
+    defaults: { _controller: OneDayJobApiBundle:Default:companyImageUpload }
+
+api_resume_image_upload:
+    path: /resume/image
+    defaults: { _controller: OneDayJobApiBundle:Default:resumeImageUpload }
+
+api_cities:
+    path: /country_cities
+    defaults: { _controller: OneDayJobApiBundle:Default:countryCities }
+
+api_vacancy:
+    path: /vacancy
+    defaults: { _controller: OneDayJobApiBundle:Default:vacancy }
+
+api_companies:
+    path: /get_companies
+    defaults: { _controller: OneDayJobApiBundle:Default:getCompanies }
+
+api_vacancies:
+    path: /vacancies
+    defaults: { _controller: OneDayJobApiBundle:Default:vacancies }
+
+api_vacancy_favorite:
+    path: /vacancy/{id}/favorite
+    defaults: { _controller: OneDayJobApiBundle:Default:vacancyFavorite }
+
+api_vacancy_delete:
+    path: /vacancy/delete
+    defaults: { _controller: OneDayJobApiBundle:Default:vacancyDelete }
+
+api_countries:
+    path: /countries
+    defaults: { _controller: OneDayJobApiBundle:Default:countries }
+
+api_specializations:
+    path: /get_specialization
+    defaults: { _controller: OneDayJobApiBundle:Default:specializations }
+
+api_resume:
+    path: /resume/{id}
+    defaults: { _controller: OneDayJobApiBundle:Default:resume }
+
+api_profile_edit:
+    path: /profile_edit
+    defaults: { _controller: OneDayJobApiBundle:Default:profileEdit }
+
+add_vacancy_to_favorite:
+    path: /add_vacancy_to_favorite
+    defaults: { _controller: OneDayJobApiBundle:Default:addVacancyToFavorite }
+
+add_company_to_favorite:
+    path: /add_company_to_favorite
+    defaults: { _controller: OneDayJobApiBundle:Default:addCompanyToFavorite }
+
+add_resume_to_favorite:
+    path: /add_resume_to_favorite
+    defaults: { _controller: OneDayJobApiBundle:Default:addResumeToFavorite }
+
+api_vacancy_response:
+    path: /vacancy_response
+    defaults: { _controller: OneDayJobApiBundle:Default:vacancyResponse }
+
+api_vacancy_response_user_delete:
+    path: /vacancy_response_user_delete
+    defaults: { _controller: OneDayJobApiBundle:Default:responceUserDelete }

@@ -1,0 +1,53 @@
+{% extends 'OneDayJobControlpanelBundle:Default:base.html.twig' %}
+
+{% block content %}
+
+<div id="pad-wrapper">
+    <div class="table-wrapper">
+        <div class="row-fluid header">
+            <h3>User list</h3>
+                            <a href="{{ path('cp_user_create') }}" class="btn-flat success pull-right">ДОБАВИТЬ</a>
+                    </div>
+
+        {% for flashMessage in app.session.flashbag.get('success') %}
+            <div class="alert alert-success">
+                <i class="icon-ok-sign"></i> {{ flashMessage }}
+            </div>
+        {% endfor %}
+
+        <div class="row-fluid">
+            <table class="table table-hover">
+                <thead>
+                    <tr>                        
+                        <th class="span3">First_name</th>                        
+                        <th class="span3">Last_name</th>                        
+                        <th class="span3">Get_news_by_email</th>                        
+                        <th class="span3">Type</th>                        
+                        <th class="span3">Birthdate</th>                        
+                        <th class="span3">Balance</th>                        
+                        <th class="span3">Social_id</th>
+                        <th class="span3"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entity in entities %}
+                    <tr>
+                        <td>{{ entity.firstname }}</td>
+                        <td>{{ entity.lastname }}</td>
+                        <td>{{ entity.getnewsbyemail }}</td>
+                        <td>{{ entity.type }}</td>
+                        <td>{% if entity.birthdate %}{{ entity.birthdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>{{ entity.balance }}</td>
+                        <td>{{ entity.socialid }}</td>
+                        <td>    <a href="{{ path('cp_user_edit', { 'id': entity.id }) }}" class="btn-glow button-edit">    	
+    	<i class="icon-pencil"></i>Редактировать</a>                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {{ knp_pagination_render(entities) }}
+    </div>
+</div>
+{% endblock %}

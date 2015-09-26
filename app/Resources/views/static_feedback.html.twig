@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div class="bottom-lg">
+    <div class="container">
+      <ul class="xs-hide breadcrumb">
+        <li><a href="/">{{ 'menu.static.main'|trans }}</a></li>
+        <li class="active">{{ 'menu.static.feedback'|trans }}</li>
+      </ul>
+      <div class="row">
+        <div class="xs-hide col-sm-3">
+          <ul class="sidemenu">
+            <li><a href="{{ path('fe_static_about') }}">{{ 'menu.static.about'|trans }}</a></li>
+            <li><a href="{{ path('fe_static_agreement') }}">{{ 'menu.static.agreement'|trans }}</a></li>
+            <li class="active"><a href="{{ path('fe_static_feedback') }}">{{ 'menu.static.feedback'|trans }}</a></li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <div class="static">
+            <h1>{{ 'menu.static.feedback'|trans }}</h1>
+            <div class="contactContent">
+              <div class="line">
+                <h3>{{ 'static.phones'|trans }}</h3>
+
+                <div class="box">
+                  <span>{{ 'static.moscow'|trans }}</span>
+                  <strong>8 800 123-33-33</strong>
+                </div>
+                <div class="box">
+                  <span>{{ 'static.moscow'|trans }}</span>
+                  <strong>8 800 123-33-33</strong>
+                </div>
+                <div class="box">
+                  <span>{{ 'static.saint_pitsburg'|trans }}</span>
+                  <strong>8 800 123-33-33</strong>
+                </div>
+              </div>
+              <div class="line">
+                <h3>E-mail</h3>
+
+                <div class="box">
+                  <span>{{ 'static.support_service'|trans }}</span>
+                  <strong><a href="#">support@work.ua</a></strong>
+                </div>
+                <div class="box">
+                  <span>{{ 'static.employer_services'|trans }}</span>
+                  <strong><a href="#">sales@work.ua</a></strong>
+                </div>
+                <div class="box">
+                  <span>{{ 'static.cooperation'|trans }}</span>
+                  <strong><a href="#">partnership@work.ua</a></strong>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

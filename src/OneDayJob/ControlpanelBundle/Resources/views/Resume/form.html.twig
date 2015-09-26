@@ -1,0 +1,135 @@
+{% extends 'OneDayJobControlpanelBundle:Default:base.html.twig' %}
+
+{% block content %}
+	<div id="pad-wrapper" class="form-page">
+		<div class="row-fluid form-wrapper">
+			<div class="row-fluid header">
+				{% if form.vars.value.id %}
+					<h3>Редактирование резюме</h3>
+				{% else %}
+					<h3>Добавление резюме</h3>
+				{% endif %}
+			</div>
+			
+			{{ form_start(form) }}
+				<div class="field-box">
+                	{{ form_label(form.first_name, "First_name") }}
+					{{ form_widget(form.first_name, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.first_name) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.last_name, "Last_name") }}
+					{{ form_widget(form.last_name, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.last_name) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.middle_name, "Middle_name") }}
+					{{ form_widget(form.middle_name, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.middle_name) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.birthdate, "Birthdate") }}
+					{{ form_widget(form.birthdate, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.birthdate) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.sex, "Sex") }}
+					{{ form_widget(form.sex, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.sex) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.relocate, "Relocate") }}
+					{{ form_widget(form.relocate, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.relocate) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.citizenship, "Citizenship") }}
+					{{ form_widget(form.citizenship, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.citizenship) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.work_permit, "Work_permit") }}
+					{{ form_widget(form.work_permit, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.work_permit) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.phone, "Phone") }}
+					{{ form_widget(form.phone, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.phone) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.alternative_phone, "Alternative_phone") }}
+					{{ form_widget(form.alternative_phone, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.alternative_phone) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.email, "Email") }}
+					{{ form_widget(form.email, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.email) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.skype, "Skype") }}
+					{{ form_widget(form.skype, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.skype) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.preferred_communication, "Preferred_communication") }}
+					{{ form_widget(form.preferred_communication, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.preferred_communication) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.created, "Created") }}
+					{{ form_widget(form.created, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.created) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.vip, "Vip") }}
+					{{ form_widget(form.vip, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.vip) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.up, "Up") }}
+					{{ form_widget(form.up, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.up) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.extra, "Extra") }}
+					{{ form_widget(form.extra, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.extra) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.term, "Term") }}
+					{{ form_widget(form.term, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.term) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.salary, "Salary") }}
+					{{ form_widget(form.salary, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.salary) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.currency, "Currency") }}
+					{{ form_widget(form.currency, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.currency) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.specialty, "specialty") }}
+					{{ form_widget(form.specialty, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.specialty) }}
+				</div>            	
+            	<div class="field-box">
+					<label>&nbsp;</label>
+					<input type="submit" class="btn-flat primary" value="Сохранить">
+					{% if form.vars.value.id %}
+						<a href="{{ path('cp_resume_delete', {'id': form.vars.value.id}) }}" class="btn-flat inverse">Удалить</a>
+					{% else %}
+						<a href="{{ path('cp_resume') }}" class="btn-flat inverse">Отмена</a>
+					{% endif %}
+				</div>
+
+			{{ form_end(form) }}
+    		    
+		</div>
+	</div>
+{% endblock %}
+

@@ -1,0 +1,28 @@
+controlpanel_specialization:
+    path:     /{page}
+    defaults: { _controller: "OneDayJobControlpanelBundle:Specialization:index", page: 1 }
+    requirements:
+        page:  \d+
+
+controlpanel_specialization_new:
+    path:     /new
+    defaults: { _controller: "OneDayJobControlpanelBundle:Specialization:new" }
+
+controlpanel_specialization_create:
+    path:     /create
+    defaults: { _controller: "OneDayJobControlpanelBundle:Specialization:create" }
+    requirements: { _method: post }
+
+controlpanel_specialization_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OneDayJobControlpanelBundle:Specialization:edit" }
+
+controlpanel_specialization_update:
+    path:     /{id}/update
+    defaults: { _controller: "OneDayJobControlpanelBundle:Specialization:update" }
+    requirements: { _method: post|put }
+
+controlpanel_specialization_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OneDayJobControlpanelBundle:Specialization:delete" }
+    requirements: { _method: post|get }

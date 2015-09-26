@@ -1,0 +1,64 @@
+{% extends 'OneDayJobControlpanelBundle:Default:base.html.twig' %}
+
+{% block content %}
+	<div id="pad-wrapper" class="form-page">
+		<div class="row-fluid form-wrapper">
+			<div class="row-fluid header">
+				{% if form.vars.value.id %}
+					<h3>Редактирование {{ entity.name }}</h3>
+				{% else %}
+					<h3>Добавление компании</h3>
+				{% endif %}
+			</div>
+			
+			{{ form_start(form) }}
+				<div class="field-box">
+                	{{ form_label(form.name, "Наименование") }}
+					{{ form_widget(form.name, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.name) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.site, "Сайт") }}
+					{{ form_widget(form.site, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.site) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.phone, "Телефон") }}
+					{{ form_widget(form.phone, {"attr": {"class": "span8"}}) }}
+					{{ form_errors(form.phone) }}
+				</div>
+				<div class="field-box">
+                	{{ form_label(form.description, "Описание") }}
+					{{ form_widget(form.description, {"attr": {"class": "span8", "rows": 6}}) }}
+					{{ form_errors(form.description) }}
+				</div>   
+				<div class="field-box">
+                	{{ form_label(form.city, "Город") }}
+					{{ form_widget(form.city, {"attr": {"class": "selectize-select"}}) }}
+					{{ form_errors(form.city) }}
+				</div>
+				<div class="field-box">
+					{% if form.vars.value.id %}
+						<img src="{{ entity.image.src }}" style="width: 200px;" />
+					{% endif %}
+
+                	{{ form_label(form.image, "Логотип") }}
+					{{ form_widget(form.image) }}
+					{{ form_errors(form.image) }}
+				</div>        	
+            	<div class="field-box">
+					<label>&nbsp;</label>
+					<input type="submit" class="btn-flat primary" value="Сохранить">
+					{% if form.vars.value.id %}
+						<a href="{{ path('cp_company_delete', {'id': form.vars.value.id}) }}" class="btn-flat inverse">Удалить</a>
+					{% else %}
+						<a href="{{ path('cp_company') }}" class="btn-flat inverse">Отмена</a>
+					{% endif %}
+				</div>
+
+			{{ form_end(form) }}
+    		    
+		</div>
+	</div>
+{% endblock %}
+

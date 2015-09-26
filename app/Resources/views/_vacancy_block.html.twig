@@ -1,0 +1,28 @@
+{% for vacancy in vacancies %}
+  <div class="col-xs-12 col-sm-4 col-md-3">
+    <div class="list-pan">
+      <a class="no-hash{{ (app.request.get('_route') == 'fe_employee_response_index') ? '' : ' favorite_vacancies_link' }}" href="{{ path('fe_company', {'id':vacancy.company.id}) }}">
+      <div class="list-pan-date text-right text-muted xs-hide">{{ helper.getDate(vacancy.created) }}</div>
+      <div class="list-pan-image">
+        {% set image = vacancy.company.image is not null ? '/uploads/images/'~ vacancy.company.image : '/uploads/images/company.png' %}
+        <img src="{{ image | imagine_filter('logo_inset') }}" alt="">
+      </div>
+      <div class="list-pan-info-group">
+        <h5  class="list-pan-name2">{{ vacancy.title }}</h5>
+        <div class="text-muted">{{ vacancy.company.name }}</div>
+      </div>
+      <div class="list-pan-line2">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6"><span class="h5 text-bold">{{ vacancy.salaryPerMonth|number_format(0) }} {{ helper.currency(vacancy.currency) }}</span></div>
+          <div class="col-xs-12 col-sm-6 text-right"><span class="text-muted">{{ 'user.data.on'|trans }} {{ vacancy.term }} {{ 'form.search.days'|trans }}</span></div>
+        </div>
+      </div>
+      </a>
+      <div class="list-pan-info">
+        <div class="text-muted list-pan-location"> <i class="icon-16 icon-map"></i> {{ vacancy.city.translate.title }}</div>
+        <div class="list-pan-briefcase"> <i class="icon-16 icon-briefcase{% if app.user.favoriteVacancy.contains(vacancy) %} flagged{% endif %}" data-id="{{ vacancy.id }}"></i> </div>
+      </div>
+      
+    </div>
+  </div>
+{% endfor %}

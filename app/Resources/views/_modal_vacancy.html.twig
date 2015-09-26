@@ -1,0 +1,63 @@
+<div class="modal fade" id="qv_vacancy" tabindex="-1">
+  <div class="modal-dialog" style="width:960px;">
+    <div class="modal-content-box">
+      <button type="button" class="close" data-dismiss="modal" > <i class="icon-16 icon-close"></i> </button>
+      <div class="row">
+        <div class="col-xs-12 col-sm-9">
+          <div class="h1 text-bold notop qv_title">Руководитель отдела продаж</div>
+        </div>
+        <div class="col-xs-12 col-sm-3 text-right">
+          <div class="h2 text-bold notop qv_salary">40 000 руб</div>
+        </div>
+      </div>
+      <div>
+        <div class="modal-job-info">
+          <span>
+            <i class="icon-16 icon-map"></i> <span class="qv_city">Москва</span>
+          </span>
+          <span>
+            <i class="icon-16 icon-time"></i> <span class="qv_employment">Полная занятость</span>
+          </span>
+          <span>
+            <i class="icon-16 icon-user"></i> <span class="qv_work_experience">1 года</span>
+          </span>
+          <span>
+            <i class="icon-16 icon-calendar"></i> <span class="qv_created">17.10.2014</span>
+          </span>
+        </div>
+        <a href="#" class="text-underline qv_company_name">Wargaming.net</a>
+      </div>
+      <div class="top-md">
+        <div class="modal-text-wrap">
+          <div class="scrollbar-outer">
+            <p class="qv_description">Приглашаем программиста графики присоединиться к нашей команде World of Tanks (Минск, Беларусь).<br>
+              <br>
+              !!! Содействие в переезде для граждан России и Украины с полным официальным сопровождением и выплатой релокационного бонуса.
+            </p>
+
+            <br>
+            <h6>{{ 'user.data.requirements'|trans }}:</h6>
+            
+            <p class="qv_skill"></p>
+            
+          </div>
+        </div>
+      </div>
+
+      {% if app.user and app.user.type == 'employee' %}
+      <div class="top-sm">
+        
+        <div class="button-group">
+          <button type="submit" class="button vacancy_response" data-id=""> 
+            <i class="icon-16 icon-onclick-invert"></i>
+            {{ 'user.data.vacancy_response'|trans }}
+          </button>
+          <button type="submit" class="button favorite"> 
+            <i class="icon-16 icon-briefcase-invert"></i> 
+            {{ 'user.data.ad_to_favorite'|trans }}</button>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

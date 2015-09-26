@@ -1,0 +1,25 @@
+<div class="company-list companies">
+  <div class="row">
+    {% for company in companies %}
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="list-pan">
+          <a href="{{ path('fe_company', {'id': company.id}) }}">
+            <div class="list-pan-image">
+
+              {% set image = company.image is not null ? '/uploads/images/'~ company.image : '/uploads/images/company.png' %}
+
+              <img src="{{ image|imagine_filter('logo_inset') }}" alt="">
+            </div>
+            <h5  class="list-pan-name">{{ company.name }}</h5>
+            <div class="text-muted">{{ getPlural(company.vacancies.count(), ['content.search.vacancy_1'|trans, 'content.search.vacancy_2'|trans, 'content.search.vacancy_3'|trans]) }}</div>
+            <div class="list-pan-info">
+              <div class="text-muted list-pan-location"> <i class="icon-16 icon-map"></i> {{ company.city.translate.title }}</div>
+              <div class="list-pan-briefcase">
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

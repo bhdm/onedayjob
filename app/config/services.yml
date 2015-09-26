@@ -1,0 +1,9 @@
+parameters:
+    vendor_security.authentication_handler: OneDayJob\FrontendBundle\Listener\AjaxAuthenticationListener
+
+services:
+    authentication_handler:
+        class:  %vendor_security.authentication_handler%
+        arguments:    [@router, @security.context, @fos_user.user_manager, @service_container]
+        tags:
+            - { name: 'monolog.logger', channel: 'security' }

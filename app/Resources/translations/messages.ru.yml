@@ -1,0 +1,532 @@
+site_title: "1dayjob.today"
+
+menu:
+    menu: "Меню"
+    registration: "Регистрация"
+    vacancy_list: "Список вакансий"
+    company_list: "Список компаний"
+    resume_list: "Список резюме"
+    enter_email: "Введите ваш e-mail"
+    enter_password: "Введите пароль"
+    forgot_password: "Забыли пароль?"
+    login: "Войти"
+    logout: "Выход"
+    employee: "Как соискатель"
+    employer: "Как работодатель"
+    show_all: "Показать все"
+    selected: "Избранное"
+    add_resume: "Добавить резюме"
+    add_vacancy: "Добавить вакансию"
+    profile: "Личный кабинет"
+    search: "Поиск"
+    search_result: "Результаты поиска"
+    companies: "Компании"
+    urgent_vacancies: "Срочные вакансии"
+    rights: "Все права защищены"
+    static:
+        about: "О компании"
+        agreement: "Соглашение"
+        feedback: "Контакты"
+        main: "Главная"
+
+form:
+    search:
+        find: 'Найти'
+        employee: 'сотрудника'
+        job: "работу"
+        company: "компанию"
+        search: "поиск"
+        i_search: "Я ищу"
+        company: "Я ищу компанию"
+        employee: "Я ищу сотрудника"
+        salary: "с оплатой в день"
+        days: "дней"
+        country: "страна"
+        city: "Город"
+        term: "на срок"
+        gender: "Пол"
+        gender_male: "Мужской"
+        gender_female: "Женский"
+        enter_term: 'Введите срок'
+    profile:
+        email: "E-mail"
+        password: "Пароль"
+        first_name: "Имя"
+        last_name: "Фамилия"
+        middle_name: "Отчество"
+        birthday: "Дата рождения"
+        i_am_employee: "Я соискатель"
+        i_am_employer: "Я работодатель"
+        social: "Зарегистрироваться с помощью"
+        create_password: "Придумайте пароль"
+        enter_password: "Введите пароль"
+        repeat_password: "Повторите пароль"
+        show_password: "Показать пароль"
+        enter_name: "Введите ваше имя"
+        enter_sirname: "Введите вашу фамилию"
+        i_agree_with: "Я согласен с"
+        rules: "правилами использования"
+        service: "сервиса"
+        signup: "Зарегистрироваться"
+        send_news: "Присылать мне новости обновления проекта"
+    company:
+        title: "Название компании"
+        site: "Вебсайт"
+        phone: "Телефон"
+        info: "Информация о компании"
+    vacancy:
+        branch: "Отрасль"
+        specialization: "Специализация"
+        post: "Должность"
+        employment: "Занятость"
+        work_experience: "Опыт работы"
+        education: "Образование"
+        duty: "Обязанности"
+        skill: "Требования"
+        salary_per_month: "Зарплата за месяц"
+        salary_per_day: "Зарплата за день"
+        currency: "Валюта"
+        extra: "Допольнительная инфомарция"
+    resume:
+        city: "Город проживания"
+        profession: "Профессия"
+        add_field: "Добавить поле"
+        salary: "Желаемая зарплата"
+        term: "Срок работы"
+        relocate: "Готовность к переезду"
+        citizenship: "Граданство"
+        work_permit: "Разрешение на работу"
+        other: "Другое"
+        cellphone: "Мобильный телефон"
+        alternative_cellphone: "Альтернативный телефон"
+        preferred_communication: "Желаемый вид связи"
+        skype: "Skype"
+        extra: "Дополнительная информация"
+        specialty: "Специальность"
+        ### new
+        never: 'Никогда'
+        ready: 'Готов'
+        russia: 'Россия'
+
+user:
+    menu:
+        profile: "Профиль"
+        company: "Компания"
+        vacancies: "Вакансии"
+        favorite: "Избранное"
+        responses: "Отклики"
+        my_responses: "Мои отклики"
+        management: "Управление"
+        resume: "Резюме"
+    profile:
+        balance: "Ваш баланс"
+        allowed_files: "Допускаются файлы формата "
+        file_size: "Размер файла не должен привышать "
+        pay: "Пополнить"
+        upload_logo: "Загрузить логотип"
+        email: "E-mail"
+        logo: 'Логотип'
+    data:
+        responded: "Откликнулись"
+        add_vacancy: "Добавить вакансию"
+        add_vacancy2: "Создать новую вакансию"
+        edit_vacancy: "Редактирование вакансии"
+        vacancy_empty: "У вас не создано ни одной вакансии! Создайте вакансию прямо сейчас"
+        add_resume: "Создание резюме"
+        add_resume2: "Создать резюме"
+        return_without_saving: "Вернуться к резюме без сохранения"
+        personal_info: "Персональная информация"
+        contacts: "Контактная информация"
+        photos: "Фотографии"
+        save: "Сохранить"
+        cancel: "Отменить"
+        add_photo: "Добавить фотографию"
+        resume_edit: "Редактировать резюме"
+        resume_delete: "Удалить резюме"
+        resume_view: "Посмотреть мое резюме"
+        resume_created: "Резюме размещенно на сайт"
+        resume_empty: "Ваше резюме еще не создано Создайте его на нашем сайте, для более удобного подбора вакансий для Вас"
+        vacancies: "вакансий"
+        send_resume: "Разослать резюме"
+        want_to_work_here: "Хочу здесь работать"
+        clear_filter: "Очистить фильтр"
+        requirements: "Требования"
+        vacancy_response: "Откликнуться на вакансию"
+        ad_to_favorite: "Добавить в избранное"
+        login: "Авторизация"
+        enter: "Войти"
+        on: 'на'
+        realy_remove_resume: 'Вы действительно хотите удалить резюме?' #+
+        realy_remove_vacancy: 'Вы действительно хотите удалить вакансию?' #+
+        remove: 'Удалить' #+
+    management:
+        vacancy_top: "Поднять вакансию на перове место"
+        vacancy_vip: "Выделить вакансию в топе"
+        vacancy_urgent: "Разместить вакансию в срочное"
+        resume_top: "Поднять резюме в топ"
+        pay: "Оплатить"
+        balance: "Пополнить баланс"
+###
+        pay_system: 'Выберите систему оплаты' #+
+    signup:
+        finish: "Поздравляем, ваш аккаунт подтвержден."
+        send_mail: "На ваш электронный адрес выслано письмо для подтверждения вашей регистрации"
+content:
+    salary: "Зарплата"
+###
+    search:
+        no_vacancy: "Вакансий не найдено"
+        vacancy_1: "вакансия"
+        vacancy_2: "вакансии"
+        vacancy_3: "вакансий"
+        no_company: "Компаний не найдено"
+        company_1: "компания"
+        company_2: "компании"
+        company_3: "компаний"
+        no_resume: "Резюме не найдено" #+
+        resume_1: "резюме" #+
+        resume_2: "резюме" #+
+        resume_3: "резюме" #+
+        enter_word: "Введите слово"
+        choose_please: "Выберите, пожалуйста..."
+    sort_by: "Сортировать по"
+    sort_date: "Дате добавления"
+    sort_view: "Просмотрам"
+###
+
+
+#+
+helper:
+    employment:
+        employment_1: 'Полная занятость'
+        employment_2: 'Частичная занятость'
+        employment_3: 'Проектная работа'
+        employment_4: 'Волонтерство'
+        employment_5: 'Стажировка'
+    experience:
+        experience_1: 'Нет опыта'
+        experience_2: 'От 1 года до 3 лет'
+        experience_3: 'От 3 до 6 лет'
+        experience_4: 'Более 6 лет'
+    education:
+        education_1: 'Среднее'
+        education_2: 'Среднее специальное'
+        education_3: 'Неполное высшее'
+        education_4: 'Высшее'
+    schedule:
+        schedule_1: 'Полный день'
+        schedule_2: 'Сменный график'
+        schedule_3: 'Гибкий график'
+        schedule_4: 'Удаленная работа'
+        schedule_5: 'Вахтовый метод'
+#+
+
+# Flash
+
+flash:
+    important: "Важно!"
+    done: "Готово!"
+    warning:
+        no_favorites: "У Вас нет избранных вакансий"
+        no_fresume: "У Вас нет избранных резюме"
+        no_companies: "У Вас нет избранных компаний"
+        no_responces: "Вы не откликались ни на одну вакансию"
+        vacancy:
+            no_company: "Для того, чтобы иметь возможность оперировать вакансиями, Вам необходимо создать компанию."
+        resume:
+            pre_upload_image: "Прежде чем добавлять фотографию, Вам необходимо заполнить все поля формы и сохранить резюме."
+            already_exists: "У Вас уже есть резюме. Вы не можете создавать более одного резюме."
+        company:
+            no_company: "Прежде чем получить доступ к разделу Управление, необходимо создать компанию"
+            response: "Для того, чтобы иметь возможность оперировать откликами, необходимо создать компанию"
+    success:
+        company:
+            saved: "Информация о компании успешно сохранена."
+        vacancy:
+            created: "Вакансия успешно добавлена."
+            updated: "Изменения успешно сохранены."
+            deleted: "Вакансия успешно удалена."
+        resume:
+            created: "Резюме успешно добавлено."
+            updated: "Изменения успешно сохранены."
+            deleted: "Резюме успешно удалено."
+        managment:
+            up: "Вакансия успешно поднята на верх."
+            urgent: "Вакансия добавлена в срочные"
+            vip: "Вакансии успешно присвоен статус VIP на одну неделю"
+        employee_managment:
+            up: "Резюме успешно поднята на верх."
+            vip: "Резюме успешно присвоен статус VIP на одну неделю"
+    error:
+        managment:
+            no_money: "На Вашем балансе не достаточно средств для совершения данной операции."
+
+
+#security:
+    form:
+        label:
+            username: "Email"
+            password: "Пароль"
+        submit: "Войти"
+    resetting: "Забыли пароль?"
+
+resetting:
+    request:
+        submit: "Выслать пароль"
+        username: "Email"
+        invalid_username: "Email %username% не существует."
+        change: 'Изменить пароль'
+
+
+months:
+    1: "января"
+    2: "февраля"
+    3: "марта"
+    4: "апреля"
+    5: "мая"
+    6: "июня"
+    7: "июля"
+    8: "августа"
+    9: "сентября"
+    10: "октября"
+    11: "ноября"
+    12: "декабря"
+
+rub: 'руб'
+
+
+
+
+
+
+
+
+
+
+#######################
+#
+#bottom_menu:
+#    about: "О проекте"
+#    agreement: "Соглашение"
+#    feedback: "Обратная связь"
+#    rights: "Все права защищены"
+#
+#breadcrumbs:
+#    fe_index: "Главная страница"
+#    fe_vacancy_index: "Вакансии"
+#
+#button:
+#    quick_view: "Быстрый просмотр"
+#    add: "Добавить"
+#    save: "Сохранить"
+#    find: "Найти"
+#    query: "Запрос"
+#
+## Paginator
+#paginator:
+#    previous: "Предыдущая"
+#    next: "Следующая"
+#
+## popup
+#popup:
+#    work_experience: "Опыт работы"
+#    vacancy_feedback: "Откликнуться на вакансию"
+#    add_favorites: "Добавить в избранное"
+#
+## Index
+#index:
+#    title: "Твоя новая работа на 1DAYJOB.TODAY!"
+#    slogan: "Свежий взгляд на быстрый поиск срочной работы!"
+#    employers: "Работодатели"
+#    get_job: "Подобрать работу"
+#    find_employee: "Найти сотрудника"
+#    find: "Найти"
+#    query: "Запрос"
+#    for_example: "К примеру"
+#    tech_engeneer: "Инженер технолог"
+#    global_search: "Расширенный поиск"
+#    branch: "Отрасль"
+#    specialization: "Специализация"
+#    position: "Должность"
+#    work_experience: "Опыт работы"
+#    salary_for: "Зарплата"
+#    day: "день"
+#    month: "Mecяц"
+#    education: "Образование"
+#    occupation: "Вид занятости"
+#    dignity_1: "Удобный поиск профессионалов"
+#    dignity_2: "Самые актуальные предложения от компаний"
+#    dignity_3: "Более 10 000 вакансий"
+#    dignity_4: "Предложения от зарубежных компаний"
+#    urgently: "Срочные вакансии"
+#    view_all: "Посмотреть все"
+#    currency: "Валюта"
+#
+## Static
+#
+#static:
+#
+#    accepted: "Принято"
+#    contact_info: "Контактная информация"
+#    phones: "Телефоны"
+#    moscow: "Москва"
+#    saint_pitsburg: "Санкт-петербург"
+#    support_service: "Служба поддержки"
+#    employer_services: "Услуги для работодателей"
+#    cooperation: "Вопросы сотрудничества"
+#    send_message: "Отправить сообщения"
+#    send: "Отправить"
+#    insert_name: "Введите Ваше имя, пожалуйста"
+#    insert_email: "Введите Ваш email, пожалуйста"
+#    insert_message: "Введите сообщение, пожалуйста"
+#
+## Employer
+#
+#
+#
+## Employer, Vacancy
+#vacancy:
+#    find: "Найти"
+#    choose_city: "Выбирете город"
+#    query: "Запрос"
+#    for_example: "К примеру"
+#    engeneer: "Инженер технолог"
+#    global_search: "Расширенный поиск"
+#    branch: "Отрасль"
+#    specialization: "Специализация"
+#    position: "Должность"
+#    work_experience: "Опыт работы"
+#    salary_for: "Зарплата за"
+#    day: "день"
+#    month: "месяц"
+#    education: "Образование"
+#    occupation: "Вид занятости"
+#    vacancy_response: "Откликнуться на вакансию"
+#    add_to_favorites: "Добавить в избранное"
+#    similar_vacancies: "Похожие вакансии"
+#
+#vacancy_index:
+#    choose_city: Выбирете город
+#
+#
+#employer_vacancy_index:
+#    title: "Список вакансий"
+#    button:
+#        add: "Добавить вакансию"
+#    no_created_vacancy: "У вас не создано ни одной вакансии!"
+#    create_vacancy_now: "Создайте вакансию прямо сейчас"
+#    create_vacancy: "Создать вакансию"
+#
+#employer_vacancy_new:
+#    title: "Создание новой вакансии"
+#    form:
+#        label:
+#            title: "Название вакансии"
+#            branch: "Отрасль"
+#            specialization: "Специализация"
+#            country: "Страна"
+#            city: "Город"
+#            employment: "Вид занятости"
+#            work_schedule: "График работы"
+#            work_experience: "Опыт работы"
+#            education: "Образование"
+#            salary: "Зарплата"
+#            currency: "Валюта"
+#            duty: "Должностные обязанности"
+#            skill: "Знания и умения"
+#
+#employer_vacancy_edit:
+#    title: "Редактирование вакансии"
+#
+#employer_company_index:
+#    company_name: "Название компании"
+#    phone: "Телефон"
+#    web_address: "Веб-сайт"
+#    company_info: "Информация о компании"
+#    country: "Страна"
+#    city: "Город"
+#    company_logo: "Логотип компании"
+#    file_type_allowed: "Допускаются файлы формата"
+#    file_size_exeeds: "Размер файла не должен привышать"
+#    upload_logo: "Загрузить логотип"
+#
+#employer_favorite_index:
+#    fast_view: "Быстрый просмотр"
+#    no_vacancy_in_favorites: "У вас нет ни одной вакансии в избранном!"
+#
+#employee_favorite_empty:
+#    no_vacancy_in_favorites: "У вас нет ни одной вакансии в избранном!"
+#
+#employer_response_index:
+#    archive: "Архив"
+#
+## Validation
+#
+#company:
+#    invalid_name: "Поле Название компании содержит недопустимые символы или цифры."
+#
+#
+#
+#employee_resume_index:
+#    add_resume: "Добавить резюме"
+#    quick_view: "Быстрый просмотр"
+#    resume_create: "Созать резюме"
+#    resume_is_not_created: "Ваше резюме еще не создано.Создайте его на нашем сайте, для более удобного подбора вакансий для вас"
+#    resume_already_created: "Если у вас есть готовое резюме, загрузите его на наш сайт прямо сейчас"
+#    download: "Загрузить"
+#    download_resume: "Загрузите резюме"
+#
+#employee_resume_edit:
+#    branch: "Отрасль"
+#    country: "Страна"
+#    ocupation: "Занятость"
+#    city: "Город"
+#    work_schedule: "График работы"
+#    experience: "Опыт работы"
+#    education: "Образование"
+#    salary_per_month: "Зарплата за месяц"
+#    salary_per_day: "Зарплата за день"
+#    currency: "Валюта"
+#    description: "Описание"
+#    save: "Сохранить"
+#
+#employee_resume_create:
+#    fill_in_fields: "Заполните следующие поля"
+#    name: "Имя"
+#    surname: "Фамилия"
+#    phone: "Телефон"
+#    country: "Страна"
+#    city: "Город"
+#    university: "ВУЗ"
+#    entrance_date: "Поступил"
+#    end_date: "Закончил"
+#    faculty: "Факультет"
+#    add: "Добавить"
+#    remove: "Удалить"
+#    about_me: "О себе"
+#    skills: "Умения"
+#    languages: "Языки"
+#    additional_info: "Дополнительная информация"
+#    desired_salary: "Желаемая зарплата"
+#    add_vacancy: "Добавить вакансию"
+#    add_photo: "Загрузите вашу фотографию к резюме"
+#    allowed_file_format: "Допускаются файлы формата"
+#    file_size_exceeded: "Размер файла не должен привышать"
+#    upload: "Загрузить"
+#    realy_remove: 'Вы действительно хотите удалить резюме?' #+
+#
+#
+##Security
+#security:
+#    form:
+#        label:
+#            username: "Email"
+#            password: "Пароль"
+#        submit: "Войти"
+#    resetting: "Забыли пароль?"
+#
+#resetting:
+#    request:
+#        submit: "Выслать пароль"
+#        username: "Email"
+#        invalid_username: "Email %username% не существует."
