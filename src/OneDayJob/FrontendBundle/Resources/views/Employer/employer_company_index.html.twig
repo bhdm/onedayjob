@@ -146,7 +146,7 @@
               <div class="gallery_img">
                   {% if (app.user.company is not null) and (app.user.company.gallery is not null) %}
                       {% for image_gallery in app.user.company.gallery %}
-                          <img width="400" src="{{ image_gallery.src }}">
+                          <a class="fancybox" rel="gallery1" href="{{ image_gallery.src }}"><img width="400" src="{{ image_gallery.src }}"></a>
                       {% endfor %}
                   {% endif %}
               </div>
