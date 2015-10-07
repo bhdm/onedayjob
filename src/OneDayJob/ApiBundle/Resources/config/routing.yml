@@ -10,6 +10,10 @@ api_resume_image_upload:
     path: /resume/image
     defaults: { _controller: OneDayJobApiBundle:Default:resumeImageUpload }
 
+api_company_gallery_image_upload:
+    path: /company/image/gallery
+    defaults: { _controller: OneDayJobApiBundle:Default:companyGalleryImageUpload }
+
 api_cities:
     path: /country_cities
     defaults: { _controller: OneDayJobApiBundle:Default:countryCities }

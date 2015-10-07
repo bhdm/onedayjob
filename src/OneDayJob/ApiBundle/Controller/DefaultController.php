@@ -2,6 +2,7 @@
 
 namespace OneDayJob\ApiBundle\Controller;
 
+use OneDayJob\ApiBundle\Entity\Gallery;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -60,18 +61,18 @@ class DefaultController extends Controller
 			return new JsonResponse($to_json);
 		}
 
-		$company = $user->getCompany();
-
-		if (!$company) {
-			return new JsonResponse($to_json);
-		}
+//		$company = $user->getCompany();
+//
+//		if (!$company) {
+//			return new JsonResponse($to_json);
+//		}
 
 		// TODO: Исключить возможность загрузки более 1 фотографии.
 
 		foreach ($request->files as $file) {
-			if ($logo = $company->getImage()) {
-				$em->remove($logo);
-			}
+//			if ($logo = $company->getImage()) {
+//				$em->remove($logo);
+//			}
 
 			$file_name = sha1(uniqid()) .'.'. $file->guessExtension();
 
@@ -80,14 +81,14 @@ class DefaultController extends Controller
 
 			$file->move($image->getAbsolutePath(), $image->getFileName());
 
-			$company->setImage($image);
+//			$company->setImage($image);
 
-			$em->persist($image);
-			$em->persist($company);
-			$em->flush();
+            $em->persist($image);
+            $em->flush();
+            $em->refresh($image);
 
 			//$to_json = ['filelink' => $this->get('liip_imagine.cache.manager')->getBrowserPath($image->getSrc(), 'logo_outbound')];
-			$to_json = ['filelink' => $image->getSrc()];
+            $to_json = ['filelink' => $this->get('liip_imagine.cache.manager')->getBrowserPath($image->getSrc(), 'profile_inset'), 'imageId' => $image->getId()];
 			break;
 		}
 
@@ -104,18 +105,18 @@ class DefaultController extends Controller
 			return new JsonResponse($to_json);
 		}
 
-		$resume = $employee->getResume();
-
-		if (!$resume) {
-			return new JsonResponse([]);
-		}
+//		$resume = $employee->getResume();
+//
+//		if (!$resume) {
+//			return new JsonResponse([]);
+//		}
 
 		// TODO: Исключить возможность загрузки более 1 фотографии.
 
 		foreach ($request->files as $file) {
-			if ($avatar = $resume->getImage()) {
-				$em->remove($avatar);
-			}
+//			if ($avatar = $resume->getImage()) {
+//				$em->remove($avatar);
+//			}
 
 			$file_name = sha1(uniqid()) .'.'. $file->guessExtension();
 
@@ -124,17 +125,56 @@ class DefaultController extends Controller
 
 			$file->move($image->getAbsolutePath(), $image->getFileName());
 
-			$resume->setImage($image);
+//			$resume->setImage($image);
 
 			$em->persist($image);
-			$em->persist($resume);
 			$em->flush();
+			$em->refresh($image);
 
-			$to_json = ['filelink' => $this->get('liip_imagine.cache.manager')->getBrowserPath($image->getSrc(), 'profile_inset')];
+			$to_json = ['filelink' => $this->get('liip_imagine.cache.manager')->getBrowserPath($image->getSrc(), 'profile_inset'), 'imageId' => $image->getId()];
 		}
 
 		return new JsonResponse($to_json);
 	}
+
+    public function companyGalleryImageUploadAction(Request $request){
+        $to_json = [];
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->getUser();
+
+        $image_id = array();
+        $image_src = array();
+        $i = 0;
+
+        if (!$user) {
+            return new JsonResponse($to_json);
+        }
+
+        foreach ($request->files as $file) {
+
+            $file_name = sha1(uniqid()) .'.'. $file->guessExtension();
+
+            $image = new Gallery();
+            $image->setFileName($file_name);
+
+            $file->move($image->getAbsolutePath(), $image->getFileName());
+
+            $em->persist($image);
+            $em->flush();
+            $em->refresh($image);
+
+            $image_id =  $image->getId();
+            $image_src = $image->getSrc();
+
+            $to_json[$i] = ['filelink' => $this->get('liip_imagine.cache.manager')->getBrowserPath($image_src, 'profile_inset'), 'imageId' => $image_id];
+            $i++;
+        }
+
+
+
+        return new JsonResponse($to_json);
+
+    }
 
 	public function countryCitiesAction(Request $request)
 	{

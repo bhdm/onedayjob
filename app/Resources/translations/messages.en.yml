@@ -89,12 +89,15 @@ form:
         salary_per_day: "Salary per day"
         currency: "Currency"
         extra: "Additional information"
+        year: "years"
     resume:
         city: "City of residence"
         profession: "Profession"
         add_field: "Add field"
         salary: "Desired salary"
         term: "Period of assignment"
+        term_from: "Beginning of work"
+        term_to: "End of work"
         relocate: "Willing to relocate"
         citizenship: "Citizenship"
         work_permit: "Work permit"
@@ -179,6 +182,7 @@ content:
     salary: "Salary"
     search:
         no_vacancy: "No positions found"
+        need_to_login_regist: "To see you sign up"
         vacancy_1: "vacancy"
         vacancy_2: "vacancies"
         vacancy_3: "vacancies"
@@ -192,6 +196,10 @@ content:
         resume_3: "resume"
         enter_word: "Enter the word"
         choose_please: "Please select ..."
+        select_any_branch: "Any branch"
+        select_any_country: "Any country"
+        select_any_city: "Any city"
+        select_any_company: "Any company"
 helper:
     employment:
         employment_1: 'Full employment'

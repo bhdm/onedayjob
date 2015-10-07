@@ -1,0 +1,77 @@
+<html>
+<head>
+    <style>
+        .extra{
+            text-align: justify;
+        }
+        .TES{
+            font-size: 15px;
+        }
+        #head_table{
+            margin-top: 20px;
+        }
+        .circle{
+            position: fixed;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+{% if resume.citizenship == 1 %}
+    {% set citizenship = 'form.resume.russia' %}
+    {% else %}
+    {% set citizenship = 'form.resume.other' %}
+{% endif %}
+{% if resume.relocate == 0 %}
+    {% set relocate = 'form.resume.ready' %}
+{% else %}
+    {% set relocate = 'form.resume.never' %}
+{% endif %}
+<div>
+    <h1>{{ resume.getFullName }}</h1>
+    <table id="head_table">
+        <tr>
+            <td>
+                <img width="250" src="{{ app.request.getSchemeAndHttpHost() }}{{ resume.image.src }}">
+                <img width="250" class="circle" src="{{ asset('bundles/onedayjobfrontend/images/circle.jpg') }}">
+            </td>
+            <td>
+                <div class="TES"><b> {{ 'form.profile.birthday'|trans }}:</b> {{ resume.birthdate |date("d.m.Y")}}</div><br>
+                <div class="TES"><b> {{ 'form.resume.citizenship'|trans}}: </b>{{ citizenship | trans }}</div><br>
+                <div class="TES"><b> {{ 'form.company.phone'|trans }}:</b> +{{ resume.phone }}</div><br>
+                <div class="TES"><b> E-mail:</b> {{ resume.email }}</div><br>
+                <div class="TES"><b> Skype:</b> {{ resume.skype }}</div><br>
+            </td>
+        </tr>
+    </table><br>
+    <div><b>{{ 'form.resume.city'|trans }}:</b> {{ resume.city.translate.title }}</div>
+</div>
+
+<div>
+    <br>
+    <div>
+        <div><b>{{ 'form.vacancy.specialization'|trans }}: </b> {{ resume.specialty }}</div>
+    </div>
+    <br>
+    <div><b>{{ 'form.vacancy.education'|trans }}</b></div>
+    {% for education in resume.education %}
+        <p>
+            <span>{{ education.title }}</span>
+        </p>
+    {% endfor %}
+    <br>
+    <div><b>{{ 'form.vacancy.work_experience'|trans }}</b></div>
+    {% for experience in resume.experience %}
+        <p>{{ experience.title }}<br></p>
+    {% endfor %}
+    <br>
+
+    <div><b>{{ 'form.resume.relocate'|trans }}:</b> {{ relocate | trans }}</div><br>
+
+    <div><b>{{ 'form.vacancy.extra'|trans }}</b></div>
+    <br>
+    <p class="extra">{{ resume.extra }}</p>
+</div>
+</body>
+</html>

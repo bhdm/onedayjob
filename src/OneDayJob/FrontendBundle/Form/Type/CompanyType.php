@@ -19,6 +19,8 @@ class CompanyType extends AbstractType
 			->add('phone', 'text')
 			->add('site', 'text')
 			->add('description', 'textarea')
+            ->add('imageId','hidden',['mapped' => false, 'attr' => ['class'=> 'image-id']])
+            ->add('imageGalleryId','hidden',['mapped' => false, 'attr' => ['class'=> 'image-id-gallery']])
 			->add('city', 'a2lix_translatedEntity', [
                 'class' => 'OneDayJob\ApiBundle\Entity\City',
                 'translation_property' => 'title',

@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block search_result_count %}
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        ({{ getPlural(resumes|length, ['content.search.resume_1'|trans, 'content.search.resume_2'|trans, 'content.search.resume_3'|trans]) }})
+    {% endif %}
+{% endblock %}
+
+{% block search_result %}
+    <div class="col-xs-12 col-sm-12">
+        <div class="gob-list resumes">
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+
+                {% if resumes is empty %}
+                    <h3>{{ 'content.search.no_resume'|trans }}</h3>
+                {% endif %}
+
+                {% for resume in resumes %}
+                    <div class="col-xs-12 col-sm-4 col-md-3">
+                        <div class="list-pan3"> <a class="resume_modal" href="" data-id="{{ resume.id }}">
+                                <div class="list-pan3-date text-right text-muted">{{ helper.getDate(resume.created) }}</div>
+                                <div class="list-pan3-image">
+                                    <img src="{{ resume.imageSrc }}" width="100" height="100" class="img-circle" alt="">
+                                </div>
+                                <h5  class="list-pan3-name">{{ resume.fullName }}</h5>
+                                <div class="text-muted">{{ resume.specialty }}</div>
+                                <div class="list-pan3-line">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                  <span class="h5 text-bold list-pan3-price">
+                    {{ resume.salary|number_format(0) }} {{ helper.currency(resume.currency) }}
+                  </span>
+                                        </div>
+                                        <div class="col-xs-6 text-right">
+                                            {#<div class="text-right"><span class="text-muted">{{ 'user.data.on'|trans }} {{ resume.termfrom }} {{ 'form.search.days'|trans }}</span></div>#}
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="list-pan3-info">
+                                {#{{ resume.city.translate.title }}#}
+                                <div class="text-muted"> <i class="icon-16 icon-map"></i></div>
+                                <div class="list-pan3-briefcase">
+
+                                    {% if app.user and app.user.type == 'employer' %}
+                                        <i class="icon-16 icon-briefcase{% if app.user.favoriteResume.contains(resume) %} flagged{% endif %}" data-id="{{ resume.id }}"></i>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="need_to_login_regist">{{ 'content.search.need_to_login_regist'|trans }}</div>
+                <a class="button button-blue button-lg" href="{{ path('fos_user_registration_register') }}">{{ 'menu.registration'|trans }}</a>
+                <a href="#" class="button button-blue button-lg" id="login-link">{{ 'menu.login'|trans }}</a>
+            {% endif %}
+
+        </div>
+    </div>
+    {% include '_modal_resume.html.twig' %}
+{% endblock %}

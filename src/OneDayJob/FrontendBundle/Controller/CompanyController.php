@@ -9,90 +9,114 @@ use OneDayJob\ApiBundle\Entity\Company;
 
 class CompanyController extends Controller
 {
-	# Company
+    # Company
 
-	public function get_companiesAction()
-	{
-		$companies = $this->getDoctrine()
-			->getRepository('OneDayJobApiBundle:Company')
-			->createQueryBuilder('c')
-			->select('c, s, i')
-			//->select('c.id, c.name, c.site, c.phone, c.description, s.title AS city, i.file_name as image')
-			/*->addSelect('
-				(SELECT COUNT(v.id)
+    public function get_companiesAction()
+    {
+        $companies = $this->getDoctrine()//+
+        ->getRepository('OneDayJobApiBundle:Company')
+            ->createQueryBuilder('c')
+            ->select('c, s, i')
+            //->select('c.id, c.name, c.site, c.phone, c.description, s.title AS city, i.file_name as image')
+            /*->addSelect('
+                (SELECT COUNT(v.id)
                  FROM OneDayJobApiBundle:Vacancy v
                  WHERE v.company = c.id) AS vacancy_quantity
-			')*/
-			->leftJoin('c.city', 's')
-			->leftJoin('c.image', 'i')
-			->getQuery()
-			->getResult();
+            ')*/
+            ->leftJoin('c.city', 's')
+            ->leftJoin('c.image', 'i')
+            ->getQuery()
+            ->getResult();
 
-		$_temp1 = [];
-		$_temp2 = [];
+        $_temp1 = [];
+        $_temp2 = [];
 
-		$session = $this->get('session');
+        $session = $this->get('session');
 
-		foreach ($companies as $company) {
-			if ($session->has('locale')) {
-				if ($company->getCity()->translate()->getTitle() == $session->get('locale')['city']) {
-	    			$_temp1[] = $company;
-	    		} else {
-	    			$_temp2[] = $company;
-	    		}
-			} else {
-				$_temp1[] = $company;
-			}
-    	}
+        foreach ($companies as $company) {
+            if ($session->has('locale')) {
+                if ($company->getCity()->translate()->getTitle() == $session->get('locale')['city']) {
+                    $_temp1[] = $company;
+                } else {
+                    $_temp2[] = $company;
+                }
+            } else {
+                $_temp1[] = $company;
+            }
+        }
 
-		return $this->render('_company.html.twig', ['companies' => array_merge($_temp1, $_temp2)]);
-	}
+        return $this->render('OneDayJobFrontendBundle:Company:_company.html.twig', ['companies' => array_merge($_temp1, $_temp2)]);
+    }
 
-	public function indexAction(Request $request)
-	{
-		$city    = filter_var($request->query->get('city', 0), FILTER_SANITIZE_NUMBER_INT);
-		$company = filter_var($request->query->get('company_id', 0), FILTER_SANITIZE_NUMBER_INT);
+    public function indexAction(Request $request)
+    {
+        $geo =$this->geoOrientation($request);
+        $vars['local_country'] = $geo["country"];
+        $vars['local_country_id'] = $geo["id"];
+        $city    = filter_var($request->query->get('city', 0), FILTER_SANITIZE_NUMBER_INT);
+        $company = filter_var($request->query->get('company_id', 0), FILTER_SANITIZE_NUMBER_INT);
 
-		$repository = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Company');
-		$builder = $repository->createQueryBuilder('c');
+        $repository = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Company');
+        $builder = $repository->createQueryBuilder('c');
 
-		
 
-		if ($company) {
-			$builder->andWhere('c.id = :id');
-			$builder->setParameter('id', $company);
-		} else {
-			if ($city) {
-				$builder->andWhere('c.city = :city');
-				$builder->setParameter('city', $city);
-			}
-		}
 
-		$builder
-			->leftJoin('c.city', 's')
-			->leftJoin('c.image', 'i');
+        if ($company) {
+            $builder->andWhere("c.name LIKE '%:id%'");
+            $builder->setParameter('id', $company);
+        }
+        if ($city) {
+            $builder->andWhere('c.city = :city');
+            $builder->setParameter('city', $city);
+        }
 
-		
-		$vars['cities'] = $this->getDoctrine()->getRepository('OneDayJobApiBundle:City')->findBy([]);
-		$vars['companies'] = $builder->getQuery()->getResult();
-		$vars['title'] = 'Компании';
 
-		return $this->render('company_index.html.twig', $vars);
-	}
+        $vars['cities'] = $this->getDoctrine()->getRepository('OneDayJobApiBundle:City')->findBy([]);
+        $vars['companies'] = $builder->getQuery()->getResult();
+        $vars['title'] = 'Компании';
 
-	public function companyAction(Company $company)
-	{
-		$vacancies = [];
+        return $this->render('OneDayJobFrontendBundle:Company:company_index.html.twig', $vars);
+    }
 
-		foreach ($company->getVacancies() as $vacancy) {
-			$vacancies[$vacancy->getBranch()->translate()->getTitle()][] = $vacancy;
-		}
+    public function companyAction(Company $company)
+    {
+        $geo =$this->geoOrientation($this->getRequest());
+        $vars['local_country'] = $geo["country"];
+        $vars['local_country_id'] = $geo["id"];
+        $vacancies = [];
 
-		ksort($vacancies);
+        foreach ($company->getVacancies() as $vacancy) {
+            $vacancies[$vacancy->getBranch()->translate()->getTitle()][] = $vacancy;
+        }
 
-		$vars['company_index'] = $company;
-		$vars['company_vacancies'] = $vacancies;
-		//$vars['title'] = $company->getName();
-		return $this->render('company.html.twig', $vars);
-	}
+        ksort($vacancies);
+
+        $vars['company_index'] = $company;
+        $vars['company_vacancies'] = $vacancies;
+        //$vars['title'] = $company->getName();
+        return $this->render('OneDayJobFrontendBundle:Company:company.html.twig', $vars);
+    }
+
+    protected function geoOrientation($request)
+    {
+        $locale =  $request->get('_locale');
+        $user_ip = $_SERVER["REMOTE_ADDR"];
+        $geo = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip='$user_ip'"));
+        $country = $geo["geoplugin_countryName"];
+
+        $repository = $this->getDoctrine()->getRepository("OneDayJobApiBundle:CountryTranslation")->findBy(array("title" => $country));
+
+
+        $country_id = ceil($repository[0]->getId() / 3 );
+
+        if($locale == "ru")
+            $country = $this->getDoctrine()->getRepository("OneDayJobApiBundle:CountryTranslation")->find($repository[0]->getId() - 1)->getTitle();
+        elseif($locale == "de")
+            $country = $this->getDoctrine()->getRepository("OneDayJobApiBundle:CountryTranslation")->find($repository[0]->getId() + 1)->getTitle();
+
+        return array(
+            "id" => $country_id,
+            "country" => $country
+        );
+    }
 }

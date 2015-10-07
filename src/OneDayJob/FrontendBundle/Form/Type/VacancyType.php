@@ -29,6 +29,8 @@ class VacancyType extends AbstractType
             ->add('work_experience', 'choice', ['choices' => $this->helper->getExperience()])
             ->add('education', 'choice', ['choices' => $this->helper->getEducation()])
             ->add('duty', 'textarea')
+            ->add('termfrom' , 'date' )
+            ->add('termto' , 'date')
             ->add('skill', 'textarea')
             ->add('salary_per_month')
             ->add('salary_per_day')
@@ -38,23 +40,66 @@ class VacancyType extends AbstractType
                 'class' => 'OneDayJob\ApiBundle\Entity\Country',
                 'translation_property' => 'title',
             ])
+
             ->add('branch', 'a2lix_translatedEntity', [
                 'class' => 'OneDayJob\ApiBundle\Entity\Branch',
                 'translation_property' => 'title',
+                'required' => true,
+                'placeholder' => 'Вебирите отрасль',
             ]);
 
+
+//        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+//            $vacancy = $event->getData();
+//            $form = $event->getForm();
+//
+//            // check if the Product object is "new"
+//            // If no data is passed to the form, the data is "null".
+//            // This should be considered a new "Product"
+//            if (!$vacancy || null === $vacancy->getId()) {
+//                $cities = $vacancy->getCountry()->getCities();
+//
+//                $form->add('city', 'a2lix_translatedEntity', array(
+//				'class'    => 'OneDayJobApiBundle:City',
+//				'translation_property' => 'title',
+//				'choices'  => $cities
+//			));
+//            }
+//        });
+
+
+
+
+
+
+
+
         $modifierBranch = function (FormInterface $form, Branch $branch = null) {
-			$children = null === $branch ? array() : $branch->getChildren();
+
+            if(null === $branch) {
+                $children = array();
+            }else{
+                $children = $branch->getChildren();
+//                array_unshift($children, "Выберите специальность");
+            }
 
 			$form->add('specialization', 'a2lix_translatedEntity', array(
 				'class'    => 'OneDayJobApiBundle:Specialization',
 				'translation_property' => 'title',
-				'choices'  => $children
-			));
+				'choices'  => $children,
+                'required' => true,
+                'placeholder' => 'Вебирите специальность',
+			)
+            );
 		};
 
 		$modifierCountry = function (FormInterface $form, Country $country = null) {
-			$cities = null === $country ? array() : $country->getCities();
+
+            if(null === $country) {
+                $cities = array();
+            }else{
+                $cities = $country->getCities();
+            }
 
 			$form->add('city', 'a2lix_translatedEntity', array(
 				'class'    => 'OneDayJobApiBundle:City',
@@ -90,7 +135,7 @@ class VacancyType extends AbstractType
 				$modifierBranch($event->getForm()->getParent(), $branch);
 			}
 		);
-
+//------------------------------------------------------------------------------------------------------
 		/*$builder->add('title', 'text');
 		$builder->add('employment', 'choice', ['choices' => $this->helper->getEmployment()]);
 		$builder->add('work_schedule', 'choice', ['choices' => $this->helper->getSchedule()]);

@@ -28,7 +28,8 @@ class ResumeType extends AbstractType
 			->add('birthdate', 'date', [
 				'years' => range(date('Y') - 15, date('Y') -50)
 			])
-			->add('term')
+			->add('termfrom' , 'date' )
+			->add('termto' , 'date')
 			->add('salary')
 			->add('currency', 'choice', ['choices' => $this->helper->getCurrency()])
 			->add('branch', 'a2lix_translatedEntity', [
@@ -71,6 +72,7 @@ class ResumeType extends AbstractType
 				'expanded' => true,
 				'choices' => ['phone' => '', 'skype' => '']
 			])
+            ->add('imageId','hidden',['mapped' => false, 'attr' => ['class'=> 'image-id']])
 			->add('extra', 'textarea')
 			//->add('image', 'file', ['required' => false])
 		;

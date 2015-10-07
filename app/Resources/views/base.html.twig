@@ -72,7 +72,8 @@
         </div>
         <div class="col-xs-6 text-right"> <a class="login-toggle collapsed" data-toggle="dropdown" href="#"> <i class="icon-32 icon-user"></i> </a>
           <div class="login-collapse dropdown-menu">
-            
+
+              {#{% not is_granted("IS_AUTHENTICATED_ANONYMOUSLY") %}#}
             {% if app.user is not null %}
               <div class="login-links">
                 <a href="/#collapse-1">
@@ -154,6 +155,7 @@
                   <span class="xs-hide">{{ 'form.search.find'|trans }}</span> 
                   {{ 'form.search.job'|trans }}
                 </a>
+                  {#{{ local_country }}#}
               </li>
               <li>
                 <a data-toggle="tab" href="#tab2">
@@ -185,7 +187,7 @@
                     <div class="col-xs-12 col-sm-8">
                       <div class="selectbox">
                         <select name="branch" class="combobox" data-placeholder="{{ 'content.search.choose_please'|trans }}">
-
+                          <option value="-1" disabled selected>{{ 'content.search.select_any_branch'|trans }}</option>
                           {% set branch_value = app.request.get('branch', null) %}
 
                           <option></option>
@@ -199,7 +201,7 @@
                   <div class="form-group">
                     <label class="col-xs-12 col-sm-4 control-label">{{ 'form.search.salary'|trans }}</label>
                     <div class="col-xs-8 col-sm-5">
-                      <input type="number" class="form-control" name="salary" value="{{ app.request.get('salary', null) ? app.request.get('salary') : '' }}">
+                      <input type="number" class="form-control" placeholder="1000" name="salary" value="{{ app.request.get('salary', null) ? app.request.get('salary') : '' }}">
                     </div>
                     <div class="col-xs-4 col-sm-3">
                       <div class="selectbox">
@@ -216,11 +218,11 @@
                   </div>
                   <div class="form-group">
                     <label class="col-xs-12 col-sm-4 control-label">{{ 'form.search.term'|trans }}</label>
-                    <div class="col-xs-6 col-sm-4">
-                      <input name="term" type="number" class="form-control" placeholder="{{ 'form.search.enter_term'|trans }}" value="{{ app.request.get('term', null) ? app.request.get('term') : '' }}">
+                    <div class="col-xs-4 col-sm-4">
+                      <input name="term_from" type="date" class="form-control" placeholder="{{ 'form.search.term_from'|trans }}">
                     </div>
-                    <div class="col-xs-6 col-sm-4">
-                      <p class="help-block">{{ 'form.search.days'|trans }}</p>
+                    <div class="col-xs-4 col-sm-4">
+                      <input name="term_to" type="date" class="form-control" placeholder="{{ 'form.search.term_to'|trans }}">
                     </div>
                   </div>
                   <div class="form-group">
@@ -229,7 +231,8 @@
                     <div class="col-xs-6 col-sm-4">
                       <div class="selectbox">
                         <select class="combobox form_country" name="country" data-placeholder="{{ 'content.search.choose_please'|trans }}">
-                          <option></option>
+                            <option value="-1" disabled >{{ 'content.search.select_any_country'|trans }}</option>
+                            {% if local_country_id %}<option value="{{ local_country_id }}" selected>{{ local_country }}</option>{% endif %}
                           {% set country_value = app.request.get('country', null) %}
 
                           {% if country_value is not null %}
@@ -245,6 +248,7 @@
                     <div class="col-xs-6 col-sm-4">
                       <div class="selectbox">
                         <select name="city" class="combobox form_city" data-placeholder="{{ 'content.search.choose_please'|trans }}">
+                            <option value="-1" disabled selected>{{ 'content.search.select_any_city'|trans }}</option>
                           <option></option>
 
                           {% if cities is defined %}
@@ -271,6 +275,7 @@
                 </form>
 
               </div>
+                {#{{ app.request.get('_locale') }}#}
               <div class="tab-pane fade" id="tab2">
 
                 <form class="form-horizontal" action="{{ path('fe_resume_index') }}">
@@ -285,7 +290,7 @@
                     <div class="col-xs-12 col-sm-8">
                       <div class="selectbox">
                         <select name="branch" class="combobox" data-placeholder="{{ 'content.search.choose_please'|trans }}">
-
+                            <option value="-1" disabled selected>{{ 'content.search.select_any_branch'|trans }}</option>
                           {% set branch_value = app.request.get('branch', null) %}
 
                           <option></option>
@@ -314,13 +319,13 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-xs-12 col-sm-4 control-label">{{ 'form.search.term'|trans }}</label>
-                    <div class="col-xs-6 col-sm-4">
-                      <input name="term" type="number" class="form-control" placeholder="{{ 'form.search.enter_term'|trans }}" value="{{ app.request.get('term', null) ? app.request.get('term') : '' }}">
-                    </div>
-                    <div class="col-xs-6 col-sm-4">
-                      <p class="help-block">{{ 'form.search.days'|trans }}</p>
-                    </div>
+                       <label class="col-xs-12 col-sm-4 control-label">{{ 'form.search.term'|trans }}</label>
+                       <div class="col-xs-4 col-sm-4">
+                          <input name="term_from" type="date" class="form-control" placeholder="{{ 'form.search.term_from'|trans }}">
+                       </div>
+                       <div class="col-xs-4 col-sm-4">
+                           <input name="term_to" type="date" class="form-control" placeholder="{{ 'form.search.term_to'|trans }}">
+                       </div>
                   </div>
                   <div class="form-group">
                     <label class="col-xs-12 col-sm-4 control-label">{{ 'form.search.country'|trans }}</label>
@@ -328,7 +333,8 @@
                     <div class="col-xs-6 col-sm-4">
                       <div class="selectbox">
                         <select class="combobox form_country" name="country" data-placeholder="{{ 'content.search.choose_please'|trans }}">
-                          <option></option>
+                            <option value="-1" disabled>{{ 'content.search.select_any_country'|trans }}</option>
+                            {% if local_country_id %}<option value="{{ local_country_id }}" selected>{{ local_country }}</option>{% endif %}
                           {% set country_value = app.request.get('country', null) %}
 
                           {% if country_value is not null %}
@@ -344,6 +350,7 @@
                     <div class="col-xs-6 col-sm-4">
                       <div class="selectbox">
                         <select name="city" class="combobox form_city" data-placeholder="{{ 'content.search.choose_please'|trans }}">
+                            <option value="-1" disabled selected>{{ 'content.search.select_any_city'|trans }}</option>
                           <option></option>
                           {% if cities is defined %}
                             {% set city_value = app.request.get('city', null) %}
@@ -375,15 +382,16 @@
                       <label for="inputEmail3" class="col-xs-12 col-sm-4 control-label">{{ 'form.search.i_search'|trans }} {{ 'form.search.company'|trans }}</label>
                       <div class="col-xs-12 col-sm-8">
                         <div class="selectbox">
-                          <select class="combobox form_company" name="company_id" data-placeholder="{{ 'content.search.choose_please'|trans }}">
+                          {#<select class="combobox form_company" name="company_id" data-placeholder="{{ 'content.search.choose_please'|trans }}">#}
 
-                            {% set company_value = app.request.get('company_id', null) %}
+                            {#{% set company_value = app.request.get('company_id', null) %}#}
 
-                            <option></option>
-                            {% for company in data.companies %}
-                              <option value="{{ company.id }}"{{ company.id == 'company_value' ? ' selected="selected" ' : '' }}>{{ company.name }}</option>
-                            {% endfor %}
-                          </select>
+                            {#<option></option>#}
+                            {#{% for company in data.companies %}#}
+                              {#<option value="{{ company.id }}"{{ company.id == 'company_value' ? ' selected="selected" ' : '' }}>{{ company.name }}</option>#}
+                            {#{% endfor %}#}
+                          {#</select>#}
+                            <input type="text" placeholder="{{ 'content.search.select_any_company'|trans }}" class="form-control" name="company_title">
                         </div>
                       </div>
                   </div>
@@ -394,7 +402,8 @@
                     <div class="col-xs-6 col-sm-4">
                       <div class="selectbox">
                         <select class="combobox form_country" name="country" data-placeholder="{{ 'content.search.choose_please'|trans }}">
-                          <option></option>
+                            <option value="-1" disabled >{{ 'content.search.select_any_country'|trans }}</option>
+                            {% if local_country_id %}<option value="{{ local_country_id }}" selected>{{ local_country }}</option>{% endif %}
                           {% set country_value = app.request.get('country', null) %}
 
                           {% if country_value is not null %}
@@ -410,6 +419,7 @@
                     <div class="col-xs-6 col-sm-4">
                       <div class="selectbox">
                         <select name="city" class="combobox form_city">
+                            <option value="-1" disabled selected>{{ 'content.search.select_any_city'|trans }}</option>
                           <option></option>
                           {% if cities is defined %}
                             {% set city_value = app.request.get('city', null) %}
@@ -494,9 +504,13 @@
     <div class="panel-tab-box collapse" id="collapse-5">
       <div class="container">
         <div class="panel-tab-body">
-          
-          {{ render(controller('OneDayJobFrontendBundle:Vacancy:getUrgentVacancies', {'page': app.request.get('page', 1), 'ipp': app.request.get('ipp', 20)})) }}
-
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}{#NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN#}
+                {{ render(controller('OneDayJobFrontendBundle:Vacancy:getUrgentVacancies', {'page': app.request.get('page', 1), 'ipp': app.request.get('ipp', 20)})) }}
+            {% else %}
+                <div class="need_to_login_regist">{{ 'content.search.need_to_login_regist'|trans }}</div>
+                <a class="button button-blue button-lg" href="{{ path('fos_user_registration_register') }}">{{ 'menu.registration'|trans }}</a>
+                <a href="#" class="button button-blue button-lg" id="login-link">{{ 'menu.login'|trans }}</a>
+            {% endif %}
         </div>
       </div>
     </div>
@@ -541,6 +555,7 @@
 
 
         <form action="{{ path("fos_user_security_check") }}" method="post" id="login" data-locale="{{ app.request.get('_locale') }}">
+            {#ddddd#}
           <div class="reg-field-box">
             <div class="form-group">
                   <label for="username" class="text-uppercase text-bold">{{ 'form.profile.email'|trans }}: *</label>

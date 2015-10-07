@@ -15,6 +15,9 @@ class PageController extends Controller
 		$vars['page'] = $page;
 		$vars['title'] = $page->getTitle();
 
+        /**
+         * @TODO СДЕЛАТЬ twig для page контроллера
+         */
 		return $this->render('OneDayJobFrontendBundle:Default:page_index.html.twig', $vars);
 	}
 }

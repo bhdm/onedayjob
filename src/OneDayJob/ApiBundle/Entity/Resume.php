@@ -131,15 +131,19 @@ class Resume
     protected $extra;
 
     /**
-     * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="image_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
+     * @ORM\ManyToOne(targetEntity="Image")
      **/
     protected $image;
 
     /**
-     * @ORM\Column(type="smallint", nullable=true)
+     * @ORM\Column(type="date" , nullable=true)
      */
-    protected $term;
+    private $termfrom;
+
+    /**
+     * @ORM\Column(type="date" , nullable=true)
+     */
+    private $termto;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -152,8 +156,7 @@ class Resume
     protected $currency;
 
     /**
-     * @ORM\OneToOne(targetEntity="Branch")
-     * @ORM\JoinColumn(name="branch_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
+     * @ORM\ManyToOne(targetEntity="Branch")
      **/
     protected $branch;
 
@@ -177,6 +180,7 @@ class Resume
         $this->education = new ArrayCollection();
         $this->languages = new ArrayCollection();
     }
+
 
     /**
      * Get id
@@ -781,30 +785,6 @@ class Resume
     }
 
     /**
-     * Set term
-     *
-     * @param integer $term
-     *
-     * @return Resume
-     */
-    public function setTerm($term)
-    {
-        $this->term = $term;
-
-        return $this;
-    }
-
-    /**
-     * Get term
-     *
-     * @return integer
-     */
-    public function getTerm()
-    {
-        return $this->term;
-    }
-
-    /**
      * Set salary
      *
      * @param integer $salary
@@ -938,4 +918,38 @@ class Resume
     {
         return $this->favorite_user;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTermfrom()
+    {
+        return $this->termfrom;
+    }
+
+    /**
+     * @param mixed $termfrom
+     */
+    public function setTermfrom($termfrom)
+    {
+        $this->termfrom = $termfrom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTermto()
+    {
+        return $this->termto;
+    }
+
+    /**
+     * @param mixed $termto
+     */
+    public function setTermto($termto)
+    {
+        $this->termto = $termto;
+    }
+
+
 }

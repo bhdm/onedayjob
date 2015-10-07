@@ -44,6 +44,8 @@ form:
         country: "страна"
         city: "Город"
         term: "на срок"
+        term_from: "Начало"
+        term_to: "Конец"
         gender: "Пол"
         gender_male: "Мужской"
         gender_female: "Женский"
@@ -87,12 +89,15 @@ form:
         salary_per_day: "Зарплата за день"
         currency: "Валюта"
         extra: "Допольнительная инфомарция"
+        year: "лет"
     resume:
         city: "Город проживания"
         profession: "Профессия"
         add_field: "Добавить поле"
         salary: "Желаемая зарплата"
         term: "Срок работы"
+        term_from: "Начало работы"
+        term_to: "Конец работы"
         relocate: "Готовность к переезду"
         citizenship: "Граданство"
         work_permit: "Разрешение на работу"
@@ -175,6 +180,7 @@ content:
     salary: "Зарплата"
 ###
     search:
+        need_to_login_regist: "Для просмотра вам необходимо войти или зарегистрироваться"
         no_vacancy: "Вакансий не найдено"
         vacancy_1: "вакансия"
         vacancy_2: "вакансии"
@@ -189,6 +195,10 @@ content:
         resume_3: "резюме" #+
         enter_word: "Введите слово"
         choose_please: "Выберите, пожалуйста..."
+        select_any_branch: "Любая отрасль"
+        select_any_country: "Любая страна"
+        select_any_city: "Любой город"
+        select_any_company: "Любая компания"
     sort_by: "Сортировать по"
     sort_date: "Дате добавления"
     sort_view: "Просмотрам"

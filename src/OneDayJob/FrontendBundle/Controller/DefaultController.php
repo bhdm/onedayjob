@@ -12,6 +12,8 @@ use OneDayJob\FrontendBundle\Form\Type\CompanyType;
 use OneDayJob\ApiBundle\Entity\Company;
 use OneDayJob\FrontendBundle\Form\Type\VacancyType;
 use OneDayJob\ApiBundle\Entity\Vacancy;
+use OneDayJob\ApiBundle\Entity\CountryTranslation;
+use OneDayJob\ApiBundle\Entity\CountryTranslationRepository;
 
 class DefaultController extends Controller
 {
@@ -246,9 +248,32 @@ die;
 
 	public function indexAction(Request $request)
 	{
-		$this->get('session')->set('__locale', $request->get('_locale'));
-		
-		return $this->render('index.html.twig');
+
+        $this->get('session')->set('__locale', $request->get('_locale'));
+
+        $locale =  $request->get('_locale');
+        $http_host = $request->getHttpHost();
+        $user_ip = $_SERVER["REMOTE_ADDR"];
+        $geo = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip='$user_ip'"));
+        $country = $geo["geoplugin_countryName"];
+
+        if($locale == "pp"){
+            $loc = $this->determineCountry($country);
+            return $this->redirect("http://".$http_host."/".$loc."");
+        }
+
+        $repository = $this->getDoctrine()->getRepository("OneDayJobApiBundle:CountryTranslation")->findBy(array("title" => $country));
+
+
+        $country_id = ceil($repository[0]->getId() / 3 );
+
+        if($locale == "ru")
+            $country = $this->getDoctrine()->getRepository("OneDayJobApiBundle:CountryTranslation")->find($repository[0]->getId() - 1)->getTitle();
+        elseif($locale == "de")
+            $country = $this->getDoctrine()->getRepository("OneDayJobApiBundle:CountryTranslation")->find($repository[0]->getId() + 1)->getTitle();
+        $k = 0;
+
+		return $this->render('OneDayJobFrontendBundle:Default:index.html.twig', array('local_country' => $country , 'local_country_id' => $country_id));
 	}
 
 	# User -> resume
@@ -257,4 +282,34 @@ die;
 	{
 		return $this->render('resume.html.twig');
 	}
+
+    protected function determineCountry($country){
+        switch($country){
+            case "Germany" :
+                $locale = "de";
+                break;
+            case "Austria" :
+                $locale = "de";
+                break;
+            case "Russian Federation" :
+                $locale = "ru";
+                break;
+            case "Ukraine" :
+                $locale = "ru";
+                break;
+            case "Kazakhstan" :
+                $locale = "ru";
+                break;
+            case "Belarus" :
+                $locale = "ru";
+                break;
+            default:
+                $locale = "en";
+        }
+        $t=0;
+        return $locale;
+    }
+
+
+
 }

@@ -1,0 +1,352 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'OneDayJobFrontendBundle:Form:errors.html.twig' %}
+
+{% block userblock %}
+  <div class="account-main" id="sel">
+    <nav class="account-nav worker-nav">
+
+      {% include '_menu_mobile.html.twig' %}
+
+      <div class="account-drop-menu collapse" id="navcollaps">
+
+        {% include 'employee_profile_menu.html.twig' %}
+
+      </div>
+    </nav>
+    <div class="account-heading">
+      <div class="account-title"> <span class="xs-show"><i class="icon-16 icon-list-white"></i></span>
+        <h3>{{ 'user.data.add_resume'|trans }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="account-content"> <a href="#" class="back-btn"><i class="icon-16 icon-back"></i>{{ 'user.data.return_without_saving'|trans }}</a>
+
+    <div class="row">
+
+      {% include '_flash_messages.html.twig' %}
+
+      <div class="col-xs-12 col-sm-7 col-md-6">
+        <div class="h1 h1-lg text-bold nobottom">{{ 'user.data.personal_info'|trans }}</div>
+      </div>
+      <div class="col-xs-12 col-sm-7 col-md-6">
+        <div class="h1 h1-lg text-bold nobottom">{{ 'user.data.photos'|trans }}</div>
+        <div class="text-muted">jpg, png, не более 500kb</div>
+      </div>
+    </div>
+
+    <div class="row combo">
+
+      {{ form_start(form) }}
+      <div class="col-xs-12 col-sm-7 col-md-6">
+          <div class="border-right-form">
+            <div class="form-group">
+              <label for="" class="text-bold text-uppercase">{{ 'form.profile.first_name'|trans }}</label>
+              {{ form_widget(form.first_name, {"attr": {"class": 'form-control'}}) }}
+              {{ form_errors(form.first_name) }}
+            </div>
+            <div class="form-group">
+              <label for="" class="text-bold text-uppercase">{{ 'form.profile.last_name'|trans }}</label>
+              {{ form_widget(form.last_name, {"attr": {"class": 'form-control'}}) }}
+              {{ form_errors(form.last_name) }}
+            </div>
+            <div class="form-group">
+              <label for="" class="text-bold text-uppercase">{{ 'form.profile.middle_name'|trans }}</label>
+              {{ form_widget(form.middle_name, {"attr": {"class": 'form-control'}}) }}
+              {{ form_errors(form.middle_name) }}
+            </div>
+            <div class="from-sep"></div>
+            <div class="form-group">
+              <label class="text-bold text-uppercase">{{ 'form.profile.birthday'|trans }}</label>
+              <div class="row">
+                <div class="col-xs-3">
+                  {{ form_widget(form.birthdate.day, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-xs-5">
+                  {{ form_widget(form.birthdate.month, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-xs-4">
+                  {{ form_widget(form.birthdate.year, {'attr': {'class': 'form-control'}}) }}
+                </div>
+              </div>
+              {{ form_errors(form.birthdate) }}
+            </div>
+            <div class="from-sep"></div>
+            <div class="form-group">
+              <div class="text-bold text-uppercase">{{ 'form.search.gender'|trans }}</div>
+              <div class="row">
+                <div class="col-xs-4">
+                  <label class="radio-box">
+                    {{ form_widget(form.sex|first, {"attr": {"class": 'form-control'}}) }}
+                    <span></span> {{ 'form.search.gender_male'|trans }} </label>
+                </div>
+                <div class="col-xs-4">
+                  <label class="radio-box">
+                    {{ form_widget(form.sex|last, {"attr": {"class": 'form-control'}}) }}
+                    <span></span> {{ 'form.search.gender_female'|trans }} </label>
+                </div>
+              </div>
+              {{ form_errors(form.sex) }}
+            </div>
+            <div class="from-sep"></div>
+            <div class="form-group">
+              <label for="" class="text-bold text-uppercase">{{ 'form.resume.city'|trans }}</label>
+              {{ form_widget(form.city, {"attr": {"class": 'form-control'}}) }}
+              {{ form_errors(form.city) }}
+              <p class="help-block">Например: Москва или Санкт-Петербург</p>
+            </div>
+
+            <div class="form-group">
+              <label for="" class="text-bold text-uppercase">{{ 'form.vacancy.branch'|trans }}</label>
+                <div class="wrapper">
+                  <label></label>
+                  {{ form_widget(form.branch, {"attr": {"class": 'form-control'}}) }}
+                  {{ form_errors(form.branch) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label for="" class="text-bold text-uppercase">{{ 'form.resume.specialty'|trans }}</label>
+                <div class="wrapper">
+                  <label></label>
+                  {{ form_widget(form.specialty, {"attr": {"class": 'form-control'}}) }}
+                  {{ form_errors(form.specialty) }}
+                </div>
+            </div>
+
+            <div class="form-group" data-prototype="{{ form_widget(form.education.vars.prototype)|e }}">
+              <label for="" class="text-bold text-uppercase">{{ 'form.vacancy.education'|trans }}</label>
+
+              {% do form.education.setRendered %}
+
+              {% for education in form.education %}
+                <div class="wrapper">
+                  <label></label>
+                      {{ form_widget(education.title, {"attr": {"class": 'form-control'}}) }}
+                  {{ form_errors(education.title) }}
+                </div>
+              {% endfor %}
+
+              <p class="help-block">Например: МГУ, факультет шитья и рукоделья, магистр</p>
+              <a href="javascript:;" class="add_field">{{ 'form.resume.add_field'|trans }}</a>
+            </div>
+
+            <div class="form-group" data-prototype="{{ form_widget(form.experience.vars.prototype)|e }}">
+              <label for="" class="text-bold text-uppercase">{{ 'form.vacancy.work_experience'|trans }}</label>
+
+              {% do form.experience.setRendered %}
+
+              {% for experience in form.experience %}
+                <div class="wrapper">
+                  {{ form_widget(experience.title, {"attr": {"class": 'form-control'}}) }}
+                  {{ form_errors(experience.title) }}
+                </div>
+              {% endfor %}
+
+              <p id="helpBlock" class="help-block">Доктор по маркетингу, ООО "Газпром", 2009-2014</p>
+              <a href="javascript:;" class="add_field">{{ 'form.resume.add_field'|trans }}</a>
+            </div>
+
+            <div class="form-group">
+              <label class="text-bold text-uppercase">{{ 'form.resume.salary'|trans }}</label>
+              <div class="row">
+                <div class="col-xs-7">
+                  {{ form_widget(form.salary, {'attr': {'class': 'form-control', 'min':0}}) }}
+                </div>
+                <div class="col-xs-5">
+                  {{ form_widget(form.currency, {'attr': {'class': 'form-control'}}) }}
+                </div>
+              </div>
+              {{ form_errors(form.salary) }}
+            </div>
+
+            <div class="form-group">
+                <label for="" class="text-bold text-uppercase">{{ 'form.resume.term'|trans }}</label><br/>
+              <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <br/><label for="" class="text-bold text-uppercase">  {{ 'form.resume.term_from'|trans }}</label><br/>
+                    <div class="col-xs-3">
+                        {{ form_widget(form.termfrom.day, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-xs-5">
+                        {{ form_widget(form.termfrom.month, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-xs-4">
+                        {{ form_widget(form.termfrom.year, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    {{ form_errors(form.termfrom) }}
+                </div>
+              </div><br/>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <br/><label for="" class="text-bold text-uppercase">  {{ 'form.resume.term_to'|trans }}</label><br/>
+                        <div class="col-xs-3">
+                            {{ form_widget(form.termto.day, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="col-xs-5">
+                            {{ form_widget(form.termto.month, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="col-xs-4">
+                            {{ form_widget(form.termto.year, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        {{ form_errors(form.termto) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="from-sep"></div>
+            <div class="form-group">
+              <div class="text-bold text-uppercase">{{ 'form.resume.relocate'|trans }}</div>
+              <div class="row">
+                <div class="col-xs-4">
+                  <label class="radio-box">
+                    {{ form_widget(form.relocate|first, {"attr": {"class": 'form-control'}}) }}
+                    <span></span> {{ 'form.resume.never'|trans }} </label>
+                </div>
+                <div class="col-xs-4">
+                  <label class="radio-box">
+                    {{ form_widget(form.relocate|last, {"attr": {"class": 'form-control'}}) }}
+                    <span></span> {{ 'form.resume.ready'|trans }} </label>
+                </div>
+              </div>
+              {{ form_errors(form.relocate) }}
+            </div>
+            <div class="from-sep"></div>
+            <div class="form-group">
+              <div class="text-bold text-uppercase">{{ 'form.resume.citizenship'|trans }}</div>
+              <div class="row">
+                <div class="col-xs-4">
+                  <label class="radio-box">
+                    {{ form_widget(form.citizenship|first, {"attr": {"class": 'form-control'}}) }}
+                    <span></span> {{ 'form.resume.russia'|trans }} </label>
+                </div>
+                <div class="col-xs-4">
+                  <label class="radio-box">
+                    {{ form_widget(form.citizenship|last, {"attr": {"class": 'form-control'}}) }}
+                    <span></span> {{ 'form.resume.other'|trans }} </label>
+                </div>
+              </div>
+              {{ form_errors(form.citizenship) }}
+            </div>
+            <div class="from-sep"></div>
+            <div class="form-group">
+              <div class="text-bold text-uppercase">{{ 'form.resume.work_permit'|trans }}</div>
+              <div class="row">
+                <div class="col-xs-4">
+                  <label class="radio-box">
+                    {{ form_widget(form.work_permit|first, {"attr": {"class": 'form-control'}}) }}
+                    <span></span> {{ 'form.resume.russia'|trans }} </label>
+                </div>
+                <div class="col-xs-4">
+                  <label class="radio-box">
+                    {{ form_widget(form.work_permit|last, {"attr": {"class": 'form-control'}}) }}
+                    <span></span> {{ 'form.resume.other'|trans }} </label>
+                </div>
+              </div>
+              {{ form_errors(form.work_permit) }}
+            </div>
+
+            <div class="h1 h1-lg text-bold">{{ 'user.data.contacts'|trans }}</div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-xs-6">
+                  <label class="text-bold text-uppercase">{{ 'form.resume.cellphone'|trans }}</label>
+                </div>
+                <div class="col-xs-6">
+                  <div class="top-sm-sm">
+                    <label class="radio-box">
+                      {{ form_widget(form.preferred_communication|first, {"attr": {"class": 'form-control'}}) }}
+                      <span></span> {{ 'form.resume.preferred_communication'|trans }} </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 col-sm-6">
+                  <p class="help-block help-plusicon">+ </p>
+                  {{ form_widget(form.phone, {"attr": {"class": 'form-control'}}) }}
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-xs-6">
+                  <label class="text-bold text-uppercase">{{ 'form.resume.alternative_cellphone'|trans }}</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 col-sm-6">
+                  <p class="help-block help-plusicon">+ </p>
+                  {{ form_widget(form.alternative_phone, {"attr": {"class": 'form-control'}}) }}
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <div class="from-sep"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-xs-6 col-sm-6">
+                  <label for="" class="text-bold text-uppercase">{{ 'user.profile.email'|trans }}</label>
+                </div>
+                <div class="col-xs-6">
+                  <div class="top-sm-sm">
+                    <label class="radio-box">
+                      {{ form_widget(form.preferred_communication|last, {"attr": {"class": 'form-control'}}) }}
+                      <span></span> {{ 'form.resume.preferred_communication'|trans }} </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                  {{ form_widget(form.email, {"attr": {"class": 'form-control'}}) }}
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="text-bold text-uppercase">{{ 'form.resume.skype'|trans }}</label>
+              <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                  {{ form_widget(form.skype, {"attr": {"class": 'form-control'}}) }}
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="" class="text-bold text-uppercase">{{ 'form.resume.extra'|trans }}</label>
+              {{ form_widget(form.extra, {"attr": {"class": 'form-control', 'rows':6}}) }}
+              {{ form_errors(form.extra) }}
+            </div>
+
+          </div>
+          <div class="button-group">
+            <button type="submit" class="button button-invert">{{ 'user.data.save'|trans }}</button>
+            <a href="{{ path('fe_employee_resume_index') }}" class="button button-grey">{{ 'user.data.cancel'|trans }}</a>
+          </div>
+      </div>
+      <div class="col-xs-12 col-sm-7 col-md-6">
+        <div class="avabox" id="imageUploadContainer">
+          <div class="avab">
+            {% if (app.user.resume is null) or (app.user.resume.image is null) %}
+              <img src="/bundles/onedayjobfrontend/images/ava.png" class="profile-image" alt="Логотип">
+            {% else %}
+              <img src="{{ app.user.resume.image.src | imagine_filter('profile_inset') }}" class="profile-image" alt="Логотип">
+            {% endif %}
+            {{ form_widget(form.imageId) }}
+          </div>
+          <label class="link-upload">
+            <b><a href="javascript:void(0);" id="upload_image" class="button-upload" data-type="resume">{{ 'user.data.add_photo'|trans }}</a></b>
+          </label>
+        </div>
+      </div>
+      {{ form_end(form) }}
+
+    </div>
+  </div>
+{% endblock %}

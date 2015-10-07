@@ -3,6 +3,7 @@
 namespace OneDayJob\FrontendBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Collections\ArrayCollection;
 use OneDayJob\FrontendBundle\Form\Type\ResumeType;
@@ -18,26 +19,32 @@ class EmployeeController extends Controller
 
 	public function favoriteIndexAction()
 	{
+        $geo =$this->geoOrientation($this->getRequest());
 		$employee = $this->getUser();
 		$vacancies = $employee->getFavoriteVacancy();
+        $vars['local_country'] = $geo["country"];
+        $vars['local_country_id'] = $geo["id"];
 		
 		if ($vacancies->isEmpty()) {
 			$translator = $this->get('translator');
 			$session = $this->get('session');
 			$session->getFlashBag()->add('warning', $translator->trans('flash.warning.no_favorites'));
-			return $this->render('employee_favorite_index.html.twig');
+			return $this->render('OneDayJobFrontendBundle:Employee:employee_favorite_index.html.twig', $vars);
 		}
 
 		$vars['vacancies'] = $vacancies;
 		$vars['title'] = 'Избранное';
 
-		return $this->render('employee_favorite_index.html.twig', $vars);
+		return $this->render('OneDayJobFrontendBundle:Employee:employee_favorite_index.html.twig', $vars);
 	}
 
 	public function companyIndexAction()
 	{
 		$employee = $this->getUser();
 		$companies = $employee->getFavoriteCompany();
+        $geo =$this->geoOrientation($this->getRequest());
+        $vars['local_country'] = $geo["country"];
+        $vars['local_country_id'] = $geo["id"];
 		
 		if ($companies->isEmpty()) {
 			$translator = $this->get('translator');
@@ -47,29 +54,33 @@ class EmployeeController extends Controller
 
 		$vars['title'] = 'Избранное';
 
-		return $this->render('employee_company_index.html.twig', $vars);
+		return $this->render('OneDayJobFrontendBundle:Employee:employee_company_index.html.twig', $vars);
 	}
 
 	# Resume
 
 	public function resumeIndexAction(Request $request)
 	{
+        $geo =$this->geoOrientation($request);
 		$employee = $this->getUser();
 		$resume = $employee->getResume();
+        $vars['local_country'] = $geo["country"];
+        $vars['local_country_id'] = $geo["id"];
 
 		if (!$resume) {
 			$vars['title'] = '';
-			return $this->render('employee_resume_empty.html.twig', $vars);
+			return $this->render('OneDayJobFrontendBundle:Employee:employee_resume_empty.html.twig', $vars);
 		}
 
 		$vars['resume'] = $resume;
 		$vars['title'] = 'Резюме';
 
-		return $this->render('employee_resume_index.html.twig', $vars);
+		return $this->render('OneDayJobFrontendBundle:Employee:employee_resume_index.html.twig', $vars);
 	}
 
 	public function resumeNewAction(Request $request)
 	{
+        $geo =$this->geoOrientation($request);
 		$translator = $this->get('translator');
 		$employee = $this->getUser();
 		$em = $this->getDoctrine()->getManager();
@@ -88,10 +99,13 @@ class EmployeeController extends Controller
 		$form->handleRequest($request);
 
 		if ($form->isValid()) {
+            /**
+             * @TODO MAPPED INVERSED
+             */
 			$resume->setEmployee($employee);
 			$employee->setResume($resume);
 
-			foreach ($resume->getEducation() as $education) {
+			foreach ($resume->getEducation() as $education){
 				$education->setResume($resume);
 				$em->persist($education);
 			}
@@ -103,10 +117,16 @@ class EmployeeController extends Controller
 
 			$resume->setCreated(new \DateTime());
 
-			$image = $em->getRepository('OneDayJobApiBundle:Image')->findOneBy(['title' => $employee->getId()]);
+//			$image = $em->getRepository('OneDayJobApiBundle:Image')->findOneBy(['title' => $employee->getId()]);
 
-			if ($image) {
-				$resume->setImage($image);
+            $imageId = $request->request->get('fe_resume')['imageId'];
+			if ($imageId) {
+                $image = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Image')->findOneById($imageId);
+                    if ($image){
+                        $resume->setImage($image);
+                    }
+
+
 			}
 
 			$em->persist($resume);
@@ -120,12 +140,15 @@ class EmployeeController extends Controller
 		$vars['resume'] = $resume;
 		$vars['form'] = $form->createView();
 		$vars['title'] = 'Создание Резюме';
+        $vars['local_country'] = $geo["country"];
+        $vars['local_country_id'] = $geo["id"];
 
-		return $this->render('employee_resume_new.html.twig', $vars);
+		return $this->render('OneDayJobFrontendBundle:Employee:employee_resume_new.html.twig', $vars);
 	}
 
 	public function resumeEditAction(Request $request)
 	{
+        $geo =$this->geoOrientation($request);
 		$translator = $this->get('translator');
 		// Сделать проверку на то, чтобы резюме принадлежало пользователю.
 		$employee = $this->getUser();
@@ -198,8 +221,10 @@ class EmployeeController extends Controller
 
 		$vars['form'] = $form->createView();
 		$vars['title'] = 'Редактирование вакансии';
+        $vars['local_country'] = $geo["country"];
+        $vars['local_country_id'] = $geo["id"];
 
-		return $this->render('employee_resume_new.html.twig', $vars);
+		return $this->render('OneDayJobFrontendBundle:Employee:employee_resume_new.html.twig', $vars);
 	}
 
 	public function resumeDeleteAction(Request $request, Resume $resume)
@@ -231,24 +256,30 @@ class EmployeeController extends Controller
 	{
 		$employee = $this->getUser();
 		$vacancies = $employee->getResponseVacancy();
+        $geo =$this->geoOrientation($this->getRequest());
+        $vars['local_country'] = $geo["country"];
+        $vars['local_country_id'] = $geo["id"];
 		
 		if ($vacancies->isEmpty()) {
 			$translator = $this->get('translator');
 			$session = $this->get('session');
 			$session->getFlashBag()->add('warning', $translator->trans('flash.warning.no_responces'));
-			return $this->render('employee_favorite_index.html.twig');
+			return $this->render('OneDayJobFrontendBundle:Employee:employee_favorite_index.html.twig', $vars);
 		}
 
 		$vars['vacancies'] = $vacancies;
 		$vars['title'] = 'Мои отклики';
 
-		return $this->render('employee_favorite_index.html.twig', $vars);
+		return $this->render('OneDayJobFrontendBundle:Employee:employee_favorite_index.html.twig', $vars);
 	}
 
 	# Managment
 
 	public function managmentIndexAction(Request $request)
 	{
+        $geo =$this->geoOrientation($request);
+        $vars['local_country'] = $geo["country"];
+        $vars['local_country_id'] = $geo["id"];
 		$em = $this->getDoctrine()->getManager();
 		$session = $this->get('session');
 		$translator = $this->get('translator');
@@ -330,4 +361,51 @@ class EmployeeController extends Controller
 
 		return $this->render('employee_management.html.twig', $vars);
 	}
+
+    public function resumePdfAction(){
+        $employee = $this->getUser();
+
+        $resume = $employee->getResume();
+
+
+        $mpdfService = $this->container->get('tfox.mpdfport');
+        $html = $this->render('OneDayJobFrontendBundle:Employee:employee_resume_pdf.html.twig',array('resume' => $resume));
+//        return new \Symfony\Component\HttpFoundation\Response($html);
+        $arguments = array(
+//                'constructorArgs' => array('utf-8', 'A4-L', 5 ,5 ,5 ,5,5 ), //Constructor arguments. Numeric array. Don't forget about points 2 and 3 in Warning section!
+            'writeHtmlMode' => null, //$mode argument for WriteHTML method
+            'writeHtmlInitialise' => null, //$mode argument for WriteHTML method
+            'writeHtmlClose' => null, //$close argument for WriteHTML method
+            'outputFilename' => null, //$filename argument for Output method
+            'outputDest' => null, //$dest argument for Output method
+        );
+        return $mpdfService->generatePdfResponse($html->getContent(), $arguments);
+//            }
+
+//        return new Response("OK!");
+    }
+
+    protected function geoOrientation($request)
+    {
+        $locale =  $request->get('_locale');
+        $user_ip = $_SERVER["REMOTE_ADDR"];
+        $geo = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip='$user_ip'"));
+        $country = $geo["geoplugin_countryName"];
+
+        $repository = $this->getDoctrine()->getRepository("OneDayJobApiBundle:CountryTranslation")->findBy(array("title" => $country));
+
+
+        $country_id = ceil($repository[0]->getId() / 3 );
+
+        if($locale == "ru")
+            $country = $this->getDoctrine()->getRepository("OneDayJobApiBundle:CountryTranslation")->find($repository[0]->getId() - 1)->getTitle();
+        elseif($locale == "de")
+            $country = $this->getDoctrine()->getRepository("OneDayJobApiBundle:CountryTranslation")->find($repository[0]->getId() + 1)->getTitle();
+
+        return array(
+            "id" => $country_id,
+            "country" => $country
+        );
+    }
+
 }

@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block userblock %}
+  <div class="account-main" id="sel">
+    <nav class="account-nav worker-nav">
+
+      {% include '_menu_mobile.html.twig' %}
+
+      <div class="account-drop-menu collapse" id="navcollaps">
+
+        {% include 'employee_profile_menu.html.twig' %}
+
+      </div>
+    </nav>
+    <div class="account-heading">
+      <div class="account-title"> <span class="xs-show"><i class="icon-16 icon-list-white"></i></span>
+        <h3>{{ 'user.menu.resume'|trans }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="account-content">
+    <div class="account-user-page">
+      <div class="account-top-panel">
+        <div class="pull-left">
+          <img src="{{ resume.imageSrc }}" alt="" width="118" height="118" class="img-circle">
+        </div>
+        <div class="account-top-info">
+          <h1>{{ resume.getFullName }} {{ resume.age }} лет</h1>
+          <div>{{ resume.city.country.translate.title }}, {{ resume.city.translate.title }}</div>
+          <ul class="list-unstyled">
+            <li><b>{{ 'form.company.phone'|trans }}:</b> +{{ resume.phone }}</li>
+            <li><b>E-mail:</b> {{ resume.email }}</li>
+            <li><b>Skype:</b> {{ resume.skype }}</li>
+          </ul>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="account-user-cont">
+        <div class="text-uppercase text-bold">{{ 'form.vacancy.education'|trans }}</div>
+        <br>
+
+        {% for education in resume.education %}
+          <p>
+            <b>Высшее</b><br>
+            <span class="text-muted">{{ education.title }}</span>
+          </p>
+        {% endfor %}
+
+        <br>
+
+        <div class="text-uppercase text-bold">{{ 'form.vacancy.work_experience'|trans }}</div>
+        <br>
+
+        {% for experience in resume.experience %}
+          <p><b>{{ experience.title }}</b> <br></p>
+        {% endfor %}
+        <br>
+
+
+
+        <div class="text-uppercase text-bold">{{ 'form.vacancy.extra'|trans }}</div>
+        <br>
+        <p><span class="text-muted">{{ resume.extra }}</span></p>
+
+        <div class="button-group">
+          <a href="{{ path('fe_employee_resume_edit') }}" class="button button-invert">{{ 'user.data.resume_edit'|trans }}</a>
+          <a href="#" data-toggle="modal" data-target="#delete-confirm" class="button button-invert">{{ 'user.data.resume_delete'|trans }}</a>
+        </div>
+      </div>
+      <div class="right-panel"> <a class="resume_pdf" href="{{ path('fe_employee_resume_pdf') }}"><i class="icon-pdf"></i></a>
+        <div class="top-sm">{{ 'user.data.resume_created'|trans }} {{ resume.created.format('d.m.Y') }}</div>
+        <div class="top-sm">
+          <a class="resume_modal" href="" data-id="{{ resume.id }}">{{ 'user.data.resume_view'|trans }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include '_modal_resume.html.twig' %}
+
+  <div class="modal fade" id="delete-confirm" tabindex="-1">
+    <div class="modal-dialog" style="width:670px;">
+      <div class="modal-content-box">
+        <button type="button" class="close" data-dismiss="modal" > <i class="icon-16 icon-close"></i> </button>
+        <div class="dpad text-center">
+          <h1>{{ 'user.data.realy_remove_resume'|trans }}</h1>
+          <div class="top-md">
+            <div class="btn-group">
+              <button type="submit" class="button button-orange remove_resume" data-url="{{ path('fe_employee_resume_delete', {'id': resume.id}) }}">{{ 'user.data.remove'|trans }}</button>
+              <button type="button"  data-dismiss="modal" class="button button-grey">{{ 'user.data.cancel'|trans }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

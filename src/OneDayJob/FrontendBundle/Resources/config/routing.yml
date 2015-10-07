@@ -117,6 +117,10 @@ fe_employee_managment_index:
     path: /employee/managment
     defaults: { _controller: OneDayJobFrontendBundle:Employee:managmentIndex }
 
+fe_employee_resume_pdf:
+    path: /employee/resume_pdf
+    defaults: {_controller: OneDayJobFrontendBundle:Employee:resumePdf}
+
 # Vacancy
 
 fe_vacancy_index:
