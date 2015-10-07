@@ -130,9 +130,14 @@ class Vacancy
     protected $extra;
 
     /**
-     * @ORM\Column(type="smallint", nullable=true)
+     * @ORM\Column(type="date" , nullable=true)
      */
-    protected $term;
+    private $termfrom;
+
+    /**
+     * @ORM\Column(type="date" , nullable=true)
+     */
+    private $termto;
 
     /**
      * @ORM\Column(type="smallint")
@@ -672,29 +677,6 @@ class Vacancy
         return $this->response_employee;
     }
 
-    /**
-     * Set term
-     *
-     * @param integer $term
-     *
-     * @return Vacancy
-     */
-    public function setTerm($term)
-    {
-        $this->term = $term;
-
-        return $this;
-    }
-
-    /**
-     * Get term
-     *
-     * @return integer
-     */
-    public function getTerm()
-    {
-        return $this->term;
-    }
 
     /**
      * Add favoriteUser
@@ -753,4 +735,38 @@ class Vacancy
     {
         return $this->responses;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTermfrom()
+    {
+        return $this->termfrom;
+    }
+
+    /**
+     * @param mixed $termfrom
+     */
+    public function setTermfrom($termfrom)
+    {
+        $this->termfrom = $termfrom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTermto()
+    {
+        return $this->termto;
+    }
+
+    /**
+     * @param mixed $termto
+     */
+    public function setTermto($termto)
+    {
+        $this->termto = $termto;
+    }
+
+
 }

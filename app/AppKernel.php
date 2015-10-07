@@ -23,7 +23,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\TimeBundle\KnpTimeBundle(),
             new Padam87\SearchBundle\Padam87SearchBundle(),
             new nxp\RutilsBundle\nxpRutilsBundle(),
-
+            new TFox\MpdfPortBundle\TFoxMpdfPortBundle(),
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
             new OneDayJob\FrontendBundle\OneDayJobFrontendBundle(),
             new OneDayJob\ApiBundle\OneDayJobApiBundle(),

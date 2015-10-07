@@ -6,8 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass = "CompanyRepository")
  * @ORM\Table(name="odj_company")
+ *
  */
 class Company
 {
@@ -55,9 +56,15 @@ class Company
      **/
     protected $image;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Gallery", mappedBy="company")
+     **/
+    protected $gallery;
+
 
 	public function __construct()
 	{
+        $this->gallery = new ArrayCollection();
 		$this->vacancies = new ArrayCollection();
 	}
 
@@ -97,7 +104,7 @@ class Company
 
     /**
      * Set site
-     *
+     *	$this->vacancies = new ArrayCollection();
      * @param string $site
      *
      * @return Company
@@ -121,7 +128,7 @@ class Company
 
     /**
      * Set phone
-     *
+     *	$this->vacancies = new ArrayCollection();
      * @param string $phone
      *
      * @return Company
@@ -198,7 +205,7 @@ class Company
      *
      * @return Company
      */
-    public function addVacancy(\OneDayJob\ApiBundle\Entity\Vacancy $vacancy)
+    public function addVacancy($vacancy)
     {
         $this->vacancies[] = $vacancy;
 
@@ -210,7 +217,7 @@ class Company
      *
      * @param \OneDayJob\ApiBundle\Entity\Vacancy $vacancy
      */
-    public function removeVacancy(\OneDayJob\ApiBundle\Entity\Vacancy $vacancy)
+    public function removeVacancy($vacancy)
     {
         $this->vacancies->removeElement($vacancy);
     }
@@ -248,4 +255,39 @@ class Company
     {
         return $this->image;
     }
+
+    /**
+     * Add gallery
+     *
+     * @param \OneDayJob\ApiBundle\Entity\Gallery $gallery
+     *
+     * @return Company
+     */
+    public function addGallery($gallery)
+    {
+        $this->gallery[] = $gallery;
+
+        return $this;
+    }
+
+    /**
+     * Get gallery
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGallery()
+    {
+        return $this->gallery;
+    }
+
+    /**
+     * @param mixed $gallery
+     */
+    public function setGallery($gallery)
+    {
+        $this->gallery = $gallery;
+    }
+
+
+
 }

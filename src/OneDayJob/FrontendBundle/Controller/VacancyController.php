@@ -47,7 +47,7 @@ class VacancyController extends Controller
 
     	$vacancies->setItems(array_merge($_temp1, $_temp2));
 
-		return $this->render('_vacancy.html.twig', ['vacancies' => $vacancies]);
+		return $this->render('OneDayJobFrontendBundle:Vacancy:_vacancy.html.twig', ['vacancies' => $vacancies]);
 	}
 
 	public function indexAction(Request $request)
@@ -61,13 +61,24 @@ class VacancyController extends Controller
 		$salary 		= filter_var($request->query->get('salary', 0), FILTER_SANITIZE_NUMBER_INT);
 		$education 		= filter_var($request->query->get('education', 0), FILTER_SANITIZE_NUMBER_INT);
 		$employment 	= filter_var($request->query->get('employment', 0), FILTER_SANITIZE_NUMBER_INT);
-		$term       	= filter_var($request->query->get('term', 0), FILTER_SANITIZE_NUMBER_INT);
+        $term_from      = $request->get('term_from');
+        $term_to       	= $request->get('term_to');
 
-		$fm = $this->get('padam87_search.filter.manager');
-		$filter = new \Padam87\SearchBundle\Filter\Filter(['title' => '*' . $text . '*'], 'OneDayJobApiBundle:Vacancy', 'v');
-		$builder = $fm->createQueryBuilder($filter);
-		$builder->select('v, c, city');
+//		$fm = $this->get('padam87_search.filter.manager');
+//		$filter = new \Padam87\SearchBundle\Filter\Filter(['title' => '*' . $text . '*'], 'OneDayJobApiBundle:Vacancy', 'v');
+//		$builder = $fm->createQueryBuilder($filter);
+//		$builder->select('v, c, city');
 
+
+        $em = $this->getDoctrine()->getManager();
+
+        $builder = $em->createQueryBuilder('v');
+        $builder->select('v');
+        $builder->from('OneDayJobApiBundle:Vacancy','v');
+
+        /**
+         * @TODO здесь нужно поменять term но здесь padam87_search делать как в Resume?
+         */
 		if ($salary) {
 			$builder->andWhere('v.currency = :currency');
 			$builder->setParameter('currency', $currency);
@@ -83,17 +94,32 @@ class VacancyController extends Controller
 			$builder->setParameter('work_experience', $experience);
 		}
 
-		if ($term) {
-			$builder->andWhere('v.term <= :term');
-			$builder->setParameter('term', $term);
-		}
+        if ($term_from || $term_to) {
+            // This check needs when we have term_from and term_to it means that term_to must be more than term_from!
+            $flag = true;
+            if(($term_from >= $term_to) && ($term_from && $term_to)){
+                $flag = false;
+            }
+
+
+            if($term_from && $flag){
+                $builder->andWhere('v.termfrom > :termfrom');
+                $builder->setParameter('termfrom', $term_from);
+            }
+
+            if($term_from && $flag){
+                $builder->andWhere('v.termto < :termto');
+                $builder->setParameter('termfrom', $term_from);
+            }
+
+        }
 
 		if ($employment) {
 			$builder->andWhere('v.employment = :employment');
 			$builder->setParameter('employment', $employment);
 		}
 
-		if ($country) {
+		if ($country && $country != -1) {
 			$builder->andWhere('v.country = :country');
 			$builder->setParameter('country', $country);
 		}
@@ -113,18 +139,24 @@ class VacancyController extends Controller
 		$builder->orderBy('v.up', 'DESC');
 
 		$em = $this->getDoctrine()->getEntityManager();
-		
+
+        $geo =$this->geoOrientation($this->getRequest());
+        $vars['local_country'] = $geo["country"];
+        $vars['local_country_id'] = $geo["id"];
 		$vars['countries'] 		 = $em->getRepository('OneDayJobApiBundle:Country')->findAll();
 		$vars['specializations'] = $em->getRepository('OneDayJobApiBundle:Specialization')->findAll();
 		$vars['branches'] 		 = $em->getRepository('OneDayJobApiBundle:Branch')->findAll();
 
 		$vars['vacancies']		 = $builder->getQuery()->getResult();
 
-		return $this->render('vacancy_index.html.twig', $vars);
+		return $this->render('OneDayJobFrontendBundle:Vacancy:vacancy_index.html.twig', $vars);
 	}
 
 	public function vacancyAction(Vacancy $vacancy)
 	{
+        $geo =$this->geoOrientation($this->getRequest());
+        $vars['local_country'] = $geo["country"];
+        $vars['local_country_id'] = $geo["id"];
 		$repository = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Vacancy');
 		$builder = $repository->createQueryBuilder('v');
 		$builder->where('v.specialization = ' . $vacancy->getSpecialization()->getId());
@@ -137,4 +169,27 @@ class VacancyController extends Controller
 
 		return $this->render('OneDayJobFrontendBundle:Default:vacancy.html.twig', $vars);
 	}
+
+    protected function geoOrientation($request)
+    {
+        $locale =  $request->get('_locale');
+        $user_ip = $_SERVER["REMOTE_ADDR"];
+        $geo = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip='$user_ip'"));
+        $country = $geo["geoplugin_countryName"];
+
+        $repository = $this->getDoctrine()->getRepository("OneDayJobApiBundle:CountryTranslation")->findBy(array("title" => $country));
+
+
+        $country_id = ceil($repository[0]->getId() / 3 );
+
+        if($locale == "ru")
+            $country = $this->getDoctrine()->getRepository("OneDayJobApiBundle:CountryTranslation")->find($repository[0]->getId() - 1)->getTitle();
+        elseif($locale == "de")
+            $country = $this->getDoctrine()->getRepository("OneDayJobApiBundle:CountryTranslation")->find($repository[0]->getId() + 1)->getTitle();
+
+        return array(
+            "id" => $country_id,
+            "country" => $country
+        );
+    }
 }

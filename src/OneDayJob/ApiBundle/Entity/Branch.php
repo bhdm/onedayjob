@@ -2,6 +2,7 @@
 
 namespace OneDayJob\ApiBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
@@ -26,13 +27,10 @@ class Branch
     private $children;
 
     public function __construct() {
-        $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->children = new ArrayCollection();
     }
 
-    public function __toString()
-    {
-        return $this->getTitle();
-    }
+
 
     /**
      * Get id
@@ -51,7 +49,7 @@ class Branch
      *
      * @return Branch
      */
-    public function addChild(\OneDayJob\ApiBundle\Entity\Specialization $child)
+    public function addChild( $child)
     {
         $this->children[] = $child;
 
@@ -63,7 +61,7 @@ class Branch
      *
      * @param \OneDayJob\ApiBundle\Entity\Specialization $child
      */
-    public function removeChild(\OneDayJob\ApiBundle\Entity\Specialization $child)
+    public function removeChild( $child)
     {
         $this->children->removeElement($child);
     }

@@ -88,12 +88,15 @@ form:
         salary_per_day: "tägliches Gehalt"
         currency: "Währung"
         extra: "weitere Informationen"
+        year: "jahre"
     resume:
         city: "Wohnort"
         profession: "Beruf"
         add_field: "Tätigkeitsbereich hinzufügen"
         salary: "Gehaltsvorstellung"
         term: "die Dauer der Stellenangebot"
+        term_from: "Erste Schritte"
+        term_to: "Das Ende der Arbeit"
         relocate: "Umzugsbereitschaft"
         citizenship: "Staatsbürgerschaft"
         work_permit: "Arbeitserlaubnis"
@@ -171,6 +174,7 @@ content:
     salary: "der Lohn"
 ###
     search:
+        need_to_login_regist: "Um zu sehen Sie sich"
         no_vacancy: "Keine Positionen gefunden"
         vacancy_1: "Vakanz"
         vacancy_2: "Vakanz"
@@ -185,6 +189,10 @@ content:
         resume_3: "Resümee" #+
         enter_word: "Geben Sie das Wort"
         choose_please: "Bitte auswählen ..."
+        select_any_branch: "jede Branche"
+        select_any_country: "Beliebiges Land"
+        select_any_city: "beliebige Stadt"
+        select_any_company: "Jedes Unternehmen"
     sort_by: "Sortieren nach"
     sort_date: "Datum hinzugefügt"
     sort_view: "Ansichten"

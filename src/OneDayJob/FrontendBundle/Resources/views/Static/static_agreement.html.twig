@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div class="bottom-lg">
+    <div class="container">
+      <ul class="xs-hide breadcrumb">
+        <li><a href="/">{{ 'menu.static.main'|trans }}</a></li>
+        <li class="active">{{ 'menu.static.about'|trans }}</li>
+      </ul>
+      <div class="row">
+        <div class="xs-hide col-sm-3">
+          <ul class="sidemenu">
+            <li><a href="{{ path('fe_static_about') }}">{{ 'menu.static.about'|trans }}</a></li>
+            <li class="active"><a href="{{ path('fe_static_agreement') }}">{{ 'menu.static.agreement'|trans }}</a></li>
+            <li><a href="{{ path('fe_static_feedback') }}">{{ 'menu.static.feedback'|trans }}</a></li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <div class="static">
+            <h1>{{ 'menu.static.agreement'|trans }}</h1>
+            <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</p>
+            <h6>This is Photoshop's version  of Lorem Ipsum. </h6>
+            <ul>
+              <li>Proin gravida nibh vel velit auctor aliquet</li>
+              <li>Aenean sollicitudin, lorem quis bibendum auctor</li>
+              <li>nisi elit consequat ipsum, nec sagittis sem nibh id elit</li>
+              <li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris</li>
+              <li>Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio</li>
+            </ul>
+            <p>Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. </p>
+            <p>Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</p>
+            <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

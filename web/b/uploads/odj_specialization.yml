@@ -1,0 +1,2348 @@
+%YAML 1.1
+---
+# hlam.odj_specialization
+-
+  id: 2
+  parent_id: 1
+  title: "Управление проектами"
+-
+  id: 3
+  parent_id: 1
+  title: "Тестирование"
+-
+  id: 4
+  parent_id: 1
+  title: "Контент"
+-
+  id: 5
+  parent_id: 1
+  title: "Стартапы"
+-
+  id: 6
+  parent_id: 1
+  title: "Банковское ПО"
+-
+  id: 7
+  parent_id: 1
+  title: "Компьютерная безопасность"
+-
+  id: 8
+  parent_id: 1
+  title: "Системы управления предприятием (ERP)"
+-
+  id: 9
+  parent_id: 1
+  title: "CRM системы"
+-
+  id: 10
+  parent_id: 1
+  title: "Консалтинг, Аутсорсинг"
+-
+  id: 11
+  parent_id: 1
+  title: "Оптимизация сайта (SEO)"
+-
+  id: 12
+  parent_id: 1
+  title: "Администратор баз данных"
+-
+  id: 13
+  parent_id: 1
+  title: "Маркетинг"
+-
+  id: 14
+  parent_id: 1
+  title: "Начальный уровень, Мало опыта"
+-
+  id: 15
+  parent_id: 1
+  title: "CTO, CIO, Директор по IT"
+-
+  id: 16
+  parent_id: 1
+  title: "Развитие бизнеса"
+-
+  id: 17
+  parent_id: 1
+  title: "Web мастер"
+-
+  id: 18
+  parent_id: 1
+  title: "Web инженер"
+-
+  id: 19
+  parent_id: 1
+  title: "Игровое ПО"
+-
+  id: 20
+  parent_id: 1
+  title: "Мультимедиа"
+-
+  id: 21
+  parent_id: 1
+  title: "Программирование, Разработка"
+-
+  id: 22
+  parent_id: 1
+  title: "Телекоммуникации"
+-
+  id: 23
+  parent_id: 1
+  title: "Аналитик"
+-
+  id: 24
+  parent_id: 1
+  title: "Технический писатель"
+-
+  id: 25
+  parent_id: 1
+  title: "Продажи"
+-
+  id: 26
+  parent_id: 1
+  title: "Электронная коммерция"
+-
+  id: 27
+  parent_id: 1
+  title: "Интернет"
+-
+  id: 28
+  parent_id: 1
+  title: "Продюсер"
+-
+  id: 29
+  parent_id: 1
+  title: "Инженер"
+-
+  id: 30
+  parent_id: 1
+  title: "Передача данных и доступ в интернет"
+-
+  id: 31
+  parent_id: 1
+  title: "Сотовые, Беспроводные технологии"
+-
+  id: 32
+  parent_id: 1
+  title: "Системы автоматизированного проектирования"
+-
+  id: 33
+  parent_id: 1
+  title: "Системный администратор"
+-
+  id: 34
+  parent_id: 1
+  title: "Системная интеграция"
+-
+  id: 35
+  parent_id: 1
+  title: "Поддержка, Helpdesk"
+-
+  id: 36
+  parent_id: 1
+  title: "Сетевые технологии"
+-
+  id: 37
+  parent_id: 1
+  title: "Арт-директор"
+-
+  id: 39
+  parent_id: 2
+  title: "CIPA"
+-
+  id: 40
+  parent_id: 2
+  title: "ACCA"
+-
+  id: 41
+  parent_id: 2
+  title: "ТМЦ"
+-
+  id: 42
+  parent_id: 2
+  title: "Первичная документация"
+-
+  id: 43
+  parent_id: 2
+  title: "Бухгалтер-калькулятор"
+-
+  id: 44
+  parent_id: 2
+  title: "Оффшоры"
+-
+  id: 45
+  parent_id: 2
+  title: "Основные средства"
+-
+  id: 46
+  parent_id: 2
+  title: "GAAP"
+-
+  id: 47
+  parent_id: 2
+  title: "Руководство бухгалтерией"
+-
+  id: 48
+  parent_id: 2
+  title: "Валютный контроль"
+-
+  id: 49
+  parent_id: 2
+  title: "Бюджетирование и планирование"
+-
+  id: 50
+  parent_id: 2
+  title: "Бухгалтер"
+-
+  id: 51
+  parent_id: 2
+  title: "Экономист"
+-
+  id: 52
+  parent_id: 2
+  title: "Кредитный контроль"
+-
+  id: 53
+  parent_id: 2
+  title: "Начальный уровень, Мало опыта"
+-
+  id: 54
+  parent_id: 2
+  title: "Расчет себестоимости"
+-
+  id: 55
+  parent_id: 2
+  title: "Планово-экономическое управление"
+-
+  id: 56
+  parent_id: 2
+  title: "Ценные бумаги"
+-
+  id: 57
+  parent_id: 2
+  title: "Налоги"
+-
+  id: 58
+  parent_id: 2
+  title: "Финансовый анализ"
+-
+  id: 59
+  parent_id: 2
+  title: "МСФО, IFRS"
+-
+  id: 60
+  parent_id: 2
+  title: "Казначейство"
+-
+  id: 61
+  parent_id: 2
+  title: "Кассир, Инкассатор"
+-
+  id: 62
+  parent_id: 2
+  title: "Финансовый менеджмент"
+-
+  id: 63
+  parent_id: 2
+  title: "Финансовый контроль"
+-
+  id: 64
+  parent_id: 2
+  title: "Аудит"
+-
+  id: 65
+  parent_id: 2
+  title: "Учет счетов и платежей"
+-
+  id: 66
+  parent_id: 2
+  title: "Учет заработной платы"
+-
+  id: 68
+  parent_id: 3
+  title: "Управление проектами"
+-
+  id: 69
+  parent_id: 3
+  title: "Рекламный агент"
+-
+  id: 70
+  parent_id: 3
+  title: "Копирайтер"
+-
+  id: 71
+  parent_id: 3
+  title: "Верстальщик"
+-
+  id: 72
+  parent_id: 3
+  title: "Консультант"
+-
+  id: 73
+  parent_id: 3
+  title: "Управление маркетингом"
+-
+  id: 74
+  parent_id: 3
+  title: "Производство рекламы"
+-
+  id: 75
+  parent_id: 3
+  title: "Начальный уровень/Мало опыта"
+-
+  id: 76
+  parent_id: 3
+  title: "Below The Line (BTL)"
+-
+  id: 77
+  parent_id: 3
+  title: "Ассистент"
+-
+  id: 78
+  parent_id: 3
+  title: "Радио реклама"
+-
+  id: 79
+  parent_id: 3
+  title: "Дизайнер"
+-
+  id: 80
+  parent_id: 3
+  title: "Торговый маркетинг(Trade marketing)"
+-
+  id: 81
+  parent_id: 3
+  title: "PR, Маркетинговые коммуникации"
+-
+  id: 82
+  parent_id: 3
+  title: "Аналитик"
+-
+  id: 83
+  parent_id: 3
+  title: "Телевизионная реклама"
+-
+  id: 84
+  parent_id: 3
+  title: "Интернет-маркетинг"
+-
+  id: 85
+  parent_id: 3
+  title: "Продвижение, Специальные мероприятия"
+-
+  id: 86
+  parent_id: 3
+  title: "Наружная реклама"
+-
+  id: 87
+  parent_id: 3
+  title: "Печатная реклама"
+-
+  id: 88
+  parent_id: 3
+  title: "Бренд-менеджмент"
+-
+  id: 89
+  parent_id: 3
+  title: "Планирование, Размещение рекламы"
+-
+  id: 90
+  parent_id: 3
+  title: "Политический PR"
+-
+  id: 91
+  parent_id: 3
+  title: "Арт директор"
+-
+  id: 92
+  parent_id: 3
+  title: "Мерчендайзинг"
+-
+  id: 93
+  parent_id: 3
+  title: "Менеджмент продукта (Product manager)"
+-
+  id: 94
+  parent_id: 3
+  title: "Промоутер"
+-
+  id: 95
+  parent_id: 3
+  title: "Проведение опросов, Интервьюер"
+-
+  id: 96
+  parent_id: 3
+  title: "Менеджер по работе с клиентами"
+-
+  id: 97
+  parent_id: 3
+  title: "Исследования рынка"
+-
+  id: 98
+  parent_id: 3
+  title: "Таинственный покупатель"
+-
+  id: 100
+  parent_id: 4
+  title: "Ресепшен"
+-
+  id: 101
+  parent_id: 4
+  title: "Водитель"
+-
+  id: 102
+  parent_id: 4
+  title: "Делопроизводство"
+-
+  id: 103
+  parent_id: 4
+  title: "Ввод данных"
+-
+  id: 104
+  parent_id: 4
+  title: "Последовательный перевод"
+-
+  id: 105
+  parent_id: 4
+  title: "Секретарь"
+-
+  id: 106
+  parent_id: 4
+  title: "Уборщица"
+-
+  id: 107
+  parent_id: 4
+  title: "Персональный ассистент"
+-
+  id: 108
+  parent_id: 4
+  title: "АХО"
+-
+  id: 109
+  parent_id: 4
+  title: "Сотрудник call-центра"
+-
+  id: 110
+  parent_id: 4
+  title: "Вечерний секретарь"
+-
+  id: 111
+  parent_id: 4
+  title: "Письменный перевод"
+-
+  id: 112
+  parent_id: 4
+  title: "Архивист"
+-
+  id: 113
+  parent_id: 4
+  title: "Управляющий офисом(Оffice manager)"
+-
+  id: 114
+  parent_id: 4
+  title: "Синхронный перевод"
+-
+  id: 115
+  parent_id: 4
+  title: "Учет товарооборота"
+-
+  id: 116
+  parent_id: 4
+  title: "Курьер"
+-
+  id: 117
+  parent_id: 4
+  title: "Начальный уровень, Мало опыта"
+-
+  id: 119
+  parent_id: 5
+  title: "Обменные пункты, Банкоматы"
+-
+  id: 120
+  parent_id: 5
+  title: "Внутренние операции (Back Office)"
+-
+  id: 121
+  parent_id: 5
+  title: "Риски: рыночные"
+-
+  id: 122
+  parent_id: 5
+  title: "Автокредитование"
+-
+  id: 123
+  parent_id: 5
+  title: "Валютный контроль"
+-
+  id: 124
+  parent_id: 5
+  title: "ОПЕРУ"
+-
+  id: 125
+  parent_id: 5
+  title: "Начальный уровень, Мало опыта"
+-
+  id: 126
+  parent_id: 5
+  title: "Торговое финансирование"
+-
+  id: 127
+  parent_id: 5
+  title: "Денежный рынок (money market)"
+-
+  id: 128
+  parent_id: 5
+  title: "Акции, Ценные бумаги"
+-
+  id: 129
+  parent_id: 5
+  title: "Налоги"
+-
+  id: 130
+  parent_id: 5
+  title: "Бумаги с фиксированной доходностью (fixed Income)"
+-
+  id: 131
+  parent_id: 5
+  title: "Бухгалтер"
+-
+  id: 132
+  parent_id: 5
+  title: "Аудит, Внутренний контроль"
+-
+  id: 133
+  parent_id: 5
+  title: "Аналитик"
+-
+  id: 134
+  parent_id: 5
+  title: "Корпоративное финансирование"
+-
+  id: 135
+  parent_id: 5
+  title: "Эмиссии"
+-
+  id: 136
+  parent_id: 5
+  title: "Розничный бизнес"
+-
+  id: 137
+  parent_id: 5
+  title: "Факторинг"
+-
+  id: 138
+  parent_id: 5
+  title: "Руководство бухгалтерией"
+-
+  id: 139
+  parent_id: 5
+  title: "Ипотека, Ипотечное кредитование"
+-
+  id: 140
+  parent_id: 5
+  title: "Риски: лизинговые"
+-
+  id: 141
+  parent_id: 5
+  title: "Бюджетирование"
+-
+  id: 142
+  parent_id: 5
+  title: "Кредиты: розничные"
+-
+  id: 143
+  parent_id: 5
+  title: "Лизинг"
+-
+  id: 144
+  parent_id: 5
+  title: "Паевые фонды"
+-
+  id: 145
+  parent_id: 5
+  title: "Прямые инвестиции"
+-
+  id: 146
+  parent_id: 5
+  title: "Экономист"
+-
+  id: 147
+  parent_id: 5
+  title: "Кредиты"
+-
+  id: 148
+  parent_id: 5
+  title: "Forex"
+-
+  id: 149
+  parent_id: 5
+  title: "Риски: прочие"
+-
+  id: 150
+  parent_id: 5
+  title: "Корреспондентские, Международные отношения"
+-
+  id: 151
+  parent_id: 5
+  title: "Риски: кредитные"
+-
+  id: 152
+  parent_id: 5
+  title: "Оценка залога, Стоимости имущества"
+-
+  id: 153
+  parent_id: 5
+  title: "Разработка новых продуктов, Маркетинг"
+-
+  id: 154
+  parent_id: 5
+  title: "Методология, Банковские технологии"
+-
+  id: 155
+  parent_id: 5
+  title: "Казначейство, Управление ликвидностью"
+-
+  id: 156
+  parent_id: 5
+  title: "Расчеты"
+-
+  id: 157
+  parent_id: 5
+  title: "Отчетность"
+-
+  id: 158
+  parent_id: 5
+  title: "Привлечение клиентов"
+-
+  id: 159
+  parent_id: 5
+  title: "Продажа финансовых продуктов"
+-
+  id: 160
+  parent_id: 5
+  title: "Проектное финансирование"
+-
+  id: 161
+  parent_id: 5
+  title: "Инвестиционная компания"
+-
+  id: 162
+  parent_id: 5
+  title: "Private Banking"
+-
+  id: 163
+  parent_id: 5
+  title: "Филиалы"
+-
+  id: 164
+  parent_id: 5
+  title: "Трейдинг, Дилинг"
+-
+  id: 165
+  parent_id: 5
+  title: "Кассовое обслуживание, инкассация"
+-
+  id: 166
+  parent_id: 5
+  title: "Риски: финансовые"
+-
+  id: 167
+  parent_id: 5
+  title: "Риски: операционные"
+-
+  id: 168
+  parent_id: 5
+  title: "Пластиковые карты"
+-
+  id: 169
+  parent_id: 5
+  title: "Коммерческий банк"
+-
+  id: 170
+  parent_id: 5
+  title: "Финансовый мониторинг"
+-
+  id: 171
+  parent_id: 5
+  title: "Работа с проблемными заемщиками"
+-
+  id: 172
+  parent_id: 5
+  title: "Кредитование малого и среднего бизнеса"
+-
+  id: 173
+  parent_id: 5
+  title: "Портфельные инвестиции"
+-
+  id: 175
+  parent_id: 6
+  title: "Рекрутмент"
+-
+  id: 176
+  parent_id: 6
+  title: "Тренинги"
+-
+  id: 177
+  parent_id: 6
+  title: "Управление персоналом"
+-
+  id: 178
+  parent_id: 6
+  title: "Начальный уровень, Мало опыта"
+-
+  id: 179
+  parent_id: 6
+  title: "Компенсации и льготы"
+-
+  id: 180
+  parent_id: 6
+  title: "Развитие персонала"
+-
+  id: 181
+  parent_id: 6
+  title: "Учет кадров"
+-
+  id: 183
+  parent_id: 7
+  title: "Продажа"
+-
+  id: 184
+  parent_id: 7
+  title: "Автослесарь"
+-
+  id: 185
+  parent_id: 7
+  title: "Тонировщик"
+-
+  id: 186
+  parent_id: 7
+  title: "Начальный уровень /Мало опыта"
+-
+  id: 187
+  parent_id: 7
+  title: "Автомойщик"
+-
+  id: 188
+  parent_id: 7
+  title: "Автожестянщик"
+-
+  id: 189
+  parent_id: 7
+  title: "Автозапчасти"
+-
+  id: 190
+  parent_id: 7
+  title: "Производство"
+-
+  id: 191
+  parent_id: 7
+  title: "Прокат, лизинг"
+-
+  id: 192
+  parent_id: 7
+  title: "Шины, Диски"
+-
+  id: 193
+  parent_id: 7
+  title: "Сервисное обслуживание"
+-
+  id: 195
+  parent_id: 8
+  title: "Инкассатор"
+-
+  id: 196
+  parent_id: 8
+  title: "Экономическая и информационная безопасность"
+-
+  id: 197
+  parent_id: 8
+  title: "Пожарная безопасность"
+-
+  id: 198
+  parent_id: 8
+  title: "Личная безопасность"
+-
+  id: 199
+  parent_id: 8
+  title: "Руководитель СБ"
+-
+  id: 200
+  parent_id: 8
+  title: "Охранник"
+-
+  id: 201
+  parent_id: 8
+  title: "Имущественная безопасность"
+-
+  id: 202
+  parent_id: 8
+  title: "Системы видеонаблюдения"
+-
+  id: 203
+  parent_id: 8
+  title: "Взыскание задолженности, Коллекторская деятельность"
+-
+  id: 205
+  parent_id: 9
+  title: "Консультирование"
+-
+  id: 206
+  parent_id: 9
+  title: "Управление закупками"
+-
+  id: 207
+  parent_id: 9
+  title: "Управление персоналом, Тренинги"
+-
+  id: 208
+  parent_id: 9
+  title: "Управление малым бизнесом"
+-
+  id: 209
+  parent_id: 9
+  title: "Туризм, Гостиницы, Рестораны"
+-
+  id: 210
+  parent_id: 9
+  title: "Производство, Технология"
+-
+  id: 211
+  parent_id: 9
+  title: "Транспорт, Логистика"
+-
+  id: 212
+  parent_id: 9
+  title: "Добыча cырья"
+-
+  id: 213
+  parent_id: 9
+  title: "Антикризисное управление"
+-
+  id: 214
+  parent_id: 9
+  title: "Продажи"
+-
+  id: 215
+  parent_id: 9
+  title: "Администрирование"
+-
+  id: 216
+  parent_id: 9
+  title: "Строительство, Недвижимость"
+-
+  id: 217
+  parent_id: 9
+  title: "Наука, Образование"
+-
+  id: 218
+  parent_id: 9
+  title: "Инвестиции"
+-
+  id: 219
+  parent_id: 9
+  title: "Медицина, Фармацевтика"
+-
+  id: 220
+  parent_id: 9
+  title: "Спортивные клубы, Фитнес, Салоны красоты"
+-
+  id: 221
+  parent_id: 9
+  title: "Страхование"
+-
+  id: 222
+  parent_id: 9
+  title: "Финансы"
+-
+  id: 223
+  parent_id: 9
+  title: "Коммерческий Банк"
+-
+  id: 224
+  parent_id: 9
+  title: "Маркетинг, Реклама, PR"
+-
+  id: 225
+  parent_id: 9
+  title: "Информационные технологии, Интернет, Мультимедиа"
+-
+  id: 226
+  parent_id: 9
+  title: "Искусство, Развлечения, Масс-медиа"
+-
+  id: 227
+  parent_id: 9
+  title: "Юриспруденция"
+-
+  id: 229
+  parent_id: 10
+  title: "Маркшейдер"
+-
+  id: 230
+  parent_id: 10
+  title: "Газ"
+-
+  id: 231
+  parent_id: 10
+  title: "Нефть"
+-
+  id: 232
+  parent_id: 10
+  title: "Управление предприятием"
+-
+  id: 233
+  parent_id: 10
+  title: "Геологоразведка"
+-
+  id: 234
+  parent_id: 10
+  title: "Руда"
+-
+  id: 235
+  parent_id: 10
+  title: "Начальный уровень, Мало опыта"
+-
+  id: 236
+  parent_id: 10
+  title: "Бурение"
+-
+  id: 237
+  parent_id: 10
+  title: "Инженер"
+-
+  id: 238
+  parent_id: 10
+  title: "Уголь"
+-
+  id: 240
+  parent_id: 11
+  title: "Музыка"
+-
+  id: 241
+  parent_id: 11
+  title: "Кино"
+-
+  id: 242
+  parent_id: 11
+  title: "Телевидение"
+-
+  id: 243
+  parent_id: 11
+  title: "Мода"
+-
+  id: 244
+  parent_id: 11
+  title: "Издательская деятельность"
+-
+  id: 245
+  parent_id: 11
+  title: "Фотография"
+-
+  id: 246
+  parent_id: 11
+  title: "Казино и игорный бизнес"
+-
+  id: 247
+  parent_id: 11
+  title: "Литературная, Редакторская деятельность"
+-
+  id: 248
+  parent_id: 11
+  title: "Журналистика"
+-
+  id: 249
+  parent_id: 11
+  title: "Прочее"
+-
+  id: 250
+  parent_id: 11
+  title: "Начальный уровень, Мало опыта"
+-
+  id: 251
+  parent_id: 11
+  title: "Радио"
+-
+  id: 252
+  parent_id: 11
+  title: "Пресса"
+-
+  id: 253
+  parent_id: 11
+  title: "Дизайн, графика, живопись"
+-
+  id: 255
+  parent_id: 12
+  title: "Реинжиниринг, Аутсорсинг финансовой функции"
+-
+  id: 256
+  parent_id: 12
+  title: "Реинжиниринг бизнес процессов"
+-
+  id: 257
+  parent_id: 12
+  title: "Корпоративные финансы"
+-
+  id: 258
+  parent_id: 12
+  title: "Управление проектами"
+-
+  id: 259
+  parent_id: 12
+  title: "Управление практикой"
+-
+  id: 260
+  parent_id: 12
+  title: "Организационное консультирование"
+-
+  id: 261
+  parent_id: 12
+  title: "Стратегия"
+-
+  id: 262
+  parent_id: 12
+  title: "Недвижимость"
+-
+  id: 263
+  parent_id: 12
+  title: "Knowledge management"
+-
+  id: 264
+  parent_id: 12
+  title: "Информационные технологии"
+-
+  id: 265
+  parent_id: 12
+  title: "Internet, E-Commerce"
+-
+  id: 266
+  parent_id: 12
+  title: "Управленческое консультирование"
+-
+  id: 267
+  parent_id: 12
+  title: "Начальный уровень, Мало опыта"
+-
+  id: 268
+  parent_id: 12
+  title: "Исследования рынка"
+-
+  id: 269
+  parent_id: 12
+  title: "PR Consulting"
+-
+  id: 271
+  parent_id: 13
+  title: "Врач-эксперт"
+-
+  id: 272
+  parent_id: 13
+  title: "Ветеринария"
+-
+  id: 273
+  parent_id: 13
+  title: "Клинические исследования"
+-
+  id: 274
+  parent_id: 13
+  title: "Медицинский советник"
+-
+  id: 275
+  parent_id: 13
+  title: "Лечащий врач"
+-
+  id: 276
+  parent_id: 13
+  title: "Медицинский представитель"
+-
+  id: 277
+  parent_id: 13
+  title: "Маркетинг"
+-
+  id: 278
+  parent_id: 13
+  title: "Начальный уровень, Мало опыта"
+-
+  id: 279
+  parent_id: 13
+  title: "Лаборант"
+-
+  id: 280
+  parent_id: 13
+  title: "Оптика"
+-
+  id: 281
+  parent_id: 13
+  title: "Провизор"
+-
+  id: 282
+  parent_id: 13
+  title: "Младший и средний медперсонал"
+-
+  id: 283
+  parent_id: 13
+  title: "Медицинское оборудование"
+-
+  id: 284
+  parent_id: 13
+  title: "Лекарственные препараты"
+-
+  id: 285
+  parent_id: 13
+  title: "Продажи"
+-
+  id: 286
+  parent_id: 13
+  title: "Регистратура"
+-
+  id: 287
+  parent_id: 13
+  title: "Дефектолог, Логопед"
+-
+  id: 288
+  parent_id: 13
+  title: "Производство"
+-
+  id: 289
+  parent_id: 13
+  title: "Фармацевт"
+-
+  id: 290
+  parent_id: 13
+  title: "Сертификация"
+-
+  id: 291
+  parent_id: 13
+  title: "Психология"
+-
+  id: 293
+  parent_id: 14
+  title: "Экономика, Менеджмент"
+-
+  id: 294
+  parent_id: 14
+  title: "Инженерные науки"
+-
+  id: 295
+  parent_id: 14
+  title: "Химия"
+-
+  id: 296
+  parent_id: 14
+  title: "Науки о Земле"
+-
+  id: 297
+  parent_id: 14
+  title: "Физика"
+-
+  id: 298
+  parent_id: 14
+  title: "Начальный уровень, Мало опыта"
+-
+  id: 299
+  parent_id: 14
+  title: "Математика"
+-
+  id: 300
+  parent_id: 14
+  title: "Биотехнологии"
+-
+  id: 301
+  parent_id: 14
+  title: "Информатика, Информационные системы"
+-
+  id: 302
+  parent_id: 14
+  title: "Языки"
+-
+  id: 303
+  parent_id: 14
+  title: "Преподавание"
+-
+  id: 304
+  parent_id: 14
+  title: "Гуманитарные науки"
+-
+  id: 306
+  parent_id: 15
+  title: "НИИ"
+-
+  id: 307
+  parent_id: 15
+  title: "Библиотекарь"
+-
+  id: 308
+  parent_id: 15
+  title: "Общественные организации"
+-
+  id: 309
+  parent_id: 15
+  title: "Благотворительность"
+-
+  id: 310
+  parent_id: 15
+  title: "Атташе"
+-
+  id: 311
+  parent_id: 15
+  title: "Архивариус"
+-
+  id: 312
+  parent_id: 15
+  title: "Муниципалитет"
+-
+  id: 313
+  parent_id: 15
+  title: "Правительство"
+-
+  id: 315
+  parent_id: 16
+  title: "Управление продажами"
+-
+  id: 316
+  parent_id: 16
+  title: "Оптовая торговля"
+-
+  id: 317
+  parent_id: 16
+  title: "Бытовая техника"
+-
+  id: 318
+  parent_id: 16
+  title: "Сантехника"
+-
+  id: 319
+  parent_id: 16
+  title: "Дилерские сети"
+-
+  id: 320
+  parent_id: 16
+  title: "Начальный уровень, Мало опыта"
+-
+  id: 321
+  parent_id: 16
+  title: "Дистрибуция"
+-
+  id: 322
+  parent_id: 16
+  title: "Торговля биржевыми товарами"
+-
+  id: 323
+  parent_id: 16
+  title: "Торговый представитель"
+-
+  id: 324
+  parent_id: 16
+  title: "FMCG, Товары народного потребления"
+-
+  id: 325
+  parent_id: 16
+  title: "ГСМ, нефть, бензин"
+-
+  id: 326
+  parent_id: 16
+  title: "Товары для бизнеса"
+-
+  id: 327
+  parent_id: 16
+  title: "Алкоголь"
+-
+  id: 328
+  parent_id: 16
+  title: "Решения по автоматизации процессов"
+-
+  id: 329
+  parent_id: 16
+  title: "Финансовые услуги"
+-
+  id: 330
+  parent_id: 16
+  title: "Многоуровневый маркетинг"
+-
+  id: 331
+  parent_id: 16
+  title: "Автомобили, Запчасти"
+-
+  id: 332
+  parent_id: 16
+  title: "Продавец в магазине"
+-
+  id: 333
+  parent_id: 16
+  title: "Медицина, Фармацевтика"
+-
+  id: 334
+  parent_id: 16
+  title: "Станки, тяжелое оборудование"
+-
+  id: 335
+  parent_id: 16
+  title: "Металлопрокат"
+-
+  id: 336
+  parent_id: 16
+  title: "Менеджер по работе с клиентами"
+-
+  id: 337
+  parent_id: 16
+  title: "Телекоммуникации, Сетевые решения"
+-
+  id: 338
+  parent_id: 16
+  title: "Сертификация"
+-
+  id: 339
+  parent_id: 16
+  title: "Розничная торговля"
+-
+  id: 340
+  parent_id: 16
+  title: "Электротехническое оборудование, Светотехника"
+-
+  id: 341
+  parent_id: 16
+  title: "Торговые сети"
+-
+  id: 342
+  parent_id: 16
+  title: "Компьютерные программы"
+-
+  id: 343
+  parent_id: 16
+  title: "Продажи по телефону, Телемаркетинг"
+-
+  id: 344
+  parent_id: 16
+  title: "Химическая продукция"
+-
+  id: 345
+  parent_id: 16
+  title: "Компьютерная техника"
+-
+  id: 346
+  parent_id: 16
+  title: "Прямые продажи"
+-
+  id: 347
+  parent_id: 16
+  title: "Сельское хозяйство"
+-
+  id: 348
+  parent_id: 16
+  title: "Строительные материалы"
+-
+  id: 349
+  parent_id: 16
+  title: "Электроника, фото, видео"
+-
+  id: 350
+  parent_id: 16
+  title: "Франчайзинг"
+-
+  id: 351
+  parent_id: 16
+  title: "Текстиль, Одежда, Обувь"
+-
+  id: 352
+  parent_id: 16
+  title: "Цветные металлы"
+-
+  id: 353
+  parent_id: 16
+  title: "Продукты питания"
+-
+  id: 354
+  parent_id: 16
+  title: "Тендеры"
+-
+  id: 355
+  parent_id: 16
+  title: "Услуги для населения"
+-
+  id: 356
+  parent_id: 16
+  title: "Системы безопасности"
+-
+  id: 357
+  parent_id: 16
+  title: "Услуги для бизнеса"
+-
+  id: 358
+  parent_id: 16
+  title: "Мебель"
+-
+  id: 359
+  parent_id: 16
+  title: "Клининговые услуги"
+-
+  id: 361
+  parent_id: 17
+  title: "Главный инженер"
+-
+  id: 362
+  parent_id: 17
+  title: "Главный агроном"
+-
+  id: 363
+  parent_id: 17
+  title: "Управление цехом"
+-
+  id: 364
+  parent_id: 17
+  title: "Нефтепереработка"
+-
+  id: 365
+  parent_id: 17
+  title: "Охрана труда"
+-
+  id: 366
+  parent_id: 17
+  title: "Метролог"
+-
+  id: 367
+  parent_id: 17
+  title: "Закупки и снабжение"
+-
+  id: 368
+  parent_id: 17
+  title: "Начальный уровень, Мало опыта"
+-
+  id: 369
+  parent_id: 17
+  title: "Технолог, Производство сахара"
+-
+  id: 370
+  parent_id: 17
+  title: "Технолог, Производство и переработка зерновых"
+-
+  id: 371
+  parent_id: 17
+  title: "Технолог"
+-
+  id: 372
+  parent_id: 17
+  title: "Технолог, Мясо- и птицепереработка"
+-
+  id: 373
+  parent_id: 17
+  title: "Табачная промышленность"
+-
+  id: 374
+  parent_id: 17
+  title: "Автомобильная промышленность"
+-
+  id: 375
+  parent_id: 17
+  title: "Стройматериалы"
+-
+  id: 376
+  parent_id: 17
+  title: "Авиационная промышленность"
+-
+  id: 377
+  parent_id: 17
+  title: "Мебельное производство"
+-
+  id: 378
+  parent_id: 17
+  title: "Машиностроение"
+-
+  id: 379
+  parent_id: 17
+  title: "Металлургия"
+-
+  id: 380
+  parent_id: 17
+  title: "Контроль качества"
+-
+  id: 381
+  parent_id: 17
+  title: "Сертификация"
+-
+  id: 382
+  parent_id: 17
+  title: "Руководство предприятием"
+-
+  id: 383
+  parent_id: 17
+  title: "Сельхозпроизводство"
+-
+  id: 384
+  parent_id: 17
+  title: "Судостроение"
+-
+  id: 385
+  parent_id: 17
+  title: "Радиоэлектронная промышленность"
+-
+  id: 386
+  parent_id: 17
+  title: "Легкая промышленность"
+-
+  id: 387
+  parent_id: 17
+  title: "Деревообработка, Лесная промышленность"
+-
+  id: 388
+  parent_id: 17
+  title: "Инженер, Мясо- и птицепереработка"
+-
+  id: 389
+  parent_id: 17
+  title: "Инженер, Производство сахара"
+-
+  id: 390
+  parent_id: 17
+  title: "Инженер, Производство и переработка зерновых"
+-
+  id: 391
+  parent_id: 17
+  title: "Энергетик производства"
+-
+  id: 392
+  parent_id: 17
+  title: "Электроэнергетика"
+-
+  id: 393
+  parent_id: 17
+  title: "Зоотехник"
+-
+  id: 394
+  parent_id: 17
+  title: "Химическая промышленность"
+-
+  id: 395
+  parent_id: 17
+  title: "Эколог"
+-
+  id: 396
+  parent_id: 17
+  title: "Главный механик"
+-
+  id: 397
+  parent_id: 17
+  title: "Конструктор"
+-
+  id: 398
+  parent_id: 17
+  title: "Инженер"
+-
+  id: 399
+  parent_id: 17
+  title: "Ювелирная промышленность"
+-
+  id: 400
+  parent_id: 17
+  title: "Фармацевтическая промышленность"
+-
+  id: 401
+  parent_id: 17
+  title: "Управление проектами"
+-
+  id: 402
+  parent_id: 17
+  title: "Пищевая промышленность"
+-
+  id: 403
+  parent_id: 17
+  title: "Полиграфия"
+-
+  id: 404
+  parent_id: 17
+  title: "Атомная энергетика"
+-
+  id: 406
+  parent_id: 18
+  title: "Эксперт-оценщик"
+-
+  id: 407
+  parent_id: 18
+  title: "Агент"
+-
+  id: 408
+  parent_id: 18
+  title: "Начальный уровень, Мало опыта"
+-
+  id: 409
+  parent_id: 18
+  title: "Урегулирование убытков"
+-
+  id: 410
+  parent_id: 18
+  title: "Руководитель направления"
+-
+  id: 411
+  parent_id: 18
+  title: "Комплексное страхование юридических лиц"
+-
+  id: 412
+  parent_id: 18
+  title: "Автострахование"
+-
+  id: 413
+  parent_id: 18
+  title: "Комплексное страхование физических лиц"
+-
+  id: 414
+  parent_id: 18
+  title: "Страхование ответственности"
+-
+  id: 415
+  parent_id: 18
+  title: "Страхование жизни"
+-
+  id: 416
+  parent_id: 18
+  title: "Страхование недвижимости"
+-
+  id: 417
+  parent_id: 18
+  title: "Страхование бизнеса"
+-
+  id: 418
+  parent_id: 18
+  title: "Актуарий"
+-
+  id: 419
+  parent_id: 18
+  title: "Перестрахование"
+-
+  id: 420
+  parent_id: 18
+  title: "Андеррайтер"
+-
+  id: 421
+  parent_id: 18
+  title: "Врач-эксперт"
+-
+  id: 422
+  parent_id: 18
+  title: "Медицинское страхование"
+-
+  id: 424
+  parent_id: 19
+  title: "Прораб"
+-
+  id: 425
+  parent_id: 19
+  title: "Гостиницы, Магазины"
+-
+  id: 426
+  parent_id: 19
+  title: "Оценка"
+-
+  id: 427
+  parent_id: 19
+  title: "Землеустройство"
+-
+  id: 428
+  parent_id: 19
+  title: "Водоснабжение и канализация"
+-
+  id: 429
+  parent_id: 19
+  title: "Отопление, вентиляция и кондиционирование"
+-
+  id: 430
+  parent_id: 19
+  title: "Управление проектами"
+-
+  id: 431
+  parent_id: 19
+  title: "Нежилые помещения"
+-
+  id: 432
+  parent_id: 19
+  title: "Эксплуатация"
+-
+  id: 433
+  parent_id: 19
+  title: "Рабочие строительных специальностей"
+-
+  id: 434
+  parent_id: 19
+  title: "Геодезия и картография"
+-
+  id: 435
+  parent_id: 19
+  title: "Девелопер"
+-
+  id: 436
+  parent_id: 19
+  title: "Жилье"
+-
+  id: 437
+  parent_id: 19
+  title: "Дизайн/Оформление"
+-
+  id: 438
+  parent_id: 19
+  title: "Начальный уровень/Мало опыта"
+-
+  id: 439
+  parent_id: 19
+  title: "Инженер"
+-
+  id: 440
+  parent_id: 19
+  title: "Агент"
+-
+  id: 441
+  parent_id: 19
+  title: "Строительство"
+-
+  id: 442
+  parent_id: 19
+  title: "Проектирование, Архитектура"
+-
+  id: 443
+  parent_id: 19
+  title: "Тендеры"
+-
+  id: 444
+  parent_id: 19
+  title: "ЖКХ"
+-
+  id: 446
+  parent_id: 20
+  title: "Бизнес-авиация"
+-
+  id: 447
+  parent_id: 20
+  title: "ВЭД"
+-
+  id: 448
+  parent_id: 20
+  title: "Гражданская авиация"
+-
+  id: 449
+  parent_id: 20
+  title: "Начальный уровень, Мало опыта"
+-
+  id: 450
+  parent_id: 20
+  title: "Закупки, Снабжение"
+-
+  id: 451
+  parent_id: 20
+  title: "Железнодорожные перевозки"
+-
+  id: 452
+  parent_id: 20
+  title: "Трубопроводы"
+-
+  id: 453
+  parent_id: 20
+  title: "Логистика"
+-
+  id: 454
+  parent_id: 20
+  title: "Контейнерные перевозки"
+-
+  id: 455
+  parent_id: 20
+  title: "Водитель"
+-
+  id: 456
+  parent_id: 20
+  title: "Диспетчер"
+-
+  id: 457
+  parent_id: 20
+  title: "Экспедитор"
+-
+  id: 458
+  parent_id: 20
+  title: "Морские/Речные перевозки"
+-
+  id: 459
+  parent_id: 20
+  title: "Таможенное оформление"
+-
+  id: 460
+  parent_id: 20
+  title: "Рабочий склада"
+-
+  id: 461
+  parent_id: 20
+  title: "Автоперевозки"
+-
+  id: 462
+  parent_id: 20
+  title: "Кладовщик"
+-
+  id: 463
+  parent_id: 20
+  title: "Авиаперевозки"
+-
+  id: 464
+  parent_id: 20
+  title: "Складское хозяйство"
+-
+  id: 466
+  parent_id: 21
+  title: "Управление ресторанами, Барами"
+-
+  id: 467
+  parent_id: 21
+  title: "Официант, Бармен"
+-
+  id: 468
+  parent_id: 21
+  title: "Гид, Экскурсовод"
+-
+  id: 469
+  parent_id: 21
+  title: "Оформление виз"
+-
+  id: 470
+  parent_id: 21
+  title: "Анимация"
+-
+  id: 471
+  parent_id: 21
+  title: "Организация туристических продуктов"
+-
+  id: 472
+  parent_id: 21
+  title: "Управление туристическим бизнесом"
+-
+  id: 473
+  parent_id: 21
+  title: "Управление гостиницами"
+-
+  id: 474
+  parent_id: 21
+  title: "Организация встреч, Конференций"
+-
+  id: 475
+  parent_id: 21
+  title: "Начальный уровень, Мало опыта"
+-
+  id: 476
+  parent_id: 21
+  title: "Размещение, Обслуживание гостей"
+-
+  id: 477
+  parent_id: 21
+  title: "Швейцар"
+-
+  id: 478
+  parent_id: 21
+  title: "Хостес"
+-
+  id: 479
+  parent_id: 21
+  title: "Продажа туристических услуг"
+-
+  id: 480
+  parent_id: 21
+  title: "Шеф-повар"
+-
+  id: 481
+  parent_id: 21
+  title: "Авиабилеты"
+-
+  id: 482
+  parent_id: 21
+  title: "Повар"
+-
+  id: 483
+  parent_id: 21
+  title: "Бронирование"
+-
+  id: 484
+  parent_id: 21
+  title: "Персонал кухни"
+-
+  id: 485
+  parent_id: 21
+  title: "Банкеты"
+-
+  id: 486
+  parent_id: 21
+  title: "Сомелье"
+-
+  id: 487
+  parent_id: 21
+  title: "Кейтеринг"
+-
+  id: 489
+  parent_id: 22
+  title: "Недропользование"
+-
+  id: 490
+  parent_id: 22
+  title: "Недвижимость"
+-
+  id: 491
+  parent_id: 22
+  title: "Корпоративное право"
+-
+  id: 492
+  parent_id: 22
+  title: "Семейное право"
+-
+  id: 493
+  parent_id: 22
+  title: "Антимонопольное право"
+-
+  id: 494
+  parent_id: 22
+  title: "Трудовое право"
+-
+  id: 495
+  parent_id: 22
+  title: "Авторское право"
+-
+  id: 496
+  parent_id: 22
+  title: "Уголовное право"
+-
+  id: 497
+  parent_id: 22
+  title: "Законотворчество"
+-
+  id: 498
+  parent_id: 22
+  title: "Compliance"
+-
+  id: 499
+  parent_id: 22
+  title: "Взыскание задолженности, Коллекторская деятельность"
+-
+  id: 500
+  parent_id: 22
+  title: "Земельное право"
+-
+  id: 501
+  parent_id: 22
+  title: "Регистрация юридических лиц"
+-
+  id: 502
+  parent_id: 22
+  title: "Начальный уровень, Мало опыта"
+-
+  id: 503
+  parent_id: 22
+  title: "Договорное право"
+-
+  id: 504
+  parent_id: 22
+  title: "Морское право"
+-
+  id: 505
+  parent_id: 22
+  title: "Интеллектуальная собственность"
+-
+  id: 506
+  parent_id: 22
+  title: "Юрисконсульт"
+-
+  id: 507
+  parent_id: 22
+  title: "Международное право"
+-
+  id: 508
+  parent_id: 22
+  title: "Адвокат"
+-
+  id: 509
+  parent_id: 22
+  title: "Страховое право"
+-
+  id: 510
+  parent_id: 22
+  title: "Налоговое право"
+-
+  id: 511
+  parent_id: 22
+  title: "Ценные бумаги, Рынки капитала"
+-
+  id: 512
+  parent_id: 22
+  title: "Банковское право"
+-
+  id: 513
+  parent_id: 22
+  title: "Слияния и поглощения"
+-
+  id: 514
+  parent_id: 22
+  title: "Помощник"
+-
+  id: 515
+  parent_id: 22
+  title: "Арбитраж"
+-
+  id: 517
+  parent_id: 23
+  title: "Ногтевой сервис"
+-
+  id: 518
+  parent_id: 23
+  title: "Тренерский состав"
+-
+  id: 519
+  parent_id: 23
+  title: "Косметология"
+-
+  id: 520
+  parent_id: 23
+  title: "Администрация"
+-
+  id: 521
+  parent_id: 23
+  title: "Продажи"
+-
+  id: 522
+  parent_id: 23
+  title: "Парикмахер"
+-
+  id: 523
+  parent_id: 23
+  title: "Массажист"
+-
+  id: 525
+  parent_id: 24
+  title: "Сервисный инженер"
+-
+  id: 526
+  parent_id: 24
+  title: "Руководитель сервисного центра"
+-
+  id: 527
+  parent_id: 24
+  title: "Менеджер по сервису - сетевые и телекоммуникационные технологии"
+-
+  id: 528
+  parent_id: 24
+  title: "Менеджер по сервису - промышленное оборудование"
+-
+  id: 529
+  parent_id: 24
+  title: "Менеджер по сервису - транспорт"
+-
+  id: 530
+  parent_id: 24
+  title: "Инсталляция и настройка оборудования"
+-
+  id: 532
+  parent_id: 25
+  title: "Управление закупками"
+-
+  id: 533
+  parent_id: 25
+  title: "Станки, Тяжелое оборудование"
+-
+  id: 534
+  parent_id: 25
+  title: "Сертификация"
+-
+  id: 535
+  parent_id: 25
+  title: "Автомобили, Запчасти"
+-
+  id: 536
+  parent_id: 25
+  title: "Алкоголь"
+-
+  id: 537
+  parent_id: 25
+  title: "Строительные материалы"
+-
+  id: 538
+  parent_id: 25
+  title: "ГСМ, нефть, бензин"
+-
+  id: 539
+  parent_id: 25
+  title: "Компьютерная техника"
+-
+  id: 540
+  parent_id: 25
+  title: "Металлопрокат"
+-
+  id: 541
+  parent_id: 25
+  title: "Тендеры"
+-
+  id: 542
+  parent_id: 25
+  title: "Начальный уровень, Мало опыта"
+-
+  id: 543
+  parent_id: 25
+  title: "Продукты питания"
+-
+  id: 544
+  parent_id: 25
+  title: "Фармацевтика"
+-
+  id: 545
+  parent_id: 25
+  title: "Электроника, фото, видео"
+-
+  id: 546
+  parent_id: 25
+  title: "Товары для бизнеса"
+-
+  id: 547
+  parent_id: 25
+  title: "FMCG, Товары народного потребления"
+-
+  id: 548
+  parent_id: 25
+  title: "Электротехническое оборудование/светотехника"
+-
+  id: 549
+  parent_id: 25
+  title: "Химическая продукция"
+-
+  id: 551
+  parent_id: 26
+  title: "Административный персонал"
+-
+  id: 552
+  parent_id: 26
+  title: "Продажи"
+-
+  id: 553
+  parent_id: 26
+  title: "Автомобильный бизнес"
+-
+  id: 554
+  parent_id: 26
+  title: "Консультирование"
+-
+  id: 555
+  parent_id: 26
+  title: "Управление персоналом"
+-
+  id: 556
+  parent_id: 26
+  title: "Наука, Образование"
+-
+  id: 557
+  parent_id: 26
+  title: "Строительство, Архитектура"
+-
+  id: 558
+  parent_id: 26
+  title: "Медицина, Фармацевтика"
+-
+  id: 559
+  parent_id: 26
+  title: "Страхование"
+-
+  id: 560
+  parent_id: 26
+  title: "Производство, Технологии"
+-
+  id: 561
+  parent_id: 26
+  title: "Туризм, Гостиницы, Рестораны"
+-
+  id: 562
+  parent_id: 26
+  title: "Финансы, Банки, Инвестиции"
+-
+  id: 563
+  parent_id: 26
+  title: "Транспорт, Логистика"
+-
+  id: 564
+  parent_id: 26
+  title: "Маркетинг, Реклама, PR"
+-
+  id: 565
+  parent_id: 26
+  title: "Добыча сырья"
+-
+  id: 566
+  parent_id: 26
+  title: "Юристы"
+-
+  id: 567
+  parent_id: 26
+  title: "Информационные технологии, Интернет, Мультимедиа"
+-
+  id: 568
+  parent_id: 26
+  title: "Искусство, Развлечения, Масс-медиа"
+-
+  id: 570
+  parent_id: 27
+  title: "Сиделка"
+-
+  id: 571
+  parent_id: 27
+  title: "Садовник"
+-
+  id: 572
+  parent_id: 27
+  title: "Повар"
+-
+  id: 573
+  parent_id: 27
+  title: "домработницадомработник, Горничная"
+-
+  id: 574
+  parent_id: 27
+  title: "Персональный водитель"
+-
+  id: 575
+  parent_id: 27
+  title: "Помощник по хозяйству, Управляющий"
+-
+  id: 576
+  parent_id: 27
+  title: "Воспитатель, Гувернантка, Няня"
+-
+  id: 577
+  parent_id: 27
+  title: "Репетитор"
+-
+  id: 579
+  parent_id: 28
+  title: "Другое"
+-
+  id: 580
+  parent_id: 28
+  title: "Гардеробщик"
+-
+  id: 581
+  parent_id: 28
+  title: "Дворник, Уборщик"
+-
+  id: 582
+  parent_id: 28
+  title: "Дорожные рабочие"
+-
+  id: 583
+  parent_id: 28
+  title: "Жестянщик"
+-
+  id: 584
+  parent_id: 28
+  title: "Заправщик картриджей"
+-
+  id: 585
+  parent_id: 28
+  title: "Комплектовщик, Укладчик-упаковщик"
+-
+  id: 586
+  parent_id: 28
+  title: "Краснодеревщик"
+-
+  id: 587
+  parent_id: 28
+  title: "Кузнец"
+-
+  id: 588
+  parent_id: 28
+  title: "Лифтер"
+-
+  id: 589
+  parent_id: 28
+  title: "Машинист производства"
+-
+  id: 590
+  parent_id: 28
+  title: "Машинист сцены"
+-
+  id: 591
+  parent_id: 28
+  title: "Машинист экскаватора"
+-
+  id: 592
+  parent_id: 28
+  title: "Механик"
+-
+  id: 593
+  parent_id: 28
+  title: "Оператор станков"
+-
+  id: 594
+  parent_id: 28
+  title: "Пастух, Чабан"
+-
+  id: 595
+  parent_id: 28
+  title: "Наладчик"
+-
+  id: 596
+  parent_id: 28
+  title: "Шлифовщик"
+-
+  id: 597
+  parent_id: 28
+  title: "Сантехник"
+-
+  id: 598
+  parent_id: 28
+  title: "Разнорабочий"
+-
+  id: 599
+  parent_id: 28
+  title: "Перемотчик"
+-
+  id: 600
+  parent_id: 28
+  title: "Ювелир"
+-
+  id: 601
+  parent_id: 28
+  title: "Электромонтер, Кабельщик"
+-
+  id: 602
+  parent_id: 28
+  title: "Штукатур"
+-
+  id: 603
+  parent_id: 28
+  title: "Грузчик"
+-
+  id: 604
+  parent_id: 28
+  title: "Сборщик"
+-
+  id: 605
+  parent_id: 28
+  title: "Швея"
+-
+  id: 606
+  parent_id: 28
+  title: "Электрик"
+-
+  id: 607
+  parent_id: 28
+  title: "Монтажник"
+-
+  id: 608
+  parent_id: 28
+  title: "Сварщик"
+-
+  id: 609
+  parent_id: 28
+  title: "Проводник"
+-
+  id: 610
+  parent_id: 28
+  title: "Столяр"
+-
+  id: 611
+  parent_id: 28
+  title: "Фасовщик"
+-
+  id: 612
+  parent_id: 28
+  title: "Токарь, Фрезеровщик"
+-
+  id: 613
+  parent_id: 28
+  title: "Слесарь"
+-
+  id: 614
+  parent_id: 28
+  title: "Маляр"
+...

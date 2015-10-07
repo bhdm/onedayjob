@@ -173,6 +173,7 @@ header a:hover { text-decoration: underline; }
 /*.gob-list > .list-box:last-child { border-bottom: none; }*/
 .box-heading { margin-bottom: 10px; padding-right: 70px; }
 .box-title { display: inline; margin: 0; line-height: 24px; }
+.need_to_login_regist{margin-bottom: 40px; color: #3d78c9; font-size: 1.1em; font-weight: bold;}
 .box-text { margin: 5px 0; }
 .box-date { margin-bottom: 5px; }
 .filter-check { display: block; font-weight: normal; color: #686868; font-size: 13px; cursor: pointer; }

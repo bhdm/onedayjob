@@ -458,7 +458,7 @@ $(function() {
 	// ----- Plupload ----- //
 	var uploader = new plupload.Uploader({
 	    runtimes : 'html5,html4',
-	    browse_button : 'upload_image',
+	    browse_button : 'upload_image , upload_image-gallery',
 	    container: document.getElementById('imageUploadContainer'),
 	    url : '/api/'+$('body').data('locale')+'/profile/image',
 	    filters : {
@@ -476,6 +476,9 @@ $(function() {
 				if (type == 'resume') {
 					up.settings.url = '/api/'+$('body').data('locale')+'/resume/image';
 				}
+                if(type == 'company-gallery'){
+                    up.settings.url = '/api/'+$('body').data('locale')+'/company/image/gallery';
+                }
 				//$('#progress').show();
 			},
 	        FilesAdded: function(up, files) {
@@ -485,8 +488,15 @@ $(function() {
 	            //$('.progress-bar').css({'width': file.percent + '%'});
 	        },
 	        FileUploaded: function(up, file, response) {
+                var type = $("#upload_image").data("type");
 				var response = $.parseJSON(response.response);
-				$(".profile-image").attr("src", response.filelink);
+                if(type == "company-gallery"){
+                    alert("Q");
+                }
+                else {
+                    $(".profile-image").attr("src", response.filelink);
+                    $(".image-id").val(response.imageId);
+                }
 
 				//setTimeout(function(){ $('#progress').hide(); }, 700);
 			},

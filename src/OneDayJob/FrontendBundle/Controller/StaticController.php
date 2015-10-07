@@ -11,12 +11,12 @@ class StaticController extends Controller
 {
 	public function aboutAction()
 	{
-		return $this->render('static_about.html.twig', ['title' => 'О компании']);
+		return $this->render('OneDayJobFrontendBundle:Static:static_about.html.twig', ['title' => 'О компании']);
 	}
 
 	public function agreementAction()
 	{
-		return $this->render('static_agreement.html.twig', ['title' => 'Соглашение']);
+		return $this->render('OneDayJobFrontendBundle:Static:static_agreement.html.twig', ['title' => 'Соглашение']);
 	}
 
 	public function feedbackAction(Request $request) 
@@ -41,6 +41,6 @@ class StaticController extends Controller
 		$vars['title'] = 'Контакты';
 		$vars['form'] = $form->createView();
 
-		return $this->render('static_feedback.html.twig', $vars);
+		return $this->render('OneDayJobFrontendBundle:Static:static_feedback.html.twig', $vars);
 	}
 }

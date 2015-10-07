@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block search_result_count %}
+  ({{ getPlural(companies|length, ['content.search.company_1'|trans, 'content.search.company_2'|trans, 'content.search.company_3'|trans]) }})
+{% endblock %}
+
+{% block search_result %}
+  <div class="col-xs-12 col-sm-12">
+    <div class="gob-list">
+      
+      {% if app.user and app.user.type == 'employee' %}
+        {% set favoriteCompanyArray = app.user.favoriteCompanyArray %}
+      {% else %}
+        {% set favoriteCompanyArray = [] %}
+      {% endif %}
+
+      {% if companies is empty %}
+        <h3>{{ 'content.search.no_company'|trans }}</h3>
+      {% endif %}
+    
+      {% for company in companies %}
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="list-pan">
+            <a class="search_result_companies" href="{{ path('fe_company', {'id': company.id}) }}">
+              <!--<div class="list-pan-date text-right text-muted xs-hide">8 Ноября 2014</div> -->
+              <div class="list-pan-image">
+                {% set image = company.image is not null ? '/uploads/images/'~ company.image : '/uploads/images/company.png' %}
+                <img src="{{ image | imagine_filter('logo_inset') }}" alt="">
+              </div>
+              <h5  class="list-pan-name">{{ company.name }}</h5>
+              <div class="text-muted">({{ getPlural(company.vacancies.count(), ['content.search.vacancy_1'|trans, 'content.search.vacancy_2'|trans, 'content.search.vacancy_3'|trans]) }})</div>
+              <div class="list-pan-info">
+                <div class="text-muted list-pan-location"> <i class="icon-16 icon-map"></i> {{ company.city.translate.title }}</div>
+                <div class="list-pan-briefcase">
+                  
+                  {% if app.user and app.user.type == 'employee' %}
+                    <i class="icon-16 icon-briefcase{% if company.id in favoriteCompanyArray %} flagged{% endif %}" data-id="{{ company.id }}"></i>
+                  {% endif %}
+
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+{% endblock %}

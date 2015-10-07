@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block userblock %}
+  <div class="account-main" id="sel">
+    <nav class="account-nav employer-nav">
+      
+      {% include '_menu_mobile.html.twig' %}
+      
+      <div class="account-drop-menu collapse" id="navcollaps">
+        
+        {% include 'employee_profile_menu.html.twig' %}
+        
+      </div>
+    </nav>
+    <div class="account-heading">
+      <div class="account-title"> <span class="xs-show"><i class="icon-16 icon-briefcase-white"></i></span>
+        <h3>{{ 'user.menu.vacancies'|trans }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="account-content">
+    <div class="padding-box">
+      <div class="padding-box">
+        <div class="round round-green"> <i class="icon-32 icon-list-white"></i> </div>
+        {% include '_flash_messages.html.twig' %}
+
+        <div class="h2 bottom-md">{{ 'user.data.vacancy_empty'|trans }}</div>
+        <a href="{{ path('fe_employer_vacancy_new') }}" class="button button-invert button-lg">{{ 'user.data.add_vacancy'|trans }}</a> </div>
+    </div>
+  </div>
+{% endblock %}

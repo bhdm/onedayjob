@@ -1,0 +1,253 @@
+{% extends 'base.html.twig' %}
+
+{% block userblock %}
+    {#<script>#}
+        {#$(document).ready(function(){#}
+            {#var $sport = $('.form_country');#}
+            {#// When sport gets selected ...#}
+            {#$('.form_country').change(function() {#}
+                {#// ... retrieve the corresponding form.#}
+                {#alert("KKK");#}
+                {#var $form = $(this).closest('form');#}
+                {#// Simulate form data, but only include the selected sport value.#}
+                {#var data = {};#}
+                {#data[$sport.attr('name')] = $sport.val();#}
+                {#// Submit data via AJAX to the form's action path.#}
+                {#$.ajax({#}
+                    {#url: Routing.generate('api_cities'),#}
+                    {#type: $form.attr('POST'),#}
+                    {#success: function(html) {#}
+                        {#// Replace current position field ...#}
+                        {#$('.form_city').replaceWith(#}
+                                {#// ... with the returned one from the AJAX response.#}
+                                {#$(html).find('.form_city')#}
+                        {#);#}
+                        {#// Position field now displays the appropriate positions.#}
+                    {#}#}
+                {#});#}
+            {#});#}
+        {#});#}
+    {#</script>#}
+
+
+  <div class="account-main" id="sel">
+    <nav class="account-nav employer-nav">
+      
+      {% include '_menu_mobile.html.twig' %}
+      
+      <div class="account-drop-menu collapse" id="navcollaps">
+        
+        {% include 'employee_profile_menu.html.twig' %}
+        
+      </div>
+    </nav>
+    <div class="account-heading">
+      <div class="account-title"> <span class="xs-show"><i class="icon-16 icon-briefcase-white"></i></span>
+        <h3>{{ h1_title }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="account-content no-combo">
+    
+    {{ form_start(form) }}
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="text-bold text-uppercase">{{ 'form.vacancy.branch'|trans }}</label>
+
+            {{ form_widget(form.branch, {'attr':{'class':'form-control form_branch'}}) }}
+            {{ form_errors(form.branch) }}
+
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="text-bold text-uppercase">{{ 'form.vacancy.specialization'|trans }}</label>
+            
+            {{ form_widget(form.specialization, {'attr':{'class':'form-control form_specialization'}}) }}
+            {{ form_errors(form.specialization) }}
+
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="text-bold text-uppercase">{{ 'form.vacancy.post'|trans }}</label>
+            
+            {{ form_widget(form.title, {'attr':{'class':'form-control'}}) }}
+            {{ form_errors(form.title) }}
+
+          </div>
+        </div>
+      </div>
+      <div class="from-sep"></div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="text-bold text-uppercase">{{ 'form.search.country'|trans }}</label>
+            
+            {{ form_widget(form.country, {'attr':{'class':'form-control form_country'}}) }}
+            {{ form_errors(form.country) }}
+
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="text-bold text-uppercase">{{ 'form.search.city'|trans }}</label>
+            
+            {{ form_widget(form.city, {'attr':{'class':'form-control form_city'}}) }}
+            {{ form_errors(form.city) }}
+
+          </div>
+        </div>
+      </div>
+      <div class="from-sep"></div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="text-bold text-uppercase">{{ 'form.vacancy.employment'|trans }}</label>
+            
+            {{ form_widget(form.employment, {'attr':{'class':'form-control'}}) }}
+            {{ form_errors(form.employment) }}
+
+          </div>
+          <div class="form-group">
+            <label class="text-bold text-uppercase">{{ 'form.vacancy.work_experience'|trans }}</label>
+            
+            {{ form_widget(form.work_experience, {'attr':{'class':'form-control'}}) }}
+            {{ form_errors(form.work_experience) }}
+
+          </div>
+
+            <div class="form-group">
+                <label for="" class="text-bold text-uppercase">{{ 'form.resume.term'|trans }}</label><br/>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <br/><label for="" class="text-bold text-uppercase">  {{ 'form.resume.term_from'|trans }}</label><br/>
+                        <div class="col-xs-3">
+                            {{ form_widget(form.termfrom.day, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="col-xs-5">
+                            {{ form_widget(form.termfrom.month, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="col-xs-4">
+                            {{ form_widget(form.termfrom.year, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        {{ form_errors(form.termfrom) }}
+                    </div>
+                </div><br/>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <br/><label for="" class="text-bold text-uppercase">  {{ 'form.resume.term_to'|trans }}</label><br/>
+                        <div class="col-xs-3">
+                            {{ form_widget(form.termto.day, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="col-xs-5">
+                            {{ form_widget(form.termto.month, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="col-xs-4">
+                            {{ form_widget(form.termto.year, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        {{ form_errors(form.termto) }}
+                    </div>
+                </div>
+            </div>
+
+          <div class="form-group">
+            <label class="text-bold text-uppercase">{{ 'form.vacancy.education'|trans }}</label>
+            
+            {{ form_widget(form.education, {'attr':{'class':'form-control'}}) }}
+            {{ form_errors(form.education) }}
+
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="" class="text-bold text-uppercase">{{ 'form.vacancy.duty'|trans }}</label>
+            {{ form_widget(form.duty, {'attr':{'class':'form-control', 'rows':'3', 'style':'height:180px;'}}) }}
+            {{ form_errors(form.duty) }}
+
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="" class="text-bold text-uppercase">{{ 'form.vacancy.skill'|trans }}</label>
+            
+            {{ form_widget(form.skill, {'attr':{'class':'form-control', 'rows':'3', 'style':'height:180px;'}}) }}
+            {{ form_errors(form.skill) }}
+
+          </div>
+        </div>
+      </div>
+      <div class="from-sep"></div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="" class="text-bold text-uppercase">{{ 'form.vacancy.salary_per_month'|trans }}</label>
+
+            {{ form_widget(form.salary_per_month, {'attr':{'class':'form-control', 'placeholder':'0'}}) }}
+            {{ form_errors(form.salary_per_month) }}
+
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="" class="text-bold text-uppercase">{{ 'form.vacancy.salary_per_day'|trans }}</label>
+            
+            {{ form_widget(form.salary_per_day, {'attr':{'class':'form-control', 'placeholder':'0'}}) }}
+            {{ form_errors(form.salary_per_day) }}
+
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="" class="text-bold text-uppercase">{{ 'form.vacancy.currency'|trans }}</label>
+            
+            {{ form_widget(form.currency, {'attr':{'class':'form-control'}}) }}
+            {{ form_errors(form.currency) }}
+
+          </div>
+        </div>
+      </div>
+      <div class="from-sep"></div>
+      <div class="text-uppercase text-bold">{{ 'form.vacancy.extra'|trans }}</div>
+      
+      {{ form_widget(form.extra, {'attr':{'class':'form-control', 'rows':'3', 'style':'height:180px; margin-bottom:30px;'}}) }}
+      {{ form_errors(form.extra) }}
+
+    <!--
+      <div class="bordered">
+        <p>Приглашаем программиста графики присоединиться к нашей команде World of Tanks (Минск, Беларусь).<br>
+          <br>
+          !!! Содействие в переезде для граждан России и Украины с полным официальным сопровождением и выплатой релокационного бонуса.</p>
+        <h6>Основные направления работы:</h6>
+        <ul>
+          <li>Работа с графическими API DirectX 9/11, OpenGL</li>
+          <li>Разработка решений для рендеринга различных специальных объектов: вода, растительность, туман и т.п.;</li>
+          <li>Поддержка существующей системы материалов: освещение, поверхностные эффекты;</li>
+          <li>R&D задачи в области оптимизации, многопоточного рендеринга и пр.</li>
+        </ul>
+        <br>
+        <h6>Требования:</h6>
+        <ul>
+          <li>отличное знание C++;</li>
+          <li>глубокие знания и опыт разработки трехмерных графических приложений с использованием MS DirectX 9/11, OpenGL и HLSL;</li>
+          <li>сильная математическая база;</li>
+          <li>инициативность и коммуникабельность, привычка работать на результат;</li>
+          <li>хороший английский (понимание тех. документации и переписка).</li>
+        </ul>
+      </div>
+    -->
+      <button type="submit" class="button button-invert">
+        {% if form.vars.id %}
+          {{ 'user.data.save'|trans }}
+        {% else %}
+          {{ 'user.data.add_vacancy'|trans }}
+        {% endif %}
+      </button>
+    
+    {{ form_end(form) }}
+
+  </div>
+{% endblock %}
