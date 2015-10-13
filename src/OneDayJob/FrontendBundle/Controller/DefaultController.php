@@ -271,7 +271,7 @@ die;
             $country = $this->getDoctrine()->getRepository("OneDayJobApiBundle:CountryTranslation")->find($repository[0]->getId() - 1)->getTitle();
         elseif($locale == "de")
             $country = $this->getDoctrine()->getRepository("OneDayJobApiBundle:CountryTranslation")->find($repository[0]->getId() + 1)->getTitle();
-        $k = 0;
+//        $k = 0;
 
 		return $this->render('OneDayJobFrontendBundle:Default:index.html.twig', array('local_country' => $country , 'local_country_id' => $country_id));
 	}
@@ -306,10 +306,13 @@ die;
             default:
                 $locale = "en";
         }
-        $t=0;
+//        $t=0;
         return $locale;
     }
 
-
+    public function testAction()
+    {
+        return $this->render('OneDayJobFrontendBundle::layout.html.twig');
+    }
 
 }

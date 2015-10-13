@@ -1,0 +1,209 @@
+body{
+    background-image: url("/bundles/onedayjobfrontend/images/new/background.jpg");
+}
+
+#body{
+    height: 100%;
+    width: 100%;
+}
+
+.container-fluid{
+    padding: 0px;
+}
+
+#header{
+    padding-bottom: 15px;
+    padding-top: 15px;
+    background-color: #ffffff;
+}
+
+#header_language{
+    margin-top: 15px;
+    color: #959595;
+}
+
+#header_language > img{
+  cursor: hand;
+}
+
+#header_locale , #header_name_or_registration{
+    margin-top: 13px;
+    font-size: large;
+    color: #4f4f4f;
+}
+
+#header_login_logout{
+    border-radius: 5px;
+    margin-top: 3px;
+    font-size: large;
+    color: #4f4f4f;
+    text-align: center;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    background-color: #d6d8d7;
+}
+
+#header_name_or_registration > a{
+    color: #4f4f4f;
+    text-decoration: none;
+}
+
+#header_other_language{
+    display: none;
+    position: absolute;
+    bottom: -70px;
+    background-color: #ffffff;
+}
+
+#header_other_language > div , #header_language > span{
+    padding: 5px 10px 5px 10px;
+}
+
+.applicants , .result-search-label , .urgent-vacancies-label , .search-company-label , .search-applicants-label{
+    margin-top: 340px;
+    background-color: rgba(117,117,117,0.5);
+    padding: 10px;
+}
+
+#applicants-search-line{
+    padding: 25px;
+    height: 60px;
+    font-size: 20px;
+}
+
+.applicants-label > select{
+    border-width: 0px;
+    background-color: inherit;
+    margin-top: 16px;
+    color: #fff;
+    font-size: 20px;
+}
+
+.applicants-label{
+    padding: 0px;
+}
+
+.applicants-option{
+    font-size: 20px;
+    color: #000;
+
+}
+
+#link-to-extended-search{
+    margin-top: 10px;
+}
+
+#link-to-extended-search > div > a{
+    font-size: medium;
+    text-decoration: none;
+    color: #000;
+    border-bottom: thin dashed;
+}
+
+.result-search-main{
+    margin-top: 310px;
+}
+
+.result-search-label , .urgent-vacancies-label , .search-company-label , .search-applicants-label{
+    margin-top: 0px;
+    cursor: hand;
+    font-size: 20px;
+    color: #ffffff;
+    border: thin solid #ffffff;
+}
+
+.result-search , .search-company{
+    display: none;
+    padding-bottom: 50px;
+    background-color: #E6E6E6;
+    border-bottom: thin solid #ffffff;
+    border-top: thin solid #868686;
+}
+
+.result-search{
+    border-top: medium solid #ffffff;
+}
+
+.urgent-vacancies , .search-applicants{
+    border-top: thin solid #868686;
+    display: none;
+    padding-bottom: 50px;
+    background-color: #ffffff;
+}
+
+.h1_result , .h1_vacancy , .h1_applicants , .h1_company{
+    font-weight: normal;
+    cursor: hand;
+}
+
+#footer{
+    background-color: #082767;
+    height: 400px;
+}
+
+.footer-link , .footer-social-networks-label , .footer-logo{
+    margin-top: 40px;
+    text-align: center;
+}
+
+
+.footer-social-networks-label > div > h3{
+    color: #fff;
+}
+
+.footer-links > a{
+    text-decoration: none;
+    color: #fff;
+    font-size: medium;
+}
+
+.footer-social-networks{
+    text-align: center;
+}
+
+.see-all{
+    text-align: center;
+    width: 140px;
+    margin-top: 25px;
+    padding: 5px;
+    border-radius: 5px;
+    border-bottom: thin solid #737373;
+    border-top: thin solid #737373;
+    border-left: medium solid #737373;
+    border-right: medium solid #737373;
+}
+
+.see-all > a{
+    text-decoration: none;
+    color: #737373;
+}
+
+.vacancy-block{
+    margin-right: 15px;
+    padding: 0px;
+    background-color: #ffffff;
+    border: thin solid #929292;
+    /*border-bottom-left-radius: 15px;*/
+    /*border-bottom-right-radius: 15px;*/
+}
+
+.vacancy-label > span{
+    font-size: medium;
+    font-weight: bolder;
+}
+
+.vacancy-company , .vacancy-locale , .vacancy-term{
+    color: #959595;
+}
+
+.vacancy-locale{
+
+}
+
+.vacancy-term{
+
+}
+
+.vacancy-salary{
+    font-size: larger;
+}

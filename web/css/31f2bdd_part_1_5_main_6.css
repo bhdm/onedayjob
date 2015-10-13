@@ -1,5 +1,5 @@
 html { position: relative; min-height: 100%; }
-body { color: #000; background: #fff; font: 14px "PT Sans", sans-serif; word-wrap: break-word; background: url("../bundles/onedayjobfrontend/images/bg.png") repeat; background-size: 377px 328px; margin-bottom: 53px; }
+body { color: #000; background: #fff; font: 14px "PT Sans", sans-serif; word-wrap: break-word; background: url("../Resources/public/images/bg.png") repeat; background-size: 377px 328px; margin-bottom: 53px; }
 a { color: #000; text-decoration: none; }
 a:hover, a:focus { outline: none; color: inherit; }
 a:hover { text-decoration: underline; }
@@ -66,8 +66,8 @@ ul, ol { margin-left: 0; padding-left: 15px; }
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 { padding-right: 10px; padding-left: 10px; }
 .form-horizontal .form-group { margin-right: -10px; margin-left: -10px; }
 /*icons*/
-.icon-16 { background: url("../bundles/onedayjobfrontend/images/icon_16.png") no-repeat; background-size: 16px 432px; width: 16px; height: 16px; position: relative; top: -1px; display: inline-block; vertical-align: middle; }
-.icon-32 { background: url("../bundles/onedayjobfrontend/images/icon_32.png") no-repeat; background-size: 32px 192px; width: 32px; height: 32px; position: relative; top: -2px; display: inline-block; vertical-align: middle; }
+.icon-16 { background: url("../Resources/public/images/icon_16.png") no-repeat; background-size: 16px 432px; width: 16px; height: 16px; position: relative; top: -1px; display: inline-block; vertical-align: middle; }
+.icon-32 { background: url("../Resources/public/images/icon_32.png") no-repeat; background-size: 32px 192px; width: 32px; height: 32px; position: relative; top: -2px; display: inline-block; vertical-align: middle; }
 .icon-16.icon-reg { background-position: 0 0; }
 .icon-16.icon-login { background-position: 0 -16px; }
 .icon-16.icon-map { background-position: 0 -32px; }
@@ -101,26 +101,26 @@ ul, ol { margin-left: 0; padding-left: 15px; }
 .icon-32.icon-briefcase { background-position: 0 -96px; }
 .icon-32.icon-briefcase.flagged { background-position: 0 -128px; }
 .icon-32.icon-user { background-position: 0 -160px; }
-.icon-listplus { background: url("../bundles/onedayjobfrontend/images/icon-listplus.png") no-repeat; width: 40px; height: 40px; position: relative; top: -1px; display: inline-block; vertical-align: middle; background-size: 40px 40px; }
-.icon-pdf { background: url("../bundles/onedayjobfrontend/images/pdf.png") no-repeat; width: 85px; height: 115px; display: inline-block; background-size: 85px 115px; }
+.icon-listplus { background: url("../Resources/public/images/icon-listplus.png") no-repeat; width: 40px; height: 40px; position: relative; top: -1px; display: inline-block; vertical-align: middle; background-size: 40px 40px; }
+.icon-pdf { background: url("../Resources/public/images/pdf.png") no-repeat; width: 85px; height: 115px; display: inline-block; background-size: 85px 115px; }
 .social { width: 44px; height: 44px; background-size: 44px 44px !important; display: inline-block; }
-.social.vk { background: url("../bundles/onedayjobfrontend/images/social/vk.png") no-repeat; }
-.social.tw { background: url("../bundles/onedayjobfrontend/images/social/tw.png") no-repeat; }
-.social.ok { background: url("../bundles/onedayjobfrontend/images/social/ok.png") no-repeat; }
-.social.in { background: url("../bundles/onedayjobfrontend/images/social/in.png") no-repeat; }
-.social.fb { background: url("../bundles/onedayjobfrontend/images/social/fb.png") no-repeat; }
+.social.vk { background: url("../Resources/public/images/social/vk.png") no-repeat; }
+.social.tw { background: url("../Resources/public/images/social/tw.png") no-repeat; }
+.social.ok { background: url("../Resources/public/images/social/ok.png") no-repeat; }
+.social.in { background: url("../Resources/public/images/social/in.png") no-repeat; }
+.social.fb { background: url("../Resources/public/images/social/fb.png") no-repeat; }
 /*header*/
 header { color: #fff; border-bottom: 1px solid #dfdfdf; position: relative; background: #fff; }
 header a { color: #fff; }
 header a:hover { text-decoration: underline; }
 .topbar { height: 30px; background: #000; }
-.logo { background: url("../bundles/onedayjobfrontend/images/logo_default.png") no-repeat; height: 18px; width: 132px; display: block; background-size: 132px 18px; margin: 14px 0; }
-.logo-employer { background-image: url("../bundles/onedayjobfrontend/images/logo_employer.png"); width: 223px; height: 17px; background-size: 223px 17px; }
-.logo-worker { background-image: url("../bundles/onedayjobfrontend/images/logo_worker.png"); width: 220px; height: 17px; background-size: 220px 17px; }
-.logo-employer.de { background-image: url("../bundles/onedayjobfrontend/images/logo_employer_de.png"); width: 236px; height: 17px; background-size: 236px 17px; }
-.logo-employer.en { background-image: url("../bundles/onedayjobfrontend/images/logo_employer_en.png"); width: 196px; height: 17px; background-size: 196px 17px; }
-.logo-worker.de { background-image: url("../bundles/onedayjobfrontend/images/logo_worker_de.png"); width: 245px; height: 17px; background-size: 245px 17px; }
-.logo-worker.en { background-image: url("../bundles/onedayjobfrontend/images/logo_worker_en.png"); width: 191px; height: 17px; background-size: 191px 17px; }
+.logo { background: url("../Resources/public/images/logo_default.png") no-repeat; height: 18px; width: 132px; display: block; background-size: 132px 18px; margin: 14px 0; }
+.logo-employer { background-image: url("../Resources/public/images/logo_employer.png"); width: 223px; height: 17px; background-size: 223px 17px; }
+.logo-worker { background-image: url("../Resources/public/images/logo_worker.png"); width: 220px; height: 17px; background-size: 220px 17px; }
+.logo-employer.de { background-image: url("../Resources/public/images/logo_employer_de.png"); width: 236px; height: 17px; background-size: 236px 17px; }
+.logo-employer.en { background-image: url("../Resources/public/images/logo_employer_en.png"); width: 196px; height: 17px; background-size: 196px 17px; }
+.logo-worker.de { background-image: url("../Resources/public/images/logo_worker_de.png"); width: 245px; height: 17px; background-size: 245px 17px; }
+.logo-worker.en { background-image: url("../Resources/public/images/logo_worker_en.png"); width: 191px; height: 17px; background-size: 191px 17px; }
 .login-links { margin-top: 5px; }
 .login-links a + a { margin-left: 10px; }
 .login-links a { text-transform: uppercase; font-size: .75em; }
@@ -129,7 +129,7 @@ header a:hover { text-decoration: underline; }
 .lang { line-height: 30px; display: inline-block; background: #2a2a2a; vertical-align: middle; padding: 0 12px; }
 .lang:hover, .lang:focus { text-decoration: none; }
 .lang img { margin-right: 8px; width: 16px; height: 16px; }
-.lang .down { background: url("../bundles/onedayjobfrontend/images/caret.png") no-repeat; display: inline-block; vertical-align: middle; height: 5px; width: 5px; background-size: 5px 10px; }
+.lang .down { background: url("../Resources/public/images/caret.png") no-repeat; display: inline-block; vertical-align: middle; height: 5px; width: 5px; background-size: 5px 10px; }
 .open .lang .down { background-position: 0 -5px; }
 .drop-img-flag { vertical-align: middle; top: -2px; position: relative; margin-right: 5px; width: 16px; height: 16px; }
 .topbar .dropdown-menu { left: 9px; min-width: 0; }
@@ -140,7 +140,7 @@ header a:hover { text-decoration: underline; }
 .panel-tab-title { margin: 0 0 0 34px; line-height: 20px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .panel-tab-body { padding: 30px 0; }
 .panel-tab-body2 { background: #fff; }
-.collapse-up-down { float: left; display: block; width: 24px; height: 24px; background: url("../bundles/onedayjobfrontend/images/collapse-up-down.png") no-repeat; background-size: 24px 120px; position: relative; top: -2px; }
+.collapse-up-down { float: left; display: block; width: 24px; height: 24px; background: url("../Resources/public/images/collapse-up-down.png") no-repeat; background-size: 24px 120px; position: relative; top: -2px; }
 .panel-active .panel-tab-heading { color: #3d78c9; background-color: transparent; border-color: transparent; }
 .panel-active .collapse-up-down { background-position: 0 -24px; }
 .panel-disable .panel-tab-heading { color: #868686; cursor: default; }
@@ -244,7 +244,7 @@ header a:hover { text-decoration: underline; }
 .pagination .pages .active { background-color: #000; color: #fff; border-radius: 50%; }
 /*email-confirm*/
 .email-confirm { text-align: center; margin: 110px 0; font-size: 26px; font-weight: bold; }
-.img-confirm { margin-bottom: 20px; position: relative; left: -35px; background: url("../bundles/onedayjobfrontend/images/confirm.png") no-repeat; width: 167px; height: 71px; background-size: 167px 71px; display: inline-block; }
+.img-confirm { margin-bottom: 20px; position: relative; left: -35px; background: url("../Resources/public/images/confirm.png") no-repeat; width: 167px; height: 71px; background-size: 167px 71px; display: inline-block; }
 .email-confirm .container { padding: 0 100px; }
 /*static*/
 .static { color: #6b6b6b; margin-bottom: 25px; }
@@ -263,7 +263,7 @@ header a:hover { text-decoration: underline; }
 .breadcrumb { padding: 0; list-style: none; border-radius: 4px; margin-top: 20px; }
 .panel-tab-body .breadcrumb { margin-top: 0; }
 .breadcrumb > li { display: inline-block; position: relative; margin-right: 20px; }
-.breadcrumb > li + li:before { color: #ccc; content: ""; background: url("../bundles/onedayjobfrontend/images/arrow.png") no-repeat; background-size: 11px 5px; height: 5px; width: 11px; top: 50%; margin-top: -3px; left: 0; position: absolute; margin-left: -17px; }
+.breadcrumb > li + li:before { color: #ccc; content: ""; background: url("../Resources/public/images/arrow.png") no-repeat; background-size: 11px 5px; height: 5px; width: 11px; top: 50%; margin-top: -3px; left: 0; position: absolute; margin-left: -17px; }
 .breadcrumb > .active { color: #777; }
 /*modals*/
 .modal-dialog { margin-top: 5%; }
@@ -442,13 +442,13 @@ footer, footer a { color: #8b8b8b; padding-left: 2px; padding-right: 2px; }
 .lang + .dropdown-menu > li > a { padding-left: 9px; padding-right: 9px; }
 .lang + .dropdown-menu > li > a:hover, .lang + .dropdown-menu > li > a:focus { background: none; }
 .login-toggle { display: inline-block; }
-.logo { background: url("../bundles/onedayjobfrontend/images/mobile/logo.png") no-repeat; display: block; width: 158px; height: 21px; background-size: 158px 21px; }
-.logo-worker { background: url("../bundles/onedayjobfrontend/images/mobile/logo_worker.png") no-repeat; display: block; width: 158px; height: 40px; margin-bottom: 16px; background-size: 158px 40px; }
-.logo-employer { background: url("../bundles/onedayjobfrontend/images/mobile/logo_employer.png") no-repeat; display: block; width: 158px; height: 42px; background-size: 158px 42px; }
-.logo-worker.de { background-image: url("../bundles/onedayjobfrontend/images/mobile/logo_worker_de.png"); width: 158px; height: 40px; background-size: 158px 40px; }
-.logo-worker.en { background-image: url("../bundles/onedayjobfrontend/images/mobile/logo_worker_en.png"); width: 158px; height: 40px; background-size: 158px 40px; }
-.logo-employer.de { background-image: url("../bundles/onedayjobfrontend/images/mobile/logo_employer_de.png"); width: 158px; height: 42px; background-size: 158px 42px; }
-.logo-employer.en { background-image: url("../bundles/onedayjobfrontend/images/mobile/logo_employer_en.png"); width: 158px; height: 42px; background-size: 158px 42px; }
+.logo { background: url("../Resources/public/images/mobile/logo.png") no-repeat; display: block; width: 158px; height: 21px; background-size: 158px 21px; }
+.logo-worker { background: url("../Resources/public/images/mobile/logo_worker.png") no-repeat; display: block; width: 158px; height: 40px; margin-bottom: 16px; background-size: 158px 40px; }
+.logo-employer { background: url("../Resources/public/images/mobile/logo_employer.png") no-repeat; display: block; width: 158px; height: 42px; background-size: 158px 42px; }
+.logo-worker.de { background-image: url("../Resources/public/images/mobile/logo_worker_de.png"); width: 158px; height: 40px; background-size: 158px 40px; }
+.logo-worker.en { background-image: url("../Resources/public/images/mobile/logo_worker_en.png"); width: 158px; height: 40px; background-size: 158px 40px; }
+.logo-employer.de { background-image: url("../Resources/public/images/mobile/logo_employer_de.png"); width: 158px; height: 42px; background-size: 158px 42px; }
+.logo-employer.en { background-image: url("../Resources/public/images/mobile/logo_employer_en.png"); width: 158px; height: 42px; background-size: 158px 42px; }
 .top-sm-sm { position: relative; top: -5px; text-align: right; }
 .box-text { margin-bottom: 10px; }
 .list-box-ctrl { right: 0; }
@@ -523,37 +523,37 @@ footer { position: static; }
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
-.logo { background-image: url("../bundles/onedayjobfrontend/images/@2X/logo_default.png"); }
-.logo-employer { background-image: url("../bundles/onedayjobfrontend/images/@2X/logo_employer.png"); }
-.logo-worker { background-image: url("../bundles/onedayjobfrontend/images/@2X/logo_worker.png"); }
-.lang .down { background-image: url("../bundles/onedayjobfrontend/images/@2X/caret.png"); }
-.collapse-up-down { background-image: url("../bundles/onedayjobfrontend/images/@2X/collapse-up-down.png"); }
-.img-confirm { background-image: url("../bundles/onedayjobfrontend/images/@2X/confirm.png"); }
-.breadcrumb > li + li:before { background-image: url("../bundles/onedayjobfrontend/images/@2X/arrow.png"); }
-.icon-pdf { background-image: url("../bundles/onedayjobfrontend/images/@2X/pdf.png"); }
-.icon-listplus { background-image: url("../bundles/onedayjobfrontend/images/@2X/icon-listplus.png"); }
-.social.vk { background-image: url("../bundles/onedayjobfrontend/images/@2X/social/vk.png"); }
-.social.tw { background-image: url("../bundles/onedayjobfrontend/images/@2X/social/tw.png"); }
-.social.ok { background-image: url("../bundles/onedayjobfrontend/images/@2X/social/ok.png"); }
-.social.in { background-image: url("../bundles/onedayjobfrontend/images/@2X/social/in.png"); }
-.social.fb { background-image: url("../bundles/onedayjobfrontend/images/@2X/social/fb.png"); }
-.icon-16 { background-image: url("../bundles/onedayjobfrontend/images/@2X/icon_16.png"); }
+.logo { background-image: url("../Resources/public/images/@2X/logo_default.png"); }
+.logo-employer { background-image: url("../Resources/public/images/@2X/logo_employer.png"); }
+.logo-worker { background-image: url("../Resources/public/images/@2X/logo_worker.png"); }
+.lang .down { background-image: url("../Resources/public/images/@2X/caret.png"); }
+.collapse-up-down { background-image: url("../Resources/public/images/@2X/collapse-up-down.png"); }
+.img-confirm { background-image: url("../Resources/public/images/@2X/confirm.png"); }
+.breadcrumb > li + li:before { background-image: url("../Resources/public/images/@2X/arrow.png"); }
+.icon-pdf { background-image: url("../Resources/public/images/@2X/pdf.png"); }
+.icon-listplus { background-image: url("../Resources/public/images/@2X/icon-listplus.png"); }
+.social.vk { background-image: url("../Resources/public/images/@2X/social/vk.png"); }
+.social.tw { background-image: url("../Resources/public/images/@2X/social/tw.png"); }
+.social.ok { background-image: url("../Resources/public/images/@2X/social/ok.png"); }
+.social.in { background-image: url("../Resources/public/images/@2X/social/in.png"); }
+.social.fb { background-image: url("../Resources/public/images/@2X/social/fb.png"); }
+.icon-16 { background-image: url("../Resources/public/images/@2X/icon_16.png"); }
 /*.icon-32 { background-image: url("../images/@2X/icon_32.png"); }*/
-body { background-image: url("../bundles/onedayjobfrontend/images/@2X/bg.png"); }
-.logo-employer.de { background-image: url("../bundles/onedayjobfrontend/images/@2X/logo_employer_de.png"); }
-.logo-employer.en { background-image: url("../bundles/onedayjobfrontend/images/@2X/logo_employer_en.png"); }
-.logo-worker.de { background-image: url("../bundles/onedayjobfrontend/images/@2X/logo_worker_de.png"); }
-.logo-worker.en { background-image: url("../bundles/onedayjobfrontend/images/@2X/logo_worker_en.png"); }
+body { background-image: url("../Resources/public/images/@2X/bg.png"); }
+.logo-employer.de { background-image: url("../Resources/public/images/@2X/logo_employer_de.png"); }
+.logo-employer.en { background-image: url("../Resources/public/images/@2X/logo_employer_en.png"); }
+.logo-worker.de { background-image: url("../Resources/public/images/@2X/logo_worker_de.png"); }
+.logo-worker.en { background-image: url("../Resources/public/images/@2X/logo_worker_en.png"); }
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-width: 767px), only screen and (min-resolution: 144dpi) and (max-width: 767px), only screen and (min-resolution: 1.5dppx) and (max-width: 767px) {
-.logo { background-image: url("../bundles/onedayjobfrontend/images/@2X/mobile/logo.png"); }
-.logo-worker { background-image: url("../bundles/onedayjobfrontend/images/@2X/mobile/logo_worker.png"); }
-.logo-employer { background-image: url("../bundles/onedayjobfrontend/images/@2X/mobile/logo_employer.png"); }
-.logo-worker.de { background-image: url("../bundles/onedayjobfrontend/images/@2X/mobile/logo_worker_de.png"); }
-.logo-worker.en { background-image: url("../bundles/onedayjobfrontend/images/@2X/mobile/logo_worker_en.png"); }
-.logo-employer.de { background-image: url("../bundles/onedayjobfrontend/images/@2X/mobile/logo_employer_de.png"); }
-.logo-employer.en { background-image: url("../bundles/onedayjobfrontend/images/@2X/mobile/logo_employer_en.png"); }
+.logo { background-image: url("../Resources/public/images/@2X/mobile/logo.png"); }
+.logo-worker { background-image: url("../Resources/public/images/@2X/mobile/logo_worker.png"); }
+.logo-employer { background-image: url("../Resources/public/images/@2X/mobile/logo_employer.png"); }
+.logo-worker.de { background-image: url("../Resources/public/images/@2X/mobile/logo_worker_de.png"); }
+.logo-worker.en { background-image: url("../Resources/public/images/@2X/mobile/logo_worker_en.png"); }
+.logo-employer.de { background-image: url("../Resources/public/images/@2X/mobile/logo_employer_de.png"); }
+.logo-employer.en { background-image: url("../Resources/public/images/@2X/mobile/logo_employer_en.png"); }
 }
 
 

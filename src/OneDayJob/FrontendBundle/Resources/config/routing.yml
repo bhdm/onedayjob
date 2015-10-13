@@ -18,6 +18,10 @@ fe_social:
     path: /social/{ajax}
     defaults: { _controller: OneDayJobFrontendBundle:Social:index, 'ajax': 0 }
 
+fe_test:
+    path: /test/layout
+    defaults: { _controller: OneDayJobFrontendBundle:Default:test }
+
 # Profile (redirect)
 
 fe_profile:
