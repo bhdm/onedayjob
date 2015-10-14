@@ -132,8 +132,9 @@ body{
 }
 
 .h1_result , .h1_vacancy , .h1_applicants , .h1_company{
-    font-weight: normal;
+    /*font-weight: lighter;*/
     cursor: hand;
+    font-size: 35px;
 }
 
 #footer{
@@ -161,6 +162,10 @@ body{
     text-align: center;
 }
 
+.h1_result_parent , .h1_vacancy_parent , .h1_company_parent , .h1_applicants_parent{
+    padding: 0px;
+}
+
 .see-all{
     text-align: center;
     width: 140px;
@@ -180,14 +185,41 @@ body{
 
 .vacancy-block{
     margin-right: 15px;
-    padding: 0px;
+    padding: 0px 0px 10px 0px;
     background-color: #ffffff;
-    border: thin solid #929292;
-    /*border-bottom-left-radius: 15px;*/
-    /*border-bottom-right-radius: 15px;*/
+    border-bottom: thin solid #929292;
+    border-radius: 10px;
 }
 
-.vacancy-label > span{
+.vacancy-hover{
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(120,120,120,0.5);
+    z-index: 999;
+    border-bottom: thin solid #929292;
+    border-radius: 10px;
+}
+
+.vacancy-hover-text{
+    display: none;
+    position: absolute;
+    bottom: 40%;
+    z-index: 998;
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+    font-size: large;
+}
+
+.vacancy-block:hover .vacancy-hover ,.vacancy-block:hover .vacancy-hover-text{
+    display: block;
+}
+
+.vacancy-label {
     font-size: medium;
     font-weight: bolder;
 }
@@ -196,14 +228,73 @@ body{
     color: #959595;
 }
 
-.vacancy-locale{
-
-}
-
-.vacancy-term{
-
-}
-
 .vacancy-salary{
     font-size: larger;
+}
+
+.vacancy-locale .icon-block{
+    padding: 4px 0px 4px 25px;
+}
+
+.vacancy-label .icon-block{
+    padding: 4px 0px 4px 23px;
+}
+
+.vacancy-company .icon-block{
+    padding: 4px 0px 4px 20px;
+}
+
+.vacancy-term .icon-block , .vacancy-salary .icon-block{
+    padding: 4px 0px 4px 24px;
+}
+
+.company-block{
+    margin-top: 10px;
+    text-align: center;
+    color: #9b9b9b;
+}
+
+.company-name{
+    text-align: right;
+}
+
+.company-name > span{
+    font-size: 15px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.company-img > img{
+    width: 100%;
+}
+
+.company-img{
+
+}
+
+.company-name-locale{
+    margin-top: 30px;
+}
+
+.company-locale{
+    text-align: left;
+    padding-left: 0px;
+}
+
+.company-number-vacancies{
+   margin-top: 10px;
+    text-align: center;
+}
+
+.company-number{
+    font-size: 25px;
+    color: #000000;
+    padding-left: 10px;
+    border-bottom: thick solid #3976c7;
+}
+
+.company-number-text{
+    border-bottom: thick solid #3976c7;
+    padding-bottom: 2px;
+    padding-right: 10px;
 }
