@@ -1,63 +1,108 @@
-<div class="bottom-md">
-  <div class="row">
-    <div class="col-xs-9">
-      <div class="inbl-group">
-        <div class="inbl">{{ 'content.sort_by'|trans }}</div>
-        <div class="inbl">
-          <div class="selectbox">
-            <form action="">
-              <select id="sort-vacancy" class="form-control input-sm">
-                <option value="created">{{ 'content.sort_date'|trans }}</option>
-                <option value="views">{{ 'content.sort_view'|trans }}</option>
-              </select>
-            </form>
-          </div>
+{#<div class="bottom-md">#}
+  {#<div class="row">#}
+    {#<div class="col-xs-9">#}
+      {#<div class="inbl-group">#}
+        {#<div class="inbl">{{ 'content.sort_by'|trans }}</div>#}
+        {#<div class="inbl">#}
+          {#<div class="selectbox">#}
+            {#<form action="">#}
+              {#<select id="sort-vacancy" class="form-control input-sm">#}
+                {#<option value="created">{{ 'content.sort_date'|trans }}</option>#}
+                {#<option value="views">{{ 'content.sort_view'|trans }}</option>#}
+              {#</select>#}
+            {#</form>#}
+          {#</div>#}
+        {#</div>#}
+      {#</div>#}
+    {#</div>#}
+    {#<div class="col-xs-3">#}
+      {#<div class="shownum text-right">#}
+        {#{% set ipp = app.request.get('ipp', 20) %}#}
+        {#<a class="{{ ipp == 20 ? 'active' : '' }}" href="http://{{ app.request.host }}/{{ app.request.get('_locale') }}/?ipp=20">20</a>#}
+        {#<a class="{{ ipp == 40 ? 'active' : '' }}" href="http://{{ app.request.host }}/{{ app.request.get('_locale') }}/?ipp=40">40</a>#}
+        {#<a class="{{ ipp == 60 ? 'active' : '' }}" href="http://{{ app.request.host }}/{{ app.request.get('_locale') }}/?ipp=60">60</a>#}
+      {#</div>#}
+    {#</div>#}
+  {#</div>#}
+{#</div>#}
+{#<div class="gob-list vacancies" id="vacancies">#}
+
+  {#{% for vacancy in vacancies %}#}
+    {#<div#}
+    {#class="urgent-vacancy-item list-box{% if vacancy.vip is not null and vacancy.vip >= date() %} flagged{% endif %}"#}
+    {#data-created="{{ vacancy.created.getTimestamp() }}"#}
+    {#data-views="{{ vacancy.views }}">#}
+      {#<div class="box-heading">#}
+        {#<h4 class="box-title"><a class="vacancy_modal" data-id="{{ vacancy.id }}" href="#">{{ vacancy.title }}</a></h4>#}
+        {#&nbsp;#}
+        {#{% if app.user and app.user.type == 'employee' %}#}
+          {#<i class="icon-16 icon-briefcase{% if app.user.favoriteVacancy.contains(vacancy) %} flagged{% endif %}" data-id="{{ vacancy.id }}"></i>#}
+        {#{% endif %}#}
+      {#</div>#}
+      {#<div class="box-info">#}
+        {#<span>{{ vacancy.company.name }}</span>#}
+        {#<span> <i class="icon-16 icon-map"></i> {{ vacancy.city.translate.title }}</span>#}
+      {#</div>#}
+      {#<div class="row">#}
+        {#<div class="col-xs-12 col-sm-9">#}
+          {#<div class="box-text text-muted">#}
+            {#{{ vacancy.skill }}#}
+          {#</div>#}
+        {#</div>#}
+        {#<div class="col-xs-12 col-sm-3 text-right">#}
+          {#<div class="text-muted small box-date">{{ time_diff(vacancy.created)|trans }}</div>#}
+          {#<div class="h2 notop nobottom text-bold">{{ vacancy.salaryPerMonth|number_format(0) }} {{ helper.currency(vacancy.currency) }}</div>#}
+        {#</div>#}
+      {#</div>#}
+    {#</div>#}
+  {#{% endfor %}#}
+
+{#</div>#}
+
+{#{{ knp_pagination_render(vacancies) }}#}
+{% set i  = 0 %}
+{% for vacancy in vacancies %}
+    {% set image =  '/uploads/images/company.png' %}
+    {% if i is divisible by(4) %}
+        {% set the_first_vacancy_in_row  = "col-sm-offset-2"%}
+        {% if i != 0 %} </div> {% endif %}
+    <div class="row row-vacancy">
+    {% else %}
+        {% set the_first_vacancy_in_row  = ""%}
+    {% endif %}
+    {% set i  = i + 1 %}
+
+
+    <div class="col-sm-2 {{ the_first_vacancy_in_row }} vacancy-block-parent">
+        <div class="vacancy-block">
+            <div class="vacancy-img">
+                <img width="100%" src="{{  image|imagine_filter('logo_inset') }}">
+                <div class="vacancy-hover-text">ОТКЛИКНУТЬСЯ</div>
+            </div>
+            <div class="vacancy-label row">
+                <div class="col-sm-2 icon-block"> <img src="{{ asset("bundles/onedayjobfrontend/images/new/man.png") }}"></div>
+                <div class="col-sm-10">{{ vacancy.title }}</div>
+            </div>
+            <div class="vacancy-company row">
+                <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobfrontend/images/new/home.png") }}"></div>
+                <div class="col-sm-10">{{ vacancy.company.name }}</div>
+            </div>
+            <div class="vacancy-locale row">
+                <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobfrontend/images/new/locale.png") }}"></div>
+                <div class="col-sm-10">{{ vacancy.city.translate.title }}</div>
+            </div>
+            <div class="vacancy-term row">
+                <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobfrontend/images/new/calendar.png") }}"></div>
+                <div class="col-sm-10">{{ vacancy.termfrom |date("d/m/Y") }} - {{ vacancy.termto |date("d/m/Y") }}</div>
+            </div>
+            <div class="vacancy-salary row">
+                <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobfrontend/images/new/rub.png") }}"></div>
+                <div class="col-sm-10">{{ vacancy.salaryPerMonth|number_format(0) }} {{ helper.currency(vacancy.currency) }}</div>
+            </div>
+            <div class="vacancy-hover"></div>
         </div>
-      </div>
     </div>
-    <div class="col-xs-3">
-      <div class="shownum text-right">
-        {% set ipp = app.request.get('ipp', 20) %}
-        <a class="{{ ipp == 20 ? 'active' : '' }}" href="http://{{ app.request.host }}/{{ app.request.get('_locale') }}/?ipp=20">20</a>
-        <a class="{{ ipp == 40 ? 'active' : '' }}" href="http://{{ app.request.host }}/{{ app.request.get('_locale') }}/?ipp=40">40</a>
-        <a class="{{ ipp == 60 ? 'active' : '' }}" href="http://{{ app.request.host }}/{{ app.request.get('_locale') }}/?ipp=60">60</a>
-      </div>
-    </div>
-  </div>
+{% endfor %}
+    {% if i is not divisible by(2) %}
 </div>
-<div class="gob-list vacancies" id="vacancies">
-  
-  {% for vacancy in vacancies %}
-    <div 
-    class="urgent-vacancy-item list-box{% if vacancy.vip is not null and vacancy.vip >= date() %} flagged{% endif %}" 
-    data-created="{{ vacancy.created.getTimestamp() }}" 
-    data-views="{{ vacancy.views }}">
-      <div class="box-heading">
-        <h4 class="box-title"><a class="vacancy_modal" data-id="{{ vacancy.id }}" href="#">{{ vacancy.title }}</a></h4>
-        &nbsp;
-        {% if app.user and app.user.type == 'employee' %}
-          <i class="icon-16 icon-briefcase{% if app.user.favoriteVacancy.contains(vacancy) %} flagged{% endif %}" data-id="{{ vacancy.id }}"></i>
-        {% endif %}
-      </div>
-      <div class="box-info">
-        <span>{{ vacancy.company.name }}</span>
-        <span> <i class="icon-16 icon-map"></i> {{ vacancy.city.translate.title }}</span>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-9">
-          <div class="box-text text-muted">
-            {{ vacancy.skill }}
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-3 text-right">
-          <div class="text-muted small box-date">{{ time_diff(vacancy.created)|trans }}</div>
-          <div class="h2 notop nobottom text-bold">{{ vacancy.salaryPerMonth|number_format(0) }} {{ helper.currency(vacancy.currency) }}</div>
-        </div>
-      </div>
-    </div>
-  {% endfor %}
-
-</div>
-
-{{ knp_pagination_render(vacancies) }}
-
+{% endif %}

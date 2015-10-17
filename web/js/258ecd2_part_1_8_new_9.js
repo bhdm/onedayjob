@@ -6,10 +6,10 @@ $(document).ready(function(){
         $('#header_other_language').hide();
     });
 
-    $h1_result =  $(".h1_result");
-    $h1_vacancy =  $(".h1_vacancy");
-    $h1_company =  $(".h1_company");
-    $h1_applicants =  $(".h1_applicants");
+    $h1_result =  $(".h1_result , #close-all-result");
+    $h1_vacancy =  $(".h1_vacancy , #close-all-urgent-vacancies");
+    $h1_company =  $(".h1_company , #close-all-company");
+    $h1_applicants =  $(".h1_applicants , #close-all-applicants");
 
     $result_search_label = $('.result-search-label');
     $result_search = $('.result-search');

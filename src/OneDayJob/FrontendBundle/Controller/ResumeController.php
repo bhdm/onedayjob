@@ -124,4 +124,37 @@ class ResumeController extends Controller
             "country" => $country
         );
     }
+
+    public function getResumesAction(Request $request, $page, $ipp)
+    {
+        $query = $this->getDoctrine()
+            ->getRepository('OneDayJobApiBundle:Resume')
+            ->createQueryBuilder('v')
+            ->select('v')
+            ->orderBy('v.up', 'DESC')
+            ->getQuery();
+
+        $resumes = $this->get('knp_paginator')->paginate($query, $page, $ipp);
+
+        $_temp1 = [];
+        $_temp2 = [];
+
+        $session = $this->get('session');
+
+        foreach ($resumes as $resume) {
+            if ($session->has('locale')) {
+                if ($resume->getCity()->translate()->getTitle() == $session->get('locale')['city']) {
+                    $_temp1[] = $resume;
+                } else {
+                    $_temp2[] = $resume;
+                }
+            } else {
+                $_temp1[] = $resume;
+            }
+        }
+
+        $resumes->setItems(array_merge($_temp1, $_temp2));
+
+        return $this->render('OneDayJobFrontendBundle:Resume:_resume.html.twig', ['resumes' => $resumes]);
+    }
 }

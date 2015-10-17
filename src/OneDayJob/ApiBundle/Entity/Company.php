@@ -61,6 +61,8 @@ class Company
      **/
     protected $gallery;
 
+    protected $numberVacancies = 0;
+
 
 	public function __construct()
 	{
@@ -287,6 +289,23 @@ class Company
     {
         $this->gallery = $gallery;
     }
+
+    /**
+     * @return int
+     */
+    public function getNumberVacancies()
+    {
+        return $this->numberVacancies;
+    }
+
+    /**
+     * @param int $numberVacancies
+     */
+    public function setNumberVacancies($numberVacancies)
+    {
+        $this->numberVacancies = $numberVacancies;
+    }
+
 
 
 
