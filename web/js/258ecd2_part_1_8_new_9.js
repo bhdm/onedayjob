@@ -60,7 +60,7 @@ $(document).ready(function(){
         $search_applicants_label.show();
     });
 
-    $('#link-to-extended-search').click(function () {
+    $('#link-to-extended-search > div > a').click(function () {
         $('#body-extended-search').show();
         $('.applicants').hide();
         $('#link-to-extended-search').css({'margin-top' : '200px'});

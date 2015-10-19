@@ -141,6 +141,14 @@ body{
     border: thin solid #ffffff;
 }
 
+.search-company-label {
+    padding-left: 22px;
+}
+
+.search-applicants-label{
+    padding-left: 30px;
+}
+
 .result-search , .search-company{
     display: none;
     padding-bottom: 50px;
@@ -234,6 +242,7 @@ body{
 .vacancy-block{
     position: relative;
     width: 255px;
+    height: 343px;
     background-color: #ffffff;
     border-bottom: thin solid #929292;
     border-radius: 10px;
@@ -271,8 +280,26 @@ body{
     display: block;
 }
 
-.vacancy-img , .company-img{
+.vacancy-img{
     position: relative;
+    width: 255px;
+    height: 183px;
+    margin-bottom: 10px;
+}
+
+.company-img{
+    position: relative;
+    width: 267px;
+    height: 267px;
+}
+
+.vacancy-img > img{
+   position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    margin: auto;
 }
 
 .vacancy-label {
@@ -376,6 +403,7 @@ body{
 }
 
 .applicants-block{
+    height: 343px;
     width: 255px;
     position: relative;
     background-color: #ffffff;
@@ -387,7 +415,7 @@ body{
 
 .applicants-label{
     font-family: "Helvetica-5-Normal";
-    margin-top: 5px;
+    margin-top: 0px;
     font-weight: bold;
 }
 
@@ -398,8 +426,20 @@ body{
 }
 
 .applicants-img > img{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: auto;
     border-top-left-radius:  5px;
     border-top-right-radius:  5px;
+}
+
+.applicants-img{
+    position: relative;
+    width: 255px;
+    height: 272px;
 }
 
 .applicants-underline{
@@ -466,4 +506,13 @@ body{
     font-size: 18px;
     /*font-family: "Helvetica-3-Thin";*/
     color: #000;
+}
+
+.salary-extended-search-input{
+
+}
+
+.row-vacancy{
+    text-align: center;
+
 }
