@@ -87,10 +87,83 @@
             </form>
         </div>
 
-        {#EXTEND SEARCH#}
+        {#LINK TO EXTEND SEARCH#}
         <div id="link-to-extended-search" class="row">
             <div class="col-sm-offset-8 col-sm-2">
                 <a id="link-to-extended-search" href="#">Расширенный поиск</a>
+            </div>
+        </div>
+
+        {% set data = helper.getSearchFormData %}
+
+        <div id="body-extended-search">
+            <div id="extended-search">
+                <form>
+
+                    <div class="row">
+                        <div class="col-sm-1 col-sm-offset-2 applicants-label">
+                            <select name="applicants-label">
+                                <option class="applicants-option" value="1">СОИСКАТЕЛИ</option>
+                                <option class="applicants-option" value="2">ВАКАНСИИ</option>
+                                <option class="applicants-option" value="3">КОМПАНИИ</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <input id="applicants-search-line" type="text" name="title" class="form-control" placeholder="КЛЮЧЕВОЕ СЛОВО">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="submit" class="btn btn-primary btn-lg applicants-button-search">{{ 'form.search.search'|trans }}</button>
+                        </div>
+                    </div>
+
+                    <div class="row select-branch-extended-search">
+                        <div class="col-sm-1 col-sm-offset-2 branch-label"><span id="label-branch-extended-search">ОТРАСЛЬ</span></div>
+                        <div class="col-sm-3">
+                            <select name="branch" class="form-control combobox" data-placeholder="{{ 'content.search.choose_please'|trans }}">
+                                <option class="option-extended-search option-extended-search-any" value="-1" disabled selected>{{ 'content.search.select_any_branch'|trans }}</option>
+                                {% set branch_value = app.request.get('branch', null) %}
+
+                                <option class="option-extended-search"></option>
+                                {% for branch in data.branches %}
+                                    <option class="option-extended-search" value="{{ branch.id }}"{{ branch.id == branch_value ? ' selected="selected" ' : '' }}>{{ branch.translate.title }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row salary-extended-search">
+                        <div class="col-sm-2 col-sm-offset-1 branch-label"><span id="label-branch-extended-search">С ОПЛАТОЙ В ДЕНЬ</span></div>
+                        <div class="col-sm-3">
+                            <input id="salary-search-line" name="salary" type="text" class="form-control" placeholder="Оплата">
+                        </div>
+                    </div>
+
+                    <div class="row select-country-extended-search">
+                        <div class="col-sm-1 col-sm-offset-2 branch-label"><span id="label-country-extended-search">СТРАНА</span></div>
+                        <div class="col-sm-3">
+                            <select class="combobox form_country" name="country" data-placeholder="{{ 'content.search.choose_please'|trans }}">
+                                <option value="-1" disabled selected >{{ 'content.search.select_any_country'|trans }}</option>
+                                {#{% if local_country_id %}<option value="{{ local_country_id }}" selected>{{ local_country }}</option>{% endif %}#}
+                                {% set country_value = app.request.get('country', null) %}
+
+                                {% if country_value is not null %}
+                                    {% set cities = helper.getCities(country_value) %}
+                                {% endif %}
+
+                                {% for country in data.countries %}
+                                    <option value="{{ country.id }}"{{ country.id == country_value ? ' selected="selected" ' : '' }}>{{ country.translate.title }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div id="krest-extended-search">
+                <img src="{{ asset("bundles/onedayjobfrontend/images/new/X.png") }}">
             </div>
         </div>
 
@@ -156,8 +229,8 @@
                     <div class="col-sm-1 col-sm-offset-3 see-all"><a href="#">СМОТРЕТЬ ВСЕ</a></div>
                 </div>
 
-                    {{ render(controller('OneDayJobFrontendBundle:Vacancy:getUrgentVacancies', {'page': app.request.get('page', 1), 'ipp': app.request.get('ipp', 20)})) }}
-                    {#THE RESULT!#}
+                {{ render(controller('OneDayJobFrontendBundle:Vacancy:getUrgentVacancies', {'page': app.request.get('page', 1), 'ipp': app.request.get('ipp', 20)})) }}
+                {#THE RESULT!#}
                 <div class="row">
                     <div id="close-all-urgent-vacancies" class="col-sm-2 col-sm-offset-9 close-all"><a href="#"> Свернуть все | <img src="{{ asset("bundles/onedayjobfrontend/images/new/arrow-up.png") }}"></a></div>
                 </div>

@@ -2,10 +2,10 @@
 
 {% block userblock %}
     {#<script>#}
-        {#$(document).ready(function(){#}
+        {#$(document).ready(function()&#123;&#35;}
             {#var $sport = $('.form_country');#}
             {#// When sport gets selected ...#}
-            {#$('.form_country').change(function() {#}
+            {#$('.form_country').change(function() &#123;&#35;}
                 {#// ... retrieve the corresponding form.#}
                 {#alert("KKK");#}
                 {#var $form = $(this).closest('form');#}
@@ -13,10 +13,10 @@
                 {#var data = {};#}
                 {#data[$sport.attr('name')] = $sport.val();#}
                 {#// Submit data via AJAX to the form's action path.#}
-                {#$.ajax({#}
+                {#$.ajax(&#123;&#35;}
                     {#url: Routing.generate('api_cities'),#}
                     {#type: $form.attr('POST'),#}
-                    {#success: function(html) {#}
+                    {#success: function(html) &#123;&#35;}
                         {#// Replace current position field ...#}
                         {#$('.form_city').replaceWith(#}
                                 {#// ... with the returned one from the AJAX response.#}
@@ -32,13 +32,13 @@
 
   <div class="account-main" id="sel">
     <nav class="account-nav employer-nav">
-      
+
       {% include '_menu_mobile.html.twig' %}
-      
+
       <div class="account-drop-menu collapse" id="navcollaps">
-        
+
         {% include 'employee_profile_menu.html.twig' %}
-        
+
       </div>
     </nav>
     <div class="account-heading">
@@ -48,7 +48,7 @@
     </div>
   </div>
   <div class="account-content no-combo">
-    
+
     {{ form_start(form) }}
 
       <div class="row">
@@ -64,7 +64,7 @@
         <div class="col-sm-4">
           <div class="form-group">
             <label class="text-bold text-uppercase">{{ 'form.vacancy.specialization'|trans }}</label>
-            
+
             {{ form_widget(form.specialization, {'attr':{'class':'form-control form_specialization'}}) }}
             {{ form_errors(form.specialization) }}
 
@@ -73,7 +73,7 @@
         <div class="col-sm-4">
           <div class="form-group">
             <label class="text-bold text-uppercase">{{ 'form.vacancy.post'|trans }}</label>
-            
+
             {{ form_widget(form.title, {'attr':{'class':'form-control'}}) }}
             {{ form_errors(form.title) }}
 
@@ -85,7 +85,7 @@
         <div class="col-sm-4">
           <div class="form-group">
             <label class="text-bold text-uppercase">{{ 'form.search.country'|trans }}</label>
-            
+
             {{ form_widget(form.country, {'attr':{'class':'form-control form_country'}}) }}
             {{ form_errors(form.country) }}
 
@@ -94,7 +94,7 @@
         <div class="col-sm-4">
           <div class="form-group">
             <label class="text-bold text-uppercase">{{ 'form.search.city'|trans }}</label>
-            
+
             {{ form_widget(form.city, {'attr':{'class':'form-control form_city'}}) }}
             {{ form_errors(form.city) }}
 
@@ -106,14 +106,14 @@
         <div class="col-sm-4">
           <div class="form-group">
             <label class="text-bold text-uppercase">{{ 'form.vacancy.employment'|trans }}</label>
-            
+
             {{ form_widget(form.employment, {'attr':{'class':'form-control'}}) }}
             {{ form_errors(form.employment) }}
 
           </div>
           <div class="form-group">
             <label class="text-bold text-uppercase">{{ 'form.vacancy.work_experience'|trans }}</label>
-            
+
             {{ form_widget(form.work_experience, {'attr':{'class':'form-control'}}) }}
             {{ form_errors(form.work_experience) }}
 
@@ -156,7 +156,7 @@
 
           <div class="form-group">
             <label class="text-bold text-uppercase">{{ 'form.vacancy.education'|trans }}</label>
-            
+
             {{ form_widget(form.education, {'attr':{'class':'form-control'}}) }}
             {{ form_errors(form.education) }}
 
@@ -173,7 +173,7 @@
         <div class="col-sm-4">
           <div class="form-group">
             <label for="" class="text-bold text-uppercase">{{ 'form.vacancy.skill'|trans }}</label>
-            
+
             {{ form_widget(form.skill, {'attr':{'class':'form-control', 'rows':'3', 'style':'height:180px;'}}) }}
             {{ form_errors(form.skill) }}
 
@@ -194,7 +194,7 @@
         <div class="col-sm-4">
           <div class="form-group">
             <label for="" class="text-bold text-uppercase">{{ 'form.vacancy.salary_per_day'|trans }}</label>
-            
+
             {{ form_widget(form.salary_per_day, {'attr':{'class':'form-control', 'placeholder':'0'}}) }}
             {{ form_errors(form.salary_per_day) }}
 
@@ -203,7 +203,7 @@
         <div class="col-sm-4">
           <div class="form-group">
             <label for="" class="text-bold text-uppercase">{{ 'form.vacancy.currency'|trans }}</label>
-            
+
             {{ form_widget(form.currency, {'attr':{'class':'form-control'}}) }}
             {{ form_errors(form.currency) }}
 
@@ -212,7 +212,7 @@
       </div>
       <div class="from-sep"></div>
       <div class="text-uppercase text-bold">{{ 'form.vacancy.extra'|trans }}</div>
-      
+
       {{ form_widget(form.extra, {'attr':{'class':'form-control', 'rows':'3', 'style':'height:180px; margin-bottom:30px;'}}) }}
       {{ form_errors(form.extra) }}
 
@@ -246,7 +246,7 @@
           {{ 'user.data.add_vacancy'|trans }}
         {% endif %}
       </button>
-    
+
     {{ form_end(form) }}
 
   </div>

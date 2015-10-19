@@ -60,4 +60,21 @@ $(document).ready(function(){
         $search_applicants_label.show();
     });
 
+    $('#link-to-extended-search').click(function () {
+        $('#body-extended-search').show();
+        $('.applicants').hide();
+        $('#link-to-extended-search').css({'margin-top' : '200px'});
+        $('#link-to-extended-search > div').hide();
+        $('.custom-combobox-input').addClass('form-control');
+        $('body').css('overflow','hidden');
+    });
+
+    $('#krest-extended-search').click(function () {
+        $('#body-extended-search').hide();
+        $('.applicants').show();
+        $('#link-to-extended-search').css({'margin-top' : '10px'});
+        $('#link-to-extended-search > div').show();
+        $('body').css('overflow','auto');
+    });
+
 });
