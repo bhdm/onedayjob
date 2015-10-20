@@ -77,4 +77,22 @@ $(document).ready(function(){
         $('body').css('overflow','auto');
     });
 
+    $header_name_or_registration = $('#header_name_or_registration');
+    $(window).on("scroll", function() {
+        if ($(window).scrollTop() > 100){
+            $header_name_or_registration.removeClass('col-sm-offset-3');
+            //$header_name_or_registration.removeClass('col-sm-offset-3');
+            $('#header_locale').hide();
+            $('#header_language').hide();
+            $('.header-new').show();
+        }
+        else {
+            //$header_name_or_registration.removeClass('col-sm-offset-2');
+            $header_name_or_registration.addClass('col-sm-offset-3');
+            $('#header_locale').show();
+            $('#header_language').show();
+            $('.header-new').hide();
+        }
+    });
+
 });

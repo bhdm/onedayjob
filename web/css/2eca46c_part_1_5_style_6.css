@@ -3,6 +3,19 @@ body{
     /*font-family: "HelveticaNeue-Light";*/
 }
 
+header{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 1000;
+    height: 72px;
+}
+
+#header_logo > img{
+    height: 53px;
+    width: 194px;
+}
+
 #body{
     height: 100%;
     width: 100%;
@@ -13,13 +26,15 @@ body{
 }
 
 #header{
-    padding-bottom: 15px;
-    padding-top: 15px;
+    padding-bottom: 5px;
+    padding-top: 5px;
     background-color: #ffffff;
+    height: 62px;
 }
 
 #header_language{
     margin-top: 15px;
+    margin-left: 50px;
     color: #959595;
 }
 
@@ -34,17 +49,18 @@ body{
 }
 
 #header_name_or_registration{
-    text-align: right;
+    text-align: left;
 }
 
 #header_login_logout{
+    display: inline;
+    height: 39px;
     border-radius: 5px;
     margin-top: 3px;
     font-size: large;
     color: #4f4f4f;
     text-align: center;
-    padding-bottom: 5px;
-    padding-top: 10px;
+    /*padding: 10px;*/
     background-color: #d6d8d7;
 }
 
@@ -141,12 +157,9 @@ body{
     border: thin solid #ffffff;
 }
 
-.search-company-label {
-    padding-left: 22px;
-}
 
 .search-applicants-label{
-    padding-left: 30px;
+    /*padding-left: 30px;*/
 }
 
 .result-search , .search-company{
@@ -244,7 +257,8 @@ body{
     width: 255px;
     height: 343px;
     background-color: #ffffff;
-    border-bottom: thin solid #929292;
+    /*border: thin solid #929292;*/
+
     border-radius: 10px;
 }
 
@@ -253,12 +267,10 @@ body{
     position: absolute;
     top: 0px;
     left: 0px;
-    height: 100%;
+    height: 343px;
     width: 100%;
     background-color: rgba(120,120,120,0.5);
     z-index: 999;
-    border-bottom: thin solid #929292;
-    border-radius: 10px;
 }
 
 .applicants-hover{
@@ -284,7 +296,7 @@ body{
     position: relative;
     width: 255px;
     height: 183px;
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
 }
 
 .company-img{
@@ -300,11 +312,23 @@ body{
     bottom: 0px;
     right: 0px;
     margin: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .vacancy-label {
     font-size: medium;
     font-weight: bolder;
+}
+
+.vacancy-bottom-part{
+    height: 160px;
+    /*width: 257px;*/
+    margin: 0px;
+    /*padding-right: 2px;*/
+    border-left: thin solid #929292;
+    border-right: thin solid #929292;
+    border-bottom: thin solid #929292;
 }
 
 .vacancy-block{
@@ -403,9 +427,9 @@ body{
 }
 
 .applicants-block{
+    position: relative;
     height: 343px;
     width: 255px;
-    position: relative;
     background-color: #ffffff;
     border-bottom: thin solid #929292;
     border-right: thin solid #929292;
@@ -426,12 +450,6 @@ body{
 }
 
 .applicants-img > img{
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    margin: auto;
     border-top-left-radius:  5px;
     border-top-right-radius:  5px;
 }
@@ -439,7 +457,7 @@ body{
 .applicants-img{
     position: relative;
     width: 255px;
-    height: 272px;
+    height: 270px;
 }
 
 .applicants-underline{
@@ -513,6 +531,41 @@ body{
 }
 
 .row-vacancy{
-    text-align: center;
+    margin-bottom: 40px;
+    /*text-align: center;*/
+
+}
+
+.header-new{
+    display: none;
+    height: 100%;
+    margin-left: 50px;
+}
+
+.header-form-select{
+    margin-top: 15px;
+    padding: 0px;
+}
+
+.header-form-select > select{
+    border-width: 0px;
+    background-color: inherit;
+    color: #000;
+    font-size: 20px;
+}
+
+.header-form-option{
+    font-family: "Helvetica-3-Thin";
+    font-size: 20px;
+    color: #000;
+}
+
+#header-input{
+    margin-top: 7px;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.header-form-button{
 
 }

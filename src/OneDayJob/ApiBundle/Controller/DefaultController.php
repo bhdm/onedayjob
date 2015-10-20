@@ -21,7 +21,6 @@ class DefaultController extends Controller
 		$to_json = [];
 		$em = $this->getDoctrine()->getManager();
 		$user = $this->getUser();
-
 		if (!$user) {
 			return new JsonResponse($to_json);
 		}
