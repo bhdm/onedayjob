@@ -243,7 +243,7 @@
                       <div class="selectbox">
                         <select class="combobox form_country" name="country" data-placeholder="{{ 'content.search.choose_please'|trans }}">
                             <option value="-1" disabled >{{ 'content.search.select_any_country'|trans }}</option>
-                            {% if local_country_id %}<option value="{{ local_country_id }}" selected>{{ local_country }}</option>{% endif %}
+                            {% if local_country_id is  defined %}<option value="{{ local_country_id }}" selected>{{ local_country }}</option>{% endif %}
                           {% set country_value = app.request.get('country', null) %}
 
                           {% if country_value is not null %}
@@ -345,7 +345,7 @@
                       <div class="selectbox">
                         <select class="combobox form_country" name="country" data-placeholder="{{ 'content.search.choose_please'|trans }}">
                             <option value="-1" disabled>{{ 'content.search.select_any_country'|trans }}</option>
-                            {% if local_country_id %}<option value="{{ local_country_id }}" selected>{{ local_country }}</option>{% endif %}
+                            {% if local_country_id is defined %}<option value="{{ local_country_id }}" selected>{{ local_country }}</option>{% endif %}
                           {% set country_value = app.request.get('country', null) %}
 
                           {% if country_value is not null %}
@@ -414,7 +414,7 @@
                       <div class="selectbox">
                         <select class="combobox form_country" name="country" data-placeholder="{{ 'content.search.choose_please'|trans }}">
                             <option value="-1" disabled >{{ 'content.search.select_any_country'|trans }}</option>
-                            {% if local_country_id %}<option value="{{ local_country_id }}" selected>{{ local_country }}</option>{% endif %}
+                            {% if local_country_id is defined %}<option value="{{ local_country_id }}" selected>{{ local_country }}</option>{% endif %}
                           {% set country_value = app.request.get('country', null) %}
 
                           {% if country_value is not null %}

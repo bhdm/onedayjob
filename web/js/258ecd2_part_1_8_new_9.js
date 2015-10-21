@@ -79,19 +79,18 @@ $(document).ready(function(){
 
     $header_name_or_registration = $('#header_name_or_registration');
     $(window).on("scroll", function() {
-        if ($(window).scrollTop() > 100){
-            $header_name_or_registration.removeClass('col-sm-offset-3');
-            //$header_name_or_registration.removeClass('col-sm-offset-3');
-            $('#header_locale').hide();
-            $('#header_language').hide();
-            $('.header-new').show();
+        if ($(window).scrollTop() > 358){
+            $('#header_locale , #header_language').fadeOut("fast", function(){
+                $header_name_or_registration.removeClass('col-sm-offset-3');
+                $('.header-new').fadeIn("fast");
+            });
+            //$('#header_language').fadeOut("fast");
         }
         else {
-            //$header_name_or_registration.removeClass('col-sm-offset-2');
-            $header_name_or_registration.addClass('col-sm-offset-3');
-            $('#header_locale').show();
-            $('#header_language').show();
-            $('.header-new').hide();
+            $('.header-new').fadeOut("fast",function(){
+                $header_name_or_registration.addClass('col-sm-offset-3');
+                $('#header_locale , #header_language').fadeIn("fast");
+            });
         }
     });
 

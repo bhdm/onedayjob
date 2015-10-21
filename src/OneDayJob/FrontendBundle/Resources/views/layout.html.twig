@@ -1,5 +1,3 @@
-{% set button = 'button-blue' %}
-
 <html>
 <head>
     <meta charset="utf-8">
@@ -58,23 +56,23 @@
                         <div class="col-sm-6">
                             <input id="header-input" type="text" class="form-control" placeholder="КЛЮЧЕВОЕ СЛОВО">
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-3" id="header-form-calendar-div">
                             <input type="text" class="form-control">
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-sm-1" id="header-form-button-div">
                             <button type="submit" class="btn btn-primary btn-lg header-form-button">{{ 'form.search.search'|trans }}</button>
                         </div>
                     </form>
                 </div>
 
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-                    <div id="header_name_or_registration" class="col-sm-2 col-sm-offset-3"> {{ app.user.firstName ~ ' ' ~ app.user.lastName }}
+                    <div id="header_name_or_registration" class="col-sm-3 col-sm-offset-3"> {{ app.user.firstName ~ ' ' ~ app.user.lastName }}
                         <a href="{{ path('fos_user_security_logout') }}">
                             <span id="header_login_logout">{{ 'menu.logout'|trans }}</span>
                         </a>
                     </div>
                 {% else %}
-                    <div id="header_name_or_registration" class="col-sm-2 col-sm-offset-3">
+                    <div id="header_name_or_registration" class="col-sm-3 col-sm-offset-3">
                         <a href="{{ path('fos_user_registration_register') }}">
                             <span>{{ 'menu.registration'|trans }}</span>
                         </a>
@@ -121,7 +119,6 @@
         <div id="body-extended-search">
             <div id="extended-search">
                 <form>
-
                     <div class="row">
                         <div class="col-sm-1 col-sm-offset-2 applicants-label">
                             <select name="applicants-label">
@@ -163,8 +160,10 @@
                                 <div class="col-sm-6 salary-extended-search-input">
                                     <input id="salary-search-line" name="salary" type="text" class="form-control" placeholder="Оплата">
                                 </div>
-                                <div class="col-sm-6">
-
+                                <div class="col-sm-6 salary-extended-search-imgs">
+                                    <img src="{{  asset("bundles/onedayjobfrontend/images/new/ruble.png") }}">
+                                    <img src="{{  asset("bundles/onedayjobfrontend/images/new/dollar.png") }}">
+                                    <img src="{{  asset("bundles/onedayjobfrontend/images/new/euro.png") }}">
                                 </div>
                             </div>
                         </div>
@@ -215,7 +214,7 @@
                         <div class="col-sm-3  vacancy-block-parent">
                             <div class="vacancy-block">
                                 <div class="vacancy-img">
-                                    <img width="100%" height="100%" src="{{ asset("bundles/onedayjobfrontend/images/new/1.jpg") }}">
+                                    <img width="100%" height="100%" src="{{ asset("bundles/onedayjobfrontend/images/new/11.png") }}">
                                     <div class="vacancy-hover-text">ОТКЛИКНУТЬСЯ</div>
                                 </div>
                                 <div class=" vacancy-bottom-part">

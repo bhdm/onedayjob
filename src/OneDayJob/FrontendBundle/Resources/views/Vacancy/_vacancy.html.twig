@@ -62,7 +62,7 @@
 {#{{ knp_pagination_render(vacancies) }}#}
 {% set i  = 0 %}
 {% for vacancy in vacancies %}
-    {% set image =  '/uploads/images/company.png' %}
+    {% set image =  asset("bundles/onedayjobfrontend/images/new/11.png") %}
     {% if i is divisible by(4) %}
         {% set the_first_vacancy_in_row  = "col-sm-offset-2"%}
         {% if i != 0 %} </div> {% endif %}

@@ -35,7 +35,7 @@ form:
         employee: 'сотрудника'
         job: "работу"
         company: "компанию"
-        search: "поиск"
+        search: "НАЙТИ"
         i_search: "Я ищу"
         company: "Я ищу компанию"
         employee: "Я ищу сотрудника"
