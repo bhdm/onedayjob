@@ -139,7 +139,7 @@ header{
 
 .applicants-option{
     font-family: "HelveticaThin";
-    font-size: 20px;
+    font-size: 30px;
     color: #000;
 
 }
@@ -552,10 +552,14 @@ header{
 
 }
 
-.header-new{
+.header-new , .header-new-resume{
     display: none;
     height: 100%;
     margin-left: 50px;
+}
+
+.header-new-resume{
+    display: block;
 }
 
 .header-form-select{
@@ -594,4 +598,5 @@ header{
 .salary-extended-search-imgs{
     margin-top: 14px;
 }
+
 

@@ -1,0 +1,27 @@
+body{
+    background-image: none;
+    background-color: #e6e6e6;
+}
+
+.resume-open-top{
+    margin-top: 62px;
+    padding: 10px 0px 10px 0px;
+    /*text-align: center;*/
+}
+
+.resume-open-top-text{
+    font-family: "HelveticaThin";
+    font-size: 25px;
+}
+
+.resume-data{
+    background-color: #ffffff;
+    padding-left: 30px;
+}
+
+.resume-open-top  .col-sm-1{
+    text-align: left;
+    padding-left: 0px;
+    font-size: 15px;
+    padding-top: 5px;
+}

@@ -1,0 +1,111 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>{% block title %}{{ 'site_title'|trans }}{% endblock %}</title>
+
+
+    <link href="{{ asset('/bundles/onedayjobfrontend/bootstrap/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('/css/2eca46c_part_1_5_style_6.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('/css/2eca46c_part_1_8_style_open_resume_9.css') }}" type="text/css" rel="stylesheet">
+
+    {% block javascripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        {% javascripts 'bundles/onedayjobfrontend/js/*' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <![endif]-->
+    {% endblock %}
+    <script type="text/javascript" src="{{ asset("/js/258ecd2_part_1_8_new_9.js") }}"></script>
+
+    <script type="text/javascript" src="{{ asset("bundles/onedayjobfrontend/fancyapps/source/jquery.fancybox.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("bundles/onedayjobfrontend/fancyapps/lib/jquery.mousewheel-3.0.6.pack.js") }}"></script>
+    <link rel="stylesheet" href="{{ asset("bundles/onedayjobfrontend/fancyapps/source/jquery.fancybox.css") }}" type="text/css" media="screen" />
+
+</head>
+<body  data-locale="{{ app.request.get('_locale') }}">
+<header>
+    <div class="container-fluid" id="header">
+        <div class="raw">
+            <div id="header_logo" class="col-sm-1"><img src="{{ asset("bundles/onedayjobfrontend/images/new/logo.png") }}"> </div>
+            <div class="col-sm-6 header-new-resume">
+                <form method="post">
+                    <div class="col-sm-2 header-form-select">
+                        <select name="applicants-label">
+                            <option class="header-form-option" value="1">СОИСКАТЕЛИ</option>
+                            <option class="header-form-option" value="2">ВАКАНСИИ</option>
+                            <option class="header-form-option" value="3">КОМПАНИИ</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6">
+                        <input id="header-input" type="text" class="form-control" placeholder="КЛЮЧЕВОЕ СЛОВО">
+                    </div>
+                    <div class="col-sm-3" id="header-form-calendar-div">
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-sm-1" id="header-form-button-div">
+                        <button type="submit" class="btn btn-primary btn-lg header-form-button">{{ 'form.search.search'|trans }}</button>
+                    </div>
+                </form>
+            </div>
+
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <div id="header_name_or_registration" class="col-sm-3 "> {{ app.user.firstName ~ ' ' ~ app.user.lastName }}
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        <span id="header_login_logout">{{ 'menu.logout'|trans }}</span>
+                    </a>
+                </div>
+            {% else %}
+                <div id="header_name_or_registration" class="col-sm-3 ">
+                    <a href="{{ path('fos_user_registration_register') }}">
+                        <span>{{ 'menu.registration'|trans }}</span>
+                    </a>
+                    <div id="header_login_logout">{{ 'menu.login'|trans }}</div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</header>
+
+
+<div class="container">
+    <div class="row resume-open-top">
+        <div class="col-sm-1">
+            <span><img src=""> назад</span>
+        </div>
+        <div class="col-sm-3">
+            <span class="resume-open-top-text">РЕЗУЛЬТАТЫ ПОИСКА</span>
+        </div>
+        <div class="col-sm-3">
+            <span class="resume-open-top-text">СРОЧНЫЕ ВАКАНСИИ</span>
+        </div>
+        <div class="col-sm-2">
+            <span class="resume-open-top-text">КОМПАНИИ</span>
+        </div>
+        <div class="col-sm-2">
+            <span class="resume-open-top-text">СОИСКАТЕЛЬ</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container-fluid resume-data">
+            <div class="row">
+                <div class="col-sm-4 resume-open-img">
+                    <img src="{{ resume.imageSrc }}" alt="">
+                </div>
+                <div class="col-sm-8">
+
+                </div>
+            </div>
+            <div class="row"></div>
+            <div class="row"></div>
+            <div class="row"></div>
+            <div class="row"></div>
+            <div class="row"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

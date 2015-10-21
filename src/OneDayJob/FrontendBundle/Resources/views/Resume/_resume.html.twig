@@ -12,6 +12,7 @@
 
     {#THE RESULT!#}
     <div class="col-lg-3 col-md-4 col-sm-6">
+        <a href="{{ path('fe_resume_open',{'id': resume.id }) }}">
 
         <div class="applicants-block">
             <div class="applicants-img">
@@ -26,7 +27,7 @@
             <div class="applicants-hover"></div>
             {#<div class="applicants-underline"> <img src="{{ asset("bundles/onedayjobfrontend/images/new/underline.png") }}"> </div>#}
         </div>
-
+        </a>
     </div>
 
 {% endfor %}

@@ -157,4 +157,11 @@ class ResumeController extends Controller
 
         return $this->render('OneDayJobFrontendBundle:Resume:_resume.html.twig', ['resumes' => $resumes]);
     }
+
+    public function openResumeAction($id)
+    {
+        $result = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Resume')->find($id);
+
+        return $this->render('OneDayJobFrontendBundle:Resume:resume_open.html.twig', ['resume' => $result]);
+    }
 }
