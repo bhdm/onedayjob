@@ -95,15 +95,50 @@
                 <div class="col-sm-4 resume-open-img">
                     <img src="{{ resume.imageSrc }}" alt="">
                 </div>
-                <div class="col-sm-8">
-
+                <div class="col-sm-8 resume-main-data">
+                    <div class="resume-open-fullname">{{ resume.fullName | upper}}</div>
+                    <div class="resume-open-locale">{{ resume.city.translate.title }}</div>
+                    <div class="resume-open-age">{{ resume.age }}</div>
+                    <div class="resume-open-sex">{{ resume.sex }}</div>
+                    <div class="resume-open-phone">{{ resume.phone }}</div>
+                    <div class="resume-open-email">{{ resume.email }}</div>
+                    <div class="resume-open-skype">{{ resume.skype }}</div>
+                    <div class="resume-open-specialization">{{ resume.specialty | upper}}</div>
+                    <div class="resume-open-term"><span>Срок проекта <br/> <span>{{ resume.termfrom |date("d/m/Y") }} - {{ resume.termto |date("d/m/Y") }}</span></span></div>
+                    <div class="resume-open-salary">{{ resume.salary|number_format(0) }} {{ helper.currency(resume.currency) }}</div>
                 </div>
             </div>
-            <div class="row"></div>
-            <div class="row"></div>
-            <div class="row"></div>
-            <div class="row"></div>
-            <div class="row"></div>
+            <div class="row">
+                <div class="col-sm-12 resume-open-education">
+                    <h4 class="resume-open-headline">{{ 'form.vacancy.education'| trans | upper}}</h4>
+                    <p>
+                        {% for education in resume.education %}
+                            {{ education.title }}
+                        {% endfor %}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 resume-open-experience">
+                    <h4 class="resume-open-headline">{{ 'form.vacancy.work_experience'| trans | upper}}</h4>
+                    <p>
+                        {% for experience in resume.experience %}
+                            {{ experience.title }}
+                        {% endfor %}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 resume-open-extra">
+                    <h4 class="resume-open-headline">КАЧЕСТВА, НАВЫКИ</h4>
+                    <p>
+                        {{ resume.extra }}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <button class="btn btn-primary btn-lg resume-open-respond"> ОТКЛИКНУТЬСЯ </button>
+            </div>
         </div>
     </div>
 </div>

@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "HelveticaThin";
+    src: url("/bundles/onedayjobfrontend/fonts/HelveticaThin/HelveticaThin.eot");
+    src: url("/bundles/onedayjobfrontend/fonts/HelveticaThin/HelveticaThin.eot?#iefix")format("embedded-opentype"),
+    url("/bundles/onedayjobfrontend/fonts/HelveticaThin/HelveticaThin.woff") format("woff"),
+    url("/bundles/onedayjobfrontend/fonts/HelveticaThin/HelveticaThin.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
 body{
     background-image: none;
     background-color: #e6e6e6;
@@ -16,7 +26,7 @@ body{
 
 .resume-data{
     background-color: #ffffff;
-    padding-left: 30px;
+    padding: 15px 0px 30px 20px;
 }
 
 .resume-open-top  .col-sm-1{
@@ -24,4 +34,43 @@ body{
     padding-left: 0px;
     font-size: 15px;
     padding-top: 5px;
+}
+
+.resume-main-data{
+
+}
+
+.resume-open-img > img{
+    width: 100%;
+}
+
+.resume-open-fullname , .resume-open-specialization , .resume-open-salary{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.resume-open-term > span >span{
+    font-weight: bolder;
+}
+
+.resume-open-locale , .resume-open-age , .resume-open-sex , .resume-open-phone , .resume-open-skype , .resume-open-email , .resume-open-term > span{
+    font-family: "HelveticaThin";
+    font-size: 13px;
+}
+
+.resume-open-term > span >span{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.resume-open-headline{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.resume-open-respond{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
 }
