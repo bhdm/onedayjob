@@ -24,7 +24,7 @@ class DefaultController extends Controller
 
     /**
      * parameters содержит серриализованный массив фильтров
-     * @Route("/vacancy/show/{id}/{parameters}", name="vacancy_chow" , requirements={parameters = null})
+     * @Route("/vacancy/show/{id}/{parameters}", name="vacancy_chow")
      * @Template("")
      */
     public function showVacancyAction($id, $parameters = null){
