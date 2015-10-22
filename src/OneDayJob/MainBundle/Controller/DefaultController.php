@@ -19,6 +19,6 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('OneDayJobFrontendBundle::layout.html.twig');
+        return $this->render('OneDayJobMainBundle:Default:index.html.twig');
     }
 }

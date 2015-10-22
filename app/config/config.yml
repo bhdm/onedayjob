@@ -80,7 +80,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: true
-    bundles: [ OneDayJobFrontendBundle ]
+    bundles: [ OneDayJobFrontendBundle, OneDayJobMainBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

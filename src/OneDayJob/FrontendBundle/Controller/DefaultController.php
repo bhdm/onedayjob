@@ -310,9 +310,9 @@ die;
         return $locale;
     }
 
-    public function testAction()
-    {
-        return $this->render('OneDayJobMainBundle:Default:index.html.twig');
-    }
+//    public function testAction()
+//    {
+//        return $this->render('OneDayJobMainBundle:Default:index.html.twig');
+//    }
 
 }

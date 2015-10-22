@@ -6,7 +6,9 @@
 
 
     <link href="{{ asset('/bundles/onedayjobfrontend/bootstrap/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet">
-    <link href="{{ asset('/css/2eca46c_part_1_5_style_6.css') }}" type="text/css" rel="stylesheet">
+
+    <link href="{{ asset('/bundles/onedayjobmain/css/common.css') }}" type="text/css" rel="stylesheet">
+    {#<link href="{{ asset('/css/2eca46c_part_1_5_style_6.css') }}" type="text/css" rel="stylesheet">#}
     {#<link href="{{ asset('bundles/onedayjobfrontend/css/new_style.css') }}" type="text/css" rel="stylesheet">#}
 
     {% block javascripts %}
@@ -30,17 +32,17 @@
     <header>
         <div class="container-fluid" id="header">
             <div class="raw">
-                <div id="header_logo" class="col-sm-1"><img src="{{ asset("bundles/onedayjobfrontend/images/new/logo.png") }}"> </div>
+                <div id="header_logo" class="col-sm-1"><img src="{{ asset("bundles/onedayjobmain/images/new/logo.png") }}"> </div>
                 <div id="header_language" class="col-sm-1">
                     <span>Русский</span>
-                    <img src="{{ asset("bundles/onedayjobfrontend/images/new/language-arrow.png") }}">
+                    <img src="{{ asset("bundles/onedayjobmain/images/new/language-arrow.png") }}">
                     <div id="header_other_language">
                         <div>Английский</div>
                         <div>Немецкий</div>
                     </div>
                 </div>
                 <div id="header_locale" class="col-sm-2">
-                    <img src="{{ asset("bundles/onedayjobfrontend/images/new/locale.png") }}">
+                    <img src="{{ asset("bundles/onedayjobmain/images/new/locale.png") }}">
                     <span>РОССИЯ,МОСКВА</span>
                 </div>
 
@@ -161,9 +163,9 @@
                                     <input id="salary-search-line" name="salary" type="text" class="form-control" placeholder="Оплата">
                                 </div>
                                 <div class="col-sm-6 salary-extended-search-imgs">
-                                    <img src="{{  asset("bundles/onedayjobfrontend/images/new/ruble.png") }}">
-                                    <img src="{{  asset("bundles/onedayjobfrontend/images/new/dollar.png") }}">
-                                    <img src="{{  asset("bundles/onedayjobfrontend/images/new/euro.png") }}">
+                                    <img src="{{  asset("bundles/onedayjobmain/images/new/ruble.png") }}">
+                                    <img src="{{  asset("bundles/onedayjobmain/images/new/dollar.png") }}">
+                                    <img src="{{  asset("bundles/onedayjobmain/images/new/euro.png") }}">
                                 </div>
                             </div>
                         </div>
@@ -191,7 +193,7 @@
                 </form>
             </div>
             <div id="krest-extended-search">
-                <img src="{{ asset("bundles/onedayjobfrontend/images/new/X.png") }}">
+                <img src="{{ asset("bundles/onedayjobmain/images/new/X.png") }}">
             </div>
         </div>
 
@@ -214,28 +216,28 @@
                         <div class="col-sm-3  vacancy-block-parent">
                             <div class="vacancy-block">
                                 <div class="vacancy-img">
-                                    <img width="100%" height="100%" src="{{ asset("bundles/onedayjobfrontend/images/new/11.png") }}">
+                                    <img width="100%" height="100%" src="{{ asset("bundles/onedayjobmain/images/new/11.png") }}">
                                     <div class="vacancy-hover-text">ОТКЛИКНУТЬСЯ</div>
                                 </div>
                                 <div class=" vacancy-bottom-part">
                                     <div class="vacancy-label row">
-                                        <div class="col-sm-2 icon-block"> <img src="{{ asset("bundles/onedayjobfrontend/images/new/man.png") }}"></div>
+                                        <div class="col-sm-2 icon-block"> <img src="{{ asset("bundles/onedayjobmain/images/new/man.png") }}"></div>
                                         <div class="col-sm-10">Вакансия</div>
                                     </div>
                                     <div class="vacancy-company row">
-                                        <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobfrontend/images/new/home.png") }}"></div>
+                                        <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobmain/images/new/home.png") }}"></div>
                                         <div class="col-sm-10">Компания</div>
                                     </div>
                                     <div class="vacancy-locale row">
-                                        <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobfrontend/images/new/locale.png") }}"></div>
+                                        <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobmain/images/new/locale.png") }}"></div>
                                         <div class="col-sm-10">Москва</div>
                                     </div>
                                     <div class="vacancy-term row">
-                                        <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobfrontend/images/new/calendar.png") }}"></div>
+                                        <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobmain/images/new/calendar.png") }}"></div>
                                         <div class="col-sm-10">Срок проекта</div>
                                     </div>
                                     <div class="vacancy-salary row">
-                                        <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobfrontend/images/new/rub.png") }}"></div>
+                                        <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobmain/images/new/rub.png") }}"></div>
                                         <div class="col-sm-10">60 000 р</div>
                                     </div>
                                     <div class="vacancy-hover"></div>
@@ -244,7 +246,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div id="close-all-result" class="col-sm-2 col-sm-offset-9 close-all"><a href="#"> Свернуть все | <img src="{{ asset("bundles/onedayjobfrontend/images/new/arrow-up.png") }}"></a></div>
+                        <div id="close-all-result" class="col-sm-2 col-sm-offset-9 close-all"><a href="#"> Свернуть все | <img src="{{ asset("bundles/onedayjobmain/images/new/arrow-up.png") }}"></a></div>
                     </div>
 
                 </div>
@@ -270,7 +272,7 @@
                     {{ render(controller('OneDayJobFrontendBundle:Vacancy:getUrgentVacancies', {'page': app.request.get('page', 1), 'ipp': app.request.get('ipp', 20)})) }}
                     {#THE RESULT!#}
                     <div class="row">
-                        <div id="close-all-urgent-vacancies" class="col-sm-2 col-sm-offset-9 close-all"><a href="#"> Свернуть все | <img src="{{ asset("bundles/onedayjobfrontend/images/new/arrow-up.png") }}"></a></div>
+                        <div id="close-all-urgent-vacancies" class="col-sm-2 col-sm-offset-9 close-all"><a href="#"> Свернуть все | <img src="{{ asset("bundles/onedayjobmain/images/new/arrow-up.png") }}"></a></div>
                     </div>
                 </div>
             </div>
@@ -294,7 +296,7 @@
                     </div>
                     {{ render(controller('OneDayJobFrontendBundle:Company:get_companies')) }}
                     <div class="row">
-                        <div id="close-all-company" class="col-sm-2 col-sm-offset-9 close-all"><a href="#"> Свернуть все | <img src="{{ asset("bundles/onedayjobfrontend/images/new/arrow-up.png") }}"></a></div>
+                        <div id="close-all-company" class="col-sm-2 col-sm-offset-9 close-all"><a href="#"> Свернуть все | <img src="{{ asset("bundles/onedayjobmain/images/new/arrow-up.png") }}"></a></div>
                     </div>
                 </div>
             </div>
@@ -317,7 +319,7 @@
                     </div>
                     {{ render(controller('OneDayJobFrontendBundle:Resume:getResumes', {'page': app.request.get('page', 1), 'ipp': app.request.get('ipp', 20)})) }}
                     <div class="row">
-                        <div id="close-all-applicants" class="col-sm-2 col-sm-offset-9 close-all"><a href="#"> Свернуть все | <img src="{{ asset("bundles/onedayjobfrontend/images/new/arrow-up.png") }}"></a></div>
+                        <div id="close-all-applicants" class="col-sm-2 col-sm-offset-9 close-all"><a href="#"> Свернуть все | <img src="{{ asset("bundles/onedayjobmain/images/new/arrow-up.png") }}"></a></div>
                     </div>
                 </div>
             </div>
@@ -345,20 +347,20 @@
 
                 <div class="row row footer-social-networks">
                     <div class="col-sm-4 col-sm-offset-4">
-                        <a href="#"><img src="{{ asset("bundles/onedayjobfrontend/images/new/vk.png") }}"></a>
-                        <a href="#"><img src="{{ asset("bundles/onedayjobfrontend/images/new/facebook.png") }}"></a>
-                        <a href="#"><img src="{{ asset("bundles/onedayjobfrontend/images/new/twitter.png") }}"></a>
-                        <a href="#"><img src="{{ asset("bundles/onedayjobfrontend/images/new/ok.png") }}"></a>
-                        <a href="#"><img src="{{ asset("bundles/onedayjobfrontend/images/new/g_plus.png") }}"></a>
-                        <a href="#"><img src="{{ asset("bundles/onedayjobfrontend/images/new/a.png") }}"></a>
+                        <a href="#"><img src="{{ asset("bundles/onedayjobmain/images/new/vk.png") }}"></a>
+                        <a href="#"><img src="{{ asset("bundles/onedayjobmain/images/new/facebook.png") }}"></a>
+                        <a href="#"><img src="{{ asset("bundles/onedayjobmain/images/new/twitter.png") }}"></a>
+                        <a href="#"><img src="{{ asset("bundles/onedayjobmain/images/new/ok.png") }}"></a>
+                        <a href="#"><img src="{{ asset("bundles/onedayjobmain/images/new/g_plus.png") }}"></a>
+                        <a href="#"><img src="{{ asset("bundles/onedayjobmain/images/new/a.png") }}"></a>
                     </div>
                 </div>
 
                 <div class="row footer-logo">
                     <div class="col-lg-2 col-lg-offset-5 col-md-4 col-md-offset-4 ">
-                        <img src="{{ asset("bundles/onedayjobfrontend/images/new/footer-logo1.png") }}">
-                        <img src="{{ asset("bundles/onedayjobfrontend/images/new/footer-logo2.png") }}"><br/><br/>
-                        <img src="{{ asset("bundles/onedayjobfrontend/images/new/footer-logo3.png") }}">
+                        <img src="{{ asset("bundles/onedayjobmain/images/new/footer-logo1.png") }}">
+                        <img src="{{ asset("bundles/onedayjobmain/images/new/footer-logo2.png") }}"><br/><br/>
+                        <img src="{{ asset("bundles/onedayjobmain/images/new/footer-logo3.png") }}">
                     </div>
                 </div>
             </div>
