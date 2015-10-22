@@ -15,7 +15,7 @@ body{
 
 .resume-open-top{
     margin-top: 62px;
-    padding: 10px 0px 10px 0px;
+    padding: 10px 0px 5px 0px;
     /*text-align: center;*/
 }
 
@@ -30,9 +30,10 @@ body{
 }
 
 .resume-open-top  .col-sm-1{
+    font-family: "HelveticaThin";
     text-align: left;
     padding-left: 0px;
-    font-size: 15px;
+    font-size: 17px;
     padding-top: 5px;
 }
 
@@ -47,18 +48,20 @@ body{
 .resume-open-fullname , .resume-open-specialization , .resume-open-salary{
     font-size: 17px;
     font-weight: bold;
+    margin-bottom: 7px;
 }
 
 .resume-open-term > span >span{
     font-weight: bolder;
 }
 
-.resume-open-locale , .resume-open-age , .resume-open-sex , .resume-open-phone , .resume-open-skype , .resume-open-email , .resume-open-term > span{
+.resume-open-locale , .resume-open-age , .resume-open-sex , .resume-open-phone , .resume-open-skype , .resume-open-email , .resume-open-term-project{
+    margin-bottom: 7px;
     font-family: "HelveticaThin";
     font-size: 13px;
 }
 
-.resume-open-term > span >span{
+.resume-open-term-date{
     font-family: 'Times New Roman', Times, serif;
     font-size: 15px;
     font-weight: bolder;
@@ -73,4 +76,65 @@ body{
     font-size: 20px;
     margin-top: 10px;
     margin-left: 10px;
+}
+
+.resume-open-fullname > img ,.resume-open-email > img , .resume-open-skype > img{
+    padding-left: 2px;
+}
+
+.resume-open-locale > img{
+    padding-left: 5px;
+}
+
+.resume-open-age > img{
+    padding-left: 6px;
+}
+
+.resume-open-phone > img , .resume-open-term-img , .resume-open-salary > img{
+    padding-left: 3px;
+}
+
+.resume-open-fullname > span ,.resume-open-email > span , .resume-open-skype > span{
+    padding-left: 12px;
+}
+
+.resume-open-locale > span{
+    padding-left: 15px;
+}
+
+.resume-open-age > span{
+    padding-left: 16px;
+}
+
+.resume-open-phone > span , .resume-open-term-project , .resume-open-term-date , .resume-open-salary > span{
+    padding-left: 13px;
+}
+
+.resume-open-specialization > span , .resume-open-sex > span{
+    padding-left: 10px;
+}
+
+.resume-open-headline > img{
+    padding-right: 13px;
+}
+
+.resume-open-similar{
+    margin-top: 40px;
+}
+
+.resume-open-similar > h2{
+    font-family: "HelveticaThin";
+}
+
+.resume-open-add-to-favorites{
+    float: right;
+    font-size: 13px;
+    font-weight: normal;
+    font-family: "HelveticaThin";
+    margin-right: 10px;
+}
+
+.resume-open-add-to-favorites > img{
+    padding-bottom: 10px;
+    padding-left: 3px;
 }
