@@ -149,6 +149,10 @@ fe_resume_open:
     path: /resume/open/{id}
     defaults: { _controller: OneDayJobFrontendBundle:Resume:openResume}
 
+fe_similar_resume:
+    path: /resume/similar/{id}
+    defaults: { _controller: OneDayJobFrontendBundle:Resume:similarResume}
+
 # Company
 
 fe_company_index:
