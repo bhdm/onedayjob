@@ -145,12 +145,26 @@ class Vacancy
     protected $responses;
 
     /**
+     * @ORM\Column(type="boolean", nullable=true)
+     * Если false - то удаленная якобы, вообще никому не показываем
+     */
+    protected $enabled = true;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * 0 - Неактивная | 1 - активна
+     */
+    protected $status = 0;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->response_employee = new ArrayCollection();
         $this->responses = 0;
+        $this->enabled = true;
+        $this->status = 0;
     }
 
     /**
@@ -768,5 +782,35 @@ class Vacancy
         $this->termto = $termto;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
 
+    /**
+     * @param mixed $enabled
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
 }

@@ -21,4 +21,17 @@ class DefaultController extends Controller
     {
         return $this->render('OneDayJobMainBundle:Default:index.html.twig');
     }
+
+    /**
+     * parameters содержит серриализованный массив фильтров
+     * @Route("/vacancy/show/{id}/{parameters}", name="vacancy_chow" , requirements={parameters = null})
+     * @Template("")
+     */
+    public function showVacancyAction($id, $parameters = null){
+        $vacancy = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Vacancy')->findOne(['id' => $id, 'enabled' => true]);
+        if (!$vacancy){
+            return $this->createAccessDeniedException('Данной вакансии не существует');
+        }
+        return ['vacancy' => $vacancy];
+    }
 }
