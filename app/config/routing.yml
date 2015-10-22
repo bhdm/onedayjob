@@ -1,7 +1,7 @@
 one_day_job_main:
     resource: "@OneDayJobMainBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /test
 
 onedayjob_api:
     resource: "@OneDayJobApiBundle/Resources/config/routing.yml"

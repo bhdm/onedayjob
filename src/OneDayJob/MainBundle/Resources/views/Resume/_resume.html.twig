@@ -1,0 +1,36 @@
+{% set i  = 0 %}
+{% for resume in resumes %}
+     {% set image = resume.imageSrc is not null ?  resume.imageSrc  : '/uploads/images/company.png' %}
+    {% if i is divisible by(4) %}
+        {% set the_first_resume_in_row  = "col-sm-offset-2"%}
+        {% if i != 0 %} </div> {% endif %}
+        <div class="row row-vacancy">
+    {% else %}
+        {% set the_first_resume_in_row  = ""%}
+    {% endif %}
+    {% set i  = i + 1 %}
+
+    {#THE RESULT!#}
+    <div class="col-lg-3 col-md-4 col-sm-6">
+        <a href="{{ path('fe_resume_open',{'id': resume.id }) }}">
+
+        <div class="applicants-block">
+            <div class="applicants-img">
+                <img width="100%" src="{{ image }}">
+            </div>
+            <div class="applicants-label row">
+                <div class="col-sm-11 col-sm-offset-1">{{ resume.fullName }}</div>
+            </div>
+            <div class="applicants-specialization row">
+                <div class="col-sm-11 col-sm-offset-1"><span>{{ resume.specialty }}</span></div>
+            </div>
+            <div class="applicants-hover"></div>
+            {#<div class="applicants-underline"> <img src="{{ asset("bundles/onedayjobfrontend/images/new/underline.png") }}"> </div>#}
+        </div>
+        </a>
+    </div>
+
+{% endfor %}
+{% if i is not divisible by(2) %}
+</div>
+{% endif %}

@@ -9,7 +9,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 /**
  * Class DefaultController
  * @package OneDayJob\MainBundle\Controller
- * @Route("/test")
  */
 class DefaultController extends Controller
 {

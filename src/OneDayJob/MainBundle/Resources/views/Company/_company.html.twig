@@ -1,0 +1,67 @@
+{#<div class="company-list companies">#}
+  {#<div class="row">#}
+    {#{% for company in companies %}#}
+      {#<div class="col-xs-12 col-sm-4 col-md-3">#}
+        {#<div class="list-pan">#}
+          {#<a href="{{ path('fe_company', {'id': company.id}) }}">#}
+            {#<div class="list-pan-image">#}
+
+              {#{% set image = company.image is not null ? '/uploads/images/'~ company.image : '/uploads/images/company.png' %}#}
+
+              {#<img src="{{ image|imagine_filter('logo_inset') }}" alt="">#}
+            {#</div>#}
+            {#<h5  class="list-pan-name">{{ company.name }}</h5>#}
+            {#&#123;&#35;<div class="text-muted">{{ getPlural(company.vacancies.count(), ['content.search.vacancy_1'|trans, 'content.search.vacancy_2'|trans, 'content.search.vacancy_3'|trans]) }}</div>&#35;&#125;#}
+            {#<div class="list-pan-info">#}
+              {#<div class="text-muted list-pan-location"> <i class="icon-16 icon-map"></i> {{ company.city.translate.title }}</div>#}
+              {#<div class="list-pan-briefcase">#}
+              {#</div>#}
+            {#</div>#}
+          {#</a>#}
+        {#</div>#}
+      {#</div>#}
+    {#{% endfor %}#}
+  {#</div>#}
+{#</div>#}
+
+{% set i  = 0 %}
+{% for company in companies %}
+    {% set image = company.image is not null ? '/uploads/images/'~ company.image : '/uploads/images/company.png' %}
+    {% if i is divisible by(4) %}
+        {% set the_first_company_in_row  = "col-sm-offset-2"%}
+        {% if i != 0 %} </div> {% endif %}
+        <div class="row row-company">
+    {% else %}
+        {% set the_first_company_in_row  = ""%}
+    {% endif %}
+    {% set i  = i + 1 %}
+    {#THE RESULT!#}
+    <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="company-block">
+            <div class="company-img">
+                <img class="img-circle" src="{{ image|imagine_filter('logo_inset') }}">
+                <div class="company-hover"></div>
+            </div>
+            <div class="row company-name-locale">
+                <div class="col-sm-6 company-name">
+                    <span> {{ company.name }} </span>
+                </div>
+                <div class="col-sm-6 company-locale">
+                    <img src="{{ asset("bundles/onedayjobfrontend/images/new/locale.png") }}">
+                    <span> {{ company.city.translate.title }} </span>
+                </div>
+            </div>
+            <div class="row company-number-vacancies">
+                <div class="col-sm-12">
+                    <span class="company-number"> {{ company.numberVacancies }} </span>
+                    <span class="company-number-text"> ВАКАНСИИ </span>
+                    <div class="company-underline"> <img src="{{ asset("bundles/onedayjobfrontend/images/new/underline-company.png") }}"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endfor %}
+{% if i is not divisible by(2) %}
+   </div>
+{% endif %}

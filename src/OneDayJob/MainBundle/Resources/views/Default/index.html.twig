@@ -8,7 +8,7 @@
     <link href="{{ asset('/bundles/onedayjobfrontend/bootstrap/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet">
 
     <link href="{{ asset('/bundles/onedayjobmain/css/common.css') }}" type="text/css" rel="stylesheet">
-    {#<link href="{{ asset('/css/2eca46c_part_1_5_style_6.css') }}" type="text/css" rel="stylesheet">#}
+    <link href="{{ asset('/css/2eca46c_part_1_5_style_6.css') }}" type="text/css" rel="stylesheet">
     {#<link href="{{ asset('bundles/onedayjobfrontend/css/new_style.css') }}" type="text/css" rel="stylesheet">#}
 
     {% block javascripts %}
@@ -269,7 +269,7 @@
                         <div class="col-sm-1 col-sm-offset-5 see-all"><a href="#">СМОТРЕТЬ ВСЕ</a></div>
                     </div>
 
-                    {{ render(controller('OneDayJobFrontendBundle:Vacancy:getUrgentVacancies', {'page': app.request.get('page', 1), 'ipp': app.request.get('ipp', 20)})) }}
+                    {{ render(controller('OneDayJobMainBundle:Vacancy:getUrgentVacancies', {'page': app.request.get('page', 1), 'ipp': app.request.get('ipp', 20)})) }}
                     {#THE RESULT!#}
                     <div class="row">
                         <div id="close-all-urgent-vacancies" class="col-sm-2 col-sm-offset-9 close-all"><a href="#"> Свернуть все | <img src="{{ asset("bundles/onedayjobmain/images/new/arrow-up.png") }}"></a></div>
@@ -294,7 +294,7 @@
                         <div class="col-sm-4 h1_company_parent"><h1 class="h1_company">{{ 'user.menu.company'|trans }}</h1></div>
                         <div class="col-sm-1 col-sm-offset-5 see-all"><a href="#">СМОТРЕТЬ ВСЕ</a></div>
                     </div>
-                    {{ render(controller('OneDayJobFrontendBundle:Company:get_companies')) }}
+                    {#{{ render(controller('OneDayJobFrontendBundle:Company:get_companies')) }}#}
                     <div class="row">
                         <div id="close-all-company" class="col-sm-2 col-sm-offset-9 close-all"><a href="#"> Свернуть все | <img src="{{ asset("bundles/onedayjobmain/images/new/arrow-up.png") }}"></a></div>
                     </div>
@@ -317,7 +317,7 @@
                         <div class="col-sm-4 h1_applicants_parent"><h1 class="h1_applicants">Applicants</h1></div>
                         <div class="col-sm-1 col-sm-offset-5 see-all"><a href="#">СМОТРЕТЬ ВСЕ</a></div>
                     </div>
-                    {{ render(controller('OneDayJobFrontendBundle:Resume:getResumes', {'page': app.request.get('page', 1), 'ipp': app.request.get('ipp', 20)})) }}
+                    {{ render(controller('OneDayJobMainBundle:Resume:getResumes', {'page': app.request.get('page', 1), 'ipp': app.request.get('ipp', 20)})) }}
                     <div class="row">
                         <div id="close-all-applicants" class="col-sm-2 col-sm-offset-9 close-all"><a href="#"> Свернуть все | <img src="{{ asset("bundles/onedayjobmain/images/new/arrow-up.png") }}"></a></div>
                     </div>
