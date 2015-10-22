@@ -1,4 +1,0 @@
-@font-face { font-family: "PT Sans"; src: local("PT Sans"), local("PTSans-Regular"), url("font/pts55f.woff") format("woff"); font-weight: normal; font-style: normal; }
-@font-face { font-family: "PT Sans"; src: local("PT Sans Bold"), local("PTSans-Bold"), url("font/pts75f.woff") format("woff"); font-weight: 700; font-style: normal; }
-@font-face { font-family: "PT Sans"; src: local("PT Sans Italic"), local("PTSans-Italic"), url("font/pts56f.woff") format("woff"); font-weight: normal; font-style: italic; }
-@font-face { font-family: "PT Sans"; src: local("PT Sans Bold Italic"), local("PTSans-BoldItalic"), url("font/pts76f.woff") format("woff"); font-weight: bold; font-style: italic; }

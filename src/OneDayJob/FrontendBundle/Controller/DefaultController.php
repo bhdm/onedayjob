@@ -312,7 +312,7 @@ die;
 
     public function testAction()
     {
-        return $this->render('OneDayJobFrontendBundle::layout.html.twig');
+        return $this->render('OneDayJobMainBundle:Default:index.html.twig');
     }
 
 }

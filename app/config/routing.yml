@@ -1,3 +1,8 @@
+one_day_job_main:
+    resource: "@OneDayJobMainBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 onedayjob_api:
     resource: "@OneDayJobApiBundle/Resources/config/routing.yml"
     prefix: /api/{_locale}
