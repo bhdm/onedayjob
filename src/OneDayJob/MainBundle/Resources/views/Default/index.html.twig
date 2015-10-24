@@ -294,7 +294,7 @@
                         <div class="col-sm-4 h1_company_parent"><h1 class="h1_company">{{ 'user.menu.company'|trans }}</h1></div>
                         <div class="col-sm-1 col-sm-offset-5 see-all"><a href="#">СМОТРЕТЬ ВСЕ</a></div>
                     </div>
-                    {#{{ render(controller('OneDayJobFrontendBundle:Company:get_companies')) }}#}
+                    {{ render(controller('OneDayJobFrontendBundle:Company:get_companies')) }}
                     <div class="row">
                         <div id="close-all-company" class="col-sm-2 col-sm-offset-9 close-all"><a href="#"> Свернуть все | <img src="{{ asset("bundles/onedayjobmain/images/new/arrow-up.png") }}"></a></div>
                     </div>

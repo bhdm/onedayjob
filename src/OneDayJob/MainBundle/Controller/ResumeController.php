@@ -8,6 +8,8 @@ use OneDayJob\FrontendBundle\Form\Type\ResumeType;
 use OneDayJob\FrontendBundle\Form\Type\SearchType;
 use OneDayJob\ApiBundle\Entity\Resume;
 use OneDayJob\ApiBundle\Entity\Search;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 
 class ResumeController extends Controller
@@ -42,12 +44,7 @@ class ResumeController extends Controller
 
     public function getResumesAction(Request $request, $page, $ipp)
     {
-        $query = $this->getDoctrine()
-            ->getRepository('OneDayJobApiBundle:Resume')
-            ->createQueryBuilder('v')
-            ->select('v')
-            ->orderBy('v.up', 'DESC')
-            ->getQuery();
+        $query = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Resume')->getResumes();
 
         $resumes = $this->get('knp_paginator')->paginate($query, $page, $ipp);
 
@@ -73,24 +70,21 @@ class ResumeController extends Controller
         return $this->render('OneDayJobMainBundle:Resume:_resume.html.twig', ['resumes' => $resumes]);
     }
 
-    public function openResumeAction($id)
+    /**
+     * @Route("/resume/show/{id}/{parameters}", name="resume_show")
+     * @Template()
+     */
+    public function openResumeAction($id , $parameters = null)
     {
         $result = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Resume')->find($id);
 
-        return $this->render('OneDayJobFrontendBundle:Resume:resume_open.html.twig', ['resume' => $result]);
+        return $this->render('OneDayJobMainBundle:Resume:resume_open.html.twig', ['resume' => $result]);
     }
 
     public function similarResumeAction($id)
     {
-        $query = $this->getDoctrine()
-            ->getRepository('OneDayJobApiBundle:Resume')
-            ->createQueryBuilder('r')
-            ->select('r')
-            ->Where('r.id <> :id')
-            ->setParameter('id' , $id)
-            ->getQuery();
-        $resumes = $query->getResult();
+        $resumes = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Resume')->getSimilarResumes($id);
 
-        return $this->render('OneDayJobFrontendBundle:Resume:_resume.html.twig', ['resumes' => $resumes]);
+        return $this->render('OneDayJobMainBundle:Resume:_resume.html.twig', ['resumes' => $resumes]);
     }
 }

@@ -12,7 +12,7 @@
 
     {#THE RESULT!#}
     <div class="col-lg-3 col-md-4 col-sm-6">
-        <a href="{{ path('fe_resume_open',{'id': resume.id }) }}">
+        <a href="{{ path('resume_show',{'id': resume.id }) }}">
 
         <div class="applicants-block">
             <div class="applicants-img">
@@ -31,6 +31,6 @@
     </div>
 
 {% endfor %}
-{% if i is not divisible by(2) %}
+{% if i is not divisible by(4) %}
 </div>
 {% endif %}

@@ -8,6 +8,8 @@ use OneDayJob\FrontendBundle\Form\Type\VacancyType;
 use OneDayJob\ApiBundle\Entity\Vacancy;
 use OneDayJob\ApiBundle\Entity\Search;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class VacancyController extends Controller
 {
@@ -15,16 +17,7 @@ class VacancyController extends Controller
 
 	public function getUrgentVacanciesAction(Request $request, $page, $ipp)
 	{
-        $query = $this->getDoctrine()
-            ->getRepository('OneDayJobApiBundle:Vacancy')
-            ->createQueryBuilder('v')
-            ->select('v, c, city')
-            ->where('v.urgent >= :date_end')
-            ->setParameter('date_end', new \DateTime())
-            ->leftJoin('v.company', 'c')
-            ->leftJoin('v.city', 'city')
-            ->orderBy('v.up', 'DESC')
-            ->getQuery();
+        $query = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Vacancy')->getVacancies();
 
 		$vacancies = $this->get('knp_paginator')->paginate($query, $page, $ipp);
 
@@ -48,7 +41,26 @@ class VacancyController extends Controller
     	$vacancies->setItems(array_merge($_temp1, $_temp2));
 
 		return $this->render('OneDayJobMainBundle:Vacancy:_vacancy.html.twig', ['vacancies' => $vacancies]);
-//	return new Response("fff");
+    }
+
+    /**
+     * parameters содержит серриализованный массив фильтров
+     * @Route("/vacancy/show/{id}/{parameters}", name="vacancy_chow")
+     * @Template("")
+     */
+    public function showVacancyAction($id, $parameters = null){
+        $vacancy = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Vacancy')->find($id);
+        if (!$vacancy){
+//            return $this->createAccessDeniedException('Данной вакансии не существует');
+        }
+        return $this->render('OneDayJobMainBundle:Vacancy:vacancy_show.html.twig', ['vacancy' => $vacancy]);
+    }
+
+    public function similarVacancyAction($id)
+    {
+        $vacancies = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Vacancy')->getSimilarVacancies($id);
+
+        return $this->render('OneDayJobMainBundle:Vacancy:_vacancy.html.twig', ['vacancies' => $vacancies]);
     }
 
 //	public function indexAction(Request $request)

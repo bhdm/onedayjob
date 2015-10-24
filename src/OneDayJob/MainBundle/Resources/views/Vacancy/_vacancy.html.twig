@@ -64,7 +64,6 @@
 {% for vacancy in vacancies %}
     {% set image =  asset("bundles/onedayjobfrontend/images/new/11.png") %}
     {% if i is divisible by(4) %}
-        {% set the_first_vacancy_in_row  = "col-sm-offset-2"%}
         {% if i != 0 %} </div> {% endif %}
 <div class="row row-vacancy">
     {% else %}
@@ -74,37 +73,39 @@
 
 
     <div class="col-lg-3 col-md-4 col-sm-6 vacancy-block-parent">
-        <div class="vacancy-block">
-            <div class="vacancy-img">
-                <img width="100%" src="{{  image|imagine_filter('logo_inset') }}">
-                <div class="vacancy-hover-text">ОТКЛИКНУТЬСЯ</div>
+        <a href="{{ path('vacancy_chow',{'id': vacancy.id }) }}">
+            <div class="vacancy-block">
+                <div class="vacancy-img">
+                    <img width="100%" src="{{  image|imagine_filter('logo_inset') }}">
+                    <div class="vacancy-hover-text">ОТКЛИКНУТЬСЯ</div>
+                </div>
+                <div class="container-fluid vacancy-bottom-part">
+                    <div class="vacancy-label row">
+                        <div class="col-sm-2 icon-block"> <img src="{{ asset("bundles/onedayjobfrontend/images/new/man.png") }}"></div>
+                        <div class="col-sm-10">{{ vacancy.title }}</div>
+                    </div>
+                    <div class="vacancy-company row">
+                        <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobfrontend/images/new/home.png") }}"></div>
+                        <div class="col-sm-10">{{ vacancy.company.name }}</div>
+                    </div>
+                    <div class="vacancy-locale row">
+                        <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobfrontend/images/new/locale.png") }}"></div>
+                        <div class="col-sm-10">{{ vacancy.city.translate.title }}</div>
+                    </div>
+                    <div class="vacancy-term row">
+                        <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobfrontend/images/new/calendar.png") }}"></div>
+                        <div class="col-sm-10">{{ vacancy.termfrom |date("d/m/Y") }} - {{ vacancy.termto |date("d/m/Y") }}</div>
+                    </div>
+                    <div class="vacancy-salary row">
+                        <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobfrontend/images/new/rub.png") }}"></div>
+                        <div class="col-sm-10">{{ vacancy.salaryPerMonth|number_format(0) }} {{ helper.currency(vacancy.currency) }}</div>
+                    </div>
+                    <div class="vacancy-hover"></div>
+                </div>
             </div>
-            <div class="container-fluid vacancy-bottom-part">
-                <div class="vacancy-label row">
-                    <div class="col-sm-2 icon-block"> <img src="{{ asset("bundles/onedayjobfrontend/images/new/man.png") }}"></div>
-                    <div class="col-sm-10">{{ vacancy.title }}</div>
-                </div>
-                <div class="vacancy-company row">
-                    <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobfrontend/images/new/home.png") }}"></div>
-                    <div class="col-sm-10">{{ vacancy.company.name }}</div>
-                </div>
-                <div class="vacancy-locale row">
-                    <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobfrontend/images/new/locale.png") }}"></div>
-                    <div class="col-sm-10">{{ vacancy.city.translate.title }}</div>
-                </div>
-                <div class="vacancy-term row">
-                    <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobfrontend/images/new/calendar.png") }}"></div>
-                    <div class="col-sm-10">{{ vacancy.termfrom |date("d/m/Y") }} - {{ vacancy.termto |date("d/m/Y") }}</div>
-                </div>
-                <div class="vacancy-salary row">
-                    <div class="col-sm-2 icon-block"><img src="{{ asset("bundles/onedayjobfrontend/images/new/rub.png") }}"></div>
-                    <div class="col-sm-10">{{ vacancy.salaryPerMonth|number_format(0) }} {{ helper.currency(vacancy.currency) }}</div>
-                </div>
-                <div class="vacancy-hover"></div>
-            </div>
-        </div>
+        </a>
     </div>
     {% endfor %}
-    {% if i is not divisible by(2) %}
+    {% if i is not divisible by(4) %}
 </div>
 {% endif %}

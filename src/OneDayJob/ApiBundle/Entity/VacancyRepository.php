@@ -17,6 +17,29 @@ class VacancyRepository extends EntityRepository
 
     }
 
+    public function getVacancies(){
+        $builder =$this->createQueryBuilder('v')
+            ->select('v, c, city')
+            ->where('v.urgent >= :date_end')
+            ->setParameter('date_end', new \DateTime())
+            ->leftJoin('v.company', 'c')
+            ->leftJoin('v.city', 'city')
+            ->orderBy('v.up', 'DESC')
+            ->getQuery();
+        return $builder;
+    }
+
+    public function number_of_vacancies($company){
+        $builder =$this->createQueryBuilder('n')
+            ->select('COUNT(n)')
+            ->Where('n.company = :company')
+            ->setParameter('company', $company)
+            ->getQuery()
+            ->getResult();
+        return $builder;
+
+    }
+
     public function findAll(){
         $this->findBy(['enabled' => true, 'status' => 1]);
     }
@@ -28,6 +51,18 @@ class VacancyRepository extends EntityRepository
         $persister = $this->_em->getUnitOfWork()->getEntityPersister($this->_entityName);
 
         return $persister->loadAll($criteria, $orderBy, $limit, $offset);
+    }
+
+    public function getSimilarVacancies($id){
+
+        $result= $this->createQueryBuilder('r')
+            ->select('r')
+            ->Where('r.id <> :id')
+            ->setParameter('id' , $id)
+            ->getQuery()
+            ->getResult();
+
+        return $result;
     }
     
 }

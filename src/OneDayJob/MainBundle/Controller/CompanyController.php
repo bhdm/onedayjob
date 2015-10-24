@@ -13,16 +13,7 @@ class CompanyController extends Controller
 
     public function get_companiesAction()
     {
-        $companies = $this->getDoctrine()//+
-        ->getRepository('OneDayJobApiBundle:Company')
-            ->createQueryBuilder('c')
-            ->select('c, s, i')
-            ->leftJoin('c.city', 's')
-            ->leftJoin('c.image', 'i')
-            ->getQuery()
-            ->getResult();
-
-
+        $companies = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Company')->leftJoinCompanyCityImage();
 
         $_temp1 = [];
         $_temp2 = [];
@@ -31,17 +22,9 @@ class CompanyController extends Controller
 
         foreach ($companies as $company) {
 
-            $number_vacancies = $this->getDoctrine()
-                ->getRepository('OneDayJobApiBundle:Vacancy')
-                ->createQueryBuilder('n')
-                ->select('COUNT(n)')
-                ->Where('n.company = :company')
-                ->setParameter('company', $company)
-                ->getQuery()
-                ->getResult();
+            $number_vacancies = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Vacancy')->number_of_vacancies($company);
 
             $company->setNumberVacancies($number_vacancies[0][1]);
-
 
             if ($session->has('locale')) {
                 if ($company->getCity()->translate()->getTitle() == $session->get('locale')['city']) {
@@ -56,7 +39,7 @@ class CompanyController extends Controller
 
 //        $p = array_merge($_temp1, $_temp2);
 //        $t=0;
-        return $this->render('OneDayJobFrontendBundle:Company:_company.html.twig', ['companies' => array_merge($_temp1, $_temp2)]);
+        return $this->render('OneDayJobMainBundle:Company:_company.html.twig', ['companies' => array_merge($_temp1, $_temp2)]);
     }
 
 //    public function indexAction(Request $request)

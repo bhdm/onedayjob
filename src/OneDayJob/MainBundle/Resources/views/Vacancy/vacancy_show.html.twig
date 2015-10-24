@@ -8,6 +8,7 @@
     <link href="{{ asset('/bundles/onedayjobfrontend/bootstrap/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('/css/2eca46c_part_1_5_style_6.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('/css/2eca46c_part_1_8_style_open_resume_9.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('/css/2eca46c_part_1_9_style_show_vacancy_10.css') }}" type="text/css" rel="stylesheet">
 
     {% block javascripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -68,7 +69,7 @@
         </div>
     </div>
 </header>
-
+{% set image =  asset("bundles/onedayjobfrontend/images/new/11.png") %}
 
 <div class="container">
     <div class="row resume-open-top">
@@ -78,110 +79,32 @@
         <div class="col-sm-3">
             <span class="resume-open-top-text">РЕЗУЛЬТАТЫ ПОИСКА</span>
         </div>
-        <div class="col-sm-3">
-            <span class="resume-open-top-text">СРОЧНЫЕ ВАКАНСИИ</span>
-        </div>
-        <div class="col-sm-2">
-            <span class="resume-open-top-text">КОМПАНИИ</span>
-        </div>
-        <div class="col-sm-2">
-            <span class="resume-open-top-text">СОИСКАТЕЛЬ</span>
-        </div>
     </div>
 
     <div class="row">
-        <div class="container-fluid resume-data">
+        <div class="container-fluid vacancy-data">
             <div class="row">
-                <div class="col-sm-4 resume-open-img">
-                    <img src="{{ resume.imageSrc }}" alt="">
+                <div class="col-sm-4 vacancy-open-img">
+                    <img src="{{ image|imagine_filter('logo_inset') }}" alt=""><br/>
+                    <button class="btn btn-primary btn-lg resume-open-respond"> ОТКЛИКНУТЬСЯ </button>
                 </div>
-                <div class="col-sm-8 resume-main-data">
-                    <div class="resume-open-fullname">
-                        <img src="{{ asset("bundles/onedayjobfrontend/images/new/man.png") }}">
-                        <span>{{ resume.fullName | upper}}</span>
-                        <div class="resume-open-add-to-favorites">
-                            <span>Добавить в избранное</span>
-                            <img src="{{ asset("bundles/onedayjobfrontend/images/new/star.png") }}"> </div>
-                    </div>
-                    <div class="resume-open-locale">
-                        <img src="{{ asset("bundles/onedayjobfrontend/images/new/locale.png") }}">
-                        <span>{{ resume.city.translate.title }}</span>
-                    </div>
-                    <div class="resume-open-age">
-                        <img src="{{ asset("bundles/onedayjobfrontend/images/new/sand_watch.png") }}">
-                        <span>{{ resume.age }}</span>
-                    </div>
-                    <div class="resume-open-sex">
-                        <img src="{{ asset("bundles/onedayjobfrontend/images/new/sex.png") }}">
-                        <span>{{ resume.sex }}</span>
-                    </div>
-                    <div class="resume-open-phone">
-                        <img src="{{ asset("bundles/onedayjobfrontend/images/new/phone.png") }}">
-                        <span>{{ resume.phone }}</span>
-                    </div>
-                    <div class="resume-open-email">
-                        <img src="{{ asset("bundles/onedayjobfrontend/images/new/email.png") }}">
-                        <span>{{ resume.email }}</span>
-                    </div>
-                    <div class="resume-open-skype">
-                        <img src="{{ asset("bundles/onedayjobfrontend/images/new/skype.png") }}">
-                        <span>{{ resume.skype }}</span>
-                    </div>
-                    <div class="resume-open-specialization">
-                        <img src="{{ asset("bundles/onedayjobfrontend/images/new/specialization.png") }}">
-                        <span>{{ resume.specialty | upper}}</span>
-                    </div>
-                    <div class="resume-open-term">
-                        <table>
-                            <tr>
-                                <td><img class="resume-open-term-img" src="{{ asset("bundles/onedayjobfrontend/images/new/calendar.png") }}"></td>
-                                <td><span class="resume-open-term-project">Срок проекта <br> <span class="resume-open-term-date">{{ resume.termfrom |date("d/m/Y") }} - {{ resume.termto |date("d/m/Y") }}</span></span></td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="resume-open-salary">
-                        <img src="{{ asset("bundles/onedayjobfrontend/images/new/rub.png") }}">
-                        <span>{{ resume.salary|number_format(0) }} {{ helper.currency(resume.currency) }}</span>
-                    </div>
+                <div class="col-sm-8 vacancy-main-data">
+                    <div class="vacancy-show-title">{{ vacancy.title }}</div>
+                    <div class="vacancy-show-company">{{ vacancy.company.name }}</div>
+                    <div class="vacancy-show-city">{{ vacancy.city.translate.title }}</div>
+                    <div class="vacancy-show-term">{{ vacancy.termfrom |date("d/m/Y")}} - {{ vacancy.termto |date("d/m/Y")}}</div>
+                    <div class="vacancy-show-created">{{ time_diff(vacancy.created)|trans }}</div>
+                    <div class="vacancy-show-salary">{{ vacancy.salaryPerMonth|number_format(0) }} {{ helper.currency(vacancy.currency) }}</div>
+                    <div class="vacancy-show-require"> {{ vacancy.extra }} </div>
+                    <div class="vacancy-show-condition"></div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 resume-open-education">
-                    <h4 class="resume-open-headline"><img src="{{ asset("bundles/onedayjobfrontend/images/new/education.png") }}">{{ 'form.vacancy.education'| trans | upper}}</h4>
-                    <p>
-                        {% for education in resume.education %}
-                            {{ education.title }}
-                        {% endfor %}
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 resume-open-experience">
-                    <h4 class="resume-open-headline"><img src="{{ asset("bundles/onedayjobfrontend/images/new/work_experience.png") }}">{{ 'form.vacancy.work_experience'| trans | upper}}</h4>
-                    <p>
-                        {% for experience in resume.experience %}
-                            {{ experience.title }}
-                        {% endfor %}
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 resume-open-extra">
-                    <h4 class="resume-open-headline"><img src="{{ asset("bundles/onedayjobfrontend/images/new/skills.png") }}">КАЧЕСТВА, НАВЫКИ</h4>
-                    <p>
-                        {{resume.extra}}
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <button class="btn btn-primary btn-lg resume-open-respond"> ОТКЛИКНУТЬСЯ </button>
             </div>
         </div>
     </div>
 
-    <div class="resume-open-similar">
+    <div class="vacancy-open-similar">
         <h2>ПОХОЖИЕ СОИСКАТЕЛИ</h2>
-        {{ render(controller('OneDayJobMainBundle:Resume:similarResume', {'id': resume.id})) }}
+        {{ render(controller('OneDayJobMainBundle:Vacancy:similarVacancy', {'id': vacancy.id})) }}
     </div>
 
 </div>
