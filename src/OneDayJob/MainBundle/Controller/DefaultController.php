@@ -21,6 +21,15 @@ class DefaultController extends Controller
         return $this->render('OneDayJobMainBundle:Default:index.html.twig');
     }
 
+    /**
+     * @Route("/registration" , name="registration")
+     * @Template()
+     */
+    public function registrationAction()
+    {
+        return $this->render('OneDayJobMainBundle:Default:registration.html.twig');
+    }
+
 //    /**
 //     * parameters содержит серриализованный массив фильтров
 //     * @Route("/vacancy/show/{id}/{parameters}", name="vacancy_chow")

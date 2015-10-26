@@ -45,7 +45,7 @@
         <div class="container-fluid" id="header">
             <form method="post">
             <div class="raw">
-                <div id="header_logo" class="col-sm-1"><img src="{{ asset("bundles/onedayjobmain/images/new/logo.png") }}"> </div>
+                <div id="header_logo" class="col-sm-1"><a href="{{ path('mainpage') }}"><img src="{{ asset("bundles/onedayjobmain/images/new/logo.png") }}"></a></div>
                 <div id="header_language" class="col-sm-1">
                     <span>Русский</span>
                     <img src="{{ asset("bundles/onedayjobmain/images/new/language-arrow.png") }}">
@@ -88,7 +88,7 @@
                     {#<div class="col-sm-2"></div>#}
                 {% else %}
                     <div id="header_name_or_registration" class="col-sm-1 col-sm-offset-3">
-                        <a href="{{ path('fos_user_registration_register') }}">
+                        <a href="{{ path('registration') }}">
                             <span>{{ 'menu.registration'|trans |upper }}</span>
                         </a>
                     </div>
