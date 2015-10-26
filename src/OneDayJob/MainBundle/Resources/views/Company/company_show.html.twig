@@ -107,7 +107,13 @@
                         <img class="circle-img" src="{{ asset("bundles/onedayjobmain/images/new/circle-white.png") }}">
                         <div class="company-hover"></div>
                     </div>
-                    {#<button class="btn btn-primary btn-lg vacancy-open-respond"> ОТКЛИКНУТЬСЯ </button>#}
+                    <div class="row company-number-vacancies">
+                        <div class="col-sm-12">
+                            <span class="company-number"> {{ companies.numberVacancies }} </span>
+                            <span class="company-number-text"> ВАКАНСИИ </span>
+                            <div class="company-underline"> <img src="{{ asset("bundles/onedayjobmain/images/new/underline-company.png") }}"> </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-sm-9 vacancy-main-data">
                     <div class="vacancy-show-title">
@@ -159,19 +165,35 @@
                 </div>
             </div>
         </div>
-    </div><br/>
+    </div>
 
 
 
     {% set i  = 0 %}
     {% for vacancy in vacancies %}
-    {% set image =  asset("bundles/onedayjobmain/images/new/11.png") %}
-    {% if i is divisible by(4) %}
-    {% if i != 0 %} </div> {% endif %}
-<div class="row row-vacancy">
+
+    {% if i != 0  %}
+        {% if vacancy.branch.translate.title !=  branch %}
+            {% set branch  = vacancy.branch.translate.title  %}
+            </div>
+            <div class="row row-vacancy row-vacancies-of-company">
+            <h3>{{ branch |upper }}</h3>
+            {% set i  = 0 %}
+        {% endif %}
     {% else %}
-        {% set the_first_vacancy_in_row  = ""%}
+        {% set branch  = vacancy.branch.translate.title %}
+        <div class="row row-vacancy row-vacancies-of-company">
+        <h3>{{ branch |upper}}</h3>
     {% endif %}
+
+    {% set image =  asset("bundles/onedayjobmain/images/new/11.png") %}
+
+    {#{% if i is divisible by(4) %}#}
+    {#{% if i != 0 %} </div> {% endif %}#}
+        {#<div class="row row-vacancy">#}
+    {#{% else %}#}
+        {#{% set the_first_vacancy_in_row  = ""%}#}
+    {#{% endif %}#}
     {% set i  = i + 1 %}
 
 
@@ -211,9 +233,9 @@
 
 
     {% endfor %}
-    {% if i is not divisible by(4) %}
+    {#{% if i is not divisible by(4) %}#}
 </div>
-{% endif %}
+{#{% endif %}#}
 
 
 

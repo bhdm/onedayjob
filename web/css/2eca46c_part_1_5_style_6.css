@@ -618,6 +618,12 @@ header{
 
 }
 
+.row-vacancy > h3{
+    font-family: "HelveticaThin";
+    margin-left: 15px;
+    margin-bottom: 20px;
+}
+
 .header-new , .header-new-resume{
     display: none;
     height: 100%;
@@ -685,5 +691,11 @@ header{
     padding: 25px;
     height: 60px;
     font-size: 18px;
+}
+
+.row-vacancies-of-company{
+    background-color: #ffffff;
+    margin-bottom: 0px;
+    padding-bottom: 40px;
 }
 
