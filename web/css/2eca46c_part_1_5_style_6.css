@@ -47,7 +47,7 @@ header{
 }
 
 #header_language{
-    margin-top: 15px;
+    margin-top: 10px;
     margin-left: 50px;
     color: #959595;
 }
@@ -112,13 +112,17 @@ header{
 }
 
 .applicants , .result-search-label , .urgent-vacancies-label , .search-company-label , .search-applicants-label{
-    margin-top: 340px;
+    margin-top: 280px;
     background-color: rgba(117,117,117,0.5);
     padding: 10px;
 }
 
+.result-search-label , .urgent-vacancies-label , .search-company-label , .search-applicants-label{
+    padding: 21px;
+}
+
 .applicants-button-search{
-    margin-top: 7px;
+    margin-top: 2px;
 }
 
 #applicants-search-line{
@@ -143,6 +147,7 @@ header{
     margin-top: 11px;
     color: #fff;
     font-size: 20px;
+    font-weight: 100;
     padding-top: 5px;
 }
 
@@ -736,6 +741,7 @@ header{
 .registration-show-password{
     font-size: 12px;
     font-family: "HelveticaThin";
+    cursor: hand;
 }
 
 .registration-checkbox{

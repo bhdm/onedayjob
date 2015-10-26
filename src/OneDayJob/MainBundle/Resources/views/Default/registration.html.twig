@@ -19,7 +19,7 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <![endif]-->
     {% endblock %}
-    {#<script type="text/javascript" src="{{ asset("/js/258ecd2_part_1_8_new_9.js") }}"></script>#}
+    <script type="text/javascript" src="{{ asset("/js/258ecd2_part_1_9_registration_10.js") }}"></script>
 
     <script type="text/javascript" src="{{ asset("bundles/onedayjobfrontend/fancyapps/source/jquery.fancybox.js") }}"></script>
     <script type="text/javascript" src="{{ asset("bundles/onedayjobfrontend/fancyapps/lib/jquery.mousewheel-3.0.6.pack.js") }}"></script>
@@ -33,6 +33,7 @@
             $('input[name="calendar"]').daterangepicker();
             $('.applyBtn').removeClass('btn-success');
             $('.applyBtn').addClass('btn-primary');
+
         });
     </script>
 
@@ -89,8 +90,8 @@
 
 <div class="container main-registration">
     <div class="row registration-applicants-employer-buttons">
-        <div class="col-sm-3 col-sm-offset-3  registration-applicants-button"><button class="btn btn-primary">Я соискатель</button></div>
-        <div class="col-sm-3  registration-employer-button"><button class="btn btn-primary">Я работадатель</button></div>
+        <div class="col-sm-3 col-sm-offset-3  registration-applicants-button"><button disabled class="btn btn-primary">Я соискатель</button></div>
+        <div class="col-sm-3  registration-employer-button"><button disabled class="btn btn-primary">Я работадатель</button></div>
     </div>
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3 registration-name">
@@ -112,18 +113,18 @@
     </div>
     <div class="row">
         <span class="registration-label">Придумайте пароль</span><br>
-        <div class="col-sm-3 col-sm-offset-3 registration-password"><input type="text" class="form-control"></div>
-        <div class="col-sm-3 registration-password"><input type="password" class="form-control"></div>
+        <div class="col-sm-3 col-sm-offset-3 registration-password"><input type="password" class="form-control registration-password-input"></div>
+        <div class="col-sm-3 registration-password"><input type="password" class="form-control registration-password-input"></div>
     </div>
     <div class="row">
-        <img src="{{ asset("bundles/onedayjobmain/images/new/eye.png") }}"><br/>
+        <img class="registration-show-password" src="{{ asset("bundles/onedayjobmain/images/new/eye.png") }}"><br/>
         <span class="registration-show-password">Показать пароль</span>
     </div>
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3 registration-checkbox">
-        <input type="checkbox"  checked><span>Я согласен <strong>с правилами использования</strong> сервиса</span><br/>
-        <input type="checkbox" checked><span>Присылать мне новости обновления проекта</span>
-            </div>
+            <input type="checkbox" name="rules" id="registration-rules"><span>Я согласен <strong>с правилами использования</strong> сервиса</span><br/>
+            <input type="checkbox" name="news" ><span>Присылать мне новости обновления проекта</span>
+        </div>
     </div>
 </div>
 
