@@ -347,8 +347,35 @@ header{
     height: 267px;
 }
 
+.circle-img{
+    z-index: 50;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.circle-company-img{
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+}
+
+.company-hover{
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(120,120,120,0.5);
+}
+
+.company-img:hover .company-hover{
+    display: block;
+}
+
 .vacancy-img > img{
-   position: absolute;
+    position: absolute;
     left: 0px;
     top: 0px;
     bottom: 0px;
@@ -531,14 +558,14 @@ header{
     background-color: #ffffff;
     z-index: 100;
     position: relative!important;
-    top: -463px!important;
+    top: -665px!important;
 }
 
 #ui-id-2{
     background-color: #ffffff;
     z-index: 100;
     position: relative!important;
-    top: -322px!important;
+    top: -541px!important;
 }
 
 .custom-combobox-input{

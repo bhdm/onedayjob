@@ -30,16 +30,18 @@
     {% if i is divisible by(4) %}
         {% set the_first_company_in_row  = "col-sm-offset-2"%}
         {% if i != 0 %} </div> {% endif %}
-        <div class="row row-company">
+<div class="row row-company">
     {% else %}
         {% set the_first_company_in_row  = ""%}
     {% endif %}
     {% set i  = i + 1 %}
     {#THE RESULT!#}
     <div class="col-lg-3 col-md-4 col-sm-6">
+        <a href="{{ path('company_show',{'id': company.id }) }}">
         <div class="company-block">
             <div class="company-img">
-                <img class="img-circle" src="{{ image|imagine_filter('logo_inset') }}">
+                <img class="circle-company-img" src="{{ image|imagine_filter('logo_inset') }}">
+                <img class="circle-img" src="{{ asset("bundles/onedayjobmain/images/new/circle.png") }}">
                 <div class="company-hover"></div>
             </div>
             <div class="row company-name-locale">
@@ -59,9 +61,10 @@
                 </div>
             </div>
         </div>
+        </a>
     </div>
 
-{% endfor %}
-{% if i is not divisible by(2) %}
-   </div>
+    {% endfor %}
+    {% if i is not divisible by(2) %}
+</div>
 {% endif %}

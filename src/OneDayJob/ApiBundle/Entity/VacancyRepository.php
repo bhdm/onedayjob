@@ -37,7 +37,18 @@ class VacancyRepository extends EntityRepository
             ->getQuery()
             ->getResult();
         return $builder;
+    }
 
+    public function branches_of_vacancies($company){
+        $builder =$this->createQueryBuilder('v')
+            ->select('v , b')
+            ->Where('v.company = :company')
+            ->setParameter('company', $company)
+            ->leftJoin('v.branch', 'b')
+            ->orderBy('v.branch', 'DESC')
+            ->getQuery()
+            ->getResult();
+        return $builder;
     }
 
     public function findAll(){

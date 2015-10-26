@@ -18,6 +18,18 @@ class CompanyRepository extends EntityRepository
         return $result;
     }
 
+    public function getSimilarCompanies($id){
+
+        $result= $this->createQueryBuilder('c')
+            ->select('c')
+            ->Where('c.id <> :id')
+            ->setParameter('id' , $id)
+            ->getQuery()
+            ->getResult();
+
+        return $result;
+    }
+
     public function filterCityCompany($city , $company){
         $builder = $this->createQueryBuilder('c');
 

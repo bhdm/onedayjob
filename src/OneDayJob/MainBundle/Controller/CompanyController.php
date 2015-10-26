@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use OneDayJob\FrontendBundle\Form\Type\CompanyType;
 use OneDayJob\ApiBundle\Entity\Company;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class CompanyController extends Controller
 {
@@ -40,6 +42,31 @@ class CompanyController extends Controller
 //        $p = array_merge($_temp1, $_temp2);
 //        $t=0;
         return $this->render('OneDayJobMainBundle:Company:_company.html.twig', ['companies' => array_merge($_temp1, $_temp2)]);
+    }
+
+    /**
+     * @Route("/company/show/{id}/{parameters}", name="company_show")
+     * @Template()
+     */
+    public function showCompanyAction(Request $request , $id , $parameters = null)
+    {
+        $result = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Company')->find($id);
+        $referer = $request->headers->get('referer');
+
+        $number_vacancies = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Vacancy')->number_of_vacancies($result);
+
+        $array_vacancies = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Vacancy')->branches_of_vacancies($result);
+
+        $result->setNumberVacancies($number_vacancies[0][1]);
+
+        return $this->render('OneDayJobMainBundle:Company:company_show.html.twig', ['companies' => $result , 'referer' => $referer , 'vacancies' => $array_vacancies]);
+    }
+
+    public function similarCompanyAction($id)
+    {
+        $companies = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Company')->getSimilarCompanies($id);
+
+        return $this->render('OneDayJobMainBundle:Company:_company.html.twig', ['companies' => $companies]);
     }
 
 //    public function indexAction(Request $request)
