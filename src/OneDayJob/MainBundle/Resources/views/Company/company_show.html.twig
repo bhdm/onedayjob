@@ -99,9 +99,9 @@
     </div>
 
     <div class="row">
-        <div class="container-fluid vacancy-data">
+        <div class="container vacancy-data">
             <div class="row">
-                <div class="col-sm-3 vacancy-open-img">
+                <div class="col-lg-3 col-md-4 col-sm-5 vacancy-open-img">
                     <div class="company-img">
                         <img class="circle-company-img" src="{{ image|imagine_filter('logo_inset') }}">
                         <img class="circle-img" src="{{ asset("bundles/onedayjobmain/images/new/circle-white.png") }}">
@@ -115,7 +115,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-9 vacancy-main-data">
+                <div class="col-lg-9  col-md-8 col-sm-7 vacancy-main-data">
                     <div class="vacancy-show-title">
                         <div class="row">
                             <div class="col-sm-1 vacancy-show-icon">
@@ -233,9 +233,9 @@
 
 
     {% endfor %}
-    {#{% if i is not divisible by(4) %}#}
+    {% if i != 0 %}
 </div>
-{#{% endif %}#}
+{% endif %}
 
 
 
