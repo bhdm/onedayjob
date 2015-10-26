@@ -42,4 +42,16 @@ class DefaultController extends Controller
 //        }
 //        return ['vacancy' => $vacancy];
 //    }
+
+
+    /**
+     * @Route("/page/{slug}" , name="page")
+     * @Template()
+     */
+    public function pageAction($slug){
+        $page = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Page')->findOneBy($slug);
+        return ['page' => $page];
+    }
+
+
 }
