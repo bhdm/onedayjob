@@ -21,7 +21,7 @@ body{
 
 .resume-open-top-text{
     font-family: "HelveticaThin";
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .resume-data{
@@ -29,12 +29,14 @@ body{
     padding: 15px 0px 30px 20px;
 }
 
-.resume-open-top  .col-sm-1{
+.resume-open-top  .col-sm-1 > span > a{
     font-family: "HelveticaThin";
     text-align: left;
     padding-left: 0px;
     font-size: 17px;
     padding-top: 5px;
+    color: #000000;
+    text-decoration: none;
 }
 
 .resume-main-data{
@@ -137,4 +139,8 @@ body{
 .resume-open-add-to-favorites > img{
     padding-bottom: 10px;
     padding-left: 3px;
+}
+
+.header-form-select , #header-search-line , #header-form-calendar-div , #header-form-button-div{
+    display: block;
 }

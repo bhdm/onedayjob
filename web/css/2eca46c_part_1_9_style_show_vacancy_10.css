@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "HelveticaThin";
+    src: url("/bundles/onedayjobfrontend/fonts/HelveticaThin/HelveticaThin.eot");
+    src: url("/bundles/onedayjobfrontend/fonts/HelveticaThin/HelveticaThin.eot?#iefix")format("embedded-opentype"),
+    url("/bundles/onedayjobfrontend/fonts/HelveticaThin/HelveticaThin.woff") format("woff"),
+    url("/bundles/onedayjobfrontend/fonts/HelveticaThin/HelveticaThin.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
 .vacancy-data{
     background-color: #ffffff;
 }
@@ -7,6 +17,129 @@
     padding: 15px 0px 30px 20px;
 }
 
-.vacancy-show-title , .vacancy-show-company , .vacancy-show-city , .vacancy-show-term , .vacancy-show-created , .vacancy-show-salary , .vacancy-show-require , .vacancy-show-condition{
+.vacancy-show-title{
+    color: #000000;
+    font-size: 14.26px; /* Приближение из-за подстановки шрифтов */
+    font-weight: 800;
+    line-height: 26.466px; /* Приближение из-за подстановки шрифтов */
+    text-align: left;
+    margin-bottom: 10px;
+}
 
+.vacancy-show-company{
+    font-family: "HelveticaThin";
+    color: #747474;
+    font-size: 11.92px; /* Приближение из-за подстановки шрифтов */
+    font-weight: 400;
+    line-height: 20.95px; /* Приближение из-за подстановки шрифтов */
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.vacancy-show-city{
+    font-family: "HelveticaThin";
+    color: #747474;
+    font-size: 11.92px; /* Приближение из-за подстановки шрифтов */
+    font-weight: 400;
+    line-height: 16.005px; /* Приближение из-за подстановки шрифтов */
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.vacancy-show-term-project{
+    font-family: "HelveticaThin";
+    color: #747474;
+    font-size: 11.92px; /* Приближение из-за подстановки шрифтов */
+    font-weight: 400;
+    line-height: 12.976px; /* Приближение из-за подстановки шрифтов */
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.vacancy-show-term-date{
+    color: #000000;
+    font-size: 11.92px; /* Приближение из-за подстановки шрифтов */
+    font-weight: bolder;
+    line-height: 12.976px; /* Приближение из-за подстановки шрифтов */
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.vacancy-show-created {
+    font-family: "HelveticaThin";
+    color: #000000;
+    font-size: 11.92px; /* Приближение из-за подстановки шрифтов */
+    font-weight: 800;
+    line-height: 12.926px; /* Приближение из-за подстановки шрифтов */
+    text-align: left; /* свойства ширины и высоты были исключены, поскольку было выполнено трансформирование */
+    margin-bottom: 10px;
+}
+
+.vacancy-show-term{
+    margin-bottom: 10px;
+}
+
+.vacancy-show-salary{
+    font-family: "HelveticaThin";
+    color: #181717;
+    font-size: 25.37px; /* Приближение из-за подстановки шрифтов */
+    font-weight: 100;
+    line-height: 37.688px; /* Приближение из-за подстановки шрифтов */
+    text-align: left; /* свойства ширины и высоты были исключены, поскольку было выполнено трансформирование */
+    margin-bottom: 10px;
+}
+
+.vacancy-show-require .row .col-sm-11 > span{
+    color: #000000;
+    font-size: 14.26px; /* Приближение из-за подстановки шрифтов */
+    font-weight: bolder;
+    padding-bottom: 15px;
+    padding-top: 5px;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.vacancy-show-condition .row .col-sm-11 > span{
+    color: #000000;
+    font-size: 14.25px; /* Приближение из-за подстановки шрифтов */
+    font-weight: 800;
+    line-height: 36.926px; /* Приближение из-за подстановки шрифтов */
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.vacancy-show-created > img , .vacancy-show-title > img , .vacancy-show-city > img , .vacancy-show-term > img , .vacancy-show-salary > img , .vacancy-show-require > img , .vacancy-show-condition > img{
+    padding-left: 2px;
+}
+
+.vacancy-show-icon{
+    width: 24px;
+    padding: 0px;
+    text-align: center;
+}
+
+.vacancy-show-company .row .col-sm-11{
+    padding-top: 3px;
+}
+
+.vacancy-show-city .row .col-sm-11{
+    padding-top: 3px;
+}
+
+.vacancy-show-created .row .col-sm-11{
+    padding-top: 4px;
+}
+
+.vacancy-show-salary .row .col-sm-11{
+    margin-top: -5px;
+}
+
+.vacancy-open-respond {
+    font-size: 20px;
+    margin-top: 40px;
+}
+
+.header-form-select , #header-search-line , #header-form-calendar-div , #header-form-button-div{
+    display: block;
 }

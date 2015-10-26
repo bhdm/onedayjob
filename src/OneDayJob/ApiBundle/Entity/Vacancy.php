@@ -130,6 +130,11 @@ class Vacancy
     protected $extra;
 
     /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $condition;
+
+    /**
      * @ORM\Column(type="date" , nullable=true)
      */
     private $termfrom;
@@ -813,4 +818,23 @@ class Vacancy
     {
         $this->status = $status;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCondition()
+    {
+        return $this->condition;
+    }
+
+    /**
+     * @param mixed $condition
+     */
+    public function setCondition($condition)
+    {
+        $this->condition = $condition;
+    }
+
+
+
 }

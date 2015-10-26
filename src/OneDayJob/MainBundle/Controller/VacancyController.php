@@ -48,12 +48,13 @@ class VacancyController extends Controller
      * @Route("/vacancy/show/{id}/{parameters}", name="vacancy_chow")
      * @Template("")
      */
-    public function showVacancyAction($id, $parameters = null){
+    public function showVacancyAction(Request $request, $id, $parameters = null){
         $vacancy = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Vacancy')->find($id);
         if (!$vacancy){
 //            return $this->createAccessDeniedException('Данной вакансии не существует');
         }
-        return $this->render('OneDayJobMainBundle:Vacancy:vacancy_show.html.twig', ['vacancy' => $vacancy]);
+        $referer = $request->headers->get('referer');
+        return $this->render('OneDayJobMainBundle:Vacancy:vacancy_show.html.twig', ['vacancy' => $vacancy , 'referer' => $referer]);
     }
 
     public function similarVacancyAction($id)

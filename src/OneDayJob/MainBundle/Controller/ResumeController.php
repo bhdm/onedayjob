@@ -74,11 +74,12 @@ class ResumeController extends Controller
      * @Route("/resume/show/{id}/{parameters}", name="resume_show")
      * @Template()
      */
-    public function openResumeAction($id , $parameters = null)
+    public function openResumeAction(Request $request , $id , $parameters = null)
     {
         $result = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Resume')->find($id);
+        $referer = $request->headers->get('referer');
 
-        return $this->render('OneDayJobMainBundle:Resume:resume_open.html.twig', ['resume' => $result]);
+        return $this->render('OneDayJobMainBundle:Resume:resume_open.html.twig', ['resume' => $result , 'referer' => $referer]);
     }
 
     public function similarResumeAction($id)

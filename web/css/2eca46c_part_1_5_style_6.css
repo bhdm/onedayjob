@@ -9,7 +9,7 @@
 }
 
 body{
-    background-image: url("/bundles/onedayjobfrontend/images/new/background.jpg");
+    background-image: url("/bundles/onedayjobmain/images/new/background.jpg");
     /*font-family: "HelveticaNeue-Light";*/
 }
 
@@ -35,6 +35,10 @@ header{
     padding: 0px;
 }
 
+.header-form-select , #header-search-line , #header-form-calendar-div , #header-form-button-div{
+    display: none;
+}
+
 #header{
     padding-bottom: 5px;
     padding-top: 5px;
@@ -53,31 +57,37 @@ header{
 }
 
 #header_locale , #header_name_or_registration{
-    margin-top: 13px;
-    font-size: large;
+    margin-top: 10px;
+    font-size: 16px;
     color: #4f4f4f;
 }
 
 #header_name_or_registration{
     text-align: left;
-    /*margin-left: 10px;*/
-    padding-left: 35px;
+    /*padding-left: 0px;*/
+}
+
+#header_logo{
+    width: 209px;
 }
 
 #header-form-button-div , #header-form-calendar-div{
-    padding-left: 0px;
+    /*padding: 0px;*/
+}
+
+#header-form-button-div{
+    /*width: 105px;*/
 }
 
 #header_login_logout{
-    display: inline;
-    height: 39px;
+    margin-top: 7px;
+    height: 34px;
     border-radius: 5px;
-    margin-top: 3px;
     margin-left: 10px;
-    font-size: 19px;
+    font-size: 16px;
     color: #4f4f4f;
     text-align: center;
-    padding: 10px 40px 10px 40px;
+    padding: 5px 20px 5px 20px;
     background-color: #e6e6e6;
 }
 
@@ -119,6 +129,14 @@ header{
     font-family: "HelveticaThin";
 }
 
+#applicants-search-line-extend{
+    border-radius: 7px;
+    padding: 25px;
+    height: 60px;
+    font-size: 18px;
+    font-family: "HelveticaThin";
+}
+
 .applicants-label > select{
     border-width: 0px;
     background-color: inherit;
@@ -139,9 +157,8 @@ header{
 
 .applicants-option{
     font-family: "HelveticaThin";
-    font-size: 30px;
+    font-size: 20px;
     color: #000;
-
 }
 
 #label-branch-extended-search , #label-country-extended-search{
@@ -160,6 +177,11 @@ header{
     text-decoration: none;
     color: #000;
     border-bottom: thin dashed;
+}
+
+.link-to-show{
+    color: #000000;
+    text-decoration: none;
 }
 
 .result-search-main{
@@ -460,6 +482,10 @@ header{
     font-weight: bold;
 }
 
+.applicants-label > select{
+    outline: none;
+}
+
 .applicants-specialization > div > span{
     font-family: "HelveticaThin";
     font-size: 30px;
@@ -501,10 +527,23 @@ header{
     margin-top: 10px;
 }
 
-.ui-autocomplete{
-    width: 437px;
+#ui-id-1{
     background-color: #ffffff;
     z-index: 100;
+    position: relative!important;
+    top: -463px!important;
+}
+
+#ui-id-2{
+    background-color: #ffffff;
+    z-index: 100;
+    position: relative!important;
+    top: -322px!important;
+}
+
+.custom-combobox-input{
+    box-shadow: none!important;
+    border: none!important;
 }
 
 #applicants-search-line:focus {
@@ -555,7 +594,7 @@ header{
 .header-new , .header-new-resume{
     display: none;
     height: 100%;
-    margin-left: 50px;
+    margin: 0px;
 }
 
 .header-new-resume{
@@ -563,40 +602,61 @@ header{
 }
 
 .header-form-select{
-    margin-top: 15px;
+    margin-top: 7px;
     padding: 0px;
 }
 
+.header-form-select-index{
+    margin-top: 16px;
+    width: 180px;
+}
+
 .header-form-select > select{
-    border-width: 0px;
     background-color: inherit;
     color: #bebebe;
-    font-size: 20px;
+    font-size: 15px;
+    outline: none;
+    border: none;
+    padding-left: 0px;
+    width: 135px;
 }
 
 .header-form-option{
     font-family: "HelveticaThin";
-    font-size: 20px;
+    font-size: 15px;
     color: #000;
 }
 
 #header-input{
     background-color: #e9e9e9;
     margin-top: 7px;
-    padding: 20px;
-    font-size: 20px;
+    padding: 15px;
+    font-size: 15px;
 }
 
 .header-form-button{
     font-family: "HelveticaThin";
-    margin-top: 5px;
-    height: 39px;
+    margin-top: 7px;
+    height: 34px;
     background-color: #3976c7;
-    padding: 6px 30px 6px 30px;
+    padding: 2px 20px 2px 20px;
 }
 
 .salary-extended-search-imgs{
     margin-top: 14px;
 }
 
+#header-calendar{
+    background-color: #e9e9e9;
+    margin-top: 7px;
+    padding: 15px;
+    font-size: 15px;
+}
+
+#applicants-search-calendar{
+    border-radius: 7px;
+    padding: 25px;
+    height: 60px;
+    font-size: 18px;
+}
 
