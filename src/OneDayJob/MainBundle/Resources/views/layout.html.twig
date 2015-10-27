@@ -1,4 +1,5 @@
 <html>
+{% block head %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -7,8 +8,10 @@
 
     <link href="{{ asset('/bundles/onedayjobfrontend/bootstrap/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('/css/2eca46c_part_1_5_style_6.css') }}" type="text/css" rel="stylesheet">
-    <link href="{{ asset('/css/2eca46c_part_1_8_style_open_resume_9.css') }}" type="text/css" rel="stylesheet">
+    {% block show_resume %}<link href="{{ asset('/css/2eca46c_part_1_8_style_open_resume_9.css') }}" type="text/css" rel="stylesheet">{% endblock %}
     <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+
 
     {% block javascripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -19,7 +22,7 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <![endif]-->
     {% endblock %}
-    {#<script type="text/javascript" src="{{ asset("/js/258ecd2_part_1_8_new_9.js") }}"></script>#}
+    {% block index_js %}<script type="text/javascript" src="{{ asset("/js/258ecd2_part_1_8_new_9.js") }}"></script>{% endblock %}
 
     <script type="text/javascript" src="{{ asset("bundles/onedayjobfrontend/fancyapps/source/jquery.fancybox.js") }}"></script>
     <script type="text/javascript" src="{{ asset("bundles/onedayjobfrontend/fancyapps/lib/jquery.mousewheel-3.0.6.pack.js") }}"></script>
@@ -28,8 +31,17 @@
     <script type="text/javascript" src="{{ asset('/bundles/onedayjobmain/daterangepicker/daterangepicker.js') }}"></script>
     <link rel="stylesheet" type="text/css" href="{{ asset('/bundles/onedayjobmain/daterangepicker/daterangepicker.css') }}" />
 
+    <script type="text/javascript" src="{{ asset('/bundles/onedayjobmain/FormStyler/jquery.formstyler.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('/bundles/onedayjobmain/FormStyler/jquery.formstyler.css') }}" />
+
     <script>
         $(document).ready(function(){
+            $('#select-branch , #select-country').styler({
+                selectSearch: true,
+                selectVisibleOptions : 10
+//                singleSelectzIndex : 100000
+            });
+
             $('input[name="calendar"]').daterangepicker();
             $('.applyBtn').removeClass('btn-success');
             $('.applyBtn').addClass('btn-primary');
@@ -37,7 +49,9 @@
     </script>
 
 </head>
-<body  data-locale="{{ app.request.get('_locale') }}">
+{% endblock%}
+<body>
+{% block header %}
 <header>
     <div class="container-fluid" id="header">
         <form>
@@ -72,11 +86,11 @@
                     {#<div class="col-sm-2"></div>#}
                 {% else %}
                     <div id="header_name_or_registration" class="col-sm-1">
-                        <a href="{{ path('fos_user_registration_register') }}">
+                        <a href="{{ path('registration') }}">
                             <span>{{ 'menu.registration'|trans |upper }}</span>
                         </a>
                     </div>
-                    <div class="col-sm-1" id="header_login_logout">
+                    <div class="col-sm-1 header-sing-in" id="header_login_logout">
                         {{ 'menu.login'|trans|upper }}
                     </div>
                     {#<div class="col-sm-2"></div>#}
@@ -85,8 +99,108 @@
         </form>
     </div>
 </header>
-<div class="container">
+{% endblock%}
+
+{#<div class="container">#}
     {% block body %}{% endblock %}
-</div>
+{#</div>#}
+
+{% block footer %}
+    <footer>
+        <div class="container-fluid" id="footer">
+            <div class="row footer-link">
+                <div class="col-lg-4 col-md-6 col-sm-8 col-sm-offset-2 col-md-offset-3 col-lg-offset-4">
+                    <div class="row">
+                        <div class="col-sm-2 col-sm-offset-1 footer-links"><a href="#"> О нас </a></div>
+                        <div class="col-sm-2 footer-links"><a href="#"> Партнеры </a></div>
+                        <div class="col-sm-2 footer-links"><a href="#"> Компании </a></div>
+                        <div class="col-sm-2 footer-links"><a href="#"> Помощь </a></div>
+                        <div class="col-sm-2 footer-links"><a href="#"> Вопросы </a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row footer-social-networks-label">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <h3>Мы в соц.сетях</h3>
+                </div>
+            </div>
+
+            <div class="row row footer-social-networks">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <a href="#"><img src="{{ asset("bundles/onedayjobmain/images/new/vk.png") }}"></a>
+                    <a href="#"><img src="{{ asset("bundles/onedayjobmain/images/new/facebook.png") }}"></a>
+                    <a href="#"><img src="{{ asset("bundles/onedayjobmain/images/new/twitter.png") }}"></a>
+                    <a href="#"><img src="{{ asset("bundles/onedayjobmain/images/new/ok.png") }}"></a>
+                    <a href="#"><img src="{{ asset("bundles/onedayjobmain/images/new/g_plus.png") }}"></a>
+                    <a href="#"><img src="{{ asset("bundles/onedayjobmain/images/new/a.png") }}"></a>
+                </div>
+            </div>
+
+            <div class="row footer-logo">
+                <div class="col-lg-2 col-lg-offset-5 col-md-4 col-md-offset-4 ">
+                    <img src="{{ asset("bundles/onedayjobmain/images/new/footer-logo1.png") }}">
+                    <img src="{{ asset("bundles/onedayjobmain/images/new/footer-logo2.png") }}"><br/><br/>
+                    <span id="footer-date">@ {{ 'now'| date('Y') }}</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+
+{% block sing_in %}
+    <div class="sing-in-body"></div>
+    <div class="container sing-in-block">
+        <div class="row sing-in-label">
+            <div class="col-sm-2 col-sm-offset-5">
+                <span>ВОЙТИ</span>
+            </div>
+        </div>
+
+        <div class="row sing-in-social-buttons">
+            <div class="col-sm-6 col-sm-offset-3 ">
+                <span>с помощью</span>
+                <a href="#"><img src="{{ asset("bundles/onedayjobmain/images/new/vk.png") }}"></a>
+                <a href="#"><img src="{{ asset("bundles/onedayjobmain/images/new/facebook.png") }}"></a>
+                <a href="#"><img src="{{ asset("bundles/onedayjobmain/images/new/twitter.png") }}"></a>
+                <a href="#"><img src="{{ asset("bundles/onedayjobmain/images/new/ok.png") }}"></a>
+                <a href="#"><img src="{{ asset("bundles/onedayjobmain/images/new/g_plus.png") }}"></a>
+            </div>
+        </div>
+
+        <div class="row sing-in-email">
+            <div class="col-sm-8 col-sm-offset-2 ">
+                <span class="registration-label">Email</span><br>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+
+        <div class="row sing-in-password">
+            <div class="col-sm-8 col-sm-offset-2 ">
+                <span class="registration-label">Пароль</span><br>
+                <input type="password" class="form-control">
+            </div>
+        </div>
+
+        <div class="row sing-in-button">
+            <div class="col-sm-6 col-sm-offset-3 ">
+                <button class="btn btn-primary">ВОЙТИ</button>
+            </div>
+        </div>
+
+        <div class="row sing-in-forgot-password">
+            <div class="col-sm-4 col-sm-offset-4 ">
+                <span>Забыли пароль?</span>
+            </div>
+        </div>
+
+        <div class="row sing-in-registration">
+            <div class="col-sm-6 col-sm-offset-3 ">
+                <a href="{{ path('registration') }}" class="btn btn-primary">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
 </body>
 </html>

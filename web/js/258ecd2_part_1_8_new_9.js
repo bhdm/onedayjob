@@ -78,9 +78,25 @@ $(document).ready(function(){
         $('body').css('overflow','auto');
     });
 
+
+    $sing_in_block = $(".sing-in-block");
+    $sing_in_body = $(".sing-in-body");
+    $('.header-sing-in').click(function () {
+        $sing_in_block.show();
+        $sing_in_body.show();
+        $('body').css('overflow','hidden');
+    });
+
+    $sing_in_body.click(function () {
+        $sing_in_body.hide();
+        $sing_in_block.hide();
+        $('body').css('overflow','auto');
+    });
+
+
     $header_name_or_registration = $('#header_name_or_registration');
     $(window).on("scroll", function() {
-        if ($(window).scrollTop() > 358){
+        if ($(window).scrollTop() > 288){
             $('#header_locale , #header_language').fadeOut("fast", function(){
                 $header_name_or_registration.removeClass('col-sm-offset-3');
                 $('.header-form-select , #header-search-line , #header-form-calendar-div , #header-form-button-div').fadeIn("fast");

@@ -47,8 +47,8 @@ header{
 }
 
 #header_language{
-    margin-top: 10px;
-    margin-left: 50px;
+    margin-top: 12px;
+    /*margin-left: 50px;*/
     color: #959595;
 }
 
@@ -56,15 +56,17 @@ header{
   cursor: hand;
 }
 
-#header_locale , #header_name_or_registration{
-    margin-top: 10px;
+#header_locale{
+    margin-top: 12px;
     font-size: 16px;
     color: #4f4f4f;
 }
 
 #header_name_or_registration{
     text-align: left;
-    /*padding-left: 0px;*/
+    margin-top: 12px;
+    font-size: 16px;
+    color: #4f4f4f;
 }
 
 #header_logo{
@@ -80,6 +82,7 @@ header{
 }
 
 #header_login_logout{
+    cursor: hand;
     margin-top: 7px;
     height: 34px;
     border-radius: 5px;
@@ -152,7 +155,7 @@ header{
 }
 
 .applicants-label{
-    padding: 0px;
+    text-align: right;
 }
 
 .branch-label{
@@ -748,4 +751,85 @@ header{
     padding-left: 90px;
     text-align: left;
     width: 485px;
+}
+
+#footer-date{
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.social-buttons{
+    text-align: center;
+}
+
+.social-buttons > div >  span{
+    display: block;
+    padding: 10px;
+    font-family: "HelveticaThin";
+}
+
+.sing-in-body{
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.50);
+    z-index: 99;
+}
+
+.sing-in-block{
+    border-radius: 10px;
+    display: none;
+    z-index: 100;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -270px;
+    height: 540px;
+    width: 600px;
+    background-color: #e6e6e6;
+    text-align: center;
+}
+
+.sing-in-label{
+    margin-top: 40px;
+}
+
+.sing-in-label > div > span{
+    font-size: 17px;
+    font-family: "HelveticaThin";
+}
+
+.sing-in-social-buttons > div >  span{
+    font-size: 14px;
+    display: block;
+    padding: 10px;
+    font-family: "HelveticaThin";
+}
+
+.sing-in-email{
+    margin-top: 25px;
+}
+
+.sing-in-password{
+    margin-top: 20px;
+}
+
+.sing-in-button{
+    margin-top: 40px;
+}
+
+.sing-in-button > div > button , .sing-in-registration > div > a{
+    width: 240px;
+}
+
+.sing-in-forgot-password{
+    margin-top: 15px;
+}
+
+.sing-in-registration{
+    margin-top: 4   0px;
 }

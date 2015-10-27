@@ -12,8 +12,6 @@ $(document).ready(function(){
 
     });
 
-    //$('input[name="rules"]').checked();
-
     $('#registration-rules').change(function(){
         if($("#registration-rules").prop("checked") )
             $(".registration-applicants-button > button, .registration-employer-button > button").prop("disabled" , false);

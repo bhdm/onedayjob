@@ -21,6 +21,11 @@ class BranchTranslation
     protected $title;
 
     /**
+     * @ORM\Column(type="string", length=120)
+     */
+    protected $icon;
+
+    /**
      * Set title
      *
      * @param string $title
@@ -43,4 +48,22 @@ class BranchTranslation
     {
         return $this->title;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * @param mixed $icon
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
+    }
+
+
 }
