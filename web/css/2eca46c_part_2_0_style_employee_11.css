@@ -1,0 +1,138 @@
+@font-face {
+    font-family: "HelveticaThin";
+    src: url("/bundles/onedayjobfrontend/fonts/HelveticaThin/HelveticaThin.eot");
+    src: url("/bundles/onedayjobfrontend/fonts/HelveticaThin/HelveticaThin.eot?#iefix")format("embedded-opentype"),
+    url("/bundles/onedayjobfrontend/fonts/HelveticaThin/HelveticaThin.woff") format("woff"),
+    url("/bundles/onedayjobfrontend/fonts/HelveticaThin/HelveticaThin.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+.employee-menu{
+    margin-top: 20px;
+}
+
+a.employee-links-menu{
+    /*background-color: #3976c7;*/
+    color:#000000;
+    /*padding: 10px 25px 10px 25px;*/
+    font-size: 17px;
+    text-decoration: none;
+}
+
+.employee-block{
+    margin-top: 40px;
+}
+
+.employee-body{
+    margin-top: 62px;
+    margin-bottom: 50px;
+}
+
+.employee-profile-form{
+    text-align: center;
+}
+
+.employee-profile-email , .employee-profile-password ,  .employee-profile-lastname , .employee-profile-birthday{
+    margin-top: 5px;
+}
+
+.employee-profile-name{
+    margin-top: 55px;
+}
+
+.employee-profile-email > input , .employee-profile-password  > input,  .employee-profile-lastname > input , .employee-profile-birthday > input , .employee-profile-name > input{
+    font-size: 17px;
+    height: 45px;
+    width: 90%;
+    margin-right: 0px;
+    display: inline-block;
+}
+
+.employee-profile-photo-balance{
+    text-align: center;
+    margin-top: 27px;
+}
+
+.employee-profile-change-photo{
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+.employee-profile-add-photo{
+    margin-top: 5px;
+}
+
+.employee-profile-add-photo > button{
+    width: 180px;
+    border-radius: 2px;
+}
+
+
+.employee-profile-balance-label{
+    margin-top: 30px;
+}
+
+.employee-profile-balance{
+    margin-top: 5px;
+    font-size: 30px;
+}
+
+.employee-profile-balance-increase{
+    margin-top: 5px;
+}
+
+.employee-profile-balance-increase > button{
+    width: 180px;
+    border-radius: 2px;
+}
+
+.employee-resume-data > div >div.col-sm-11{
+    padding-left: 0px;
+}
+
+.employee-resume-data > div{
+    margin-top: 15px;
+}
+
+.employee-resume-data{
+    height: 200px;
+}
+
+.employee-resume-photo , .employee-resume-data{
+    background-color: #ffffff;
+    height: 200px;
+}
+
+.employee-resume-name{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.employee-resume-edited , .employee-resume-shows , .employee-resume-visible{
+    font-family: "HelveticaThin";
+}
+
+.employee-resume-buttons > div > a{
+    width: 150px;
+    border-radius: 2px;
+}
+
+.employee-resume-create-new{
+    text-align: center;
+    margin-top: 30px;
+    padding-left: 25px;
+}
+
+.employee-resume-create-new > div > a {
+    width: 250px;
+    border-radius: 2px;
+}
+
+.employee-resume-photo{
+    padding-left: 0px;
+}
+
+.employee-menu > div{
+    padding-left: 0px;
+}

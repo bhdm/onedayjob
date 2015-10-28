@@ -1,2 +1,36 @@
 {% extends 'OneDayJobMainBundle::layout.html.twig' %}
+{% block index_js %}{% endblock %}
 
+{% block head %}
+    {{ parent() }}
+    <link href="{{ asset('/css/2eca46c_part_2_0_style_employee_11.css') }}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="container employee-body">
+        <div class="row employee-menu">
+            <div class="col-sm-2 col-sm-offset-1">
+                <a class="employee-links-menu"  href="">ПРОФИЛЬ</a>
+            </div>
+            <div class="col-sm-2">
+                <a class="employee-links-menu" href="">МОИ ОТКЛИКИ</a>
+            </div>
+            <div class="col-sm-2">
+                <a class="employee-links-menu" href="">ИЗБРАННОЕ</a>
+            </div>
+            <div class="col-sm-2">
+                <a class="employee-links-menu" href="">РЕЗЮМЕ</a>
+            </div>
+            <div class="col-sm-2">
+                <a class="employee-links-menu" href="">УПРАВЛЕНИЕ</a>
+            </div>
+        </div>
+        <div class="row employee-block">
+            {% block employee_body %}{% endblock %}
+        </div>
+
+        {% block employee_extra_body %}{% endblock %}
+    </div>
+
+
+{% endblock %}

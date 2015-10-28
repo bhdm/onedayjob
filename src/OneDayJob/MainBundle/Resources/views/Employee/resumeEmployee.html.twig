@@ -1,0 +1,55 @@
+{% extends "OneDayJobMainBundle:Employee:menuEmployee.html.twig" %}
+
+{% block employee_body %}
+    <div class="col-sm-3 col-sm-offset-1 employee-resume-photo">
+        <img src="{{  asset("bundles/onedayjobmain/images/new/11.png") }}">
+    </div>
+    <div class="col-sm-7 employee-resume-data">
+        <div class="row employee-resume-name">
+            <div class="col-sm-1">
+                <img src="{{ asset("bundles/onedayjobmain/images/new/man-gray.png") }}">
+            </div>
+            <div class="col-sm-11">
+                <span>ПЕТРОВА ЕЛЕНА ИВАНОВНА</span>
+            </div>
+        </div>
+        <div class="row employee-resume-edited">
+            <div class="col-sm-1">
+                <img src="{{ asset("bundles/onedayjobmain/images/new/pen.png") }}">
+            </div>
+            <div class="col-sm-11">
+                <span>Отредвктировано: 16.01.2015</span>
+            </div>
+        </div>
+        <div class="row employee-resume-shows">
+            <div class="col-sm-1">
+                <img src="{{ asset("bundles/onedayjobmain/images/new/man-gray.png") }}">
+            </div>
+            <div class="col-sm-11">
+                <span>Просмотров: 156</span>
+            </div>
+        </div>
+        <div class="row employee-resume-visible">
+             <div class="col-sm-1">
+                <img src="{{ asset("bundles/onedayjobmain/images/new/man-gray.png") }}">
+            </div>
+            <div class="col-sm-11">
+                <span>Видно всему интернету</span>
+            </div>
+        </div>
+        <div class="row employee-resume-buttons">
+            <div class="col-sm-11 col-sm-offset-1">
+                <a class="btn btn-primary">ПРОСМОТР</a>
+                <a class="btn btn-primary">РЕДАКТИРОВАТЬ</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block employee_extra_body %}
+    <div class="row employee-resume-create-new">
+        <div class="col-sm-4 col-sm-offset-4">
+            <a class="btn btn-primary">СОЗДАТЬ НОВОЕ РЕЗЮМЕ</a>
+        </div>
+    </div>
+{% endblock %}

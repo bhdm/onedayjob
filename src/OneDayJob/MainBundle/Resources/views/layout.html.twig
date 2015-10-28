@@ -23,6 +23,7 @@
         <![endif]-->
     {% endblock %}
     {% block index_js %}<script type="text/javascript" src="{{ asset("/js/258ecd2_part_1_8_new_9.js") }}"></script>{% endblock %}
+    <script type="text/javascript" src="{{ asset("/js/258ecd2_part_2_0_form-search_11.js") }}"></script>
 
     <script type="text/javascript" src="{{ asset("bundles/onedayjobfrontend/fancyapps/source/jquery.fancybox.js") }}"></script>
     <script type="text/javascript" src="{{ asset("bundles/onedayjobfrontend/fancyapps/lib/jquery.mousewheel-3.0.6.pack.js") }}"></script>
@@ -36,13 +37,17 @@
 
     <script>
         $(document).ready(function(){
-            $('#select-branch , #select-country').styler({
+            $('#select-branch , #select-country , #select-city').styler({
                 selectSearch: true,
                 selectVisibleOptions : 10
 //                singleSelectzIndex : 100000
             });
 
-            $('input[name="calendar"]').daterangepicker();
+            $('input[name="calendar"]').daterangepicker({
+                locale: {
+                    format: 'YYYY-MM-DD'
+                }
+            });
             $('.applyBtn').removeClass('btn-success');
             $('.applyBtn').addClass('btn-primary');
         });
@@ -54,7 +59,7 @@
 {% block header %}
 <header>
     <div class="container-fluid" id="header">
-        <form>
+        <form method="post" class="header_form" action="{{ path("resume_result") }}">
             <div class="raw">
                 <div id="header_logo" class="col-sm-2"><a href="{{ path('mainpage') }}"><img src="{{ asset("bundles/onedayjobmain/images/new/logo.png") }}"></a></div>
                 <div class="col-sm-1  header-form-select header-form-select-index">

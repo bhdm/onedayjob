@@ -15,6 +15,90 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class ResumeController extends Controller
 {
 
+    /**
+     * @Route("/resume/result", name="resume_result")
+     * @Template()
+     */
+
+    public function searchAction(Request $request)
+    {
+        $city  			= filter_var($request->get('city', 0), FILTER_SANITIZE_NUMBER_INT);
+        $specialization = filter_var($request->get('specialization', 0), FILTER_SANITIZE_NUMBER_INT);
+        $country 	    = filter_var($request->query->get('country', 0), FILTER_SANITIZE_NUMBER_INT);
+        $branch 		= filter_var($request->get('branch', 0), FILTER_SANITIZE_NUMBER_INT);
+        $text 			= filter_var($request->get('text'), FILTER_SANITIZE_STRING);
+        $currency 		= filter_var($request->get('currency', 'rub'), FILTER_SANITIZE_STRING);
+        $salary 		= filter_var($request->get('salary', 0), FILTER_SANITIZE_NUMBER_INT);
+        $term = $request->get('calendar');
+
+        $arr_term = explode(" - " , $term);
+
+        $term_from = $arr_term[0];
+        $term_to = $arr_term[1];
+
+        $em = $this->getDoctrine()->getManager();
+
+        $builder =  $this->getDoctrine()->getRepository("OneDayJobApiBundle:Resume")->createQueryBuilder("r");
+        if ($text) {
+            $builder->Where("r.specialty  LIKE :text");
+            $builder->setParameter('text', '%'.$text.'%');
+        }
+        if ($city && $city != -1) {
+            $builder->andWhere('r.city = :city');
+            $builder->setParameter('city', $city);
+        }
+
+        if ($city && $city != -1) {
+            $builder->andWhere('r.city = :city');
+            $builder->setParameter('city', $city);
+        }
+
+
+        if ($salary) {
+            $builder->andWhere('r.currency = :currency');
+            $builder->setParameter('currency', $currency);
+
+            $builder->andWhere('r.salary <= :salary');
+            $builder->setParameter('salary', $salary);
+        }
+
+
+        if ($term_from || $term_to) {
+            // This check needs when we have term_from and term_to it means that term_to must be more than term_from!
+            $flag = true;
+            if(($term_from >= $term_to) && ($term_from && $term_to)){
+                $flag = false;
+            }
+
+
+            if($term_from && $flag){
+                $builder->andWhere('r.termfrom > :termfrom');
+                $builder->setParameter('termfrom', $term_from);
+            }
+
+            if($term_to && $flag){
+                $builder->andWhere('r.termto < :termto');
+                $builder->setParameter('termto', $term_to);
+            }
+
+        }
+
+        if ($branch && $branch != -1) {
+            $builder->andWhere('r.branch = :branch');
+            $builder->setParameter('branch', $branch);
+        }
+
+//        $geo =$this->geoOrientation($this->getRequest());
+//        $vars['local_country'] = $geo["country"];
+//        $vars['local_country_id'] = $geo["id"];
+//        $vars['countries'] 		 = $em->getRepository('OneDayJobApiBundle:Country')->findAll();
+//        $vars['branches'] 		 = $em->getRepository('OneDayJobApiBundle:Branch')->findAll();
+//        $vars = array();
+        $resumes  = $builder->getQuery()->getResult();
+//        $vars['title'] = 'Список резюме';
+
+        return $this->render('OneDayJobMainBundle:Resume:resultResume.html.twig', ['resumes' => $resumes]);
+    }
 
 
 //    protected function geoOrientation($request)

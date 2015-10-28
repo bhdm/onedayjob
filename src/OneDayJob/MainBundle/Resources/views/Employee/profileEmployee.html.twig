@@ -1,0 +1,47 @@
+{% extends "OneDayJobMainBundle:Employee:menuEmployee.html.twig" %}
+
+{% block employee_body %}
+    <div class="col-sm-5 col-sm-offset-1 employee-profile-form">
+        <div class="row employee-profile-email">
+            <span class="registration-label">Email</span><br>
+            <input type="text" class="form-control"> <img src="{{ asset("bundles/onedayjobmain/images/new/pen.png") }}">
+
+        </div>
+        <div class="row employee-profile-password">
+            <span class="registration-label">Пароль</span><br>
+            <input type="password" class="form-control"> <img src="{{ asset("bundles/onedayjobmain/images/new/pen.png") }}">
+        </div>
+        <div class="row employee-profile-name">
+            <span class="registration-label">Имя</span><br>
+            <input type="text" class="form-control"> <img src="{{ asset("bundles/onedayjobmain/images/new/pen.png") }}">
+        </div>
+        <div class="row employee-profile-lastname">
+            <span class="registration-label">Фамилия</span><br>
+            <input type="text" class="form-control"> <img src="{{ asset("bundles/onedayjobmain/images/new/pen.png") }}">
+        </div>
+        <div class="row employee-profile-birthday">
+            <span class="registration-label">date</span><br>
+            <input type="date" class="form-control"> <img src="{{ asset("bundles/onedayjobmain/images/new/pen.png") }}">
+        </div>
+    </div>
+    <div class="col-sm-3  col-sm-offset-2 employee-profile-photo-balance">
+        <div class="row employee-profile-photo">
+            <img src="{{  asset("bundles/onedayjobmain/images/new/11.png") }}">
+        </div>
+        <div class="row employee-profile-change-photo">
+            <span>Изменить фото</span>
+        </div>
+        <div class="row employee-profile-add-photo">
+            <button class="btn btn-primary">ДОБАВИТЬ ФОТО</button>
+        </div>
+        <div class="row employee-profile-balance-label">
+            <span>ВАШ БАЛАНС</span>
+        </div>
+        <div class="row employee-profile-balance">
+            <span>600 р</span>
+        </div>
+        <div class="row employee-profile-balance-increase">
+            <button class="btn btn-primary">ПОПОЛНИТЬ</button>
+        </div>
+    </div>
+{% endblock %}

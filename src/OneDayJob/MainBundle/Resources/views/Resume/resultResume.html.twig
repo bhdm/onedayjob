@@ -1,0 +1,13 @@
+{% extends "OneDayJobMainBundle:Default:index.html.twig" %}
+
+{% block head %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function(){
+            $('.result-search').show();
+        });
+    </script>
+{% endblock %}
+{% block result %}
+   {{  include ("OneDayJobMainBundle:Resume:_resume.html.twig" , {'resumes' : resumes}) }}
+{% endblock %}

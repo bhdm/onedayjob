@@ -45,9 +45,9 @@
                 </div>
 
                 <div class="col-sm-6 header-new">
-                    <form method="post">
+                    <form method="post"  class="header_form" action="{{ path("resume_result") }}">
                         <div class="col-sm-2 header-form-select">
-                            <select name="applicants-label">
+                            <select name="type-search">
                                 <option class="header-form-option" value="1">СОИСКАТЕЛИ</option>
                                 <option class="header-form-option" value="2">ВАКАНСИИ</option>
                                 <option class="header-form-option" value="3">КОМПАНИИ</option>
