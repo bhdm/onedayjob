@@ -15,6 +15,103 @@ class VacancyController extends Controller
 {
 	# Vacancy
 
+
+    /**
+     * @Route("/vacancy/result", name="vacancy_result")
+     * @Template()
+     */
+    public function searchAction(Request $request)
+    {
+        $branch 		= filter_var($request->query->get('branch', 0), FILTER_SANITIZE_NUMBER_INT);
+        $text 			= $request->get('text');
+        $currency 		= filter_var($request->query->get('currency', 'rub'), FILTER_SANITIZE_STRING);
+        $country 	    = filter_var($request->query->get('country', 0), FILTER_SANITIZE_NUMBER_INT);
+        $salary 		= filter_var($request->query->get('salary', 0), FILTER_SANITIZE_NUMBER_INT);
+
+        $term = $request->get('calendar');
+
+        $arr_term = explode(" - " , $term);
+
+        $term_from = $arr_term[0];
+        $term_to = $arr_term[1];
+
+//		$fm = $this->get('padam87_search.filter.manager');
+//		$filter = new \Padam87\SearchBundle\Filter\Filter(['title' => '*' . $text . '*'], 'OneDayJobApiBundle:Vacancy', 'v');
+//		$builder = $fm->createQueryBuilder($filter);
+//		$builder->select('v, c, city');
+
+
+//        $em = $this->getDoctrine()->getManager();
+//
+//        $builder = $em->createQueryBuilder('v');
+//        $builder->select('v');
+//        $builder->from('OneDayJobApiBundle:Vacancy','v');
+
+        $builder =  $this->getDoctrine()->getRepository("OneDayJobApiBundle:Vacancy")->createQueryBuilder("v");
+        if ($text) {
+            $builder->Where("v.title  LIKE :text");
+            $builder->setParameter('text', '%'.$text.'%');
+        }
+
+        if ($salary) {
+            $builder->andWhere('v.currency = :currency');
+            $builder->setParameter('currency', $currency);
+
+            $builder->andWhere('v.salary_per_month <= :salary');
+            $builder->setParameter('salary', $salary);
+        }
+
+        if ($term_from || $term_to) {
+            // This check needs when we have term_from and term_to it means that term_to must be more than term_from!
+            $flag = true;
+            if(($term_from >= $term_to) && ($term_from && $term_to)){
+                $flag = false;
+            }
+
+
+            if($term_from && $flag){
+                $builder->andWhere('r.termfrom > :termfrom');
+                $builder->setParameter('termfrom', $term_from);
+            }
+
+            if($term_to && $flag){
+                $builder->andWhere('r.termto < :termto');
+                $builder->setParameter('termto', $term_to);
+            }
+
+        }
+
+
+        if ($country && $country != -1) {
+            $builder->andWhere('v.country = :country');
+            $builder->setParameter('country', $country);
+        }
+
+
+        if ($branch) {
+            $builder->andWhere('v.branch = :branch');
+            $builder->setParameter('branch', $branch);
+        }
+
+        $builder->leftJoin('v.company', 'c');
+        $builder->leftJoin('v.city', 'city');
+        $builder->orderBy('v.up', 'DESC');
+
+        $em = $this->getDoctrine()->getEntityManager();
+
+//        $geo =$this->geoOrientation($this->getRequest());
+//        $vars['local_country'] = $geo["country"];
+//        $vars['local_country_id'] = $geo["id"];
+//        $vars['countries'] 		 = $em->getRepository('OneDayJobApiBundle:Country')->findAll();
+//        $vars['specializations'] = $em->getRepository('OneDayJobApiBundle:Specialization')->findAll();
+//        $vars['branches'] 		 = $em->getRepository('OneDayJobApiBundle:Branch')->findAll();
+
+        $vacancies  = $builder->getQuery()->getResult();
+
+        return $this->render('OneDayJobMainBundle:Vacancy:resultVacancy.html.twig',  ['vacancies' => $vacancies]);
+    }
+
+
 	public function getUrgentVacanciesAction(Request $request, $page, $ipp)
 	{
         $query = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Vacancy')->getVacancies();

@@ -694,7 +694,7 @@ header{
     font-size: 15px;
 }
 
-#applicants-search-calendar{
+#extended-search-calendar , #applicants-search-calendar{
     border-radius: 7px;
     padding: 25px;
     height: 50px;

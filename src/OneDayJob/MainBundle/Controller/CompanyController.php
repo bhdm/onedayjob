@@ -13,6 +13,32 @@ class CompanyController extends Controller
 {
     # Company
 
+    /**
+     * @Route("/company/result", name="company_result")
+     * @Template()
+     */
+    public function searchAction(Request $request)
+    {
+
+        $city = filter_var($request->get('city', 0), FILTER_SANITIZE_NUMBER_INT);
+        $company = $request->get('text');
+
+
+        $builder =  $this->getDoctrine()->getRepository("OneDayJobApiBundle:Company")->createQueryBuilder("c");
+        if ($company) {
+            $builder->Where("c.name  LIKE :text");
+            $builder->setParameter('text', '%'.$company.'%');
+        }
+        if ($city) {
+            $builder->andWhere('c.city = :city');
+            $builder->setParameter('city', $city);
+        }
+
+        $companies = $builder->getQuery()->getResult();
+
+        return $this->render('OneDayJobMainBundle:Company:resultCompany.html.twig',  ['companies' => $companies]);
+    }
+
     public function get_companiesAction()
     {
         $companies = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Company')->leftJoinCompanyCityImage();

@@ -152,10 +152,10 @@
                             </select>
                         </div>
                         <div class="col-sm-3">
-                            <input id="applicants-search-line-extend" type="text" name="title" class="form-control" placeholder="КЛЮЧЕВОЕ СЛОВО">
+                            <input id="applicants-search-line-extend" type="text" name="text" class="form-control" placeholder="КЛЮЧЕВОЕ СЛОВО">
                         </div>
                         <div class="col-sm-2">
-                            <input type="text" name="calendar" id="applicants-search-calendar" class="form-control">
+                            <input type="text" name="calendar" id="extended-search-calendar" class="form-control">
                         </div>
                         <div class="col-sm-2">
                             <button type="submit" class="btn btn-primary btn-lg applicants-button-search">{{ 'form.search.search'|trans }}</button>
@@ -187,7 +187,7 @@
                                     <img src="{{  asset("bundles/onedayjobmain/images/new/ruble.png") }}">
                                     <img src="{{  asset("bundles/onedayjobmain/images/new/dollar.png") }}">
                                     <img src="{{  asset("bundles/onedayjobmain/images/new/euro.png") }}">
-                                    <input type="hidden" value="1">{#!!!!!!!!!!!!!!!!!!!!!11111!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#}
+                                    <input type="hidden" name="currency" value="rub">{#!!!!!!!!!!!!!!!!!!!!!11111!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#}
                                 </div>
                             </div>
                         </div>

@@ -7,15 +7,30 @@ $(document).ready(function() {
         var arr_url = old_url.split('/');
 
         if (num == 1) {
+            $('#header-calendar').prop("disabled" , false);
             arr_url[arr_url.length - 2] = "resume";
+            $disabled.styler('destroy');
+            $disabled.styler({
+                selectSearch: true
+            });
         }
 
         if (num == 2) {
+            $('#header-calendar').prop("disabled" , false);
             arr_url[arr_url.length - 2] = "vacancy";
+            $disabled.styler('destroy');
+            $disabled.styler({
+                selectSearch: true
+            });
         }
 
         if (num == 3) {
+            $('#header-calendar').prop("disabled" , true);
             arr_url[arr_url.length - 2] = "company";
+            $disabled.styler('destroy');
+            $disabled.styler({
+                selectSearch: true
+            });
         }
 
         var new_url = arr_url.join("/");
@@ -29,15 +44,30 @@ $(document).ready(function() {
         var arr_url = old_url.split('/');
 
         if (num == 1) {
+            $('#applicants-search-calendar').prop("disabled" , false);
             arr_url[arr_url.length - 2] = "resume";
+            $disabled.styler('destroy');
+            $disabled.styler({
+                selectSearch: true
+            });
         }
 
         if (num == 2) {
+            $('#applicants-search-calendar').prop("disabled" , false);
             arr_url[arr_url.length - 2] = "vacancy";
+            $disabled.styler('destroy');
+            $disabled.styler({
+                selectSearch: true
+            });
         }
 
         if (num == 3) {
+            $('#applicants-search-calendar').prop("disabled" , true);
             arr_url[arr_url.length - 2] = "company";
+            $disabled.styler('destroy');
+            $disabled.styler({
+                selectSearch: true
+            });
         }
 
         var new_url = arr_url.join("/");
@@ -51,15 +81,33 @@ $(document).ready(function() {
         var arr_url = old_url.split('/');
 
         if (num == 1) {
+            $('#extended-search-calendar ,#select-branch ,#salary-search-line ').prop("disabled" , false);
+            $disabled = $('#extended-search-calendar ,#select-branch ');
             arr_url[arr_url.length - 2] = "resume";
+            $disabled.styler('destroy');
+            $disabled.styler({
+                selectSearch: true
+            });
         }
 
         if (num == 2) {
+            $('#extended-search-calendar ,#select-branch ,#salary-search-line ').prop("disabled" , false);
+            $disabled = $('#extended-search-calendar ,#select-branch ');
             arr_url[arr_url.length - 2] = "vacancy";
+            $disabled.styler('destroy');
+            $disabled.styler({
+                selectSearch: true
+            });
         }
 
         if (num == 3) {
+            $('#extended-search-calendar ,#select-branch ,#salary-search-line ').prop("disabled" , true);
+            $disabled = $('#extended-search-calendar ,#select-branch ');
             arr_url[arr_url.length - 2] = "company";
+            $disabled.styler('destroy');
+            $disabled.styler({
+                selectSearch: true
+            });
         }
 
         var new_url = arr_url.join("/");

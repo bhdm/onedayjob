@@ -23,10 +23,8 @@ class ResumeController extends Controller
     public function searchAction(Request $request)
     {
         $city  			= filter_var($request->get('city', 0), FILTER_SANITIZE_NUMBER_INT);
-        $specialization = filter_var($request->get('specialization', 0), FILTER_SANITIZE_NUMBER_INT);
-        $country 	    = filter_var($request->query->get('country', 0), FILTER_SANITIZE_NUMBER_INT);
         $branch 		= filter_var($request->get('branch', 0), FILTER_SANITIZE_NUMBER_INT);
-        $text 			= filter_var($request->get('text'), FILTER_SANITIZE_STRING);
+        $text 			= $request->get('text');
         $currency 		= filter_var($request->get('currency', 'rub'), FILTER_SANITIZE_STRING);
         $salary 		= filter_var($request->get('salary', 0), FILTER_SANITIZE_NUMBER_INT);
         $term = $request->get('calendar');
