@@ -139,12 +139,12 @@ header{
 #applicants-search-line-extend{
     border-radius: 7px;
     padding: 25px;
-    height: 60px;
+    height: 50px;
     font-size: 18px;
     font-family: "HelveticaThin";
 }
 
-.applicants-label > select{
+.applicants-label > select , .extended-search-label > select{
     border-width: 0px;
     background-color: inherit;
     margin-top: 11px;
@@ -154,7 +154,7 @@ header{
     padding-top: 5px;
 }
 
-.applicants-label{
+.applicants-label , .extended-search-label{
     text-align: right;
 }
 
@@ -512,12 +512,12 @@ header{
     border-radius: 5px;
 }
 
-.applicants-label{
+.applicants-label , .extended-search-label{
     margin-top: 0px;
     font-weight: bold;
 }
 
-.applicants-label > select{
+.applicants-label > select , .extended-search-label > select{
     outline: none;
 }
 
@@ -610,7 +610,7 @@ header{
 #salary-search-line{
     border-radius: 7px;
     padding: 25px;
-    height: 60px;
+    height: 50px;
     font-size: 18px;
     /*font-family: "Helvetica-3-Thin";*/
     color: #000;
@@ -831,5 +831,19 @@ header{
 }
 
 .sing-in-registration{
-    margin-top: 4   0px;
+    margin-top: 40px;
+}
+
+.jq-selectbox__trigger-arrow {
+    top: 22px!important;
+}
+
+.jq-selectbox__select {
+    height: 50px!important;
+    padding: 8px 45px 8px 10px!important;
+}
+
+#select-branch-styler , #select-country-styler , #select-city-styler{
+    width: 100%;
+    border-radius: 7px;
 }

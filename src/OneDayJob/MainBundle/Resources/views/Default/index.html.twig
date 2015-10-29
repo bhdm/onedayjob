@@ -111,7 +111,7 @@
 
         {#SEARCH#}
         <div class="row applicants">
-            <form method="post"  class="header_form" action="{{ path("resume_result") }}">
+            <form method="post"  class=" applicants_form" action="{{ path("resume_result") }}">
                 <div class="col-sm-2 col-sm-offset-1 applicants-label">
                     <select name="applicants-label">
                         <option class="applicants-option" value="1">СОИСКАТЕЛИ</option>
@@ -142,9 +142,9 @@
 
         <div id="body-extended-search">
             <div id="extended-search">
-                <form>
+                <form method="post"  class="extended_search_form" action="{{ path("resume_result") }}">
                     <div class="row">
-                        <div class="col-sm-1 col-sm-offset-2 applicants-label">
+                        <div class="col-sm-1 col-sm-offset-2  extended-search-label">
                             <select name="applicants-label">
                                 <option class="applicants-option" value="1">СОИСКАТЕЛИ</option>
                                 <option class="applicants-option" value="2">ВАКАНСИИ</option>
@@ -165,7 +165,7 @@
                     <div class="row select-branch-extended-search">
                         <div class="col-sm-1 col-sm-offset-2 branch-label"><span id="label-branch-extended-search">ОТРАСЛЬ</span></div>
                         <div class="col-sm-3">
-                            <select name="branch" id="select-branch" class="cccc" data-placeholder="{{ 'content.search.choose_please'|trans }}">
+                            <select name="branch" id="select-branch" data-placeholder="{{ 'content.search.choose_please'|trans }}" >
                                 <option  value="-1" disabled selected>{{ 'content.search.select_any_branch'|trans|upper }}</option>
                                 {% set branch_value = app.request.get('branch', null) %}
 
@@ -187,6 +187,7 @@
                                     <img src="{{  asset("bundles/onedayjobmain/images/new/ruble.png") }}">
                                     <img src="{{  asset("bundles/onedayjobmain/images/new/dollar.png") }}">
                                     <img src="{{  asset("bundles/onedayjobmain/images/new/euro.png") }}">
+                                    <input type="hidden" value="1">{#!!!!!!!!!!!!!!!!!!!!!11111!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#}
                                 </div>
                             </div>
                         </div>
@@ -195,36 +196,30 @@
                     <div class="row select-country-extended-search">
                         <div class="col-sm-1 col-sm-offset-2 branch-label"><span id="label-country-extended-search">СТРАНА</span></div>
                         <div class="col-sm-3">
-                            <select name="country" id="select-country" data-placeholder="{{ 'content.search.choose_please'|trans }}">
-                                <option value="-1" disabled selected >{{ 'content.search.select_any_country'|trans|upper }}</option>
-                                {#{% if local_country_id %}<option value="{{ local_country_id }}" selected>{{ local_country }}</option>{% endif %}#}
-                                {% set country_value = app.request.get('country', null) %}
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <select name="country" id="select-country" data-placeholder="{{ 'content.search.choose_please'|trans }}">
+                                        <option value="-1" disabled selected >{{ 'content.search.select_any_country'|trans|upper }}</option>
+                                        {#{% if local_country_id %}<option value="{{ local_country_id }}" selected>{{ local_country }}</option>{% endif %}#}
+                                        {% set country_value = app.request.get('country', null) %}
 
-                                {% if country_value is not null %}
-                                    {% set cities = helper.getCities(country_value) %}
-                                {% endif %}
+                                        {% if country_value is not null %}
+                                            {% set cities = helper.getCities(country_value) %}
+                                        {% endif %}
 
-                                {% for country in data.countries %}
-                                    <option value="{{ country.id }}"{{ country.id == country_value ? ' selected="selected" ' : '' }}>{{ country.translate.title }}</option>
-                                {% endfor %}
-                            </select>
+                                        {% for country in data.countries %}
+                                            <option value="{{ country.id }}"{{ country.id == country_value ? ' selected="selected" ' : '' }}>{{ country.translate.title }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <select name="city" id="select-city" data-placeholder="{{ 'content.search.choose_please'|trans }}">
+                                        <option value="-1" disabled selected>{{ 'content.search.select_any_city'|trans| upper }}</option>
 
-                            <select name="city" id="select-city" data-placeholder="{{ 'content.search.choose_please'|trans }}">
-                                <option value="-1" disabled selected>{{ 'content.search.select_any_city'|trans| upper }}</option>
+                                    </select>
+                                </div>
+                            </div>
 
-                                {% if cities is defined %}
-                                    {% set city_value = app.request.get('city', null) %}
-
-                                    {% for city in cities %}
-                                        <option value="{{ city.id }}"{{ city.id == city_value ? ' selected="selected" ' : '' }}>{{ city.translate.title }}</option>
-                                    {% endfor %}
-                                {% else %}
-                                    {% for city in data.cities %}
-                                        <option value="{{ city.id }}">{{ city.translate.title }}</option>
-                                    {% endfor %}
-                                {% endif %}
-
-                            </select>
 
                         </div>
                     </div>

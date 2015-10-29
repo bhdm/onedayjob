@@ -185,13 +185,12 @@ class DefaultController extends Controller
 			->setParameter('country', $request->get('country_id'))
 			->getQuery()
 			->getResult();
-
-		$locale = $request->getLocale();
+//		$locale = $request->getLocale();
 
 		foreach ($cities as $city) {
 			$result[] = [
 				'id' => $city->getId(),
-				'title' => $city->translate($locale)->getTitle()
+				'title' => $city->translate("ru")->getTitle()
 			];
 		}
 
