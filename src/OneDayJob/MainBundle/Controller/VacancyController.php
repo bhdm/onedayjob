@@ -147,11 +147,18 @@ class VacancyController extends Controller
      */
     public function showVacancyAction(Request $request, $id, $parameters = null){
         $vacancy = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Vacancy')->find($id);
-        if (!$vacancy){
-//            return $this->createAccessDeniedException('Данной вакансии не существует');
-        }
         $referer = $request->headers->get('referer');
-        return $this->render('OneDayJobMainBundle:Vacancy:vacancy_show.html.twig', ['vacancy' => $vacancy , 'referer' => $referer]);
+
+        $arr = explode("/" , $referer);
+        $label = $arr[count($arr) - 2];
+        if($label == "test" || $label == "") $trans_label = "ГЛАВНАЯ СТРАНИЦА";
+        if($label == "show"){
+            $id_company = $arr[count($arr) - 1];
+            $company = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Company')->find($id_company);
+            $trans_label = $company->getName();
+        }
+
+        return $this->render('OneDayJobMainBundle:Vacancy:vacancy_show.html.twig', ['vacancy' => $vacancy , 'referer' => $referer , 'label' => $trans_label]);
     }
 
     public function similarVacancyAction($id)

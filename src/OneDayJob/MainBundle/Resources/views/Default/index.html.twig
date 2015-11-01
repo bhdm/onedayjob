@@ -184,10 +184,10 @@
                                     <input id="salary-search-line" name="salary" type="text" class="form-control" placeholder="ОПЛАТА">
                                 </div>
                                 <div class="col-sm-6 salary-extended-search-imgs">
-                                    <img src="{{  asset("bundles/onedayjobmain/images/new/ruble.png") }}">
-                                    <img src="{{  asset("bundles/onedayjobmain/images/new/dollar.png") }}">
-                                    <img src="{{  asset("bundles/onedayjobmain/images/new/euro.png") }}">
-                                    <input type="hidden" name="currency" value="rub">{#!!!!!!!!!!!!!!!!!!!!!11111!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#}
+                                    <img class="extended-search-currency" value="rub" src="{{  asset("bundles/onedayjobmain/images/new/ruble.png") }}">
+                                    <img class="extended-search-currency" value="usd" src="{{  asset("bundles/onedayjobmain/images/new/dollar.png") }}">
+                                    <img class="extended-search-currency" value="euro" src="{{  asset("bundles/onedayjobmain/images/new/euro.png") }}">
+                                    <input type="hidden" id="extended-search-currency-hidden" name="currency" value="rub">{#!!!!!!!!!!!!!!!!!!!!!11111!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#}
                                 </div>
                             </div>
                         </div>

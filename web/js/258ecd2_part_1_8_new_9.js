@@ -111,4 +111,10 @@ $(document).ready(function(){
     });
 
 
+    $currency =  $('#extended-search-currency-hidden');
+    $('.extended-search-currency').click(function(){
+        var value = $(this).attr("value");
+        $currency.attr("value" , value);
+    });
+
 });

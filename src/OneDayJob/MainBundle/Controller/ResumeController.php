@@ -161,7 +161,12 @@ class ResumeController extends Controller
         $result = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Resume')->find($id);
         $referer = $request->headers->get('referer');
 
-        return $this->render('OneDayJobMainBundle:Resume:resume_open.html.twig', ['resume' => $result , 'referer' => $referer]);
+        $arr = explode("/" , $referer);
+        $label = $arr[count($arr) - 2];
+
+        $rus_label = "ГЛАВНАЯ СТРАНИЦА";
+
+        return $this->render('OneDayJobMainBundle:Resume:resume_open.html.twig', ['resume' => $result , 'referer' => $referer , 'label' => $rus_label]);
     }
 
     public function similarResumeAction($id)

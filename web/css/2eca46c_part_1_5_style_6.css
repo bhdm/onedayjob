@@ -847,3 +847,17 @@ header{
     width: 100%;
     border-radius: 7px;
 }
+
+.jq-selectbox__dropdown > ul , .jq-selectbox__select-text{
+    font-family: "HelveticaThin";
+    font-size: 18px;
+}
+
+.jq-selectbox__select{
+    background: none!important;
+    background-color: #ffffff!important;
+}
+
+.extended-search-currency{
+    cursor: pointer;
+}

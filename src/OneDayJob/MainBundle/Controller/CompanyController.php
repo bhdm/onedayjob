@@ -79,13 +79,18 @@ class CompanyController extends Controller
         $result = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Company')->find($id);
         $referer = $request->headers->get('referer');
 
+        $arr = explode("/" , $referer);
+        $label = $arr[count($arr) - 2];
+
+        $rus_label = "ГЛАВНАЯ СТРАНИЦА";
+
         $number_vacancies = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Vacancy')->number_of_vacancies($result);
 
         $array_vacancies = $this->getDoctrine()->getRepository('OneDayJobApiBundle:Vacancy')->branches_of_vacancies($result);
 
         $result->setNumberVacancies($number_vacancies[0][1]);
 
-        return $this->render('OneDayJobMainBundle:Company:company_show.html.twig', ['companies' => $result , 'referer' => $referer , 'vacancies' => $array_vacancies]);
+        return $this->render('OneDayJobMainBundle:Company:company_show.html.twig', ['companies' => $result , 'referer' => $referer , 'vacancies' => $array_vacancies , 'label' => $rus_label]);
     }
 
     public function similarCompanyAction($id)
