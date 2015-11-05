@@ -28,7 +28,9 @@ class AppKernel extends Kernel
             new OneDayJob\FrontendBundle\OneDayJobFrontendBundle(),
             new OneDayJob\ApiBundle\OneDayJobApiBundle(),
             new OneDayJob\ControlpanelBundle\OneDayJobControlpanelBundle(),
-            new OneDayJob\MainBundle\OneDayJobMainBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new OneDayJob\MainBundle\OneDayJobMainBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

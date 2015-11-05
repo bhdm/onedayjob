@@ -27,7 +27,10 @@
         "nxp/rutils-bundle": "dev-master",
         "a2lix/translation-form-bundle": "^2.0",
         "knplabs/doctrine-behaviors": "dev-master",
-        "tfox/mpdf-port-bundle": "1.2.*"
+        "tfox/mpdf-port-bundle": "1.2.*",
+        "friendsofsymfony/rest-bundle": "^1.7",
+        "jms/serializer-bundle": "^1.0",
+        "jms/serializer": "^1.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

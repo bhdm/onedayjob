@@ -18,6 +18,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+        $this->addFlash('notice' , 'Your changes were saved!');
         return $this->render('OneDayJobMainBundle:Default:index.html.twig');
     }
 
