@@ -7,16 +7,19 @@ use Symfony\Component\HttpFoundation\Request;
 use OneDayJob\FrontendBundle\Form\Type\ResumeType;
 use OneDayJob\FrontendBundle\Form\Type\SearchType;
 use OneDayJob\ApiBundle\Entity\Resume;
+use FOS\RestBundle\Controller\Annotations as Rest;
+use FOS\RestBundle\Controller\FOSRestController;
 use OneDayJob\ApiBundle\Entity\Search;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
 
 
-class ResumeController extends Controller
+class ResumeController extends FOSRestController
 {
 
     /**
-     * @Route("/resume/result", name="resume_result")
+     * @Route("/resume/result", name="resume_result" )
      * @Template()
      */
 
@@ -153,7 +156,7 @@ class ResumeController extends Controller
     }
 
     /**
-     * @Route("/resume/show/{id}/{parameters}", name="resume_show")
+     * @Route("/resume/show/{id}/{parameters}", name="resume_show" , requirements = {"_method" = "GET"})
      * @Template()
      */
     public function openResumeAction(Request $request , $id , $parameters = null)
@@ -166,7 +169,7 @@ class ResumeController extends Controller
 
         $rus_label = "ГЛАВНАЯ СТРАНИЦА";
 
-        return $this->render('OneDayJobMainBundle:Resume:resume_open.html.twig', ['resume' => $result , 'referer' => $referer , 'label' => $rus_label]);
+        return new Response($this->render('OneDayJobMainBundle:Resume:resume_open.html.twig', ['resume' => $result , 'referer' => $referer , 'label' => $rus_label]));
     }
 
     public function similarResumeAction($id)

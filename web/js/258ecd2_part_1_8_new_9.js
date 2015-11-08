@@ -61,6 +61,8 @@ $(document).ready(function(){
         $search_applicants_label.show();
     });
 
+    var flag_first_click = true;
+
     $('#link-to-extended-search > div > a').click(function () {
         $('#body-extended-search').show();
         $('.applicants').hide();
@@ -68,6 +70,23 @@ $(document).ready(function(){
         $('#link-to-extended-search > div').hide();
         $('.custom-combobox-input').addClass('form-control');
         $('body').css('overflow','hidden');
+
+        if(flag_first_click){//set up icons of branches
+            var flag_first_li = true;
+            $li_branch = $('#select-branch-styler .jq-selectbox__dropdown > ul > li');
+            var arr = [7 , 4 , 5 , 8 ,2 , 9 , 15 , 10 ,27 ,25 , 24 , 1 ,11, 12 , 3 ,13 ,14 ,26 ,17 ,28 ,23 , 18 ,19 , 20 , 21 , 6 , 22];
+            var i = 0;
+            $li_branch.each(function(){
+                if(!flag_first_li){
+                    $(this).prepend("<img width='20px' src='/bundles/onedayjobmain/images/new/branch" + arr[i] +".png'>");
+                    i++;
+                }
+                else{
+                    flag_first_li = false;
+                }
+            });
+            flag_first_click = false;
+        }
     });
 
     $('#krest-extended-search').click(function () {
@@ -98,13 +117,18 @@ $(document).ready(function(){
     $(window).on("scroll", function() {
         if ($(window).scrollTop() > 288){
             $('#header_locale , #header_language').fadeOut("fast", function(){
-                $header_name_or_registration.removeClass('col-sm-offset-3');
+                $header_name_or_registration.removeClass('col-lg-offset-3');
+                $header_name_or_registration.removeClass('col-sm-offset-2');
+                $header_name_or_registration.removeClass('col-md-offset-1');
                 $('.header-form-select , #header-search-line , #header-form-calendar-div , #header-form-button-div').fadeIn("fast");
             });
         }
         else {
             $('.header-form-select , #header-search-line , #header-form-calendar-div , #header-form-button-div').fadeOut("fast",function(){
-                $header_name_or_registration.addClass('col-sm-offset-3');
+                //$header_name_or_registration.addClass('col-sm-offset-3');
+                $header_name_or_registration.addClass('col-lg-offset-3');
+                $header_name_or_registration.addClass('col-sm-offset-2');
+                $header_name_or_registration.addClass('col-md-offset-1');
                 $('#header_locale , #header_language').fadeIn("fast");
             });
         }
@@ -116,5 +140,4 @@ $(document).ready(function(){
         var value = $(this).attr("value");
         $currency.attr("value" , value);
     });
-
 });

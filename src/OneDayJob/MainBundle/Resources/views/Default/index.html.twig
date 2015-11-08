@@ -18,7 +18,7 @@
                             <div>Немецкий</div>
                         </div>
                     </div>
-                    <div id="header_locale" class="col-sm-2">
+                    <div id="header_locale" class="col-lg-2 col-md-3 hidden-sm">
                         <img src="{{ asset("bundles/onedayjobmain/images/new/locale.png") }}">
                         <span>РОССИЯ,МОСКВА</span>
                     </div>
@@ -42,22 +42,26 @@
 
                     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                         <div id="header_name_or_registration" class="col-sm-1 col-sm-offset-3">
-                            {{ app.user.firstName ~ ' ' ~ app.user.lastName }}
+                            {{ app.user.firstName}}
                         </div>
-                        <div class="col-sm-1" id="header_login_logout">
-                            <a href="{{ path('fos_user_security_logout') }}">
-                                <span id="header_login_logout">{{ 'menu.logout'|trans }}</span>
-                            </a>
+                        <div class="col-lg-2 header-sing-in col-sm-2" id="header_login_logout">
+                            <div>
+                                <a href="{{ path('fos_user_security_logout') }}">
+                                    <span id="header_login_logout">{{ 'menu.logout'|trans }}</span>
+                                </a>
+                            </div>
                         </div>
                         {#<div class="col-sm-2"></div>#}
                     {% else %}
-                        <div id="header_name_or_registration" class="col-sm-1 col-sm-offset-3">
+                        <div id="header_name_or_registration" class="col-lg-1 col-lg-offset-3 col-sm-offset-2 col-md-offset-1 col-sm-2">
                             <a href="{{ path('registration') }}">
                                 <span>{{ 'menu.registration'|trans |upper }}</span>
                             </a>
                         </div>
-                        <div class="col-sm-1 header-sing-in" id="header_login_logout">
-                            {{ 'menu.login'|trans|upper }}
+                        <div class="col-lg-2 header-sing-in col-sm-2" id="header_login_logout">
+                            <div>
+                                {{ 'menu.login'|trans|upper }}
+                            </div>
                         </div>
                         {#<div class="col-sm-2"></div>#}
                     {% endif %}
@@ -73,17 +77,17 @@
         {#SEARCH#}
         <div class="row applicants">
             <form method="post"  class=" applicants_form" action="{{ path("resume_result") }}">
-                <div class="col-sm-2 col-sm-offset-1 applicants-label">
+                <div class="col-sm-3 col-md-2 col-md-offset-1 applicants-label">
                     <select name="applicants-label">
                         <option class="applicants-option" value="1">СОИСКАТЕЛИ</option>
                         <option class="applicants-option" value="2">ВАКАНСИИ</option>
                         <option class="applicants-option" value="3">КОМПАНИИ</option>
                     </select>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-md-3 col-sm-4">
                     <input id="applicants-search-line" type="text" class="form-control" placeholder="КЛЮЧЕВОЕ СЛОВО">
                 </div>
-                <div class="col-sm-2">
+                <div class="col-md-2 col-sm-3">
                     <input type="text"  name="calendar" id="applicants-search-calendar" class="form-control">
                 </div>
                 <div class="col-sm-2">
@@ -105,7 +109,7 @@
             <div id="extended-search">
                 <form method="post"  class="extended_search_form" action="{{ path("resume_result") }}">
                     <div class="row">
-                        <div class="col-sm-1 col-sm-offset-2  extended-search-label">
+                        <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-3 extended-search-label">
                             <select name="applicants-label">
                                 <option class="applicants-option" value="1">СОИСКАТЕЛИ</option>
                                 <option class="applicants-option" value="2">ВАКАНСИИ</option>
@@ -124,22 +128,22 @@
                     </div>
 
                     <div class="row select-branch-extended-search">
-                        <div class="col-sm-1 col-sm-offset-2 branch-label"><span id="label-branch-extended-search">ОТРАСЛЬ</span></div>
-                        <div class="col-sm-3">
+                        <div class="col-lg-1 col-lg-offset-2 col-sm-offset-1 col-sm-2 branch-label"><span id="label-branch-extended-search">ОТРАСЛЬ</span></div>
+                        <div class="col-lg-3 col-md-4 col-sm-5">
                             <select name="branch" id="select-branch" data-placeholder="{{ 'content.search.choose_please'|trans }}" >
                                 <option  value="-1" disabled selected>{{ 'content.search.select_any_branch'|trans|upper }}</option>
                                 {% set branch_value = app.request.get('branch', null) %}
 
                                 {% for branch in data.branches %}
-                                    <option  value="{{ branch.id }}"{{ branch.id == branch_value ? ' selected="selected" ' : '' }}> <img src="{{ asset("bundles/onedayjobfrontend/images/new/star.png") }}"> {{ branch.translate.title }}</option>
+                                    <option  value="{{ branch.id }}"{{ branch.id == branch_value ? ' selected="selected" ' : '' }}><img src="{{ asset("bundles/onedayjobfrontend/images/new/star.png") }}"> {{ branch.translate.title }}</option>
                                 {% endfor %}
                             </select>
                         </div>
                     </div>
 
                     <div class="row salary-extended-search">
-                        <div class="col-sm-2 col-sm-offset-1 branch-label"><span id="label-branch-extended-search">С ОПЛАТОЙ В ДЕНЬ</span></div>
-                        <div class="col-sm-3">
+                        <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-3 branch-label"><span id="label-branch-extended-search">С ОПЛАТОЙ В ДЕНЬ</span></div>
+                        <div class="col-lg-3 col-md-4 col-sm-5">
                             <div class="row">
                                 <div class="col-sm-6 salary-extended-search-input">
                                     <input id="salary-search-line" name="salary" type="text" class="form-control" placeholder="ОПЛАТА">
@@ -155,8 +159,8 @@
                     </div>
 
                     <div class="row select-country-extended-search">
-                        <div class="col-sm-1 col-sm-offset-2 branch-label"><span id="label-country-extended-search">СТРАНА</span></div>
-                        <div class="col-sm-3">
+                        <div class="col-lg-1 col-lg-offset-2 col-sm-offset-1 col-sm-2 branch-label"><span id="label-country-extended-search">СТРАНА</span></div>
+                        <div class="col-lg-3 col-md-4 col-sm-5">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <select name="country" id="select-country" data-placeholder="{{ 'content.search.choose_please'|trans }}">

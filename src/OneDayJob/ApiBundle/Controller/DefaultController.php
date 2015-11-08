@@ -183,6 +183,7 @@ class DefaultController extends Controller
 			->createQueryBuilder('c')
 			->where('c.country = :country')
 			->setParameter('country', $request->get('country_id'))
+            ->orderBy('c.id', 'ASC')
 			->getQuery()
 			->getResult();
 //		$locale = $request->getLocale();
